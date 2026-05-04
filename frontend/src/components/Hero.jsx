@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowRight, BookOpen, Users } from 'lucide-react';
-import './Hero.css';
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+import '../styles/Hero.css';
 
 const Hero = () => {
   return (
@@ -28,7 +30,9 @@ const Hero = () => {
           
           <div className="hero-stats">
             <div className="stat-item">
-              <div className="stat-icon-wrapper"><Users size={24} className="text-primary" /></div>
+              <div className="stat-icon-wrapper">
+                <Users size={24} className="text-primary" />
+                </div>
               <div className="stat-text">
                 <strong>1000+</strong>
                 <span>Students Trained</span>
@@ -66,6 +70,18 @@ const Hero = () => {
       <div className="blob blob-1"></div>
       <div className="blob blob-2"></div>
     </section>
+  );
+};
+
+const Stats = () => {
+  const { ref, inView } = useInView({ triggerOnce: true });
+
+  return (
+    <div ref={ref} className="hero-stats">
+      <strong>
+        {inView && <CountUp end={1000} duration={2} />}+
+      </strong>
+    </div>
   );
 };
 

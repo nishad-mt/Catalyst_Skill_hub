@@ -8,6 +8,17 @@ class Center(models.Model):
 
     def __str__(self):
         return self.name
+    
+class CenterPhone(models.Model):
+    center = models.ForeignKey(
+        Center, 
+        on_delete=models.CASCADE, 
+        related_name='phones'
+    )
+    phone_number = models.CharField(max_length=15)
+
+    def __str__(self):
+        return f"{self.center.name} - {self.phone_number}"
 
 class Course(models.Model):
     title = models.CharField(max_length=200)
@@ -25,7 +36,15 @@ class Lead(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    source = models.CharField(max_length=100) 
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
+
+class ContactInfo(models.Model):
+    phone = models.CharField(max_length=15)
+    email = models.EmailField()
+
+    def __str__(self):
+        return "Global Contact Info"

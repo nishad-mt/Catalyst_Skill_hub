@@ -1,23 +1,37 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+// src/App.jsx
+import './styles/index.css';
+import { useScrollReveal } from './hooks/useScrollReveal';
 
-import './App.css';
+// Layout components
+import Navbar     from './components/Navbar/Navbar';
+import FloatingCTA from './components/FloatingCTA/FloatingCTA';
 
-function App() {
+// Page sections
+import Hero    from './sections/Hero/Hero';
+import Courses from './sections/Courses/Courses';
+import Centers from './sections/Centers/Centers';
+import Trust   from './sections/Trust/Trust';
+import Contact from './sections/Contact/Contact';
+import Footer  from './sections/Footer/Footer';
+
+export default function App() {
+  // Attach scroll-reveal observer after mount
+  useScrollReveal();
+
   return (
-    <div className="app-container">
+    <>
       <Navbar />
+      <FloatingCTA />
+
       <main>
-        <Hero />
-        {/* <Courses />
+        <Hero    />
+        <Courses />
         <Centers />
-        <Trust />
-        <Contact /> */}
+        <Trust   />
+        <Contact />
       </main>
-      {/* <Footer /> */}
-    </div>
+
+      <Footer />
+    </>
   );
 }
-
-export default App;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight } from 'lucide-react';
-import './Navbar.css';
+import '../styles/Navbar.css';
+import logo from '../assets/catalyst_logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,8 +19,11 @@ const Navbar = () => {
     <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <a href="#" className="logo">
-          <span className="logo-icon">C</span>
-          Catalyst<span className="logo-text-light">Hub</span>
+          <img 
+            src={logo} 
+            className="logo-image"
+          />
+          Tech<span className="logo-text-light">Hub</span>
         </a>
 
         {/* Desktop Menu */}
