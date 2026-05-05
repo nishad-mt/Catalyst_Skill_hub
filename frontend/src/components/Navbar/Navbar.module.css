@@ -1,31 +1,67 @@
 /* src/components/Navbar/Navbar.module.css */
 
+
 .nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
   transition: box-shadow 0.3s;
+  padding: 1rem 2rem;
+  background-color: rgb(15, 24, 73);;
 }
 
-.nav.scrolled {
-  box-shadow: var(--shadow);
+
+/* Container */
+.searchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.logo img {
-  height: clamp(48px, 6vw, 80px);
-  width: auto;
-  object-fit: contain;
-  transition: transform 0.2s ease;
+/* Icon */
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  font-size: 1rem;
+  color: #7a7a7a;
+  transition: color 0.3s ease;
+  pointer-events: none;
 }
 
-.logo:hover img {
-  transform: scale(1.05);
+/* Input */
+.searchInput {
+  padding: 0.55rem 1rem 0.55rem 2.4rem;
+  border-radius: 14px;
+  border: 1px solid #dcdcdc;
+  outline: none;
+  font-size: 0.9rem;
+  width: 200px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  transition: all 0.35s ease;
+}
+
+.searchInput:hover {
+  border-color: #0033cc;
+  box-shadow: 0 0 8px rgba(0, 51, 204, 0.3);
+}
+
+.searchInput:focus {
+  border-color: #002699;
+  box-shadow: 
+    0 0 10px rgba(0, 51, 204, 0.5),
+    0 0 20px rgba(0, 51, 204, 0.2);
+  background: #fff;
+}
+
+.searchBox:hover .searchIcon,
+.searchInput:focus + .searchIcon {
+  color: #0033cc;
 }
 
 .inner {
@@ -39,18 +75,6 @@
   gap: 1.5rem;
 }
 
-/* Logo */
-.logo {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 1.6rem;
-  letter-spacing: 0.5px;
-  color: var(--blue);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
 
 /* Desktop nav links */
 .links {
@@ -62,10 +86,11 @@
 }
 
 .link {
+  color:white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
   position: relative;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--muted);
+  font-size: 1rem;
   transition: color 0.2s;
 }
 
@@ -77,7 +102,7 @@
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background: var(--blue);
+  background: whitesmoke;
   transition: width 0.3s ease;
 }
 
@@ -90,8 +115,8 @@
 
 /* Desktop CTA button */
 .cta {
-  background: var(--blue);
-  color: #fff;
+  background: var(--white);
+  color: rgb(15, 24, 73);
   padding: 0.6rem 1.4rem;
   border-radius: var(--radius);
   font-weight: 600;
@@ -102,7 +127,6 @@
 }
 
 .cta:hover {
-  background: var(--blue-dark);
   transform: scale(1.04);
 }
 

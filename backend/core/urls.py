@@ -1,12 +1,16 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import CourseViewSet, CenterViewSet, LeadViewSet
-
-router = DefaultRouter()
-router.register('courses', CourseViewSet)
-router.register('centers', CenterViewSet)
-router.register('leads', LeadViewSet)
+from django.urls import path
+from .views import (
+    CenterListView,
+    CourseListView,
+    CourseDetailView,
+    LeadCreateView,
+    ContactInfoView
+)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('centers/', CenterListView.as_view()),
+    path('courses/', CourseListView.as_view()),
+    path('courses/<int:pk>/', CourseDetailView.as_view()),
+    path('leads/', LeadCreateView.as_view()),
+    path('contact-info/', ContactInfoView.as_view()),
 ]

@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import { navLinks } from '../../data/siteData';
 import styles from './Navbar.module.css';
 import logo from '../../assets/Catalyst_logo.png'
+import { FiSearch } from 'react-icons/fi';
 
 export default function Navbar() {
-  const [scrolled,  setScrolled]  = useState(false);
-  const [menuOpen,  setMenuOpen]  = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [search, setSearch] = useState(''); // ✅ ADD THIS
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -20,15 +22,21 @@ export default function Navbar() {
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.inner}>
-          {/* Logo */}
-          <a href="#home" className={styles.logo}>
-            <div className={styles.logo}>
-            <img src={logo} alt="Catalyst Logo" />
-          </div>
-            Tech Hub
-          </a>
 
-          {/* Desktop links */}
+          {/* ✅ Search Bar */}
+          <div className={styles.searchBox}>
+            <FiSearch className={styles.searchIcon} />
+
+            <input
+              type="text"
+              placeholder="What do you want to learn?"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className={styles.searchInput}
+            />
+          </div>
+
+          {/* Links */}
           <ul className={styles.links}>
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -39,9 +47,9 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Desktop CTA */}
+          {/* CTA */}
           <a href="#contact" className={styles.cta}>
-            Contact Us
+            Talk With Expert
           </a>
 
           {/* Hamburger */}

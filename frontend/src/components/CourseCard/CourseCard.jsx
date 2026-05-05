@@ -31,7 +31,7 @@ export default function CourseCard({ course }) {
         </div>
 
         <a href="#contact" className={styles.enquireBtn}>
-          Enquire Now
+        know more
         </a>
       </div>
     </div>

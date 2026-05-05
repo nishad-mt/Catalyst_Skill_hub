@@ -1,18 +1,33 @@
-from rest_framework import viewsets
-from .models import Course, Center, Lead
-from .serializers import CourseSerializer, CenterSerializer, LeadSerializer
+from rest_framework import generics
+from .models import Center, Course, Lead, ContactInfo
+from .serializers import (
+    CenterSerializer,
+    CourseSerializer,
+    LeadSerializer,
+    ContactInfoSerializer
+)
 
 
-class CourseViewSet(viewsets.ModelViewSet):
-    queryset = Course.objects.all().order_by('-id')
-    serializer_class = CourseSerializer
-
-
-class CenterViewSet(viewsets.ModelViewSet):
+class CenterListView(generics.ListAPIView):
     queryset = Center.objects.all()
     serializer_class = CenterSerializer
 
 
-class LeadViewSet(viewsets.ModelViewSet):
-    queryset = Lead.objects.all().order_by('-created_at')
+class CourseListView(generics.ListAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+
+class CourseDetailView(generics.RetrieveAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+
+class LeadCreateView(generics.CreateAPIView):
+    queryset = Lead.objects.all()
     serializer_class = LeadSerializer
+
+
+class ContactInfoView(generics.ListAPIView):
+    queryset = ContactInfo.objects.all()
+    serializer_class = ContactInfoSerializer
