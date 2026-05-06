@@ -8,6 +8,7 @@ import FloatingCTA from './components/FloatingCTA/FloatingCTA';
 
 // Page sections
 import Hero    from './sections/Hero/Hero';
+import StatsBar from './sections/Status/StatsBar';
 import Courses from './sections/Courses/Courses';
 import Centers from './sections/Centers/Centers';
 import Trust   from './sections/Trust/Trust';
@@ -25,6 +26,7 @@ export default function App() {
 
       <main>
         <Hero    />
+        <StatsBar    />
         <Courses />
         <Centers />
         <Trust   />
