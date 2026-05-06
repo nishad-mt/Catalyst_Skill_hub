@@ -57,6 +57,24 @@ export const courses = [
     fee: "₹40,000",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
   },
+  {
+    id: 7,
+    tag: "Security",
+    title: "Cyber Security",
+    desc: "Bug bounding, Ethical Hacking, Fishing, Testing, and certifications.",
+    duration: "8 months",
+    fee: "₹89,999",
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+  },
+  {
+    id: 8,
+    tag: "Mern",
+    title: "Mern Stack",
+    desc: "Javascript, Node js, Type Script, React, Mongo DB , and PSQL.",
+    duration: "7 months",
+    fee: "₹59,000",
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+  },
 ];
 
 export const centers = [

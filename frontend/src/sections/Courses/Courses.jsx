@@ -1,49 +1,43 @@
 // src/sections/Courses/Courses.jsx
+import { useState } from 'react';
 import CourseCard from '../../components/CourseCard/CourseCard';
 import { courses } from '../../data/siteData';
 import styles from './Courses.module.css';
 
+const INITIAL_COUNT = 8;
+
 export default function Courses() {
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? courses : courses.slice(0, INITIAL_COUNT);
+
   return (
     <section id="courses" className={styles.section}>
       <div className="container">
 
         {/* Header row */}
         <div className={styles.header}>
-          <div>
-            <div className="section-tag">Our Programs</div>
-            <h2 className="section-title">Industry-Ready Courses</h2>
-            <p className="section-sub">
-              Designed with top employers. Built for real-world success.
-            </p>
-          </div>
-          <a href="#contact" className={`btn-primary reveal ${styles.headerCta}`}>
-            Enquire About All Courses →
-          </a>
+          <h2 className={styles.heading}>Most Popular Courses</h2>
         </div>
 
         {/* Course grid */}
         <div className={styles.grid}>
-          {courses.map((course, i) => (
-            <div
-              key={course.id}
-              className={`reveal reveal-d${(i % 3) + 1}`}
-            >
-              <CourseCard course={course} />
-            </div>
+          {visible.map((course) => (
+            <CourseCard key={course.id} course={course} />
           ))}
         </div>
 
-        {/* Bottom CTA banner */}
-        <div className={`${styles.banner} reveal`}>
-          <div>
-            <strong>Not sure which course is right for you?</strong>
-            <span>Talk to our expert counselors — free of charge.</span>
+       
+          <div className={styles.btnWrap}>
+            <button
+              className={styles.viewAllBtn}
+              onClick={() => setShowAll(v => !v)}
+            >
+              {showAll ? 'Show Less ↑' : 'View All Courses'}
+            </button>
           </div>
-          <a href="#contact" className="btn-primary">
-            Get Free Counselling →
-          </a>
-        </div>
+       
+
+        
 
       </div>
     </section>

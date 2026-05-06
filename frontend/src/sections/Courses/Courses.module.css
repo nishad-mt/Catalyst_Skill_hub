@@ -1,36 +1,81 @@
 /* src/sections/Courses/Courses.module.css */
 
 .section {
-  padding: 5rem 2rem;
-  background: var(--bg);
+  padding: 4rem 1.5rem 5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* ── Heading ── */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 3rem;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
 }
 
-.headerCta {
-  flex-shrink: 0;
+.heading {
+  color: #ffffff;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin: 0;
 }
 
+/* ── Grid: 4 → 2 → 1 ── */
+/* No 3-col step: 8 cards in 3 cols = uneven 3+3+2 rows */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
 }
 
-/* Bottom CTA banner */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── View All button ── */
+.btnWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.75rem;
+}
+
+.viewAllBtn {
+  background: #ffffff;
+  color: #0f1f5c;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  padding: 0.85rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.viewAllBtn:hover {
+  background: transparent;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.viewAllBtn:active {
+  transform: translateY(0);
+}
+
+/* ── Bottom CTA banner ── */
 .banner {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: 1.75rem 2.5rem;
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,20 +90,24 @@
 }
 
 .banner strong {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.1rem;
+  color: #ffffff;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--text);
 }
 
 .banner span {
-  font-size: 0.9rem;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.88rem;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .banner {
     flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
+    padding: 1.25rem 1rem;
+  }
+
+  .banner div {
+    align-items: center;
   }
 }
