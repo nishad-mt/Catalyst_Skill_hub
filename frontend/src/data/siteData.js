@@ -153,7 +153,7 @@ export const contactDetails = [
 export const navLinks = [
   { label: "Courses", href: "#courses" },
   { label: "Offline Centers", href: "#centers" },
-  { label: "Success Stories",  href: "#trust"   },
+  { label: "Success Stories",  href: "#"   },
 ];
 
 export const courseOptions = [

@@ -1,0 +1,94 @@
+.lifeSection {
+  padding: 5rem 0;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #d2d1fc; /* deep purple to match others */
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.masonryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 150px;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .masonryGrid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+  }
+}
+
+.imageWrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gridImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.imageWrapper:hover .gridImage {
+  transform: scale(1.05);
+}
+
+/* Grid spanning classes */
+.span1x1 {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.span1x2 {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.span2x1 {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+@media (max-width: 767px) {
+  /* On mobile, stack them up more simply */
+  .span1x2 {
+    grid-row: span 1; /* Reset tall images to normal height on mobile */
+  }
+  .span2x1 {
+    grid-column: span 2; /* keep wide if there's 2 columns */
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.viewAllBtn {
+  background-color: #1a0a40;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.viewAllBtn:hover {
+  background-color: #0f0524;
+  transform: translateY(-2px);
+}

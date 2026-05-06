@@ -1,0 +1,137 @@
+.comparisonSection {
+  padding: 5rem 0;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #c6c5f7; /* deep purple/indigo from image */
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto; /* For responsive */
+  margin-bottom: 3rem;
+  border-radius: 4px;
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px; /* Force minimum width to prevent squishing on mobile */
+  background: white; /* Base background */
+}
+
+/* Base borders */
+.comparisonTable th,
+.comparisonTable td {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.featureCol {
+  width: 25%;
+  background-color: #f8fafc;
+}
+
+.catalystCol {
+  width: 40%;
+  background-color: #b5cbe4;
+}
+
+.othersCol {
+  width: 35%;
+  background-color: #ffffff;
+  padding: 1.5rem !important;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: left;
+  border-left: 1px solid #e5e7eb;
+}
+
+.comparisonTable th {
+  padding: 1rem 1.5rem;
+}
+
+.comparisonTable td {
+  padding: 1.25rem 1.5rem;
+}
+
+.featureCell {
+  background-color: #f8fafc;
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.featureContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.featureContent svg {
+  min-width: 20px;
+}
+
+.catalystCell {
+  background-color: #b5cbe4;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+}
+
+.catalystContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.catalystContent svg {
+  min-width: 20px;
+  margin-top: 2px;
+}
+
+.othersCell {
+  background-color: #ffffff;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.othersContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.othersContent svg {
+  min-width: 20px;
+  margin-top: 2px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.checkBtn {
+  background-color: #2e1065;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.checkBtn:hover {
+  background-color: #1b053a;
+  transform: translateY(-2px);
+}
