@@ -1,159 +1,135 @@
-/* ===========================
-   CATALYST TECH HUB - GLOBAL STYLES
-   =========================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
-
+/* 1. Global Reset & Box Sizing */
 *, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 :root {
-  --blue:        #1D6FE8;
-  --blue-dark:   #0E4EAB;
-  --blue-light:  #E8F1FD;
-  --blue-mid:    #4A90E8;
-  --white:       #ffffff;
-  --bg:          #F5F8FF;
-  --text:        #0D1B3E;
-  --muted:       #5A6A8A;
-  --border:      #DDE8F8;
-  --radius:      14px;
-  --radius-sm:   10px;
-  --radius-xl:   20px;
-  --shadow:      0 4px 24px rgba(29, 111, 232, 0.10);
-  --shadow-lg:   0 8px 40px rgba(29, 111, 232, 0.16);
+  /* Colors */
+  --blue: #1d4ed8;
+  --blue-mid: #1e40af;
+  --blue-dark: #1e3a8a;
+  --blue-light: #eff6ff;
+  --white: #ffffff;
+  --bg: #0a1450;
+  --bg: #0a1450;
+  --text: #ffffff;
+  --muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  
+  /* Radii */
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-html {
-  scroll-behavior: smooth;
-  font-family: 'DM Sans', sans-serif;
-  color: var(--text);
-  background: var(--white);
-}
-
-body {
-  overflow-x: hidden;
-  line-height: 1.6;
-}
-
-img {
-  display: block;
+/* 2. Global Base Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  
+  /* 
+     STRICT OVERFLOW CONTROL 
+     Prevents any horizontal movement or "empty space" scrolling.
+  */
+  overflow-x: hidden !important; 
+  position: relative;
   max-width: 100%;
+
+  background-color: #0a1450;
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+
+  /* Prevent horizontal "wiggle" on mobile devices */
+  touch-action: manipulation;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Reset for all media to prevent them from breaking full-width layouts */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
 }
 
 a {
   text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
 }
 
-/* ---- SHARED UTILITY CLASSES ---- */
+a:hover {
+  opacity: 0.9;
+}
 
+/* 3. Utility Classes */
 .container {
-  max-width: 1200px;
+  width: 100%;
+  /* Increased max-width for a more spacious, full-width feel */
+  max-width: 1360px; 
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.25rem;
 }
-
-.section-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--blue-light);
-  color: var(--blue);
-  border-radius: 100px;
-  padding: 0.35rem 1rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.section-tag::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: var(--blue);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.section-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 800;
-  line-height: 1.12;
-  margin-bottom: 0.75rem;
-}
-
-.section-sub {
-  color: var(--muted);
-  font-size: 1.05rem;
-  max-width: 540px;
-  line-height: 1.75;
-}
-
-/* ---- BUTTONS ---- */
 
 .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: inline-block;
   background: var(--blue);
   color: #fff;
-  border: none;
-  padding: 0.85rem 2rem;
+  padding: 0.75rem 1.75rem;
   border-radius: var(--radius);
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
   cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
 }
 
 .btn-primary:hover {
   background: var(--blue-dark);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
 }
 
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  color: var(--blue);
-  border: 1.5px solid var(--blue);
-  padding: 0.85rem 2rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  transition: background 0.2s, transform 0.15s;
-}
-
-.btn-outline:hover {
-  background: var(--blue-light);
-  transform: translateY(-2px);
-}
-
-/* ---- SCROLL REVEAL ---- */
-
+/* 4. Reveal Animations (triggered by useScrollReveal hook) */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.21, 0.45, 0.32, 0.9), transform 0.8s cubic-bezier(0.21, 0.45, 0.32, 0.9);
+  pointer-events: none;
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
+  pointer-events: all;
 }
 
 .reveal-d1 { transition-delay: 0.1s; }
 .reveal-d2 { transition-delay: 0.2s; }
 .reveal-d3 { transition-delay: 0.3s; }
 .reveal-d4 { transition-delay: 0.4s; }
+.reveal-d5 { transition-delay: 0.5s; }

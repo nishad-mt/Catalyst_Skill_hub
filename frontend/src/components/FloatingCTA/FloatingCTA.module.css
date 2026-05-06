@@ -40,6 +40,16 @@
 }
 
 /* Only render/show on mobile — desktop has the navbar CTA */
+/* Mobile — stack vertically */
+@media (max-width: 768px) {
+  .btn {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.65rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+
 @media (min-width: 769px) {
   .btn {
     display: none !important;

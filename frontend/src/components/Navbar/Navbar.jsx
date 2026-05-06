@@ -1,20 +1,25 @@
-// src/components/Navbar/Navbar.jsx
 import { useState, useEffect } from 'react';
 import { navLinks } from '../../data/siteData';
 import styles from './Navbar.module.css';
-import logo from '../../assets/Catalyst_logo.png'
 import { FiSearch } from 'react-icons/fi';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [search, setSearch] = useState(''); // ✅ ADD THIS
+  const [search, setSearch] = useState('');
+  const [mobileSearch, setMobileSearch] = useState('');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -22,58 +27,106 @@ export default function Navbar() {
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.inner}>
+          
+          {/* Logo removed as per request */}
 
-          {/* ✅ Search Bar */}
+          {/* SEARCH — hidden on mobile, shown ≥ 993px */}
           <div className={styles.searchBox}>
             <FiSearch className={styles.searchIcon} />
-
             <input
               type="text"
               placeholder="What do you want to learn?"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className={styles.searchInput}
+              aria-label="Search"
             />
           </div>
 
-          {/* Links */}
-          <ul className={styles.links}>
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className={styles.link}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {/* RIGHT SIDE */}
+          <div className={styles.right}>
 
-          {/* CTA */}
-          <a href="#contact" className={styles.cta}>
-            Talk With Expert
-          </a>
+            {/* LINKS — desktop only */}
+            <ul className={styles.links}>
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className={styles.link}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-          {/* Hamburger */}
-          <button
-            className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Toggle menu"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+            {/* CTA — desktop only */}
+            <a href="#contact" className={styles.cta}>
+              Talk With Expert
+            </a>
+
+            {/* HAMBURGER — mobile/tablet only */}
+            <button
+              className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
+              onClick={() => setMenuOpen((prev) => !prev)}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+
+          </div>
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      <div className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ''}`}>
+      {/* BACKDROP — tap outside to close */}
+      {menuOpen && (
+        <div className={styles.backdrop} onClick={closeMenu} aria-hidden="true" />
+      )}
+
+      {/* MOBILE MENU — slides in from right */}
+      <div
+        className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ''}`}
+        aria-hidden={!menuOpen}
+      >
+        {/* Close button */}
+        <button
+          className={styles.closeBtn}
+          onClick={closeMenu}
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+
+        {/* Mobile search bar */}
+        <div className={styles.mobileSearchBox}>
+          <FiSearch className={styles.mobileSearchIcon} />
+          <input
+            type="text"
+            placeholder="What do you want to learn?"
+            value={mobileSearch}
+            onChange={(e) => setMobileSearch(e.target.value)}
+            className={styles.mobileSearchInput}
+            aria-label="Search"
+          />
+        </div>
+
+        <div className={styles.mobileDivider} />
+
+        {/* Nav links */}
         {navLinks.map((link) => (
-          <a key={link.href} href={link.href} onClick={closeMenu} className={styles.mobileLink}>
+          <a
+            key={link.href}
+            href={link.href}
+            onClick={closeMenu}
+            className={styles.mobileLink}
+          >
             {link.label}
           </a>
         ))}
+
+        {/* CTA */}
         <a href="#contact" onClick={closeMenu} className={styles.mobileCta}>
-          Contact Us
+          Talk With Expert
         </a>
       </div>
     </>
