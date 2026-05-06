@@ -5,7 +5,7 @@ import styles from './Courses.module.css';
 
 const INITIAL_COUNT = 8;
 
-export default function Courses({ searchQuery }) {
+export default function Courses({ searchQuery, navigate }) {
   const filteredCourses = courses.filter(course => 
     course.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -26,7 +26,7 @@ export default function Courses({ searchQuery }) {
         {/* Course grid */}
         <div className={styles.grid}>
           {visible.map((course) => (
-            <CourseCard key={course.id} course={course} />
+            <CourseCard key={course.id} course={course} navigate={navigate} />
           ))}
         </div>
         
@@ -39,7 +39,10 @@ export default function Courses({ searchQuery }) {
         <div className={styles.btnWrap}>
           <button
             className={styles.viewAllBtn}
-            onClick={() => window.location.href = '/courses'}
+            onClick={() => {
+              window.history.pushState({}, '', '/courses');
+              window.dispatchEvent(new PopStateEvent('popstate'));
+            }}
           >
             View All Courses
           </button>

@@ -5,6 +5,7 @@
 export const courses = [
   {
     id: 1,
+    slug: "full-stack-web-development",
     tag: "Development",
     title: "Full Stack Web Development",
     desc: "Master React, Node.js, MongoDB & more. Build production-grade apps from scratch.",
@@ -14,6 +15,7 @@ export const courses = [
   },
   {
     id: 2,
+    slug: "data-science-ai",
     tag: "AI & Data",
     title: "Data Science & AI",
     desc: "Python, ML, deep learning, and real-world datasets with live industry projects.",
@@ -23,6 +25,7 @@ export const courses = [
   },
   {
     id: 3,
+    slug: "digital-marketing",
     tag: "Marketing",
     title: "Digital Marketing",
     desc: "SEO, SEM, social media strategy, analytics, and high-performance campaigns.",
@@ -32,6 +35,7 @@ export const courses = [
   },
   {
     id: 4,
+    slug: "ui-ux-design",
     tag: "Design",
     title: "UI/UX Design",
     desc: "Figma, user research, wireframing, and building modern design systems.",
@@ -41,6 +45,7 @@ export const courses = [
   },
   {
     id: 5,
+    slug: "python-programming",
     tag: "Programming",
     title: "Python Programming",
     desc: "From basics to advanced: automation, scripting, APIs, and data processing.",
@@ -50,6 +55,7 @@ export const courses = [
   },
   {
     id: 6,
+    slug: "aws-cloud-computing",
     tag: "Cloud",
     title: "AWS Cloud Computing",
     desc: "Cloud fundamentals, EC2, S3, Lambda, DevOps essentials, and certifications.",
@@ -59,15 +65,41 @@ export const courses = [
   },
   {
     id: 7,
+    slug: "cyber-security",
     tag: "Security",
     title: "Cyber Security",
-    desc: "Bug bounding, Ethical Hacking, Fishing, Testing, and certifications.",
+    location: "Calicut",
+    desc: "Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed",
     duration: "8 months",
     fee: "₹89,999",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+    whatYouWillLearn: [
+      { id: 1, icon: "🛡️", title: "Fundamentals of Cyber Security", desc: "Understand core concepts like threats, vulnerabilities, risk management, and security principles." },
+      { id: 2, icon: "🌐", title: "Network Security & Protocols", desc: "Learn how networks operate, common attack methods, and how to secure them using firewalls, VPNs, and IDS/IPS." },
+      { id: 3, icon: "🕵️", title: "Ethical Hacking & Testing", desc: "Learn the methodology of penetration testing and how to identify system weaknesses legally." },
+      { id: 4, icon: "💻", title: "Web Application Security", desc: "Gain hands-on knowledge of securing websites against attacks like SQL injection, XSS, and CSRF." },
+      { id: 5, icon: "🔑", title: "Cryptography Basics", desc: "Understand encryption, hashing, and secure communication methods used to protect sensitive data." },
+      { id: 6, icon: "🖥️", title: "Operating System Security", desc: "Learn to secure Windows and Linux systems, manage permissions, and detect system-level threats." },
+      { id: 7, icon: "🛠️", title: "Security Tools & Technologies", desc: "Work with industry tools like Wireshark, Metasploit, Nmap, and Burp Suite." },
+      { id: 8, icon: "☁️", title: "Cloud & Data Security", desc: "Understand how to protect data in cloud environments and follow best practices for secure storage." },
+      { id: 9, icon: "💼", title: "Career Preparation", desc: "Get guidance for certifications like CEH, CompTIA Security+, and real-world job readiness." },
+    ],
+    tools: [
+      { name: "Nmap", icon: "🔍" },
+      { name: "Wireshark", icon: "📡" },
+      { name: "Metasploit", icon: "💣" },
+      { name: "Burp Suite", icon: "🕷️" },
+      { name: "Hydra", icon: "🐉" },
+      { name: "John the Ripper", icon: "💀" },
+      { name: "Aircrack-ng", icon: "📶" },
+      { name: "OWASP ZAP", icon: "⚡" },
+      { name: "Snort", icon: "👃" },
+      { name: "Splunk", icon: "📊" },
+    ]
   },
   {
     id: 8,
+    slug: "mern-stack",
     tag: "Mern",
     title: "Mern Stack",
     desc: "Javascript, Node js, Type Script, React, Mongo DB , and PSQL.",

@@ -16,7 +16,7 @@ import styles from './CourseCard.module.css';
  *   syllabusLink: string,
  * }
  */
-export default function CourseCard({ course }) {
+export default function CourseCard({ course, navigate }) {
   const [expanded, setExpanded] = useState(false);
 
   const shortDesc = course.desc?.length > 100 && !expanded
@@ -57,11 +57,14 @@ export default function CourseCard({ course }) {
         </div>
       )}
 
-      {/* Action Buttons */}
       <div className={styles.actions}>
         <a
-          href={course.programmeLink || '#'}
+          href={`/course/${course.slug}`}
           className={styles.btnPrimary}
+          onClick={(e) => {
+            e.preventDefault();
+            navigate(`/course/${course.slug}`);
+          }}
         >
           View Programme
         </a>

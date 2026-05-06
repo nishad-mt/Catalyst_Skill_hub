@@ -23,10 +23,10 @@ export default function FloatingCTA() {
   return (
     <a
       href="#contact"
-      className={`${styles.btn} ${visible ? styles.visible : ''}`}
-      aria-label="Contact Us"
+      className={styles.btn}
+      aria-label="Need Help?"
     >
-      📞 Contact Us
+      <span className={styles.icon}>?</span>
     </a>
   );
 }

@@ -17,7 +17,7 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
-      <div className={`container ${styles.heroBox}`}>
+      <div className={`container-wide ${styles.heroBox}`}>
 
         {/* LEFT */}
         <div className={styles.left}>

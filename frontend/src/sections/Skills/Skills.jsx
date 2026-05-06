@@ -62,7 +62,7 @@ const Skills = () => {
   ];
 
   return (
-    <section className={styles.skillsSection}>
+    <section className={`section ${styles.skillsSection}`}>
       <div className="container">
         <h2 className={styles.sectionTitle}>Learn the Skills That Actually Get You Hired</h2>
         

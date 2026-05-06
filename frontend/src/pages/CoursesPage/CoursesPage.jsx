@@ -6,7 +6,7 @@ import styles from './CoursesPage.module.css';
 // Reusing Navbar structure for top? The user's image shows a header inside the page body.
 // We'll build the page content assuming Navbar is handled globally in App.jsx.
 
-export default function CoursesPage({ searchQuery, setSearchQuery }) {
+export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
   const filteredCourses = courses.filter(course => 
     course.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -14,7 +14,7 @@ export default function CoursesPage({ searchQuery, setSearchQuery }) {
   return (
     <div className={styles.page}>
       {/* Top Header Area */}
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles.topSection}>
           <div className={styles.headerRow}>
             <h1 className={styles.mainHeading}>Explore All Tech Professional Ai Powered Courses</h1>
@@ -65,7 +65,12 @@ export default function CoursesPage({ searchQuery, setSearchQuery }) {
 
                 <div className={styles.cardActions}>
                   <button className={styles.cardBtn}>Download Brochure</button>
-                  <button className={styles.cardBtn}>View Details</button>
+                  <button 
+                    className={styles.cardBtn}
+                    onClick={() => navigate(`/course/${course.slug}`)}
+                  >
+                    View Details
+                  </button>
                 </div>
               </div>
             </div>
@@ -74,7 +79,7 @@ export default function CoursesPage({ searchQuery, setSearchQuery }) {
       </div>
 
       {/* Bottom Promo Section */}
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles.promoSection}>
           <div className={styles.promoContainer}>
             

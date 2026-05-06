@@ -1,7 +1,7 @@
 /* src/sections/Courses/Courses.module.css */
 
 .section {
-  padding: 4rem 1.5rem 5rem;
+  padding: var(--section-padding);
   width: 100%;
   box-sizing: border-box;
 }

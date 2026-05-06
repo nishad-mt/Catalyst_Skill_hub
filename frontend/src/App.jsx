@@ -21,20 +21,27 @@ import FAQ from './sections/FAQ/FAQ';
 import Contact from './sections/Contact/Contact';
 import Footer  from './sections/Footer/Footer';
 
-// Pages
 import CoursesPage from './pages/CoursesPage/CoursesPage';
+import CourseDetailPage from './pages/CourseDetailPage/CourseDetailPage';
 
 export default function App() {
   // Attach scroll-reveal observer after mount
   useScrollReveal();
 
   const [currentPage, setCurrentPage] = useState(() => {
-    return window.location.pathname === '/courses' ? 'courses' : 'home';
+    const path = window.location.pathname;
+    if (path.includes('/courses')) return 'courses';
+    if (path.includes('/course/')) return 'course-detail';
+    return 'home';
   });
 
   useEffect(() => {
     const handlePopState = () => {
-      setCurrentPage(window.location.pathname === '/courses' ? 'courses' : 'home');
+      const path = window.location.pathname;
+      if (path.includes('/courses')) setCurrentPage('courses');
+      else if (path.includes('/course/')) setCurrentPage('course-detail');
+      else setCurrentPage('home');
+      window.scrollTo(0, 0);
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
@@ -42,19 +49,29 @@ export default function App() {
 
   const [searchQuery, setSearchQuery] = useState('');
 
+  const navigate = (path) => {
+    window.history.pushState({}, '', path);
+    if (path.includes('/courses')) setCurrentPage('courses');
+    else if (path.includes('/course/')) setCurrentPage('course-detail');
+    else setCurrentPage('home');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
-      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
       <FloatingCTA />
 
       <main>
         {currentPage === 'courses' ? (
-          <CoursesPage searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <CoursesPage searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
+        ) : currentPage === 'course-detail' ? (
+          <CourseDetailPage />
         ) : (
           <>
             <Hero    />
             <StatsBar    />
-            <Courses searchQuery={searchQuery} />
+            <Courses searchQuery={searchQuery} navigate={navigate} />
             <Mentors />
             <Skills />
             <Comparison />

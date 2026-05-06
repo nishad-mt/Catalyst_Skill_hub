@@ -2,14 +2,12 @@
 
 .wrapper {
   width: 100%;
-  padding: 0 1rem;
   margin-top: -28px; /* overlaps slightly above the section below */
   position: relative;
   z-index: 10;
 }
 
 .bar {
-  max-width: 1360px;
   margin: 0 auto;
   background: #ffffff;
   border-radius: 16px;

@@ -63,10 +63,12 @@ export default function StatsBar() {
 
   return (
     <div className={styles.wrapper} ref={ref}>
-      <div className={styles.bar}>
-        {stats.map((stat, i) => (
-          <StatItem key={i} stat={stat} animate={animate} index={i} />
-        ))}
+      <div className="container">
+        <div className={styles.bar}>
+          {stats.map((stat, i) => (
+            <StatItem key={i} stat={stat} animate={animate} index={i} />
+          ))}
+        </div>
       </div>
     </div>
   );

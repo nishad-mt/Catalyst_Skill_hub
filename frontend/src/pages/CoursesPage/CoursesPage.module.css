@@ -1,12 +1,7 @@
 .page {
-  padding-top: 90px;
+  padding-top: 120px; /* Navbar height + spacing */
+  padding-bottom: 100px;
   font-family: inherit;
-}
-
-.container {
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 0 10px;
 }
 
 /* TOP SECTION */

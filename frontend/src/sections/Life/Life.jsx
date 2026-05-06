@@ -23,7 +23,7 @@ const Life = () => {
   ];
 
   return (
-    <section className={styles.lifeSection}>
+    <section className={`section ${styles.lifeSection}`}>
       <div className="container">
         <h2 className={styles.sectionTitle}>Life@Catalyst</h2>
         

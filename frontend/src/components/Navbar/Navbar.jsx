@@ -3,7 +3,7 @@ import { navLinks } from '../../data/siteData';
 import styles from './Navbar.module.css';
 import { FiSearch } from 'react-icons/fi';
 
-export default function Navbar({ searchQuery, setSearchQuery }) {
+export default function Navbar({ searchQuery, setSearchQuery, navigate }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -44,11 +44,19 @@ export default function Navbar({ searchQuery, setSearchQuery }) {
           {/* RIGHT SIDE */}
           <div className={styles.right}>
 
-            {/* LINKS — desktop only */}
             <ul className={styles.links}>
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className={styles.link}>
+                  <a 
+                    href={link.href} 
+                    className={styles.link}
+                    onClick={(e) => {
+                      if (link.href.startsWith('/')) {
+                        e.preventDefault();
+                        navigate(link.href);
+                      }
+                    }}
+                  >
                     {link.label}
                   </a>
                 </li>
@@ -110,12 +118,17 @@ export default function Navbar({ searchQuery, setSearchQuery }) {
 
         <div className={styles.mobileDivider} />
 
-        {/* Nav links */}
         {navLinks.map((link) => (
           <a
             key={link.href}
             href={link.href}
-            onClick={closeMenu}
+            onClick={(e) => {
+              closeMenu();
+              if (link.href.startsWith('/')) {
+                e.preventDefault();
+                navigate(link.href);
+              }
+            }}
             className={styles.mobileLink}
           >
             {link.label}

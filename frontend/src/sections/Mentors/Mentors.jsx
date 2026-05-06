@@ -34,7 +34,7 @@ const Mentors = () => {
   ];
 
   return (
-    <section className={styles.mentorsSection}>
+    <section className={`section ${styles.mentorsSection}`}>
       <div className="container">
         <h2 className={styles.sectionTitle}>Learn From the Best</h2>
 
