@@ -5,17 +5,20 @@ const ResourceCenter = () => {
   const videos = [
     {
       id: 1,
-      thumbnail: "https://picsum.photos/seed/vid1/600/350",
+      thumbnail: "https://img.youtube.com/vi/0CbYBYGmWGE/maxresdefault.jpg",
+      url: "https://www.youtube.com/watch?v=0CbYBYGmWGE",
       duration: "2:16"
     },
     {
       id: 2,
-      thumbnail: "https://picsum.photos/seed/vid2/600/350",
+      thumbnail: "https://img.youtube.com/vi/VFroWFwDDR4/maxresdefault.jpg",
+      url: "https://www.youtube.com/watch?v=VFroWFwDDR4",
       duration: "8:21"
     },
     {
       id: 3,
-      thumbnail: "https://picsum.photos/seed/vid3/600/350",
+      thumbnail: "https://img.youtube.com/vi/HTYaYyswixM/maxresdefault.jpg",
+      url: "https://www.youtube.com/watch?v=HTYaYyswixM",
       duration: "13:27"
     }
   ];
@@ -27,13 +30,20 @@ const ResourceCenter = () => {
         
         <div className={styles.videoGrid}>
           {videos.map((video) => (
-            <div key={video.id} className={styles.videoCard}>
+            <a 
+              key={video.id} 
+              href={video.url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={styles.videoCard}
+              style={{ display: 'block', textDecoration: 'none' }}
+            >
               <img src={video.thumbnail} alt="Video thumbnail" className={styles.thumbnail} />
               <div className={styles.cardOverlay}>
-                <button className={styles.viewBtn}>View Full Video</button>
+                <span className={styles.viewBtn}>View Full Video</span>
                 <span className={styles.duration}>{video.duration}</span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 

@@ -1,4 +1,5 @@
 // src/App.jsx
+import { useState, useEffect } from 'react';
 import './styles/index.css';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
@@ -20,25 +21,48 @@ import FAQ from './sections/FAQ/FAQ';
 import Contact from './sections/Contact/Contact';
 import Footer  from './sections/Footer/Footer';
 
+// Pages
+import CoursesPage from './pages/CoursesPage/CoursesPage';
+
 export default function App() {
   // Attach scroll-reveal observer after mount
   useScrollReveal();
 
+  const [currentPage, setCurrentPage] = useState(() => {
+    return window.location.pathname === '/courses' ? 'courses' : 'home';
+  });
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPage(window.location.pathname === '/courses' ? 'courses' : 'home');
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <>
-      <Navbar />
+      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <FloatingCTA />
 
       <main>
-        <Hero    />
-        <StatsBar    />
-        <Courses />
-        <Mentors />
-        <Skills />
-        <Comparison />
-        <Testimonials />
-        <Life />
-        <ResourceCenter />
+        {currentPage === 'courses' ? (
+          <CoursesPage searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        ) : (
+          <>
+            <Hero    />
+            <StatsBar    />
+            <Courses searchQuery={searchQuery} />
+            <Mentors />
+            <Skills />
+            <Comparison />
+            <Testimonials />
+            <Life />
+            <ResourceCenter />
+          </>
+        )}
         <FAQ />
         <Contact />
       </main>

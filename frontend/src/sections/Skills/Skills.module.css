@@ -6,20 +6,20 @@
 .sectionTitle {
   font-size: 2rem;
   font-weight: 600;
-  color: #d2d1fc; 
+  color: #d2d1fc;
   margin-bottom: 3rem;
   text-align: left;
 }
 
 .skillsGrid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
 
 @media (min-width: 640px) {
   .skillsGrid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 

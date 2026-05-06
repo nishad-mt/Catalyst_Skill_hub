@@ -151,9 +151,9 @@ export const contactDetails = [
 ];
 
 export const navLinks = [
-  { label: "Courses", href: "#courses" },
-  { label: "Offline Centers", href: "#centers" },
-  { label: "Success Stories",  href: "#"   },
+  { label: "Courses", href: "/courses" },
+  { label: "Offline Centers", href: "/#centers" },
+  { label: "Success Stories",  href: "/#stories"   },
 ];
 
 export const courseOptions = [

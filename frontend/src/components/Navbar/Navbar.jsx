@@ -3,11 +3,9 @@ import { navLinks } from '../../data/siteData';
 import styles from './Navbar.module.css';
 import { FiSearch } from 'react-icons/fi';
 
-export default function Navbar() {
+export default function Navbar({ searchQuery, setSearchQuery }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [search, setSearch] = useState('');
-  const [mobileSearch, setMobileSearch] = useState('');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,7 +25,7 @@ export default function Navbar() {
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.inner}>
-          
+
           {/* Logo removed as per request */}
 
           {/* SEARCH — hidden on mobile, shown ≥ 993px */}
@@ -36,8 +34,8 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="What do you want to learn?"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className={styles.searchInput}
               aria-label="Search"
             />
@@ -103,8 +101,8 @@ export default function Navbar() {
           <input
             type="text"
             placeholder="What do you want to learn?"
-            value={mobileSearch}
-            onChange={(e) => setMobileSearch(e.target.value)}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className={styles.mobileSearchInput}
             aria-label="Search"
           />

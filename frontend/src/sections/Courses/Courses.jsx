@@ -1,14 +1,16 @@
 // src/sections/Courses/Courses.jsx
-import { useState } from 'react';
 import CourseCard from '../../components/CourseCard/CourseCard';
 import { courses } from '../../data/siteData';
 import styles from './Courses.module.css';
 
 const INITIAL_COUNT = 8;
 
-export default function Courses() {
-  const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? courses : courses.slice(0, INITIAL_COUNT);
+export default function Courses({ searchQuery }) {
+  const filteredCourses = courses.filter(course => 
+    course.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  
+  const visible = filteredCourses.slice(0, INITIAL_COUNT);
 
   return (
     <section id="courses" className={styles.section}>
@@ -16,7 +18,9 @@ export default function Courses() {
 
         {/* Header row */}
         <div className={styles.header}>
-          <h2 className={styles.heading}>Most Popular Courses</h2>
+          <h2 className={styles.heading}>
+            {searchQuery ? `Search Results for "${searchQuery}"` : "Most Popular Courses"}
+          </h2>
         </div>
 
         {/* Course grid */}
@@ -25,19 +29,21 @@ export default function Courses() {
             <CourseCard key={course.id} course={course} />
           ))}
         </div>
-
-       
-          <div className={styles.btnWrap}>
-            <button
-              className={styles.viewAllBtn}
-              onClick={() => setShowAll(v => !v)}
-            >
-              {showAll ? 'Show Less ↑' : 'View All Courses'}
-            </button>
-          </div>
-       
-
         
+        {filteredCourses.length === 0 && (
+          <p style={{ textAlign: 'center', padding: '2rem', color: '#fff' }}>
+            No courses found matching your search.
+          </p>
+        )}
+
+        <div className={styles.btnWrap}>
+          <button
+            className={styles.viewAllBtn}
+            onClick={() => window.location.href = '/courses'}
+          >
+            View All Courses
+          </button>
+        </div>
 
       </div>
     </section>

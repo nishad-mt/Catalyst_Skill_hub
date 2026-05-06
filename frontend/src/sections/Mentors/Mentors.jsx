@@ -12,7 +12,7 @@ const Mentors = () => {
     },
     {
       id: 2,
-      name: "James Alex",
+      name: "Abdu Rahman",
       title: "CMA USA CMA India",
       description: "cyber security skills with hands-on training. Learn ethical hacking and protect real-world systems.",
       image: "https://i.pravatar.cc/300?img=12"
@@ -37,11 +37,11 @@ const Mentors = () => {
     <section className={styles.mentorsSection}>
       <div className="container">
         <h2 className={styles.sectionTitle}>Learn From the Best</h2>
-        
+
         <div className={styles.mentorsGrid}>
           {mentors.map((mentor, index) => (
-            <div 
-              key={mentor.id} 
+            <div
+              key={mentor.id}
               className={styles.mentorCard}
             >
               <div className={styles.imagePlaceholder}>
