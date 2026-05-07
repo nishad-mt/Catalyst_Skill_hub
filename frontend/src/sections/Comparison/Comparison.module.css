@@ -6,7 +6,7 @@
 .sectionTitle {
   font-size: 2rem;
   font-weight: 600;
-  color: #c6c5f7; /* deep purple/indigo from image */
+  color: #0a0927; /* deep purple/indigo from image */
   margin-bottom: 3rem;
   text-align: left;
 }
@@ -124,18 +124,19 @@
 }
 
 .checkBtn {
-  background-color: #2e1065;
+  background-color: #1e3a8a;
   color: #ffffff;
-  border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 4px;
+  border: 2px solid #1e3a8a;
+  padding: 0.85rem 2.5rem;
+  border-radius: 10px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  transition: all 0.2s ease;
 }
 
 .checkBtn:hover {
-  background-color: #1b053a;
+  background-color: transparent;
+  color: #1e3a8a;
   transform: translateY(-2px);
 }

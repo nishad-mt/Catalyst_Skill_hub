@@ -1,9 +1,14 @@
 
 
+.skillsSection {
+  padding-top: 30px !important;
+  padding-bottom: 20px !important;
+}
+
 .sectionTitle {
   font-size: 2rem;
   font-weight: 600;
-  color: #d2d1fc;
+  color: #08071b;
   margin-bottom: 3rem;
   text-align: left;
 }
@@ -27,7 +32,7 @@
 }
 
 .skillCard {
-  background-color: #e2e8f0;
+  background-color: #b3d4ff;
   border-radius: 8px;
   padding: 1.5rem;
   display: flex;

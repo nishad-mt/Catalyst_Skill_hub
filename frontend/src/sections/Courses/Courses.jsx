@@ -15,26 +15,28 @@ export default function Courses({ searchQuery, navigate }) {
   return (
     <section id="courses" className={styles.section}>
       <div className="container">
+        <div className={styles.contentBox}>
+          {/* Header row */}
+          <div className={styles.header}>
+            <h2 className={styles.heading}>
+              {searchQuery ? `Search Results for "${searchQuery}"` : "Most Popular Courses"}
+            </h2>
+          </div>
 
-        {/* Header row */}
-        <div className={styles.header}>
-          <h2 className={styles.heading}>
-            {searchQuery ? `Search Results for "${searchQuery}"` : "Most Popular Courses"}
-          </h2>
-        </div>
+          {/* Course grid */}
+          <div className={styles.grid}>
+            {visible.map((course) => (
+              <CourseCard key={course.id} course={course} navigate={navigate} />
+            ))}
+          </div>
+          
+          {filteredCourses.length === 0 && (
+            <p style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }}>
+              No courses found matching your search.
+            </p>
+          )}
 
-        {/* Course grid */}
-        <div className={styles.grid}>
-          {visible.map((course) => (
-            <CourseCard key={course.id} course={course} navigate={navigate} />
-          ))}
         </div>
-        
-        {filteredCourses.length === 0 && (
-          <p style={{ textAlign: 'center', padding: '2rem', color: '#fff' }}>
-            No courses found matching your search.
-          </p>
-        )}
 
         <div className={styles.btnWrap}>
           <button
@@ -47,7 +49,6 @@ export default function Courses({ searchQuery, navigate }) {
             View All Courses
           </button>
         </div>
-
       </div>
     </section>
   );

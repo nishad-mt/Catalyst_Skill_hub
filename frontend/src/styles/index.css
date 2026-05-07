@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 /* 1. Global Reset & Box Sizing */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -20,7 +22,7 @@
   --section-padding: 100px 0;
   --section-padding-mobile: 60px 0;
   --container-padding: 0 2rem; /* Increased side space */
-  --container-max-width: 1360px;
+  --container-max-width: 1500px;
   --container-wide-max-width: 1500px;
 }
 
@@ -39,7 +41,7 @@ html, body {
   position: relative;
   max-width: 100%;
 
-  background-color: #21368c;
+  background-color: #e0e3e6;
   color: var(--text);
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;

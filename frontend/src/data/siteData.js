@@ -12,6 +12,21 @@ export const courses = [
     duration: "6 months",
     fee: "₹45,000",
     img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",
+    whatYouWillLearn: [
+      { id: 1, icon: "🌐", title: "Frontend Mastery", desc: "Deep dive into HTML5, CSS3, and modern JavaScript (ES6+)." },
+      { id: 2, icon: "⚛️", title: "React & Redux", desc: "Build dynamic, high-performance UIs with React and state management." },
+      { id: 3, icon: "⚙️", title: "Backend with Node.js", desc: "Learn server-side programming with Node and Express." },
+      { id: 4, icon: "🗄️", title: "Database Management", desc: "Master MongoDB for NoSQL and PostgreSQL for relational data." },
+      { id: 5, icon: "🚀", title: "Deployment & DevOps", desc: "Deploy apps using AWS, Docker, and CI/CD pipelines." },
+    ],
+    tools: [
+      { name: "VS Code", icon: "💻" },
+      { name: "GitHub", icon: "🐙" },
+      { name: "Postman", icon: "🚀" },
+      { name: "Docker", icon: "🐳" },
+      { name: "MongoDB", icon: "🍃" },
+      { name: "React", icon: "⚛️" },
+    ]
   },
   {
     id: 2,
@@ -22,6 +37,21 @@ export const courses = [
     duration: "6 months",
     fee: "₹50,000",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    whatYouWillLearn: [
+      { id: 1, icon: "🐍", title: "Python for Data Science", desc: "Master Python libraries like Pandas, NumPy, and Matplotlib." },
+      { id: 2, icon: "📊", title: "Statistical Analysis", desc: "Learn probability, statistics, and hypothesis testing." },
+      { id: 3, icon: "🤖", title: "Machine Learning", desc: "Implement supervised and unsupervised learning algorithms." },
+      { id: 4, icon: "🧠", title: "Deep Learning", desc: "Build neural networks using TensorFlow and PyTorch." },
+      { id: 5, icon: "📈", title: "Data Visualization", desc: "Create compelling stories with Tableau and PowerBI." },
+    ],
+    tools: [
+      { name: "Python", icon: "🐍" },
+      { name: "Jupyter", icon: "📓" },
+      { name: "TensorFlow", icon: "🧠" },
+      { name: "PyTorch", icon: "🔥" },
+      { name: "Tableau", icon: "📊" },
+      { name: "Pandas", icon: "🐼" },
+    ]
   },
   {
     id: 3,
@@ -32,6 +62,21 @@ export const courses = [
     duration: "3 months",
     fee: "₹25,000",
     img: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=600&q=80",
+    whatYouWillLearn: [
+      { id: 1, icon: "🔍", title: "SEO Optimization", desc: "Master on-page and off-page SEO to rank higher on Google." },
+      { id: 2, icon: "📱", title: "Social Media Marketing", desc: "Build brand presence on Instagram, LinkedIn, and Facebook." },
+      { id: 3, icon: "📧", title: "Email Marketing", desc: "Design high-converting email campaigns and automation." },
+      { id: 4, icon: "📊", title: "Google Analytics", desc: "Track user behavior and optimize marketing ROI." },
+      { id: 5, icon: "💰", title: "Paid Advertising", desc: "Master Google Ads and Meta Ads for lead generation." },
+    ],
+    tools: [
+      { name: "Google Ads", icon: "🎯" },
+      { name: "Meta Ads", icon: "📱" },
+      { name: "Mailchimp", icon: "🐒" },
+      { name: "SEMrush", icon: "📈" },
+      { name: "Canva", icon: "🎨" },
+      { name: "Ahrefs", icon: "🔗" },
+    ]
   },
   {
     id: 4,
@@ -42,6 +87,21 @@ export const courses = [
     duration: "4 months",
     fee: "₹35,000",
     img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80",
+    whatYouWillLearn: [
+      { id: 1, icon: "🎨", title: "Design Principles", desc: "Learn color theory, typography, and visual hierarchy." },
+      { id: 2, icon: "👥", title: "User Research", desc: "Conduct interviews and usability testing to understand users." },
+      { id: 3, icon: "📝", title: "Wireframing", desc: "Create low-fidelity and high-fidelity wireframes in Figma." },
+      { id: 4, icon: "🔄", title: "Prototyping", desc: "Build interactive prototypes to test user flows." },
+      { id: 5, icon: "📏", title: "Design Systems", desc: "Create scalable UI kits and component libraries." },
+    ],
+    tools: [
+      { name: "Figma", icon: "🎨" },
+      { name: "Adobe XD", icon: "💎" },
+      { name: "Sketch", icon: "💎" },
+      { name: "InVision", icon: "👓" },
+      { name: "Miro", icon: "📝" },
+      { name: "Zeplin", icon: "🚀" },
+    ]
   },
   {
     id: 5,
@@ -52,6 +112,21 @@ export const courses = [
     duration: "3 months",
     fee: "₹20,000",
     img: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600&q=80",
+    whatYouWillLearn: [
+      { id: 1, icon: "📜", title: "Core Python", desc: "Master variables, loops, functions, and data structures." },
+      { id: 2, icon: "🧩", title: "OOPs Concepts", desc: "Learn object-oriented programming for scalable code." },
+      { id: 3, icon: "🌐", title: "Web Scraping", desc: "Extract data from websites using Beautiful Soup and Selenium." },
+      { id: 4, icon: "🔌", title: "API Development", desc: "Build RESTful APIs with Flask and FastAPI." },
+      { id: 5, icon: "🤖", title: "Automation", desc: "Automate repetitive tasks with Python scripts." },
+    ],
+    tools: [
+      { name: "PyCharm", icon: "🐍" },
+      { name: "VS Code", icon: "💻" },
+      { name: "Anaconda", icon: "🧪" },
+      { name: "Git", icon: "🐙" },
+      { name: "Docker", icon: "🐳" },
+      { name: "SQLite", icon: "🗄️" },
+    ]
   },
   {
     id: 6,
@@ -62,6 +137,21 @@ export const courses = [
     duration: "4 months",
     fee: "₹40,000",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+    whatYouWillLearn: [
+      { id: 1, icon: "☁️", title: "Cloud Fundamentals", desc: "Understand IaaS, PaaS, and SaaS models on AWS." },
+      { id: 2, icon: "🖥️", title: "EC2 & S3", desc: "Master virtual servers and scalable object storage." },
+      { id: 3, icon: "🔐", title: "IAM & Security", desc: "Manage user access and secure your cloud infrastructure." },
+      { id: 4, icon: "⚡", title: "Serverless (Lambda)", desc: "Build event-driven applications without managing servers." },
+      { id: 5, icon: "🚢", title: "DevOps on AWS", desc: "Implement CI/CD using AWS CodePipeline and CodeDeploy." },
+    ],
+    tools: [
+      { name: "AWS Console", icon: "☁️" },
+      { name: "Terraform", icon: "🏗️" },
+      { name: "Docker", icon: "🐳" },
+      { name: "Jenkins", icon: "🤵" },
+      { name: "Kubernetes", icon: "☸️" },
+      { name: "CloudWatch", icon: "📊" },
+    ]
   },
   {
     id: 7,
@@ -106,6 +196,21 @@ export const courses = [
     duration: "7 months",
     fee: "₹59,000",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+    whatYouWillLearn: [
+      { id: 1, icon: "🍃", title: "MongoDB Mastery", desc: "Deep dive into NoSQL database design and aggregation." },
+      { id: 2, icon: "🚂", title: "Express.js", desc: "Build robust APIs and middleware with Express." },
+      { id: 3, icon: "⚛️", title: "React Development", desc: "Create interactive frontends with React and Hooks." },
+      { id: 4, icon: "📦", title: "Node.js Runtime", desc: "Understand event loop and asynchronous programming in Node." },
+      { id: 5, icon: "🛡️", title: "Authentication", desc: "Implement JWT, OAuth, and secure session management." },
+    ],
+    tools: [
+      { name: "MongoDB", icon: "🍃" },
+      { name: "Express", icon: "🚂" },
+      { name: "React", icon: "⚛️" },
+      { name: "Node.js", icon: "📦" },
+      { name: "TypeScript", icon: "📘" },
+      { name: "Redux", icon: "⚛️" },
+    ]
   },
 ];
 
@@ -183,6 +288,7 @@ export const contactDetails = [
 ];
 
 export const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Courses", href: "/courses" },
   { label: "Offline Centers", href: "/#centers" },
   { label: "Success Stories",  href: "/#stories"   },
