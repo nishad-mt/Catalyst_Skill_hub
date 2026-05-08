@@ -17,7 +17,7 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
-      <div className={`container ${styles.noPadding}`}>
+      <div className={`container-fluid ${styles.noPadding}`}>
         <div className={styles.heroBox}>
           {/* LEFT */}
           <div className={styles.left}>

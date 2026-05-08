@@ -97,12 +97,15 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.01em;
 }
 
 .talkBtn:hover {
   background-color: transparent;
   color: #1e3a8a;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
 }
 
 @media (min-width: 1024px) {

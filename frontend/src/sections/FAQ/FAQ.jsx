@@ -4,7 +4,7 @@ import { FiPlus, FiMinus } from 'react-icons/fi';
 
 const FAQ = () => {
   const [activeTab, setActiveTab] = useState('General Questions');
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
   const faqData = {
     "General Questions": [
@@ -101,7 +101,7 @@ const FAQ = () => {
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
-    setOpenIndex(null); // Reset accordion when switching tabs
+    setOpenIndex(0); // Reset accordion when switching tabs
   };
 
   return (

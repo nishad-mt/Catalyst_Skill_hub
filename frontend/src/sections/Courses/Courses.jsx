@@ -1,16 +1,28 @@
-// src/sections/Courses/Courses.jsx
+import { useState, useEffect } from 'react';
 import CourseCard from '../../components/CourseCard/CourseCard';
 import { courses } from '../../data/siteData';
 import styles from './Courses.module.css';
 
-const INITIAL_COUNT = 8;
-
 export default function Courses({ searchQuery, navigate }) {
+  const [limit, setLimit] = useState(8);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width <= 900) setLimit(4);
+      else if (width <= 1200) setLimit(6);
+      else setLimit(8);
+    };
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const filteredCourses = courses.filter(course => 
     course.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
   
-  const visible = filteredCourses.slice(0, INITIAL_COUNT);
+  const visible = filteredCourses.slice(0, limit);
 
   return (
     <section id="courses" className={styles.section}>

@@ -1,6 +1,6 @@
 // StatsBar.jsx
 import { useEffect, useRef, useState } from "react";
-import styles from "./StatsBar.module.css";
+import styles from "./Statsbar.module.css";
 
 const stats = [
   { value: 100, suffix: "%", label: "Placement Assistance", icon: "🎯" },
@@ -63,10 +63,12 @@ export default function StatsBar() {
 
   return (
     <div className={styles.wrapper} ref={ref}>
-      <div className={`container ${styles.bar}`}>
-        {stats.map((stat, i) => (
-          <StatItem key={i} stat={stat} animate={animate} index={i} />
-        ))}
+      <div className={`container ${styles.noPadding}`}>
+        <div className={styles.bar}>
+          {stats.map((stat, i) => (
+            <StatItem key={i} stat={stat} animate={animate} index={i} />
+          ))}
+        </div>
       </div>
     </div>
   );

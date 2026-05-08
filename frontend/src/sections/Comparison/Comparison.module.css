@@ -1,5 +1,5 @@
 .comparisonSection {
-  padding: 5rem 0;
+  padding: 5rem;
   width: 100%;
 }
 
@@ -42,7 +42,7 @@
 
 .catalystCol {
   width: 40%;
-  background-color: #b5cbe4;
+  background-color: #0a1450;
 }
 
 .othersCol {
@@ -81,7 +81,7 @@
 }
 
 .catalystCell {
-  background-color: #b5cbe4;
+  background-color: #0a1450;
   color: #ffffff;
   font-weight: 500;
   font-size: 0.9rem;
@@ -139,4 +139,95 @@
   background-color: transparent;
   color: #1e3a8a;
   transform: translateY(-2px);
+}
+
+/* ── Mobile Layout ── */
+@media (max-width: 768px) {
+  .comparisonSection {
+    padding: 3rem 1.25rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .tableContainer {
+    overflow-x: visible;
+  }
+
+  .comparisonTable {
+    display: none;
+  }
+
+  .mobileCards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .mobileCard {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .cardHeader {
+    background: #f8fafc;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .cardHeader span {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #0a1450;
+  }
+
+  .cardComparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns: Catalyst vs Others */
+  }
+
+  .cardSide {
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .catalystSide {
+    background: #0a1450;
+    color: #ffffff;
+  }
+
+  .othersSide {
+    background: #ffffff;
+    color: #4b5563;
+    border-left: 1px solid #e5e7eb;
+  }
+
+  .sideTitle {
+    font-weight: 800;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobileCards {
+    display: none;
+  }
 }

@@ -174,6 +174,34 @@ const Comparison = () => {
               ))}
             </tbody>
           </table>
+
+          {/* Mobile View: Cards Layout */}
+          <div className={styles.mobileCards}>
+            {comparisonData.map((row) => (
+              <div key={row.id} className={styles.mobileCard}>
+                <div className={styles.cardHeader}>
+                  {row.icon}
+                  <span>{row.feature}</span>
+                </div>
+                <div className={styles.cardComparison}>
+                  <div className={`${styles.cardSide} ${styles.catalystSide}`}>
+                    <span className={styles.sideTitle}>Catalyst</span>
+                    <div className={styles.catalystContent}>
+                      <CheckIcon />
+                      <span>{row.catalyst}</span>
+                    </div>
+                  </div>
+                  <div className={`${styles.cardSide} ${styles.othersSide}`}>
+                    <span className={styles.sideTitle}>Others</span>
+                    <div className={styles.othersContent}>
+                      <CrossIcon />
+                      <span>{row.others}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className={styles.buttonContainer}>

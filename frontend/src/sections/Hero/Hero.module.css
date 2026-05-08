@@ -1,22 +1,28 @@
 .hero {
-  padding: 90px 0 100px;
+  padding: 0px 0 100px;
   width: 100%;
 }
 
 .heroBox {
   background: #ffffff;
   border-radius: 0 0 70px 70px;
-  padding: 3rem 2rem 2.5rem;
+  padding: 7rem 5.5rem 5.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 4rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  margin: 0;
 }
 
 .noPadding {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 
@@ -24,7 +30,7 @@
 .left {
   flex: 1 1 0;
   min-width: 0;
-  max-width: 850px;
+  max-width: 950px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -66,7 +72,8 @@
 
   .titleLine1,
   .titleLine2 {
-    white-space: nowrap;
+    white-space: normal;
+    /* Allow wrapping to prevent overlap */
   }
 }
 
@@ -102,14 +109,18 @@
   border-radius: 10px;
   border: 2px solid #1e3a8a;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   transition: all 0.2s ease;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.01em;
 }
 
 .primaryBtn:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
+  background: transparent;
+  color: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
 }
 
 .primaryBtn:active {
@@ -186,22 +197,24 @@
 /* image container */
 .imageBox {
   position: relative;
-  width: 380px;
-  height: 500px;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 500 / 420;
   display: flex;
 }
 
-/* ─── NSDC Badge ───────────────────────────────────────────────
-   Default (desktop): float left of the image with negative offset.
-   On smaller screens we pull it back inside the white card.
-   ──────────────────────────────────────────────────────────── */
 .nsdcBadge {
   position: absolute;
   top: -4px;
   left: -56px;
   background: #ffffff;
   padding: 0.75rem 1rem 0.8rem;
-  border-radius: 5px;
+  border-radius: 16px;
+  border: 5px solid #1e3a8a;
+  box-shadow:
+    0 0 10px rgba(30, 58, 138, 0.35),
+    0 0 25px rgba(37, 99, 235, 0.25);
   display: flex;
   align-items: center;
   gap: 0.9rem;
@@ -221,8 +234,6 @@
   color: #0f172a;
   line-height: 1.35;
 }
-
-
 
 .imageBox::before {
   content: '';
@@ -250,20 +261,21 @@
 @media (max-width: 1100px) {
   .heroBox {
     gap: 2rem;
-    padding: 3rem 2.5rem;
+    padding: 10rem 2.5rem;
   }
 
   .imageBox {
-    width: 340px;
-    height: 440px;
+    max-width: 340px;
+    height: auto;
+    aspect-ratio: 340 / 440;
   }
 }
 
-/* Tablets — badge starts to run out of room, pull it inside */
-@media (max-width: 900px) {
+/* Tablets */
+@media (max-width: 980px) {
   .heroBox {
     gap: 1.5rem;
-    padding: 2.5rem 2rem;
+    padding: 8rem 2rem;
   }
 
   .title {
@@ -271,8 +283,9 @@
   }
 
   .imageBox {
-    width: 300px;
-    height: 400px;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 300 / 400;
   }
 
   .nsdcLogo {
@@ -285,49 +298,99 @@
 }
 
 /* Mobile — stack vertically */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .hero {
-    padding: 60px 0.75rem 48px;
+    padding: 0px 0 60px;
   }
 
   .heroBox {
-    flex-direction: column-reverse;
+    flex-direction: column;
     text-align: center;
-    padding: 2rem 1.5rem;
-    gap: 1.75rem;
+    padding: 5rem 1.25rem 4rem;
+    /* Reduced top padding to match compact mobile navbar */
+    gap: 0;
+    border-radius: 0 0 70px 70px;
   }
 
   .left {
     max-width: 100%;
     align-items: center;
+    display: contents;
+  }
+
+  .badge {
+    order: 1;
+    margin: 0 auto 1.5rem !important;
+    /* Center and add space below badge */
+  }
+
+  /* ── Correct visual order ──
+     1. badge
+     2. title
+     3. image (right)
+     4. desc
+     5. button
+     6. "Our Programmes" label + tags
+     7. companiesWrapper (contains its own label + logos)
+  */
+  .badge {
+    order: 1;
+  }
+
+  .title {
+    order: 2;
+    margin: 0.5rem 0 1.5rem !important;
+    /* Add vertical breathing room around title */
+    display: block;
+    width: 100%;
+  }
+
+  .right {
+    order: 4;
+    /* Moved below description */
+    width: 100%;
+    justify-content: center;
+    margin: 2rem 0;
+    /* Add space around image box */
   }
 
   .desc {
+    order: 3;
+    /* Moved above image */
     max-width: 100%;
+    margin-top: 0 !important;
+    /* Reset margin since we use title margin */
+    margin-bottom: 0.5rem;
+  }
+
+  .primaryBtn {
+    order: 5;
+  }
+
+  .sectionLabel {
+    order: 6;
   }
 
   .tags {
+    order: 7;
     max-width: 100%;
     justify-content: center;
   }
 
-  .companies {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
   .companiesWrapper {
+    order: 8;
     width: 100%;
   }
 
   .imageBox {
     width: 100%;
-    max-width: 340px;
-    height: 400px;
+    max-width: 360px;
+    height: 300px;
   }
 
-  .right {
-    width: 100%;
-    justify-content: center;
+  .nsdcBadge {
+    left: 0;
+    top: -10px;
   }
 
   .nsdcLogo {
@@ -343,7 +406,7 @@
 @media (max-width: 420px) {
   .heroBox {
     padding: 1.5rem 1rem;
-    border-radius: 12px;
+    border-radius: 0 0 40px 40px;
   }
 
   .title {

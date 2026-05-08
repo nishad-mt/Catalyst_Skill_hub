@@ -9,7 +9,7 @@ import FloatingCTA from './components/FloatingCTA/FloatingCTA';
 
 // Page sections
 import Hero    from './sections/Hero/Hero';
-import StatsBar from './sections/Status/StatsBar';
+import StatsBar from './sections/Status/Statsbar';
 import Courses from './sections/Courses/Courses';
 import Mentors from './sections/Mentors/Mentors';
 import Skills  from './sections/Skills/Skills';

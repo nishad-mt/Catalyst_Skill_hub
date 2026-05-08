@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { navLinks } from '../../data/siteData';
 import styles from './Navbar.module.css';
 import { FiSearch } from 'react-icons/fi';
+import logo from '../../assets/logo.png';
 
 export default function Navbar({ searchQuery, setSearchQuery, navigate }) {
   const [scrolled, setScrolled] = useState(false);
@@ -26,9 +27,16 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate }) {
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.inner}>
 
-          {/* Logo removed as per request */}
+          {/* Logo */}
+          <a
+            href="/"
+            className={styles.logoLink}
+            onClick={(e) => { e.preventDefault(); navigate('/'); }}
+          >
+            <img src={logo} alt="Logo" className={styles.logo} />
+          </a>
 
-          {/* SEARCH — hidden on mobile, shown ≥ 993px */}
+          {/* SEARCH — hidden on mobile, shown ≥ 680px */}
           <div className={styles.searchBox}>
             <FiSearch className={styles.searchIcon} />
             <input
