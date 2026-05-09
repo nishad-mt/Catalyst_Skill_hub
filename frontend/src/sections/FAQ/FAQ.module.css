@@ -26,18 +26,30 @@
 /* Sidebar */
 .sidebar {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  overflow-x: auto;
+  white-space: nowrap;
   background-color: #ffffff;
   border-radius: 12px;
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.5rem;
+  gap: 0.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 @media (min-width: 768px) {
   .sidebar {
     width: 280px;
     flex-shrink: 0;
+    flex-direction: column;
+    overflow-x: visible;
+    padding: 0.75rem;
   }
 }
 
@@ -45,14 +57,23 @@
   background: transparent;
   border: none;
   text-align: left;
-  padding: 1.1rem 1.5rem;
-  font-size: 0.9rem;
+  padding: 0.85rem 1.2rem;
+  font-size: 0.88rem;
   font-weight: 500;
   color: #64748b;
   cursor: pointer;
   transition: all 0.25s;
   border-radius: 8px;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .tabItem {
+    margin-bottom: 0.25rem;
+    padding: 1.1rem 1.5rem;
+    font-size: 0.9rem;
+  }
 }
 
 .tabItem:hover {
@@ -107,10 +128,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1.15rem 1.25rem;
   cursor: pointer;
   text-align: left;
   transition: background 0.2s;
+}
+
+@media (min-width: 768px) {
+  .questionWrapper {
+    padding: 1.5rem;
+  }
 }
 
 .questionWrapper:hover {
@@ -118,11 +145,18 @@
 }
 
 .question {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #1a1a4b;
   margin: 0;
   flex: 1;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .question {
+    font-size: 1.05rem;
+  }
 }
 
 .icon {

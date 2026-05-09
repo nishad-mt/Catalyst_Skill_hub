@@ -45,7 +45,7 @@
 .imageContainer {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 170px;
   overflow: hidden;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .cardBody {
-  padding: 1.5rem 1.5rem 1.35rem;
+  padding: 1.15rem 1.15rem 1.1rem;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -80,27 +80,27 @@
 
 /* ── Title ── */
 .title {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #0a1450;
-  margin: 0 0 0.35rem;
-  line-height: 1.3;
+  margin: 0 0 0.25rem;
+  line-height: 1.25;
 }
 
 /* ── Mode label ── */
 .mode {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #64748b;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.5rem;
   font-weight: 400;
 }
 
 /* ── Description ── */
 .desc {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: #334155;
-  line-height: 1.6;
-  margin: 0 0 0.85rem;
+  line-height: 1.5;
+  margin: 0 0 0.65rem;
   flex-grow: 1;
 }
 
@@ -121,18 +121,20 @@
 
 /* ── Duration ── */
 .duration {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: #0f172a;
   font-weight: 500;
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.65rem;
 }
 
 /* ── Tools List ── */
 .toolsList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  max-height: 52px; /* Approx 2 lines of pills */
+  overflow: hidden;
 }
 
 .toolPill {
@@ -151,7 +153,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .tag {
@@ -170,9 +172,10 @@
 /* ── Action buttons ── */
 .actions {
   display: flex;
-  gap: 0.65rem;
+  gap: 0.5rem;
   margin-top: auto;
-  flex-wrap: wrap;
+  padding-top: 1.25rem; /* Increased space from tools/tags */
+  flex-wrap: nowrap;
 }
 
 .btnPrimary,
@@ -180,9 +183,9 @@
   flex: 1;
   min-width: 0;
   text-align: center;
-  padding: 0.6rem 0.75rem;
-  border-radius: 8px;
-  font-size: 0.8rem;
+  padding: 0.5rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -191,7 +194,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  word-break: break-word; /* Prevents overflow */
+  white-space: nowrap;
 }
 
 .btnPrimary {
@@ -227,12 +230,14 @@
   }
 
   .actions {
-    flex-direction: column;
+    flex-direction: row;
+    gap: 0.5rem;
   }
 
   .btnPrimary,
   .btnOutline {
-    flex: none;
-    width: 100%;
+    flex: 1;
+    padding: 0.6rem 0.4rem;
+    font-size: 0.75rem;
   }
 }

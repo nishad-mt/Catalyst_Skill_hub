@@ -1,10 +1,22 @@
 // src/sections/Contact/Contact.jsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { testimonials, alumni } from '../../data/siteData';
 import styles from './Contact.module.css';
 
 export default function Contact() {
   const [form, setForm]       = useState({ name: '', phone: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  // Auto-slide effect for testimonials
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % testimonials.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const currentTestimonial = testimonials[activeIdx];
 
   const handleChange = (field) => (e) => {
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
@@ -35,20 +47,32 @@ export default function Contact() {
             </p>
 
             <div className={styles.testimonialBox}>
-              <p className={styles.testimonialText}>
-                I had a great learning experience at Catalyst Kannur. The faculty are highly knowledgeable and supportive, always ready to clarify doubts and guide students in the right direction.
-              </p>
-              <div className={styles.testimonialAuthor}>
-                <img src="https://i.pravatar.cc/150?img=47" alt="Alex" className={styles.authorImg} />
-                <div>
-                  <h4 className={styles.authorName}>Alex</h4>
-                  <p className={styles.authorRole}>Tech Specialist</p>
+              <div 
+                key={activeIdx} 
+                className={styles.testimonialContent}
+              >
+                <p className={styles.testimonialText}>
+                  {currentTestimonial.text}
+                </p>
+                <div className={styles.testimonialAuthor}>
+                  <div className={styles.initialsCircle}>
+                    {currentTestimonial.initials}
+                  </div>
+                  <div>
+                    <h4 className={styles.authorName}>{currentTestimonial.name}</h4>
+                    <p className={styles.authorRole}>{currentTestimonial.role}</p>
+                  </div>
                 </div>
               </div>
+
               <div className={styles.dots}>
-                <span className={styles.dotActive}></span>
-                <span className={styles.dot}></span>
-                <span className={styles.dot}></span>
+                {testimonials.map((_, i) => (
+                  <span 
+                    key={i} 
+                    className={i === activeIdx ? styles.dotActive : styles.dot}
+                    onClick={() => setActiveIdx(i)}
+                  ></span>
+                ))}
               </div>
             </div>
           </div>
@@ -105,7 +129,7 @@ export default function Contact() {
                 className={styles.submitBtn}
                 disabled={loading}
               >
-                {loading ? 'SENDING...' : 'SEND'}
+                {loading ? 'SENDING...' : 'SUBMIT'}
               </button>
             </form>
           </div>

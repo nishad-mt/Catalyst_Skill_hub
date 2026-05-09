@@ -9,7 +9,7 @@
 }
 
 .bar {
-  background: #ffffff;
+  /* background: #ffffff; */
   border-radius: 16px;
   /* box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06); */
   display: flex;
@@ -72,7 +72,7 @@
 }
 
 /* icon */
-.iconWrap {
+/* .iconWrap {
   width: 48px;
   height: 48px;
   background: #eff6ff;
@@ -82,7 +82,7 @@
   justify-content: center;
   flex-shrink: 0;
   transition: transform 0.2s ease;
-}
+} */
 
 .statItem:hover .iconWrap {
   transform: scale(1.08);
@@ -102,8 +102,8 @@
 
 .number {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 4rem);
+  font-weight: 400;
   color: #0f172a;
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -113,15 +113,15 @@
 .suffix {
   font-size: 2rem;
   position: relative;
-  font-weight: 700;
-  color: #1e3a8a;
+  font-weight: 400;
+  color: #000000;
   margin-left: 1px;
 }
 
 .label {
   font-size: clamp(0.8rem, 1.4vw, 1rem);
-  font-weight: 600;
-  color: #64748b;
+  font-weight: 400;
+  color: #000000;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   white-space: nowrap;

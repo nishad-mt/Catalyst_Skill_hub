@@ -98,12 +98,23 @@
   gap: 0.75rem;
 }
 
-.avatar {
+.avatar,
+.avatarPlaceholder {
   width: 44px;
   height: 44px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #eff6ff;
+}
+
+.avatarPlaceholder {
+  background-color: #0a1450;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .userInfo {
@@ -118,7 +129,7 @@
   margin: 0;
 }
 
-.userEmail {
+.userRole {
   font-size: 0.75rem;
   color: #64748b;
   margin: 0;

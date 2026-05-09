@@ -3,17 +3,9 @@ import styles from "./Hero.module.css";
 import heroImg from "../../assets/image.png";
 import nsdcLogo from "../../assets/nsdc.png";
 
+import { companyLogos } from "../../data/siteData";
+
 export default function Hero() {
-  const logos = [
-    { src: "https://www.vectorlogo.zone/logos/amazon/amazon-ar21.svg", alt: "Amazon" },
-    { src: "https://www.vectorlogo.zone/logos/microsoft/microsoft-ar21.svg", alt: "Microsoft" },
-    { src: "https://www.vectorlogo.zone/logos/google/google-ar21.svg", alt: "Google" },
-    { src: "https://www.vectorlogo.zone/logos/accenture/accenture-ar21.svg", alt: "Accenture" },
-    { src: "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg", alt: "Infosys" },
-    { src: "https://www.vectorlogo.zone/logos/adobe/adobe-ar21.svg", alt: "Adobe" },
-    { src: "https://www.vectorlogo.zone/logos/oracle/oracle-ar21.svg", alt: "Oracle" },
-    { src: "https://www.vectorlogo.zone/logos/intel/intel-ar21.svg", alt: "Intel" },
-  ];
 
   return (
     <section className={styles.hero}>
@@ -21,9 +13,9 @@ export default function Hero() {
         <div className={styles.heroBox}>
           {/* LEFT */}
           <div className={styles.left}>
-            <span className={styles.badge}>
+            {/* <span className={styles.badge}>
               🏆 No.1 Tech Training Institute in Kerala
-            </span>
+            </span> */}
 
             <h1 className={styles.title}>
               <span className={styles.titleLine1}>Become a Tech Professional</span>
@@ -56,14 +48,14 @@ export default function Hero() {
             <div className={styles.companiesWrapper}>
               <p className={styles.sectionLabel}>Our alumni work at</p>
               <div className={styles.companies}>
-                {logos.map((logo, i) => (
+                {companyLogos.map((logo, i) => (
                   <img key={i} src={logo.src} alt={logo.alt} />
                 ))}
               </div>
             </div>
           </div>
 
-          <div className={styles.right}>
+          {/* <div className={styles.right}>
             <div className={styles.imageBox}>
               <div className={styles.nsdcBadge}>
                 <img
@@ -78,7 +70,7 @@ export default function Hero() {
               <img src={heroImg} alt="Students learning at the institute" className={styles.mainImg} />
               <div className={styles.greenDecoration} />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

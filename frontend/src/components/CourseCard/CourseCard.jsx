@@ -19,8 +19,10 @@ import styles from './CourseCard.module.css';
 export default function CourseCard({ course, navigate }) {
   const [expanded, setExpanded] = useState(false);
 
-  const shortDesc = course.desc?.length > 100 && !expanded
-    ? course.desc.slice(0, 100).trimEnd() + '...'
+  const limit = 75;
+  const isLong = course.desc?.length > limit;
+  const shortDesc = isLong && !expanded
+    ? course.desc.slice(0, limit).trimEnd() + '... '
     : course.desc;
 
   return (
@@ -46,12 +48,12 @@ export default function CourseCard({ course, navigate }) {
         {/* Description */}
         <p className={styles.desc}>
           {shortDesc}
-          {course.desc?.length > 100 && (
+          {isLong && (
             <button
               className={styles.moreBtn}
               onClick={() => setExpanded(v => !v)}
             >
-              {expanded ? ' Less...' : ' More...'}
+              {expanded ? 'less..' : 'read more..'}
             </button>
           )}
         </p>

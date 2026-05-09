@@ -1,5 +1,5 @@
 .page {
-  padding-top: 120px; /* Navbar height + spacing */
+  padding-top: 90px; /* Navbar height + spacing */
   padding-bottom: 100px;
   font-family: inherit;
 }
@@ -21,7 +21,7 @@
 .mainHeading {
   font-size: 28px;
   font-weight: 500;
-  color: #d6d4f5; /* Adjust to match the blue/purple from image */
+  color: #0a081e; /* Adjust to match the blue/purple from image */
   max-width: 500px;
   line-height: 1.3;
   margin: 0;
