@@ -43,6 +43,15 @@
 .catalystCol {
   width: 40%;
   background-color: #0a1450;
+  vertical-align: middle;
+}
+
+.headerLogo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .othersCol {
@@ -51,7 +60,7 @@
   padding: 1.5rem !important;
   font-weight: 600;
   color: #1f2937;
-  text-align: left;
+  text-align: center;
   border-left: 1px solid #e5e7eb;
 }
 

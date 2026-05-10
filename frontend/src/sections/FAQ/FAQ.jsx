@@ -23,7 +23,7 @@ const FAQ = () => {
     <section className={styles.faqSection} id="faq">
       <div className="container">
         <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
-        
+
         <div className={styles.faqContainer}>
           {/* Sidebar */}
           <div className={styles.sidebar}>
@@ -42,8 +42,8 @@ const FAQ = () => {
           <div className={styles.faqContent}>
             {faqData[activeTab].map((faq, index) => (
               <div key={index} className={styles.faqItem}>
-                <button 
-                  className={styles.questionWrapper} 
+                <button
+                  className={styles.questionWrapper}
                   onClick={() => toggleAccordion(index)}
                   aria-expanded={openIndex === index}
                 >
@@ -52,7 +52,7 @@ const FAQ = () => {
                     {openIndex === index ? <FiMinus /> : <FiPlus />}
                   </span>
                 </button>
-                
+
                 <div className={`${styles.answerWrapper} ${openIndex === index ? styles.open : ''}`}>
                   <ul className={styles.bulletList}>
                     {faq.bullets.map((bullet, idx) => (

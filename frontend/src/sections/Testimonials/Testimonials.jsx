@@ -53,7 +53,7 @@ const Testimonials = () => {
       <div className="container">
         <h2 className={styles.sectionTitle}>What Our Alumni Says</h2>
       </div>
-      
+
       <div className={styles.marqueeContainer}>
         {isMobile ? (
           /* Mobile: Single row with all items */

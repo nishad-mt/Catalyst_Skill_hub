@@ -1,19 +1,23 @@
 import React from 'react';
 import styles from './Skills.module.css';
-
 import { skills } from '../../data/siteData';
 
 const IconPlaceholder = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4b5563" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+  </svg>
+);
 
+const Skills = () => {
   return (
     <section className={`section ${styles.skillsSection}`}>
       <div className="container">
         <h2 className={styles.sectionTitle}>Learn the Skills That Actually Get You Hired</h2>
-        
+
         <div className={styles.skillsGrid}>
-          {skills.map((skill, index) => (
-            <div 
-              key={skill.id} 
+          {skills.map((skill) => (
+            <div
+              key={skill.id}
               className={styles.skillCard}
             >
               <div className={styles.iconWrapper}>

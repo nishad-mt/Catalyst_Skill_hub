@@ -7,7 +7,7 @@ import styles from './CoursesPage.module.css';
 // We'll build the page content assuming Navbar is handled globally in App.jsx.
 
 export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
-  const filteredCourses = courses.filter(course => 
+  const filteredCourses = courses.filter(course =>
     course.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -19,9 +19,9 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
           <div className={styles.headerRow}>
             <h1 className={styles.mainHeading}>Explore All Tech Professional Ai Powered Courses</h1>
             <div className={styles.searchBox}>
-              <input 
-                type="text" 
-                placeholder="Search Your Course" 
+              <input
+                type="text"
+                placeholder="Search Your Course"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className={styles.searchInput}
@@ -31,7 +31,7 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
               </button>
             </div>
           </div>
-          
+
           <div className={styles.filterRow}>
             <button className={`${styles.filterPill} ${styles.active}`}>All</button>
           </div>
@@ -53,7 +53,7 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
                 <p className={styles.courseDesc}>
                   one of the most in-demand careers today, combining programming, statistics, and business understanding to solve real-world problems.
                 </p>
-                
+
                 <div className={styles.toolsSection}>
                   <strong>Tools You'll Learn:</strong>
                   <div className={styles.toolsGrid}>
@@ -65,7 +65,7 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
 
                 <div className={styles.cardActions}>
                   <button className={styles.cardBtn}>Download Brochure</button>
-                  <button 
+                  <button
                     className={styles.cardBtn}
                     onClick={() => navigate(`/course/${course.slug}`)}
                   >
@@ -82,14 +82,14 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
       <div className="container">
         <div className={styles.promoSection}>
           <div className={styles.promoContainer}>
-            
+
             <div className={styles.promoLeft}>
               <h2 className={styles.promoHeading}>Explore All Tech Professional Ai Powered Courses</h2>
               <div className={styles.promoImgWrap}>
-                <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" 
-                  alt="Students reading" 
-                  className={styles.promoImg} 
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
+                  alt="Students reading"
+                  className={styles.promoImg}
                 />
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
                 ))}
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>

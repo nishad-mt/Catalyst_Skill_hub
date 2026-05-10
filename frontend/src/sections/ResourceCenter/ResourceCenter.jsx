@@ -27,14 +27,14 @@ const ResourceCenter = () => {
     <section className={styles.resourceSection}>
       <div className="container">
         <h2 className={styles.sectionTitle}>Resource Center</h2>
-        
+
         <div className={styles.videoGrid}>
           {videos.map((video) => (
-            <a 
-              key={video.id} 
-              href={video.url} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              key={video.id}
+              href={video.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.videoCard}
               style={{ display: 'block', textDecoration: 'none' }}
             >

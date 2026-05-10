@@ -4,7 +4,7 @@ import { testimonials, alumni } from '../../data/siteData';
 import styles from './Contact.module.css';
 
 export default function Contact() {
-  const [form, setForm]       = useState({ name: '', phone: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -37,18 +37,18 @@ export default function Contact() {
     <section id="contact" className={styles.section}>
       <div className="container">
         <div className={styles.contactWrapper}>
-          
+
           {/* Left Info Card */}
           <div className={styles.infoCard}>
-            <h2 className={styles.title}>Discuss Your<br/>Concerns With us..</h2>
+            <h2 className={styles.title}>Discuss Your<br />Concerns With us..</h2>
             <p className={styles.sub}>
               Have questions about our courses? Fill out the form and our team
               will get back to you with the right guidance.
             </p>
 
             <div className={styles.testimonialBox}>
-              <div 
-                key={activeIdx} 
+              <div
+                key={activeIdx}
                 className={styles.testimonialContent}
               >
                 <p className={styles.testimonialText}>
@@ -67,8 +67,8 @@ export default function Contact() {
 
               <div className={styles.dots}>
                 {testimonials.map((_, i) => (
-                  <span 
-                    key={i} 
+                  <span
+                    key={i}
                     className={i === activeIdx ? styles.dotActive : styles.dot}
                     onClick={() => setActiveIdx(i)}
                   ></span>

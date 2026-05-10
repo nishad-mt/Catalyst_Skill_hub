@@ -26,7 +26,7 @@ const Life = () => {
     <section className={`section ${styles.lifeSection}`}>
       <div className="container">
         <h2 className={styles.sectionTitle}>Life@Catalyst</h2>
-        
+
         <div className={styles.masonryGrid}>
           {images.map((img) => (
             <div key={img.id} className={`${styles.imageWrapper} ${img.className}`}>

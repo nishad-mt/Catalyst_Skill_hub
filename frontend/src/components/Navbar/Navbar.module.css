@@ -10,6 +10,7 @@
   left: 0;
   width: 100%;
   height: 100px;
+  background-color: #01053C;
   /* Fixed height for consistency */
   z-index: 1000;
   display: flex;

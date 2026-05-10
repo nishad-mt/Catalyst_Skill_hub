@@ -9,7 +9,7 @@ const CourseDetailPage = () => {
   // Since we are not using react-router-dom's true routing yet (App.jsx handles it by state),
   // we'll expect the course object or slug to be passed or determined from URL.
   // For now, let's look at window.location.pathname if we want to simulate routing.
-  
+
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +17,7 @@ const CourseDetailPage = () => {
     const path = window.location.pathname;
     const slug = path.split('/').pop();
     const foundCourse = courses.find(c => c.slug === slug);
-    
+
     if (foundCourse) {
       setCourse(foundCourse);
     } else {
@@ -39,11 +39,11 @@ const CourseDetailPage = () => {
             <div className={styles.heroLeft}>
               <span className={styles.tag}>{course.tag} Agency</span>
               <h1 className={styles.title}>
-                {course.title} Course <br /> 
+                {course.title} Course <br />
                 {course.location ? `in ${course.location}` : ''}
               </h1>
               <p className={styles.description}>{course.desc}</p>
-              
+
               <div className={styles.badges}>
                 <div className={styles.badge}>
                   <img src={nsdcLogo} alt="NSDC" />
@@ -99,19 +99,19 @@ const CourseDetailPage = () => {
       <section className={styles.partners}>
         <div className={styles.container}>
           <div className={styles.partnersScroll}>
-             {/* Hiring Partner Logos */}
-             {[
-               { src: "https://www.vectorlogo.zone/logos/amazon/amazon-ar21.svg", alt: "Amazon" },
-               { src: "https://www.vectorlogo.zone/logos/microsoft/microsoft-ar21.svg", alt: "Microsoft" },
-               { src: "https://www.vectorlogo.zone/logos/google/google-ar21.svg", alt: "Google" },
-               { src: "https://www.vectorlogo.zone/logos/accenture/accenture-ar21.svg", alt: "Accenture" },
-               { src: "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg", alt: "Infosys" },
-               { src: "https://www.vectorlogo.zone/logos/adobe/adobe-ar21.svg", alt: "Adobe" },
-               { src: "https://www.vectorlogo.zone/logos/oracle/oracle-ar21.svg", alt: "Oracle" },
-               { src: "https://www.vectorlogo.zone/logos/intel/intel-ar21.svg", alt: "Intel" },
-             ].map((logo, idx) => (
-               <img key={idx} src={logo.src} alt={logo.alt} className={styles.partnerLogo} />
-             ))}
+            {/* Hiring Partner Logos */}
+            {[
+              { src: "https://www.vectorlogo.zone/logos/amazon/amazon-ar21.svg", alt: "Amazon" },
+              { src: "https://www.vectorlogo.zone/logos/microsoft/microsoft-ar21.svg", alt: "Microsoft" },
+              { src: "https://www.vectorlogo.zone/logos/google/google-ar21.svg", alt: "Google" },
+              { src: "https://www.vectorlogo.zone/logos/accenture/accenture-ar21.svg", alt: "Accenture" },
+              { src: "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg", alt: "Infosys" },
+              { src: "https://www.vectorlogo.zone/logos/adobe/adobe-ar21.svg", alt: "Adobe" },
+              { src: "https://www.vectorlogo.zone/logos/oracle/oracle-ar21.svg", alt: "Oracle" },
+              { src: "https://www.vectorlogo.zone/logos/intel/intel-ar21.svg", alt: "Intel" },
+            ].map((logo, idx) => (
+              <img key={idx} src={logo.src} alt={logo.alt} className={styles.partnerLogo} />
+            ))}
           </div>
         </div>
       </section>
@@ -211,12 +211,12 @@ const CourseDetailPage = () => {
       <section className={styles.studentBannerSection}>
         <div className={styles.container}>
           <div className={styles.studentBannerContent}>
-             <div className={styles.studentBannerLeft}>
-               {/* Left side is dark blue as in image */}
-             </div>
-             <div className={styles.studentBannerRight}>
-               <img src={studentsBanner} alt="Students" />
-             </div>
+            <div className={styles.studentBannerLeft}>
+              {/* Left side is dark blue as in image */}
+            </div>
+            <div className={styles.studentBannerRight}>
+              <img src={studentsBanner} alt="Students" />
+            </div>
           </div>
         </div>
       </section>

@@ -29,9 +29,9 @@ export default function CourseCard({ course, navigate }) {
     <div className={styles.card}>
       {/* Image Section */}
       <div className={styles.imageContainer}>
-        <img 
-          src={course.img || "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80"} 
-          alt={course.title} 
+        <img
+          src={course.img || "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80"}
+          alt={course.title}
           className={styles.courseImage}
           loading="lazy"
         />

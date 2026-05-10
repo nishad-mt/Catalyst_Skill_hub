@@ -18,10 +18,10 @@ export default function Courses({ searchQuery, navigate }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const filteredCourses = courses.filter(course => 
+  const filteredCourses = courses.filter(course =>
     course.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  
+
   const visible = filteredCourses.slice(0, limit);
 
   return (
@@ -41,7 +41,7 @@ export default function Courses({ searchQuery, navigate }) {
               <CourseCard key={course.id} course={course} navigate={navigate} />
             ))}
           </div>
-          
+
           {filteredCourses.length === 0 && (
             <p style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }}>
               No courses found matching your search.

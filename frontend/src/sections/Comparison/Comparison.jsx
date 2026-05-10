@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Comparison.module.css';
+import logo from '../../assets/logo.png';
 
 const CheckIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -139,13 +140,15 @@ const Comparison = () => {
     <section className={styles.comparisonSection}>
       <div className="container">
         <h2 className={styles.sectionTitle}>What Makes Catalyst the best</h2>
-        
+
         <div className={styles.tableContainer}>
           <table className={styles.comparisonTable}>
             <thead>
               <tr>
                 <th className={styles.featureCol}></th>
-                <th className={styles.catalystCol}></th>
+                <th className={styles.catalystCol}>
+                  <img src={logo} alt="Catalyst Logo" className={styles.headerLogo} />
+                </th>
                 <th className={styles.othersCol}>Others</th>
               </tr>
             </thead>
