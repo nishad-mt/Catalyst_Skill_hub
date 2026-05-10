@@ -17,24 +17,24 @@ export default function Hero() {
               🏆 No.1 Tech Training Institute in Kerala
             </span> */}
 
-            <h1 className={styles.title}>
+            <h1 className={`${styles.title} reveal reveal-d1`}>
               <span className={styles.titleLine1}>Become a Tech Professional</span>
               <span className={styles.titleLine2}>with <span className={styles.titleAccent}>AI&#8209;Powered Skills</span></span>
             </h1>
 
-            <p className={styles.desc}>
+            <p className={`${styles.desc} reveal reveal-d2`}>
               Learn in-demand tech skills through hands-on training,
               real-world projects, and expert mentorship — designed
               to get you hired.
             </p>
 
-            <button className={styles.primaryBtn}>
+            <button className={`${styles.primaryBtn} reveal reveal-d3`}>
               Go to Programmes →
             </button>
 
             {/* course tags */}
-            <p className={styles.sectionLabel}>Our Programmes</p>
-            <div className={styles.tags}>
+            <p className={`${styles.sectionLabel} reveal reveal-d4`}>Our Programmes</p>
+            <div className={`${styles.tags} reveal-group reveal-d4`}>
               <span>Data Analytics</span>
               <span>DevOps</span>
               <span>Cyber Security</span>
@@ -45,9 +45,9 @@ export default function Hero() {
             </div>
 
             {/* company logos */}
-            <div className={styles.companiesWrapper}>
+            <div className={`${styles.companiesWrapper} reveal reveal-d5`}>
               <p className={styles.sectionLabel}>Our alumni work at</p>
-              <div className={styles.companies}>
+              <div className={`${styles.companies} reveal-group`}>
                 {companyLogos.map((logo, i) => (
                   <img key={i} src={logo.src} alt={logo.alt} />
                 ))}

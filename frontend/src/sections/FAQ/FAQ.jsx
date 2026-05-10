@@ -22,11 +22,11 @@ const FAQ = () => {
   return (
     <section className={styles.faqSection} id="faq">
       <div className="container">
-        <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
+        <h2 className={`${styles.sectionTitle} reveal`}>Frequently Asked Questions</h2>
 
         <div className={styles.faqContainer}>
           {/* Sidebar */}
-          <div className={styles.sidebar}>
+          <div className={`${styles.sidebar} reveal-group`}>
             {tabs.map((tab) => (
               <button
                 key={tab}
@@ -39,7 +39,7 @@ const FAQ = () => {
           </div>
 
           {/* FAQ Content */}
-          <div className={styles.faqContent}>
+          <div className={`${styles.faqContent} reveal-group`}>
             {faqData[activeTab].map((faq, index) => (
               <div key={index} className={styles.faqItem}>
                 <button

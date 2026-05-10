@@ -29,28 +29,28 @@ export default function Courses({ searchQuery, navigate }) {
       <div className="container">
         <div className={styles.contentBox}>
           {/* Header row */}
-          <div className={styles.header}>
+          <div className={`${styles.header} reveal`}>
             <h2 className={styles.heading}>
               {searchQuery ? `Search Results for "${searchQuery}"` : "Most Popular Courses"}
             </h2>
           </div>
 
           {/* Course grid */}
-          <div className={styles.grid}>
+          <div className={`${styles.grid} reveal-group`}>
             {visible.map((course) => (
               <CourseCard key={course.id} course={course} navigate={navigate} />
             ))}
           </div>
 
           {filteredCourses.length === 0 && (
-            <p style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }}>
+            <p style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }} className="reveal">
               No courses found matching your search.
             </p>
           )}
 
         </div>
 
-        <div className={styles.btnWrap}>
+        <div className={`${styles.btnWrap} reveal`}>
           <button
             className={styles.viewAllBtn}
             onClick={() => {

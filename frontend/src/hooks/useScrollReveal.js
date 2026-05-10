@@ -11,23 +11,52 @@ import { useEffect } from 'react';
  * @param {string}  selector  - CSS selector to observe (default: '.reveal')
  * @param {number}  threshold - Intersection ratio to trigger (default: 0.12)
  */
-export function useScrollReveal(selector = '.reveal', threshold = 0.12) {
+export function useScrollReveal(selector = '.reveal, .reveal-group', threshold = 0.02) {
   useEffect(() => {
-    const els = document.querySelectorAll(selector);
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+          } else {
+            const rect = entry.boundingClientRect;
+            if (rect.top > window.innerHeight || rect.bottom < 0) {
+              entry.target.classList.remove('visible');
+            }
           }
         });
       },
-      { threshold }
+      { threshold, rootMargin: '0px 0px -20px 0px' }
     );
 
-    els.forEach((el) => observer.observe(el));
+    const observeElements = () => {
+      const els = document.querySelectorAll(selector);
+      els.forEach((el) => observer.observe(el));
+    };
 
-    return () => observer.disconnect();
+    // Initial observation
+    // Small timeout to let React finish rendering
+    const initTimer = setTimeout(observeElements, 50);
+
+    let debounceTimer;
+    // Use MutationObserver to catch elements added dynamically (like in Courses or after page changes)
+    const mutationObserver = new MutationObserver(() => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        observeElements();
+      }, 150);
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      clearTimeout(initTimer);
+      clearTimeout(debounceTimer);
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, [selector, threshold]);
 }

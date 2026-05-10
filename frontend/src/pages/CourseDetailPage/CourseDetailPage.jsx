@@ -34,9 +34,9 @@ const CourseDetailPage = () => {
     <div className={styles.page}>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <div className={styles.container}>
+        <div className="container">
           <div className={styles.heroBox}>
-            <div className={styles.heroLeft}>
+            <div className={`${styles.heroLeft} reveal-group`}>
               <span className={styles.tag}>{course.tag} Agency</span>
               <h1 className={styles.title}>
                 {course.title} Course <br />
@@ -53,7 +53,7 @@ const CourseDetailPage = () => {
               </div>
             </div>
 
-            <div className={styles.heroRight}>
+            <div className={`${styles.heroRight} reveal`}>
               <div className={styles.formCard}>
                 <div className={styles.formHeader}>
                   <div className={styles.avatars}>
@@ -83,8 +83,8 @@ const CourseDetailPage = () => {
 
       {/* Stats Bar */}
       <section className={styles.statsBar}>
-        <div className={styles.container}>
-          <div className={styles.statsGrid}>
+        <div className="container">
+          <div className={`${styles.statsGrid} reveal-group`}>
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className={styles.statItem}>
                 <span className={styles.statNum}>100%</span>
@@ -97,8 +97,8 @@ const CourseDetailPage = () => {
 
       {/* Partners Section */}
       <section className={styles.partners}>
-        <div className={styles.container}>
-          <div className={styles.partnersScroll}>
+        <div className="container">
+          <div className={`${styles.partnersScroll} reveal-group`}>
             {/* Hiring Partner Logos */}
             {[
               { src: "https://www.vectorlogo.zone/logos/amazon/amazon-ar21.svg", alt: "Amazon" },
@@ -119,9 +119,9 @@ const CourseDetailPage = () => {
       {/* Learning Sessions Section */}
       {course.whatYouWillLearn && course.whatYouWillLearn.length > 0 && (
         <section id="learnsession" className={styles.learnSection}>
-          <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Learning Sessions</h2>
-            <div className={styles.learnGrid}>
+          <div className="container">
+            <h2 className={`${styles.sectionTitle} reveal`}>Learning Sessions</h2>
+            <div className={`${styles.learnGrid} reveal-group`}>
               {course.whatYouWillLearn.map((item) => (
                 <div key={item.id} className={styles.learnCard}>
                   <div className={styles.cardIcon}>{item.icon}</div>
@@ -139,9 +139,9 @@ const CourseDetailPage = () => {
       {/* Tool Sessions Section */}
       {course.tools && course.tools.length > 0 && (
         <section id="toolsession" className={styles.toolsSection}>
-          <div className={styles.container}>
-            <h2 className={styles.sectionTitle}>Tool Sessions</h2>
-            <div className={styles.toolsGrid}>
+          <div className="container">
+            <h2 className={`${styles.sectionTitle} reveal`}>Tool Sessions</h2>
+            <div className={`${styles.toolsGrid} reveal-group`}>
               {course.tools.map((tool, idx) => (
                 <div key={idx} className={styles.toolCard}>
                   <div className={styles.toolIcon}>{tool.icon}</div>
@@ -155,8 +155,8 @@ const CourseDetailPage = () => {
 
       {/* Promo Banners */}
       <section className={styles.promoSection}>
-        <div className={styles.container}>
-          <div className={styles.promoGrid}>
+        <div className="container">
+          <div className={`${styles.promoGrid} reveal-group`}>
             <div className={styles.promoBannerBlue}>
               <div className={styles.promoText}>
                 <h3>Need to Learn more ? This course is designed to help you build a solid foundation in {course.title.toLowerCase()} and advance to real-world practical skills.</h3>
@@ -171,9 +171,9 @@ const CourseDetailPage = () => {
 
       {/* Expert Mentors */}
       <section className={styles.mentorsSection}>
-        <div className={styles.container}>
-          <h2 className={styles.sectionTitleCenter}>Expert Mentors To Upskill Your Career</h2>
-          <div className={styles.mentorsGrid}>
+        <div className="container">
+          <h2 className={`${styles.sectionTitleCenter} reveal`}>Expert Mentors To Upskill Your Career</h2>
+          <div className={`${styles.mentorsGrid} reveal-group`}>
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className={styles.mentorCard}>
                 <div className={styles.mentorTop}>
@@ -197,9 +197,9 @@ const CourseDetailPage = () => {
 
       {/* Learn Across Industries */}
       <section className={styles.industriesSection}>
-        <div className={styles.container}>
-          <h2 className={styles.sectionTitle}>Learn Across Industries</h2>
-          <div className={styles.industriesGrid}>
+        <div className="container">
+          <h2 className={`${styles.sectionTitle} reveal`}>Learn Across Industries</h2>
+          <div className={`${styles.industriesGrid} reveal-group`}>
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className={styles.industryBox}></div>
             ))}
@@ -209,8 +209,8 @@ const CourseDetailPage = () => {
 
       {/* Student Life Banner */}
       <section className={styles.studentBannerSection}>
-        <div className={styles.container}>
-          <div className={styles.studentBannerContent}>
+        <div className="container">
+          <div className={`${styles.studentBannerContent} reveal`}>
             <div className={styles.studentBannerLeft}>
               {/* Left side is dark blue as in image */}
             </div>
@@ -223,9 +223,9 @@ const CourseDetailPage = () => {
 
       {/* Student Testimonials */}
       <section className={styles.testimonialsSection}>
-        <div className={styles.container}>
-          <h2 className={styles.sectionTitle}>What our Students says about their learning experience with us</h2>
-          <div className={styles.testimonialsGrid}>
+        <div className="container">
+          <h2 className={`${styles.sectionTitle} reveal`}>What our Students says about their learning experience with us</h2>
+          <div className={`${styles.testimonialsGrid} reveal-group`}>
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className={styles.testimonialCard}>
                 <p className={styles.testimonialText}>

@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 /* 1. Global Reset & Box Sizing */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -17,37 +19,41 @@
   --text: #ffffff;
   --muted: #94a3b8;
   --border: rgba(255, 255, 255, 0.1);
-  
+
   /* Spacing */
   --section-padding: 100px 0;
   --section-padding-mobile: 60px 0;
-  --container-padding: 0 2rem; /* Increased side space */
+  --container-padding: 0 2rem;
+  /* Increased side space */
   --container-max-width: 1500px;
   --container-wide-max-width: 1500px;
 }
 
 /* 2. Global Base Styles */
 html {
-  overscroll-behavior-y: none; /* Prevents top overscroll bounce at the root */
+  overscroll-behavior-y: none;
+  /* Prevents top overscroll bounce at the root */
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
-  
+
   /* 
      STRICT OVERFLOW CONTROL 
      Prevents horizontal movement. 
   */
-  overflow-x: clip; 
-  overflow-y: visible; /* Ensure vertical scroll availability */
+  overflow-x: clip;
+  overflow-y: visible;
+  /* Ensure vertical scroll availability */
   overscroll-behavior-x: none;
   position: relative;
   max-width: 100%;
 
-  background-color: white; 
+  background-color: white;
   color: var(--text);
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -71,7 +77,10 @@ main {
 }
 
 /* Reset for all media to prevent them from breaking full-width layouts */
-img, video, canvas, svg {
+img,
+video,
+canvas,
+svg {
   max-width: 100%;
   height: auto;
 }
@@ -89,7 +98,7 @@ a:hover {
 /* 3. Utility Classes */
 .container {
   width: 100%;
-  max-width: var(--container-max-width); 
+  max-width: var(--container-max-width);
   margin: 0 auto;
   padding: var(--container-padding);
 }
@@ -110,7 +119,7 @@ a:hover {
   :root {
     --section-padding: var(--section-padding-mobile);
   }
-  
+
   .container {
     padding: 0 1rem;
   }
@@ -143,21 +152,51 @@ a:hover {
   transform: translateY(0);
 }
 
-/* 4. Reveal Animations (triggered by useScrollReveal hook) */
+/* 4. Premium Reveal Animations (triggered by useScrollReveal hook) */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.21, 0.45, 0.32, 0.9), transform 0.8s cubic-bezier(0.21, 0.45, 0.32, 0.9);
+  transform: translateY(50px) scale(0.96);
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   will-change: opacity, transform;
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   pointer-events: all;
 }
 
+/* Staggered Reveal Group */
+.reveal-group > * {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-group.visible > * {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Premium Fluid Stagger Delays for Group Children (Faster Ripple) */
+.reveal-group.visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-group.visible > *:nth-child(2) { transition-delay: 0.12s; }
+.reveal-group.visible > *:nth-child(3) { transition-delay: 0.19s; }
+.reveal-group.visible > *:nth-child(4) { transition-delay: 0.26s; }
+.reveal-group.visible > *:nth-child(5) { transition-delay: 0.33s; }
+.reveal-group.visible > *:nth-child(6) { transition-delay: 0.40s; }
+.reveal-group.visible > *:nth-child(7) { transition-delay: 0.47s; }
+.reveal-group.visible > *:nth-child(8) { transition-delay: 0.54s; }
+.reveal-group.visible > *:nth-child(9) { transition-delay: 0.61s; }
+.reveal-group.visible > *:nth-child(10) { transition-delay: 0.68s; }
+.reveal-group.visible > *:nth-child(11) { transition-delay: 0.75s; }
+.reveal-group.visible > *:nth-child(12) { transition-delay: 0.82s; }
+
+/* Individual Premium Delays */
 .reveal-d1 { transition-delay: 0.1s; }
 .reveal-d2 { transition-delay: 0.2s; }
 .reveal-d3 { transition-delay: 0.3s; }

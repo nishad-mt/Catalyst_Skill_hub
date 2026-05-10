@@ -39,7 +39,7 @@ export default function Contact() {
         <div className={styles.contactWrapper}>
 
           {/* Left Info Card */}
-          <div className={styles.infoCard}>
+          <div className={`${styles.infoCard} reveal`}>
             <h2 className={styles.title}>Discuss Your<br />Concerns With us..</h2>
             <p className={styles.sub}>
               Have questions about our courses? Fill out the form and our team
@@ -78,7 +78,7 @@ export default function Contact() {
           </div>
 
           {/* Right Form */}
-          <div className={styles.formContainer}>
+          <div className={`${styles.formContainer} reveal`}>
             <form onSubmit={handleSubmit}>
               <div className={styles.formGroup}>
                 <label className={styles.label}>Name</label>

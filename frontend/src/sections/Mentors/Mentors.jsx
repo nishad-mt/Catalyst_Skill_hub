@@ -8,9 +8,9 @@ const Mentors = () => {
   return (
     <section className={`section ${styles.mentorsSection}`}>
       <div className="container">
-        <h2 className={styles.sectionTitle}>Learn From the Best</h2>
+        <h2 className={`${styles.sectionTitle} reveal`}>Learn From the Best</h2>
 
-        <div className={styles.mentorsGrid}>
+        <div className={`${styles.mentorsGrid} reveal-group`}>
           {mentors.map((mentor, index) => (
             <div
               key={mentor.id}
@@ -29,7 +29,7 @@ const Mentors = () => {
           ))}
         </div>
 
-        <div className={styles.buttonContainer}>
+        <div className={`${styles.buttonContainer} reveal`}>
           <button className={styles.talkBtn}>Talk to an Expert</button>
         </div>
       </div>

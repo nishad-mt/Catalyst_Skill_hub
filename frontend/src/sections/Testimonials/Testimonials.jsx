@@ -51,10 +51,10 @@ const Testimonials = () => {
   return (
     <section className={styles.testimonialsSection}>
       <div className="container">
-        <h2 className={styles.sectionTitle}>What Our Alumni Says</h2>
+        <h2 className={`${styles.sectionTitle} reveal`}>What Our Alumni Says</h2>
       </div>
 
-      <div className={styles.marqueeContainer}>
+      <div className={`${styles.marqueeContainer} reveal`}>
         {isMobile ? (
           /* Mobile: Single row with all items */
           <div className={styles.marqueeRow}>

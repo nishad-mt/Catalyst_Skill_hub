@@ -26,9 +26,9 @@ const ResourceCenter = () => {
   return (
     <section className={styles.resourceSection}>
       <div className="container">
-        <h2 className={styles.sectionTitle}>Resource Center</h2>
+        <h2 className={`${styles.sectionTitle} reveal`}>Resource Center</h2>
 
-        <div className={styles.videoGrid}>
+        <div className={`${styles.videoGrid} reveal-group`}>
           {videos.map((video) => (
             <a
               key={video.id}
@@ -47,7 +47,7 @@ const ResourceCenter = () => {
           ))}
         </div>
 
-        <div className={styles.buttonContainer}>
+        <div className={`${styles.buttonContainer} reveal`}>
           <button className={styles.advisorBtn}>Talk with an Advisor</button>
         </div>
       </div>

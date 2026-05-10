@@ -25,9 +25,9 @@ const Life = () => {
   return (
     <section className={`section ${styles.lifeSection}`}>
       <div className="container">
-        <h2 className={styles.sectionTitle}>Life@Catalyst</h2>
+        <h2 className={`${styles.sectionTitle} reveal`}>Life@Catalyst</h2>
 
-        <div className={styles.masonryGrid}>
+        <div className={`${styles.masonryGrid} reveal-group`}>
           {images.map((img) => (
             <div key={img.id} className={`${styles.imageWrapper} ${img.className}`}>
               <img src={img.src} alt="Life at Catalyst" className={styles.gridImage} />
@@ -35,7 +35,7 @@ const Life = () => {
           ))}
         </div>
 
-        <div className={styles.buttonContainer}>
+        <div className={`${styles.buttonContainer} reveal`}>
           <button className={styles.viewAllBtn}>View All</button>
         </div>
       </div>

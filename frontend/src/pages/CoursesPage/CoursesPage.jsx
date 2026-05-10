@@ -15,7 +15,7 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
     <div className={styles.page}>
       {/* Top Header Area */}
       <div className="container">
-        <div className={styles.topSection}>
+        <div className={`${styles.topSection} reveal`}>
           <div className={styles.headerRow}>
             <h1 className={styles.mainHeading}>Explore All Tech Professional Ai Powered Courses</h1>
             <div className={styles.searchBox}>
@@ -38,7 +38,7 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
         </div>
 
         {/* Courses Grid */}
-        <div className={styles.grid}>
+        <div className={`${styles.grid} reveal-group`}>
           {filteredCourses.map((course) => (
             <div key={course.id} className={styles.card}>
               <div className={styles.imageWrap}>
@@ -80,8 +80,8 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
 
       {/* Bottom Promo Section */}
       <div className="container">
-        <div className={styles.promoSection}>
-          <div className={styles.promoContainer}>
+        <div className={`${styles.promoSection} reveal`}>
+          <div className={`${styles.promoContainer} reveal-group`}>
 
             <div className={styles.promoLeft}>
               <h2 className={styles.promoHeading}>Explore All Tech Professional Ai Powered Courses</h2>

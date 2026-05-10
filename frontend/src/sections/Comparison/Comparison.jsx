@@ -139,12 +139,12 @@ const Comparison = () => {
   return (
     <section className={styles.comparisonSection}>
       <div className="container">
-        <h2 className={styles.sectionTitle}>What Makes Catalyst the best</h2>
+        <h2 className={`${styles.sectionTitle} reveal`}>What Makes Catalyst the best</h2>
 
         <div className={styles.tableContainer}>
           <table className={styles.comparisonTable}>
             <thead>
-              <tr>
+              <tr className="reveal">
                 <th className={styles.featureCol}></th>
                 <th className={styles.catalystCol}>
                   <img src={logo} alt="Catalyst Logo" className={styles.headerLogo} />
@@ -152,7 +152,7 @@ const Comparison = () => {
                 <th className={styles.othersCol}>Others</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="reveal-group">
               {comparisonData.map((row) => (
                 <tr key={row.id}>
                   <td className={styles.featureCell}>
@@ -179,7 +179,7 @@ const Comparison = () => {
           </table>
 
           {/* Mobile View: Cards Layout */}
-          <div className={styles.mobileCards}>
+          <div className={`${styles.mobileCards} reveal-group`}>
             {comparisonData.map((row) => (
               <div key={row.id} className={styles.mobileCard}>
                 <div className={styles.cardHeader}>
@@ -207,7 +207,7 @@ const Comparison = () => {
           </div>
         </div>
 
-        <div className={styles.buttonContainer}>
+        <div className={`${styles.buttonContainer} reveal`}>
           <button className={styles.checkBtn}>Check Eligibility</button>
         </div>
       </div>
