@@ -21,7 +21,7 @@
 
 .mentorCard {
   background-color: #e5ecfb;
-  border-radius: 4px;
+  border-radius: var(--radius-main);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -92,7 +92,7 @@
   color: #ffffff;
   border: 2px solid #1e3a8a;
   padding: 0.85rem 2.5rem;
-  border-radius: 10px;
+  border-radius: var(--radius-btn);
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;

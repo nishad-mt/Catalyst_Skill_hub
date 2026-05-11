@@ -3,7 +3,7 @@
 /* ── Card shell ── */
 .card {
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: var(--radius-main);
   display: flex;
   flex-direction: column;
   gap: 0;

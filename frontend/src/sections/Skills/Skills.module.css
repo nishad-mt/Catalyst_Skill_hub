@@ -33,7 +33,7 @@
 
 .skillCard {
   background-color: #e5ecfb;
-  border-radius: 8px;
+  border-radius: var(--radius-main);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;

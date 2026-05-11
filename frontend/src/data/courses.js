@@ -26,7 +26,6 @@ export const courses = [
   {
     id: 2,
     slug: "data-science-ai",
-    tag: "AI & Data",
     title: "Data Science & AI",
     desc: "Python, ML, deep learning, and real-world datasets with live industry projects.",
     duration: "6 months",
@@ -51,7 +50,6 @@ export const courses = [
   {
     id: 3,
     slug: "digital-marketing",
-    tag: "Marketing",
     title: "Digital Marketing",
     desc: "SEO, SEM, social media strategy, analytics, and high-performance campaigns.",
     duration: "3 months",
@@ -76,7 +74,6 @@ export const courses = [
   {
     id: 4,
     slug: "ui-ux-design",
-    tag: "Design",
     title: "UI/UX Design",
     desc: "Figma, user research, wireframing, and building modern design systems.",
     duration: "4 months",
@@ -101,7 +98,6 @@ export const courses = [
   {
     id: 5,
     slug: "python-programming",
-    tag: "Programming",
     title: "Python Programming",
     desc: "From basics to advanced: automation, scripting, APIs, and data processing.",
     duration: "3 months",
@@ -126,7 +122,6 @@ export const courses = [
   {
     id: 6,
     slug: "aws-cloud-computing",
-    tag: "Cloud",
     title: "AWS Cloud Computing",
     desc: "Cloud fundamentals, EC2, S3, Lambda, DevOps essentials, and certifications.",
     duration: "4 months",
@@ -151,7 +146,6 @@ export const courses = [
   {
     id: 7,
     slug: "cyber-security",
-    tag: "Security",
     title: "Cyber Security",
     location: "Calicut",
     desc: "Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed",
@@ -185,7 +179,6 @@ export const courses = [
   {
     id: 8,
     slug: "mern-stack",
-    tag: "Mern",
     title: "Mern Stack",
     desc: "Javascript, Node js, Type Script, React, Mongo DB , and PSQL.",
     duration: "7 months",
