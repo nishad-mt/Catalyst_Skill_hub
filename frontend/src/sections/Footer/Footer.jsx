@@ -72,6 +72,14 @@ export default function Footer() {
                 <li><a href="#" className={styles.colLink}>Contact</a></li>
               </ul>
             </div>
+            <div className={styles.info}>
+              <h4 className={styles.infoTitle}>Contact us</h4>
+              <ul className={styles.infoLinks}>
+                <li><a href="#" className={styles.infoLink}>catalyst.tech.hub@gmail.com</a></li>
+                <li><a href="#" className={styles.infoLink}>+91 8157860663</a></li>
+                <li><a href="#" className={styles.infoLink}>Head Office-Calicut:Happy Tower,Bypass Junction, mankave,Kozhikode,kerala 673007</a></li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -86,9 +94,15 @@ export default function Footer() {
             <span className={styles.divider}>|</span>
             <span>Manjeri</span>
             <span className={styles.divider}>|</span>
-            <span>Ernakulam</span>
-            <span className={styles.divider}>|</span>
             <span>Vadakara</span>
+            <span className={styles.divider}>|</span>
+            <span>Perinthelmanna</span>
+            <span className={styles.divider}>|</span>
+            <span>Edappal</span>
+            <span className={styles.divider}>|</span>
+            <span>Kottakkal</span>
+            <span className={styles.divider}>|</span>
+            <span>Ernakulam</span>
           </div>
         </div>
       </div>
