@@ -19,8 +19,9 @@ import styles from './CourseCard.module.css';
 export default function CourseCard({ course, navigate }) {
   const [expanded, setExpanded] = useState(false);
 
-  const limit = 75;
-  const isLong = course.desc?.length > limit;
+  const limit = 60; // Point where 'read more' appears
+  const threshold = 95; // Only show 'read more' if it significantly exceeds 2 lines
+  const isLong = course.desc?.length > threshold;
   const shortDesc = isLong && !expanded
     ? course.desc.slice(0, limit).trimEnd() + '... '
     : course.desc;
@@ -42,9 +43,6 @@ export default function CourseCard({ course, navigate }) {
         {/* Title */}
         <h3 className={styles.title}>{course.title}</h3>
 
-        {/* Mode */}
-        <p className={styles.mode}>{course.mode || 'Offline / Online'}</p>
-
         {/* Description */}
         <p className={styles.desc}>
           {shortDesc}
@@ -59,27 +57,10 @@ export default function CourseCard({ course, navigate }) {
         </p>
 
         {/* Duration */}
-        <p className={styles.duration}>{course.duration || '3 Months / 6 Months'}</p>
+        <p className={styles.duration}>{course.duration || '6 months / 3 Months'}</p>
 
-        {/* Tools Pills */}
-        {course.tools?.length > 0 && (
-          <div className={styles.toolsList}>
-            {course.tools.map((tool, i) => (
-              <span key={i} className={styles.toolPill}>
-                {tool.name}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Skill Tags */}
-        {course.tags?.length > 0 && (
-          <div className={styles.tags}>
-            {course.tags.map((tag, i) => (
-              <span key={i} className={styles.tag}>{tag}</span>
-            ))}
-          </div>
-        )}
+        {/* Mode */}
+        <p className={styles.mode}>{course.mode || 'Online / Offline'}</p>
 
         <div className={styles.actions}>
           <a
@@ -90,13 +71,7 @@ export default function CourseCard({ course, navigate }) {
               navigate(`/course/${course.slug}`);
             }}
           >
-            View Programme
-          </a>
-          <a
-            href={course.syllabusLink || '#'}
-            className={styles.btnOutline}
-          >
-            View Syllabus
+            View Course
           </a>
         </div>
       </div>

@@ -164,7 +164,7 @@
 }
 
 .metaInfo {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .metaInfo p {
@@ -188,7 +188,7 @@
   font-size: 12px;
   color: #777;
   line-height: 1.5;
-  margin: 0 0 16px 0;
+  margin: 0 0 10px 0;
   flex: 1; /* Push the bottom content down if desc is short */
 }
 
@@ -199,49 +199,6 @@
   }
 }
 
-/* TOOLS */
-.toolsSection {
-  margin-bottom: 20px;
-}
-
-@media (max-width: 600px) {
-  .toolsSection {
-    margin-bottom: 12px;
-  }
-}
-
-.toolsSection strong {
-  display: block;
-  font-size: 12px;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-@media (max-width: 600px) {
-  .toolsSection strong {
-    font-size: 10px;
-  }
-}
-
-.toolsGrid {
-  display: flex;
-  gap: 8px;
-}
-
-.toolPill {
-  display: inline-block;
-  width: 50px;
-  height: 16px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-}
-
-@media (max-width: 600px) {
-  .toolPill {
-    width: 30px;
-    height: 12px;
-  }
-}
 
 /* BUTTONS */
 .cardActions {

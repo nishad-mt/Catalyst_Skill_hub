@@ -21,9 +21,9 @@
   --border: rgba(255, 255, 255, 0.1);
 
   /* Spacing */
-  --section-padding: 100px 0;
+  --section-padding: 120px 0;
   --section-padding-mobile: 60px 0;
-  --container-padding: 0 2rem;
+  --container-padding: 0 3rem;
   /* Increased side space */
   --container-max-width: 1500px;
   --container-wide-max-width: 1500px;

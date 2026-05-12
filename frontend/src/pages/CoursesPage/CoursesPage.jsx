@@ -2,9 +2,7 @@ import { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { courses } from '../../data/siteData';
 import styles from './CoursesPage.module.css';
-
-// Reusing Navbar structure for top? The user's image shows a header inside the page body.
-// We'll build the page content assuming Navbar is handled globally in App.jsx.
+import CourseCard from '../../components/CourseCard/CourseCard';
 
 export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
   const filteredCourses = courses.filter(course =>
@@ -40,40 +38,7 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
         {/* Courses Grid */}
         <div className={`${styles.grid} reveal-group`}>
           {filteredCourses.map((course) => (
-            <div key={course.id} className={styles.card}>
-              <div className={styles.imageWrap}>
-                <img src={course.img} alt={course.title} className={styles.courseImg} />
-              </div>
-              <div className={styles.cardContent}>
-                <h3 className={styles.courseTitle}>{course.title}</h3>
-                <div className={styles.metaInfo}>
-                  <p><strong>Course Duration:</strong> {course.duration || '6 Months / 4 Months'}</p>
-                  <p><strong>Course Mode:</strong> {course.mode || 'Online / Offline'}</p>
-                </div>
-                <p className={styles.courseDesc}>
-                  one of the most in-demand careers today, combining programming, statistics, and business understanding to solve real-world problems.
-                </p>
-
-                <div className={styles.toolsSection}>
-                  <strong>Tools You'll Learn:</strong>
-                  <div className={styles.toolsGrid}>
-                    <span className={styles.toolPill}></span>
-                    <span className={styles.toolPill}></span>
-                    <span className={styles.toolPill}></span>
-                  </div>
-                </div>
-
-                <div className={styles.cardActions}>
-                  <button className={styles.cardBtn}>Download Brochure</button>
-                  <button
-                    className={styles.cardBtn}
-                    onClick={() => navigate(`/course/${course.slug}`)}
-                  >
-                    View Details
-                  </button>
-                </div>
-              </div>
-            </div>
+            <CourseCard key={course.id} course={course} navigate={navigate} />
           ))}
         </div>
       </div>

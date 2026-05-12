@@ -1,3 +1,7 @@
+import nandanaImg from '../assets/nandana.jpeg';
+import chork from '../assets/chorkk.png'
+import rose from '../assets/rose.png'
+
 export const courses = [
   {
     id: 1,
@@ -54,7 +58,7 @@ export const courses = [
     desc: "SEO, SEM, social media strategy, analytics, and high-performance campaigns.",
     duration: "3 months",
     fee: "₹25,000",
-    img: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=600&q=80",
+    img: nandanaImg,
     whatYouWillLearn: [
       { id: 1, icon: "🔍", title: "SEO Optimization", desc: "Master on-page and off-page SEO to rank higher on Google." },
       { id: 2, icon: "📱", title: "Social Media Marketing", desc: "Build brand presence on Instagram, LinkedIn, and Facebook." },
@@ -151,7 +155,7 @@ export const courses = [
     desc: "Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed",
     duration: "8 months",
     fee: "₹89,999",
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+    img: chork,
     whatYouWillLearn: [
       { id: 1, icon: "🛡️", title: "Fundamentals of Cyber Security", desc: "Understand core concepts like threats, vulnerabilities, risk management, and security principles." },
       { id: 2, icon: "🌐", title: "Network Security & Protocols", desc: "Learn how networks operate, common attack methods, and how to secure them using firewalls, VPNs, and IDS/IPS." },
@@ -183,7 +187,7 @@ export const courses = [
     desc: "Javascript, Node js, Type Script, React, Mongo DB , and PSQL.",
     duration: "7 months",
     fee: "₹59,000",
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+    img: rose,
     whatYouWillLearn: [
       { id: 1, icon: "🍃", title: "MongoDB Mastery", desc: "Deep dive into NoSQL database design and aggregation." },
       { id: 2, icon: "🚂", title: "Express.js", desc: "Build robust APIs and middleware with Express." },

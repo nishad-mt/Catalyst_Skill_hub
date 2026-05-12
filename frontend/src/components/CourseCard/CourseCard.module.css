@@ -2,12 +2,12 @@
 
 /* ── Card shell ── */
 .card {
-  background: #ffffff;
-  border-radius: var(--radius-main);
+  background: #ebf1ff;
+  border: 1px solid #c8d6f7;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 0;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.22s ease, box-shadow 0.22s ease;
   height: 100%;
   box-sizing: border-box;
@@ -44,9 +44,12 @@
 /* ── Image Section ── */
 .imageContainer {
   position: relative;
-  width: 100%;
-  height: 170px;
+  width: 96%;
+  height: 180px;
+  margin: 6px auto 0;
   overflow: hidden;
+  background-color: #8fb1f8;
+  border-radius: 12px;
 }
 
 .courseImage {
@@ -80,27 +83,20 @@
 
 /* ── Title ── */
 .title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #0a1450;
-  margin: 0 0 0.25rem;
-  line-height: 1.25;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #000000;
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
 }
 
-/* ── Mode label ── */
-.mode {
-  font-size: 0.75rem;
-  color: #64748b;
-  margin: 0 0 0.5rem;
-  font-weight: 400;
-}
 
 /* ── Description ── */
 .desc {
-  font-size: 0.8rem;
-  color: #334155;
-  line-height: 1.5;
-  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  color: #000000;
+  line-height: 1.2;
+  margin: 0 0 1rem;
   flex-grow: 1;
 }
 
@@ -121,71 +117,35 @@
 
 /* ── Duration ── */
 .duration {
-  font-size: 0.78rem;
-  color: #0f172a;
+  font-size: 1rem;
+  color: #000000;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+}
+
+.mode {
+  font-size: 0.95rem;
+  color: #555555;
+  margin: 0 0 0.5rem;
   font-weight: 500;
-  margin: 0 0 0.65rem;
 }
 
-/* ── Tools List ── */
-.toolsList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 0.75rem;
-  max-height: 52px; /* Approx 2 lines of pills */
-  overflow: hidden;
-}
 
-.toolPill {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #1d4ed8;
-  background: #eff6ff;
-  padding: 4px 10px;
-  border-radius: 100px;
-  border: 1px solid #dbeafe;
-  white-space: nowrap;
-}
-
-/* ── Skill tags ── */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
-}
-
-.tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: #0f172a;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 6px;
-  padding: 3px 10px;
-  background: #ffffff;
-  white-space: nowrap;
-  line-height: 1.5;
-}
 
 /* ── Action buttons ── */
 .actions {
   display: flex;
-  gap: 0.5rem;
+  gap: 0;
   margin-top: auto;
-  padding-top: 1.25rem; /* Increased space from tools/tags */
-  flex-wrap: nowrap;
+  padding-top: 0.2rem;
 }
 
-.btnPrimary,
-.btnOutline {
+.btnPrimary {
   flex: 1;
-  min-width: 0;
   text-align: center;
-  padding: 0.5rem 0.4rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
+  padding: 0.8rem;
+  border-radius: 10px;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -195,35 +155,20 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
+  background: #78a3f8;
+  color: #000000;
+  border: 1px solid #78a3f8;
 }
 
-.btnPrimary {
-  background: #0a1450;
-  color: #ffffff;
-  border: 2px solid #0a1450;
-}
 
 .btnPrimary:hover {
-  background: #1e3a8a;
-  border-color: #1e3a8a;
+  background: #5d8df4;
+  border-color: #5d8df4;
 }
 
-.btnOutline {
-  background: #0a1450;
-  color: #ffffff;
-  border: 2px solid #0a1450;
-}
-
-.btnOutline:hover {
-  background: #1e3a8a;
-  border-color: #1e3a8a;
-}
 
 /* ── Responsive ── */
 @media (max-width: 480px) {
-  .card {
-    padding: 1.25rem 1.1rem 1.1rem;
-  }
 
   .title {
     font-size: 1rem;
@@ -234,10 +179,9 @@
     gap: 0.5rem;
   }
 
-  .btnPrimary,
-  .btnOutline {
+  .btnPrimary {
     flex: 1;
-    padding: 0.6rem 0.4rem;
-    font-size: 0.75rem;
+    padding: 0.8rem 0.4rem;
+    font-size: 0.9rem;
   }
 }

@@ -4,18 +4,27 @@
 }
 
 .contactWrapper {
-  background-color: #f3f4f6; /* Lighter, cleaner background */
+  background-color: #f3f4f6;
   border-radius: var(--radius-main);
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  padding: 1.25rem;
   gap: 1.5rem;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .contactWrapper {
     flex-direction: row;
+    gap: 2rem;
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contactWrapper {
     gap: 4rem;
   }
 }
@@ -23,27 +32,17 @@
 .infoCard {
   background-color: #ffffff;
   border-radius: var(--radius-main);
-  padding: 2rem;
+  padding: 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  width: 100%;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   .infoCard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
     padding: 2rem;
-    align-items: center;
-  }
-}
-
-@media (max-width: 580px) {
-  .infoCard {
-    grid-template-columns: 1fr;
-    padding: 1.5rem;
   }
 }
 
@@ -59,18 +58,65 @@
 .sub {
   font-size: 0.9rem;
   color: #4b5563;
-  line-height: 1;
+  line-height: 1.5;
   margin-bottom: 2rem;
 }
 
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #4b5563;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.infoItem:hover {
+  color: #312e81;
+  transform: translateX(5px);
+}
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #312e81;
+  flex-shrink: 0;
+}
+
+.infoLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+
+.infoValue {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 767px) {
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  .sub {
-    margin-bottom: 0;
-    font-size: 0.85rem;
+  .contactInfo {
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -185,12 +231,19 @@
 .formContainer {
   flex: 1;
   background: #ffffff;
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: var(--radius-main);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .formContainer {
+    padding: 2.5rem;
+  }
 }
 
 .formGroup {
