@@ -6,6 +6,7 @@ import { useScrollReveal } from './hooks/useScrollReveal';
 // Layout components
 import Navbar     from './components/Navbar/Navbar';
 import FloatingCTA from './components/FloatingCTA/FloatingCTA';
+import MobileActionBar from './components/MobileActionBar/MobileActionBar';
 
 // Page sections
 import Hero    from './sections/Hero/Hero';
@@ -61,6 +62,7 @@ export default function App() {
     <>
       <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
       <FloatingCTA />
+      <MobileActionBar navigate={navigate} currentPage={currentPage} />
 
       <main>
         {currentPage === 'courses' ? (

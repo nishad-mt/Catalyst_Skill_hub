@@ -37,7 +37,7 @@
 
 @media (max-width: 768px) {
   .btn {
-    bottom: 1.5rem;
+    bottom: 6rem; /* Lifted to stay above MobileActionBar */
     right: 1.5rem;
     width: 55px;
     height: 55px;

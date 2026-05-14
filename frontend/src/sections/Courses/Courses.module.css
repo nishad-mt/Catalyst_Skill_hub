@@ -47,8 +47,8 @@
 
 @media (max-width: 650px) {
   .grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr); /* Maintained 2 columns instead of 1 */
+    gap: 0.75rem; /* Reduced gap for smaller screens */
   }
 }
 

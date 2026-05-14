@@ -37,60 +37,63 @@ const CourseDetailPage = () => {
         <div className="container">
           <div className={styles.heroBox}>
             <div className={`${styles.heroLeft} reveal-group`}>
-              <span className={styles.tag}>{course.tag} Agency</span>
+              <span className={styles.tag}>Best Tech Courses in Calicut</span>
               <h1 className={styles.title}>
                 {course.title} Course <br />
-                {course.location ? `in ${course.location}` : ''}
+                {course.location ? `in ${course.location}` : 'in Calicut'}
               </h1>
               <p className={styles.description}>{course.desc}</p>
 
-              <div className={styles.badges}>
-                <div className={styles.badge}>
-                  <img src={nsdcLogo} alt="NSDC" />
-                  <span>NSDC Approved Certificate</span>
+              <div className={styles.avatarBadge}>
+                <div className={styles.avatars}>
+                  <img src="https://i.pravatar.cc/150?u=1" alt="mentor" />
+                  <img src="https://i.pravatar.cc/150?u=2" alt="mentor" />
+                  <img src="https://i.pravatar.cc/150?u=3" alt="mentor" />
                 </div>
-                <div className={styles.badgePlaceholder}></div>
+                <span className={styles.avatarText}>Learn in-demand tech skills through hands</span>
+              </div>
+
+              <div className={styles.infoBar}>
+                <div className={styles.infoItem}>
+                  <div className={styles.googleRating}>
+                    <img src="https://www.vectorlogo.zone/logos/google/google-ar21.svg" alt="Google" />
+                    <div className={styles.ratingText}>
+                      <span className={styles.ratingVal}>4.9 Reviews</span>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.infoDivider}></div>
+                <div className={styles.infoItem}>
+                  <span className={styles.infoLabel}>Duration</span>
+                  <span className={styles.infoValue}>{course.duration || '4 Months'}</span>
+                </div>
+                <div className={styles.infoDivider}></div>
+                <div className={styles.infoItem}>
+                  <span className={styles.infoLabel}>Class Mode</span>
+                  <span className={styles.infoValue}>Online / Offline</span>
+                </div>
+                <div className={styles.infoDivider}></div>
+                <div className={styles.infoItem}>
+                  <span className={styles.infoLabel}>Next Batch Starts</span>
+                  <span className={styles.infoValue}>18 - June - 2026</span>
+                </div>
               </div>
             </div>
 
-            <div className={`${styles.heroRight} reveal`}>
+            <div id="enroll-form" className={`${styles.heroRight} reveal`}>
               <div className={styles.formCard}>
-                <div className={styles.formHeader}>
-                  <div className={styles.avatars}>
-                    <img src="https://i.pravatar.cc/150?u=1" alt="mentor" />
-                    <img src="https://i.pravatar.cc/150?u=2" alt="mentor" />
-                    <img src="https://i.pravatar.cc/150?u=3" alt="mentor" />
-                  </div>
-                  <p>Learn in-demand tech skills through hands-on</p>
-                </div>
-                <h3>Book Your Demo Class</h3>
                 <form className={styles.form}>
                   <div className={styles.inputGroup}>
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Enter your full name" />
+                    <input type="text" placeholder="Full Name" />
                   </div>
                   <div className={styles.inputGroup}>
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="Enter your phone number" />
+                    <input type="tel" placeholder="Phone Number" />
                   </div>
-                  <button type="submit" className={styles.submitBtn}>Book Now</button>
+                  <button type="submit" className={styles.submitBtn}>Enroll Now</button>
+                  <a href="#callback" className={styles.callbackLink}>Request a Call back</a>
                 </form>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Bar */}
-      <section className={styles.statsBar}>
-        <div className="container">
-          <div className={`${styles.statsGrid} reveal-group`}>
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className={styles.statItem}>
-                <span className={styles.statNum}>100%</span>
-                <span className={styles.statLabel}>Placement Assistance</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
