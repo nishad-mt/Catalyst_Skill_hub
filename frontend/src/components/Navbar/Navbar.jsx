@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { navLinks } from '../../data/siteData';
 import styles from './Navbar.module.css';
-import { FiSearch } from 'react-icons/fi';
+import { FiSearch, FiChevronDown } from 'react-icons/fi';
 import logo from '../../assets/logo.png';
 
-export default function Navbar({ searchQuery, setSearchQuery, navigate }) {
+export default function Navbar({ searchQuery, setSearchQuery, navigate, currentPage }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -16,11 +17,36 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate }) {
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { 
+      document.body.style.overflow = originalStyle === 'hidden' ? '' : originalStyle; 
+    };
   }, [menuOpen]);
 
-  const closeMenu = () => setMenuOpen(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setActiveDropdown(null);
+  };
+
+  const toggleMobileDropdown = (label) => {
+    setActiveDropdown(activeDropdown === label ? null : label);
+  };
+
+  const handleSearchChange = (e) => {
+    const val = e.target.value;
+    setSearchQuery(val);
+    
+    // If not on courses page and user starts typing, redirect to courses page
+    if (val.trim() !== '' && currentPage !== 'courses' && currentPage !== 'home') {
+      navigate('/courses');
+    }
+  };
 
   return (
     <>
@@ -43,7 +69,7 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate }) {
               type="text"
               placeholder="What do you want to learn?"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={handleSearchChange}
               className={styles.searchInput}
               aria-label="Search"
             />
@@ -54,27 +80,56 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate }) {
 
             <ul className={styles.links}>
               {navLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.label} className={link.subLinks ? styles.hasDropdown : ''}>
                   <a 
                     href={link.href} 
                     className={styles.link}
                     onClick={(e) => {
-                      if (link.href.startsWith('/')) {
+                      if (link.subLinks) {
+                        e.preventDefault();
+                      } else if (link.href.startsWith('/')) {
                         e.preventDefault();
                         navigate(link.href);
                       }
                     }}
                   >
                     {link.label}
+                    {link.subLinks && <FiChevronDown className={styles.chevron} />}
                   </a>
+
+                  {link.subLinks && (
+                    <div className={styles.dropdown}>
+                      <div className={styles.dropdownInner}>
+                        {link.subLinks.map((sub) => (
+                          <a
+                            key={sub.label}
+                            href={sub.href}
+                            className={styles.dropdownItem}
+                            onClick={(e) => {
+                              if (sub.href.startsWith('/')) {
+                                e.preventDefault();
+                                navigate(sub.href);
+                              }
+                            }}
+                          >
+                            {sub.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
 
+
             {/* CTA — desktop only */}
-            <a href="#contact" className={styles.cta}>
+            <button 
+              className={styles.cta}
+              onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}
+            >
               Talk With Expert
-            </a>
+            </button>
 
             {/* HAMBURGER — mobile/tablet only */}
             <button
@@ -118,7 +173,7 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate }) {
             type="text"
             placeholder="What do you want to learn?"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={handleSearchChange}
             className={styles.mobileSearchInput}
             aria-label="Search"
           />
@@ -127,26 +182,64 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate }) {
         <div className={styles.mobileDivider} />
 
         {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            onClick={(e) => {
-              closeMenu();
-              if (link.href.startsWith('/')) {
-                e.preventDefault();
-                navigate(link.href);
-              }
-            }}
-            className={styles.mobileLink}
-          >
-            {link.label}
-          </a>
+          <div key={link.label} className={styles.mobileLinkContainer}>
+            {link.subLinks ? (
+              <>
+                <button
+                  onClick={() => toggleMobileDropdown(link.label)}
+                  className={`${styles.mobileLink} ${styles.mobileDropdownBtn} ${activeDropdown === link.label ? styles.active : ''}`}
+                >
+                  {link.label}
+                  <FiChevronDown className={`${styles.mobileChevron} ${activeDropdown === link.label ? styles.rotate : ''}`} />
+                </button>
+                <div className={`${styles.mobileSubLinks} ${activeDropdown === link.label ? styles.show : ''}`}>
+                  {link.subLinks.map((sub) => (
+                    <a
+                      key={sub.label}
+                      href={sub.href}
+                      onClick={(e) => {
+                        closeMenu();
+                        if (sub.href.startsWith('/')) {
+                          e.preventDefault();
+                          navigate(sub.href);
+                        }
+                      }}
+                      className={styles.mobileSubLink}
+                    >
+                      {sub.label}
+                    </a>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <a
+                href={link.href}
+                onClick={(e) => {
+                  closeMenu();
+                  if (link.href.startsWith('/')) {
+                    e.preventDefault();
+                    navigate(link.href);
+                  }
+                }}
+                className={styles.mobileLink}
+              >
+                {link.label}
+              </a>
+            )}
+          </div>
         ))}
 
+
         {/* CTA */}
-        <a href="#contact" onClick={closeMenu} className={styles.mobileCta}>
+        <button 
+          onClick={() => {
+            closeMenu();
+            window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }));
+          }} 
+          className={styles.mobileCta}
+        >
           Talk With Expert
-        </a>
+        </button>
       </div>
     </>
   );

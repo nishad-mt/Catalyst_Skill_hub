@@ -34,34 +34,24 @@
 }
 
 /* 2. Global Base Styles */
-html {
-  overscroll-behavior-y: auto;
-}
-
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
-
-  /* 
-     STRICT OVERFLOW CONTROL 
-     Prevents horizontal movement. 
-  */
   overflow-x: hidden;
-  overflow-y: visible;
-  /* Ensure vertical scroll availability */
-  /* Removed overscroll-behavior-x: none to fix potential scroll initiation delay */
+  overflow-y: auto;
   position: relative;
   max-width: 100%;
+
 
   background-color: white;
   color: var(--text);
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 
   /* Allow native scrolling behavior */
   touch-action: auto;

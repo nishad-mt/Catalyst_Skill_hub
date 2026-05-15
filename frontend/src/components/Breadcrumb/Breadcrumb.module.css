@@ -1,0 +1,59 @@
+.breadcrumbWrapper {
+  width: 100%;
+  padding: 1.5rem 0 0.5rem;
+  margin-top: 80px; /* To account for fixed navbar */
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Adjust margin-top on mobile if navbar height is different */
+@media (max-width: 768px) {
+  .breadcrumbWrapper {
+    margin-top: 70px;
+    padding: 1rem 0 0.5rem;
+  }
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin: 0;
+  padding: 1.5rem 1rem;
+  list-style: none;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbLink {
+  color: #475569;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.breadcrumbLink:hover {
+  color: #2563eb;
+}
+
+.separator {
+  margin: 0 0.5rem;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+}
+
+.current {
+  color: #0f172a;
+  font-weight: 600;
+  pointer-events: none;
+}

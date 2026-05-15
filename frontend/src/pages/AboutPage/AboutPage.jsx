@@ -193,9 +193,15 @@ const AboutPage = () => {
             <h2>Ready to Start Your <span className={styles.gradientText}>Success Story?</span></h2>
             <p>Join thousands of students who have transformed their careers with Catalyst.</p>
             <div className={styles.ctaButtons}>
-              <button className="btn-primary">Explore Our Courses</button>
-              <button className={styles.btnSecondary}>Talk to an Expert</button>
+              <button className="btn-primary" onClick={() => window.history.pushState({}, '', '/courses')}>Explore Our Courses</button>
+              <button 
+                className={styles.btnSecondary}
+                onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}
+              >
+                Talk to an Expert
+              </button>
             </div>
+
           </div>
         </div>
       </section>

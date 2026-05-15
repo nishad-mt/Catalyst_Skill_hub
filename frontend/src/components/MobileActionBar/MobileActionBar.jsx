@@ -31,7 +31,7 @@ export default function MobileActionBar({ navigate, currentPage }) {
         {isCourseDetail ? (
           <button 
             className={styles.btnPrimary}
-            onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: 'enroll' }))}
+            onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'enroll' } }))}
           >
             Enroll Now
           </button>
@@ -44,18 +44,12 @@ export default function MobileActionBar({ navigate, currentPage }) {
           </button>
         )}
         
-        {isCourseDetail ? (
-          <button 
-            className={styles.btnPrimary}
-            onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: 'callback' }))}
-          >
-            Contact Now
-          </button>
-        ) : (
-          <a href="#contact" className={styles.btnPrimary}>
-            Contact Now
-          </a>
-        )}
+        <button 
+          className={styles.btnPrimary}
+          onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}
+        >
+          Contact Now
+        </button>
       </div>
     </div>
   );

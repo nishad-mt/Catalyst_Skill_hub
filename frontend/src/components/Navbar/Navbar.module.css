@@ -146,6 +146,71 @@
   opacity: 0.75;
 }
 
+/* Dropdown Support */
+.hasDropdown {
+  position: relative;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chevron {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.hasDropdown:hover .chevron {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-top: 1rem;
+  z-index: 100;
+}
+
+.hasDropdown:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownInner {
+  background: #01053C;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  min-width: 200px;
+  padding: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.dropdownItem {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.88rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.dropdownItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+
 /* ============================================================
    CTA
    ============================================================ */
@@ -235,7 +300,7 @@
   flex-direction: column;
   gap: 1.5rem;
   transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
@@ -305,7 +370,54 @@
   text-decoration: none;
   padding: 0.5rem 0;
   display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
 }
+
+.mobileDropdownBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileChevron {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.mobileChevron.rotate {
+  transform: rotate(180deg);
+}
+
+.mobileSubLinks {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileSubLinks.show {
+  max-height: 500px; /* Large enough for the list */
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.mobileSubLink {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.mobileSubLink:hover {
+  color: #ffffff;
+}
+
 
 .mobileCta {
   margin-top: auto;

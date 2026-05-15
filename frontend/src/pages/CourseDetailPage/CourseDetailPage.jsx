@@ -6,13 +6,8 @@ import promoImg from '../../assets/promo_thinking.png';
 import studentsBanner from '../../assets/students_banner.png';
 
 const CourseDetailPage = () => {
-  // Since we are not using react-router-dom's true routing yet (App.jsx handles it by state),
-  // we'll expect the course object or slug to be passed or determined from URL.
-  // For now, let's look at window.location.pathname if we want to simulate routing.
-
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [modalType, setModalType] = useState(null); // 'enroll' or 'callback'
   const testimonialsRef = useRef(null);
 
   const scrollTestimonials = (direction) => {
@@ -37,16 +32,19 @@ const CourseDetailPage = () => {
     }
     setLoading(false);
     window.scrollTo(0, 0);
-
-    // Listen for custom modal events from other components (like MobileActionBar)
-    const handleOpenModal = (e) => setModalType(e.detail);
-    window.addEventListener('openModal', handleOpenModal);
-
-    return () => window.removeEventListener('openModal', handleOpenModal);
   }, [window.location.pathname]);
 
   if (loading) return <div className={styles.loading}>Loading Course Details...</div>;
   if (!course) return <div className={styles.error}>Course not found</div>;
+
+  const handleOpenModal = (type) => {
+    window.dispatchEvent(new CustomEvent('openModal', { 
+      detail: { 
+        type, 
+        courseTitle: course.title 
+      } 
+    }));
+  };
 
   return (
     <div className={styles.page}>
@@ -83,19 +81,20 @@ const CourseDetailPage = () => {
                   </div>
                   <button 
                     className={styles.heroEnrollBtn}
-                    onClick={() => setModalType('enroll')}
+                    onClick={() => handleOpenModal('enroll')}
                   >
                     Enroll Now
                   </button>
                   <button 
                     className={styles.heroCallbackBtn}
-                    onClick={() => setModalType('callback')}
+                    onClick={() => handleOpenModal('callback')}
                   >
                     Request a Call back
                   </button>
                 </div>
               </div>
             </div>
+
 
             {/* infoBar moved here to span full width */}
             <div className={styles.infoBar}>
@@ -299,54 +298,10 @@ const CourseDetailPage = () => {
         </div>
       </section>
 
-      {/* Dynamic Modal Form */}
-      {modalType && (
-        <div className={styles.modalOverlay} onClick={() => setModalType(null)}>
-          <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-            <button className={styles.modalClose} onClick={() => setModalType(null)}>×</button>
-            <div className={styles.modalHeader}>
-              <h3>{modalType === 'enroll' ? `Enroll in ${course.title}` : 'Request a Callback'}</h3>
-              <p>
-                {modalType === 'enroll' 
-                  ? 'Fill out the form below and our counselor will contact you shortly.'
-                  : 'Leave your details and our expert will call you back.'}
-              </p>
-            </div>
-            <form className={styles.modalForm} onSubmit={(e) => { e.preventDefault(); setModalType(null); alert(modalType === 'enroll' ? 'Enrolled Successfully!' : 'Callback Requested!'); }}>
-              <div className={styles.modalInputGroup}>
-                <label>Full Name</label>
-                <input type="text" placeholder="Enter your full name" required />
-              </div>
-              <div className={styles.modalInputGroup}>
-                <label>Phone Number</label>
-                <input type="tel" placeholder="Enter your phone number" required />
-              </div>
-              {modalType === 'enroll' && (
-                <div className={styles.modalInputGroup}>
-                  <label>Email Address</label>
-                  <input type="email" placeholder="Enter your email" required />
-                </div>
-              )}
-              {modalType === 'callback' && (
-                <div className={styles.modalInputGroup}>
-                  <label>Preferred Time</label>
-                  <select required className={styles.timeSelect}>
-                    <option value="">Select a time</option>
-                    <option value="morning">Morning (9 AM - 12 PM)</option>
-                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
-                    <option value="evening">Evening (4 PM - 7 PM)</option>
-                  </select>
-                </div>
-              )}
-              <button type="submit" className={styles.modalSubmitBtn}>
-                {modalType === 'enroll' ? 'Submit Application' : 'Request Callback'}
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
+
+
 
 export default CourseDetailPage;

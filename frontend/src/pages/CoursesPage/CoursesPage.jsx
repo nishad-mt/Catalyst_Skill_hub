@@ -82,7 +82,13 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
                     <p className={styles.feeDesc}>
                       Get access to expert-led training, hands-on projects, and career support — all at a price that fits your budget. No hidden costs, no unnecessary extras. Get access to expert-led training, hands
                     </p>
-                    <button className={styles.feeBtn}>Know Fee Structure</button>
+                    <button 
+                      className={styles.feeBtn}
+                      onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}
+                    >
+                      Know Fee Structure
+                    </button>
+
                   </div>
                 ))}
               </div>
