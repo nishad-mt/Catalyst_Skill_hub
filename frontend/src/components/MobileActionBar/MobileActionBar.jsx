@@ -29,9 +29,12 @@ export default function MobileActionBar({ navigate, currentPage }) {
     <div className={`${styles.actionBar} ${isVisible ? styles.visible : ''}`}>
       <div className={styles.container}>
         {isCourseDetail ? (
-          <a href="#enroll-form" className={styles.btnPrimary}>
+          <button 
+            className={styles.btnPrimary}
+            onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: 'enroll' }))}
+          >
             Enroll Now
-          </a>
+          </button>
         ) : (
           <button 
             className={styles.btnPrimary}
@@ -41,12 +44,18 @@ export default function MobileActionBar({ navigate, currentPage }) {
           </button>
         )}
         
-        <a 
-          href="#contact" 
-          className={styles.btnPrimary}
-        >
-          Contact Now
-        </a>
+        {isCourseDetail ? (
+          <button 
+            className={styles.btnPrimary}
+            onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: 'callback' }))}
+          >
+            Contact Now
+          </button>
+        ) : (
+          <a href="#contact" className={styles.btnPrimary}>
+            Contact Now
+          </a>
+        )}
       </div>
     </div>
   );

@@ -24,6 +24,7 @@ import Footer  from './sections/Footer/Footer';
 
 import CoursesPage from './pages/CoursesPage/CoursesPage';
 import CourseDetailPage from './pages/CourseDetailPage/CourseDetailPage';
+import AboutPage from './pages/AboutPage/AboutPage';
 
 export default function App() {
   // Attach scroll-reveal observer after mount
@@ -33,6 +34,7 @@ export default function App() {
     const path = window.location.pathname;
     if (path.includes('/courses')) return 'courses';
     if (path.includes('/course/')) return 'course-detail';
+    if (path.includes('/about')) return 'about';
     return 'home';
   });
 
@@ -41,6 +43,7 @@ export default function App() {
       const path = window.location.pathname;
       if (path.includes('/courses')) setCurrentPage('courses');
       else if (path.includes('/course/')) setCurrentPage('course-detail');
+      else if (path.includes('/about')) setCurrentPage('about');
       else setCurrentPage('home');
       window.scrollTo(0, 0);
     };
@@ -54,6 +57,7 @@ export default function App() {
     window.history.pushState({}, '', path);
     if (path.includes('/courses')) setCurrentPage('courses');
     else if (path.includes('/course/')) setCurrentPage('course-detail');
+    else if (path.includes('/about')) setCurrentPage('about');
     else setCurrentPage('home');
     window.scrollTo(0, 0);
   };
@@ -69,6 +73,8 @@ export default function App() {
           <CoursesPage searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
         ) : currentPage === 'course-detail' ? (
           <CourseDetailPage />
+        ) : currentPage === 'about' ? (
+          <AboutPage />
         ) : (
           <>
             <Hero    />
@@ -86,7 +92,8 @@ export default function App() {
         <Contact />
       </main>
 
-      <Footer />
+      <Footer navigate={navigate} />
     </>
   );
 }
+

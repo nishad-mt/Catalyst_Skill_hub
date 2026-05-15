@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './Footer.module.css';
 
-export default function Footer() {
+export default function Footer({ navigate }) {
   return (
     <footer className={styles.footer}>
       <div className="container">
@@ -15,11 +15,14 @@ export default function Footer() {
             </div>
             <p className={styles.tagline}>
               Top-rated Tech institute in India guiding for a future in high-demand
+            </p>
             
             <p className={styles.headOffice}>
-            Head Office: </p>
-            
-            Calicut-Happy Tower,Bypass Junction, mankave,Kozhikode,kerala 673007</p>
+              Head Office: 
+            </p>
+            <p className={styles.address}>
+              Calicut-Happy Tower, Bypass Junction, mankave, Kozhikode, kerala 673007
+            </p>
            
             <div className={styles.socials}>
               <a href="#" className={styles.socialIcon} aria-label="Instagram">
@@ -54,9 +57,9 @@ export default function Footer() {
             <div className={styles.col}>
               <h4 className={styles.colTitle}>Courses</h4>
               <ul className={styles.colLinks}>
-                <li><a href="#" className={styles.colLink}>Data Analytics</a></li>
-                <li><a href="#" className={styles.colLink}>Devops</a></li>
-                <li><a href="#" className={styles.colLink}>Cyber Security</a></li>
+                <li><a href="/courses" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/courses'); }}>Data Analytics</a></li>
+                <li><a href="/courses" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/courses'); }}>Devops</a></li>
+                <li><a href="/courses" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/courses'); }}>Cyber Security</a></li>
               </ul>
             </div>
 
@@ -64,8 +67,8 @@ export default function Footer() {
               <h4 className={styles.colTitle}>About Catalyst</h4>
               <ul className={styles.colLinks}>
                 <li><a href="#" className={styles.colLink}>Life@catalyst</a></li>
-                <li><a href="#" className={styles.colLink}>Success Stories</a></li>
-                <li><a href="#" className={styles.colLink}>About Catalyst</a></li>
+                <li><a href="/#stories" className={styles.colLink}>Success Stories</a></li>
+                <li><a href="/about" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/about'); }}>About Catalyst</a></li>
               </ul>
             </div>
 
@@ -74,7 +77,7 @@ export default function Footer() {
               <ul className={styles.colLinks}>
                 <li><a href="#" className={styles.colLink}>Academic Updates</a></li>
                 <li><a href="#" className={styles.colLink}>Blogs</a></li>
-                <li><a href="#" className={styles.colLink}>Contact</a></li>
+                <li><a href="#contact" className={styles.colLink}>Contact</a></li>
               </ul>
             </div>
             <div className={styles.info}>
@@ -142,3 +145,4 @@ export default function Footer() {
     </footer>
   );
 }
+

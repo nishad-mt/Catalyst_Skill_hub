@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './FAQ.module.css';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 
@@ -8,15 +8,38 @@ const FAQ = () => {
   const [activeTab, setActiveTab] = useState('General Questions');
   const [openIndex, setOpenIndex] = useState(0);
 
+  const sidebarRef = useRef(null);
+  const faqItemsRef = useRef([]);
+
   const tabs = Object.keys(faqData);
 
   const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    const isOpening = openIndex !== index;
+    setOpenIndex(isOpening ? index : null);
+    
+    // Auto-scroll the opened question into view on mobile
+    if (isOpening && window.innerWidth < 768) {
+      setTimeout(() => {
+        faqItemsRef.current[index]?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'
+        });
+      }, 300); // Wait for accordion animation
+    }
   };
 
-  const handleTabChange = (tab) => {
+  const handleTabChange = (tab, e) => {
     setActiveTab(tab);
     setOpenIndex(0); // Reset accordion when switching tabs
+
+    // Auto-scroll the tab into view horizontally on mobile
+    if (e && e.currentTarget && window.innerWidth < 768) {
+      e.currentTarget.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest'
+      });
+    }
   };
 
   return (
@@ -31,7 +54,7 @@ const FAQ = () => {
               <button
                 key={tab}
                 className={`${styles.tabItem} ${activeTab === tab ? styles.activeTab : ''}`}
-                onClick={() => handleTabChange(tab)}
+                onClick={(e) => handleTabChange(tab, e)}
               >
                 {tab}
               </button>
@@ -41,7 +64,11 @@ const FAQ = () => {
           {/* FAQ Content */}
           <div className={`${styles.faqContent} reveal-group`}>
             {faqData[activeTab].map((faq, index) => (
-              <div key={index} className={styles.faqItem}>
+              <div 
+                key={index} 
+                className={styles.faqItem}
+                ref={el => faqItemsRef.current[index] = el}
+              >
                 <button
                   className={styles.questionWrapper}
                   onClick={() => toggleAccordion(index)}

@@ -1,13 +1,13 @@
-
 /* 1. Base Styles & Global Utilities (Mobile First) */
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: var(--container-padding);
 }
 
-.loading, .error {
+.loading,
+.error {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,25 +20,31 @@
 
 /* 2. Hero Section */
 .hero {
-  padding: 90px 0 60px;
+  padding: var(--section-padding);
+  padding-top: clamp(100px, 15vw, 120px); /* Extra space for navbar on mobile */
 }
 
 .heroBox {
-  background: linear-gradient(
-    to bottom,
-    #e0e9ff 0%,
-    #dde6ff 70%,
-    #d4ddff 100%
-  );
+  background: linear-gradient(to bottom,
+      #e0e9ff 0%,
+      #dde6ff 70%,
+      #d4ddff 100%);
 
-  border-radius: 40px;
-  padding: 60px 30px;
+  border-radius: clamp(24px, 5vw, 40px);
+  padding: clamp(30px, 5vw, 60px) clamp(15px, 3vw, 30px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 4vw, 40px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  position: relative;
+  /* Removed overflow: hidden to allow sticky children to work */
+}
+
+.heroMain {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-  position: relative;
-  overflow: hidden;
+  width: 100%;
 }
 
 .heroBox::after {
@@ -48,16 +54,16 @@
   left: 0;
   width: 100%;
   height: 180px;
-
-  background: linear-gradient(
-    to top,
-    rgba(37, 100, 235, 0.429),
-    rgba(19, 86, 231, 0.208),
-    transparent
-  );
+  border-radius: inherit; /* Matches the parent's curves */
+  pointer-events: none;
+  background: linear-gradient(to top,
+      rgba(37, 100, 235, 0.429),
+      rgba(19, 86, 231, 0.208),
+      transparent);
 
   pointer-events: none;
 }
+
 .heroLeft {
   display: flex;
   flex-direction: column;
@@ -129,35 +135,58 @@
 }
 
 .infoBar {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgb(255, 255, 255);
   border-radius: 20px;
-  padding: 20px;
+  padding: clamp(10px, 2vw, 15px) clamp(5px, 1.5vw, 10px); /* Dynamically shrinks */
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between; /* Distribute space evenly */
+  gap: 0; /* Removing gap to rely on item padding */
   border: 1px solid rgba(255, 255, 255, 0.5);
-  margin-top: 20px;
-  max-width: 90%;
-  position: relative;
-  z-index: 2;
+  margin-top: 25px;
+  width: 100%;
+  position: sticky;
+  top: 100px; /* Offset for navbar */
+  z-index: 10;
+}
+
+.infoBar::-webkit-scrollbar {
+  display: none;
 }
 
 .infoItem {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px clamp(2px, 1vw, 8px); /* Added vertical padding for wrapped text */
+  min-width: 0;
 }
 
 .infoLabel {
-  font-size: 0.8rem;
+  text-align: center;
+  font-size: clamp(0.45rem, 1.2vw, 0.6rem);
   color: #1e1b4b;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  white-space: normal; /* Allow label to wrap */
+  max-width: 100%;
 }
 
 .infoValue {
-  font-size: 0.9rem;
+  font-size: clamp(0.7rem, 1.3vw, 0.85rem);
   color: #475569;
-  white-space: nowrap;
+  font-weight: 600;
+  white-space: normal; /* Allow value to wrap if needed */
+  text-align: center;
+  line-height: 1.1;
 }
 
 .googleRating {
@@ -168,7 +197,7 @@
 }
 
 .googleRating img {
-  width: 70px;
+  width: 80px;
   margin-left: -5px;
 }
 
@@ -183,8 +212,18 @@
   color: #64748b;
 }
 
+@media (max-width: 600px) {
+  .googleReviewItem {
+    display: none !important;
+  }
+}
+
 .infoDivider {
-  display: none;
+  width: 1px;
+  align-self: stretch; /* Stretches to fit the wrapped item height */
+  background: rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  flex-shrink: 0;
 }
 
 .badges {
@@ -223,7 +262,7 @@
 
 .formCard {
   background: rgba(255, 255, 255, 0.4);
-  padding: 20px;
+  padding: clamp(15px, 3vw, 20px);
   border-radius: 12px;
   width: 100%;
   max-width: 500px;
@@ -233,17 +272,17 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 30px;
+  gap: clamp(15px, 2vw, 20px);
+  margin-top: clamp(20px, 3vw, 30px);
 }
 
 .inputGroup input {
   width: 100%;
-  padding: 18px 24px;
+  padding: clamp(14px, 2vw, 18px) clamp(16px, 2.5vw, 24px);
   border: none;
   background: white;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 1.5vw, 1rem);
   transition: all 0.2s;
   color: #1e1b4b;
 }
@@ -254,16 +293,16 @@
 
 .submitBtn {
   width: 100%;
-  padding: 14px;
+  padding: clamp(12px, 2vw, 14px);
   background: #000033;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
-  margin-top: 100px;
+  margin-top: clamp(30px, 5vw, 80px); /* Reduced massive gap on mobile */
 }
 
 .submitBtn:hover {
@@ -291,25 +330,26 @@
 
 .partnersScroll {
   display: flex;
-  gap: 30px;
+  gap: clamp(30px, 4vw, 60px);
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  opacity: 0.6;
+  opacity: 1; /* Increased visibility */
 }
 
+
 .partnerLogo {
-  height: 24px;
-  max-width: 100px;
+  height: clamp(24px, 3.5vw, 36px);
+  max-width: 120px;
   object-fit: contain;
 }
 
 /* 5. Learning Sessions */
 .learnSection {
   background: #0f172a;
-  padding: 60px 20px;
+  padding: var(--section-padding);
   border-radius: 32px;
-  margin: 40px 20px;
+  margin: 40px 0;
 }
 
 .sectionTitle {
@@ -366,7 +406,7 @@
 
 /* 6. Tools Section */
 .toolsSection {
-  padding: 60px 0;
+  padding: var(--section-padding);
 }
 
 .toolsGrid {
@@ -457,7 +497,7 @@
 
 /* 8. Expert Mentors */
 .mentorsSection {
-  padding: 60px 0;
+  padding: var(--section-padding);
 }
 
 .sectionTitleCenter {
@@ -470,8 +510,8 @@
 
 .mentorsGrid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+  gap: clamp(12px, 2vw, 24px);
 }
 
 .mentorCard {
@@ -482,7 +522,7 @@
 }
 
 .mentorTop {
-  height: 240px;
+  height: clamp(100px, 15vw, 180px); /* Significantly reduced for mobile */
 }
 
 .mentorImg {
@@ -492,34 +532,38 @@
 }
 
 .mentorInfo {
-  padding: 20px;
+  padding: clamp(12px, 2vw, 20px);
 }
 
 .mentorInfo h4 {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   color: #0f172a;
   margin-bottom: 4px;
   font-weight: 700;
 }
 
 .mentorRole {
-  font-size: 0.85rem;
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
   color: #64748b;
-  margin-bottom: 12px;
+  margin-bottom: 6px; /* Reduced margin */
 }
 
 .mentorWork {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #2563eb;
-  margin-bottom: 12px;
+  margin-bottom: 8px; /* Reduced margin */
 }
 
 .mentorDesc {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #475569;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  line-height: 1.4;
+  margin-bottom: 12px; /* Reduced margin */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit lines on mobile */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .mentorSocial {
@@ -568,17 +612,81 @@
 }
 
 /* 11. Testimonials */
-.testimonialsGrid {
-  display: grid;
-  grid-template-columns: 1fr;
+.testimonialsContainer {
+  position: relative;
+  width: 100%;
+}
+
+.testimonialsWrapper {
+  overflow-x: auto;
+  width: 100%;
+  padding: 20px 0;
+  scrollbar-width: none; /* Hide scrollbar */
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+}
+
+.testimonialsWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonialsTrack {
+  display: flex;
   gap: 20px;
+  width: max-content;
+}
+
+.sliderControls {
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  right: -10px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none; /* Let clicks pass through to items if not on button */
+  z-index: 5;
+}
+
+.sliderBtn {
+  background: white;
+  border: 1px solid #e2e8f0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #1e1b4b;
+  pointer-events: auto; /* Re-enable clicks for the button */
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sliderBtn:hover {
+  background: #1e1b4b;
+  color: white;
+  transform: scale(1.1);
 }
 
 .testimonialCard {
   background: white;
-  padding: 24px;
+  padding: clamp(16px, 3vw, 24px);
   border-radius: 20px;
   border: 1px solid #e2e8f0;
+  width: 300px; /* Fixed width for marquee items */
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .testimonialText {
@@ -613,14 +721,23 @@
 }
 
 /* 12. Media Queries (Tablets & Up - 768px) */
-@media (min-width: 768px) {
-  .hero { padding: 140px 0 100px; }
-  
-  .heroBox {
+@media (min-width: 900px) {
+  .hero {
+    padding: var(--section-padding);
+  }
+
+  .heroMain {
+    display: flex;
     flex-direction: row;
-    padding: 80px 60px;
     align-items: center;
     text-align: left;
+    width: 100%;
+    gap: 40px;
+  }
+
+  .heroBox {
+    flex-direction: column;
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 60px);
   }
 
   .heroLeft {
@@ -637,25 +754,36 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 30px;
+    justify-content: space-between; /* Distribute items across full width */
+    padding: 15px 30px;
     width: 100%;
-    max-width: 900px;
     gap: 0;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
   }
 
+
+  .infoValue {
+    font-size: 0.95rem;
+  }
+
+
   .infoDivider {
-    display: block;
-    width: 1px;
-    height: 40px;
-    background: rgba(0, 0, 0, 0.1);
-    margin: 0 20px;
-    flex-shrink: 0;
+    align-self: stretch;
+    height: auto;
+    margin: 10px 0;
   }
 
   .infoItem {
-    flex: 1;
+    flex: 1; /* Stretch to fill space equally */
     min-width: 0;
+    padding: 5px 15px;
+    justify-content: center;
+  }
+
+  .infoLabel {
+    font-size: 0.75rem; /* Scales up slightly for desktop */
   }
 
   .statsBar {
@@ -667,8 +795,13 @@
     padding: 32px;
   }
 
-  .partnersScroll { gap: 60px; }
-  .partnerLogo { height: 32px; }
+  .partnersScroll {
+    gap: 60px;
+  }
+
+  .partnerLogo {
+    height: 32px;
+  }
 
   .learnGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -682,15 +815,20 @@
   .promoGrid {
     flex-direction: row;
   }
-  
+
   .promoBannerBlue {
     flex: 1.5;
     padding: 40px;
     flex-direction: row;
   }
 
-  .promoText h3 { font-size: 1.4rem; }
-  .promoImg { width: 180px; }
+  .promoText h3 {
+    font-size: 1.4rem;
+  }
+
+  .promoImg {
+    width: 180px;
+  }
 
   .promoBannerSolid {
     flex: 0.5;
@@ -698,7 +836,7 @@
   }
 
   .mentorsGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .industriesGrid {
@@ -710,52 +848,261 @@
     height: 400px;
   }
 
-  .studentBannerLeft { flex: 1; }
-  .studentBannerRight { flex: 1; }
-  .studentBannerRight img { height: 100%; }
+  .studentBannerLeft {
+    flex: 1;
+  }
 
-  .testimonialsGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .studentBannerRight {
+    flex: 1;
+  }
+
+  .studentBannerRight img {
+    height: 100%;
+  }
+
+  .testimonialsWrapper {
+    mask-image: none;
+    overflow: visible;
+  }
+
+  .testimonialsTrack {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    width: 100%;
+    animation: none;
+  }
+
+  .sliderControls {
+    display: none; /* Hide arrows on desktop grid */
+  }
+
+  .testimonialCard {
+    width: 100%;
   }
 }
 
-/* 13. Media Queries (Desktops & Up - 1024px) */
-@media (min-width: 1024px) {
-  .container { padding: 0 40px; }
-  
-  .heroBox { 
-    padding: 100px 80px;
-    gap: 80px; 
-  }
-  
-  .statsGrid {
-    grid-template-columns: repeat(6, 1fr);
+@media (max-width: 768px) {
+  .infoItem {
+    gap: 2px;
   }
 
-  .learnGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .toolsGrid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .mentorsGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .testimonialsGrid {
-    grid-template-columns: repeat(4, 1fr);
+  .infoLabel {
+    font-size: 0.6rem;
+    font-weight: 900;
   }
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 24px;
+  position: relative;
+  padding: 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.9) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modalClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f1f5f9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+
+.modalClose:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.modalHeader {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.modalHeader h3 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.modalHeader p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modalInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modalInputGroup label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  text-transform: uppercase;
+}
+
+.modalInputGroup input, .timeSelect {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background: #f8fafc;
+  width: 100%;
+}
+
+.modalInputGroup input:focus, .timeSelect:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: white;
+}
+
+.modalSubmitBtn {
+  margin-top: 10px;
+  background: linear-gradient(135deg, #1e1b4b 0%, #2563eb 100%);
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modalSubmitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.heroInputGroup {
+  margin-bottom: 14px;
+}
+
+.heroInputGroup:last-of-type {
+  margin-bottom: 100px; /* Extra space before the buttons */
+}
+
+.heroInputGroup input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 1rem;
+  color: #0f172a;
+  transition: all 0.2s ease;
+}
+
+.heroInputGroup input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.heroEnrollBtn {
+  width: 100%;
+  padding: 16px;
+  background: #1e1b4b;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+
+.heroEnrollBtn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.heroCallbackBtn {
+  width: 100%;
+  padding: 16px;
+  background: transparent;
+  color: #1e1b4b;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.heroCallbackBtn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
 }
