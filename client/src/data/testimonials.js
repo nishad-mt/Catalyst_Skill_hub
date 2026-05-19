@@ -1,0 +1,58 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: "Varun kumar",
+    role: "Manual & Automation Testing",
+    text: "Clear explanation and practical training helped me understand both manual and automation testing. Classes were very interactive and beginner-friendly.",
+    initials: "VK",
+  },
+  {
+    id: 2,
+    name: "Angelina joy",
+    role: "Data Analytics Student",
+    text: "I joined Tech Hub for the Data Analytics course without any prior knowledge. The way they teach from basics and move step by step made it very easy for me to understand.",
+    initials: "AJ",
+  },
+  {
+    id: 3,
+    name: "Sandeep S",
+    role: "Web Developer",
+    text: "The trainers explained everything step by step. I was able to create a full website by the end of the course. Great learning experience! The classes are simple, practical, and easy to follow.",
+    initials: "SS",
+  },
+  {
+    id: 4,
+    name: "Priya Nair",
+    role: "Full Stack Intern",
+    text: "Great course structure and practical sessions. I learned React and Node.js from scratch and built real projects. The trainers were very supportive throughout the course.",
+    initials: "PN",
+  },
+  {
+    id: 5,
+    name: "Arun K",
+    role: "Career Transitioner",
+    text: "Excellent mentorship! I was able to transition from non-tech to tech smoothly. The real-world projects gave me the confidence to ace my interviews.",
+    initials: "AK",
+  },
+  {
+    id: 6,
+    name: "Meera Das",
+    role: "Software Engineer",
+    text: "I took the Full Stack Development course at Tech Hub, and it was a great experience. The mentors are very supportive and always ready to help.",
+    initials: "MD",
+  },
+  {
+    id: 7,
+    name: "Rahul R",
+    role: "Python Developer",
+    text: "Practical, hands-on learning that actually translates to job skills. The Python course was thorough and the placement support was outstanding.",
+    initials: "RR",
+  },
+  {
+    id: 8,
+    name: "Akhil Menon",
+    role: "React Developer",
+    text: "Catalyst completely changed my career trajectory. The Full Stack program was intense but incredibly rewarding. I got placed within 2 months.",
+    initials: "AM",
+  },
+];
