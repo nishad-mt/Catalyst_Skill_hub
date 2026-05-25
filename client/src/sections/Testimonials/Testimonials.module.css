@@ -70,8 +70,7 @@
 }
 
 /* ── Card Styling ── */
-.card,
-.videoCard {
+.card {
   flex: 0 0 auto;
   width: 320px;
   background: #ffffff;
@@ -85,11 +84,85 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
+.videoCard {
+  flex: 0 0 auto;
+  width: 320px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius-main);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
 .card:hover,
 .videoCard:hover {
   transform: translateY(-5px);
   border-color: #0a1450;
   box-shadow: 0 10px 25px rgba(10, 20, 80, 0.1);
+}
+
+.videoThumbnailContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  overflow: hidden;
+}
+
+.cardVideoThumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.videoCardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 20, 80, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.videoCardOverlay svg {
+  transition: transform 0.2s ease;
+}
+
+.videoCard:hover .videoCardOverlay {
+  background: rgba(10, 20, 80, 0.55);
+}
+
+.videoCard:hover .videoCardOverlay svg {
+  transform: scale(1.15);
+}
+
+.videoCardInfo {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: #ffffff;
+}
+
+.videoCardName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0a1450;
+  margin: 0;
+}
+
+.videoCardRole {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin: 0;
 }
 
 .cardHeader {
@@ -140,25 +213,64 @@
   color: #334155;
   line-height: 1.6;
   margin: 0;
-  white-space: normal; /* Allow text to wrap inside the card */
+  white-space: normal;
 }
 
-.videoCard {
-  background-color: #0a1450;
-  border-color: #0a1450;
+/* ── Video Modal Player ── */
+.videoModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
 }
 
-.videoCard svg {
-  margin-bottom: 0.5rem;
+.videoModalContent {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  background-color: #000000;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.videoText {
+.videoModalClose {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
   color: #ffffff;
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 2rem;
+  font-weight: 300;
+  cursor: pointer;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.videoModalClose:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modalVideoPlayer {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
 }
 
 /* ── Responsive ── */
