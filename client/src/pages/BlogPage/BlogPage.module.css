@@ -99,7 +99,7 @@
 .blogGrid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  grid-auto-rows: 1fr;
+  align-items: start;
   align-content: start;
   gap:1.2rem;
 }
@@ -107,7 +107,6 @@
 .blogCard{
   border:0.5px solid rgb(39,39,255);
   border-radius:8px;
-  height: 380px;
 
   display:flex;
   flex-direction:column;
