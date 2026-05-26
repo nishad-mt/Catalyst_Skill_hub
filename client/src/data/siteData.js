@@ -14,3 +14,4 @@ export * from './companyLogos';
 export * from './skills';
 export * from './mentors';
 export * from './faqData';
+export * from './blogs';

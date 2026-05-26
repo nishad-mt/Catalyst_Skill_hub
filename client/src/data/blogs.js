@@ -6,144 +6,1242 @@ import nthelum from "../assets/promo_thinking.png";
 import nandu from "../assets/nandootty.png";
 
 export const blogs = [
+{
+  id: 1,
+  courseSlug: "full-stack-web-development",
 
-  // FULL STACK WEB DEVELOPMENT
-  {
-    id: 1,
-    courseSlug: "full-stack-web-development",
-    title: "React vs Next.js: Which Should You Learn?",
-    description:
-      "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
 
-    date: "May 20, 2026",
-    read:"3 min read",
-    image: reactImg,
-  },
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
 
-  {
-    id: 2,
-    courseSlug: "full-stack-web-development",
-    title: "Building REST APIs with Node.js & Express",
-    description:
-      "Learn how to create scalable backend APIs using Express middleware and best practices.",
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
 
-    date: "May 15, 2026",
-    read:"2 min read",
-    image: nthelum,
-  },
+    heroImage: cyberImg,
 
-  // DATA SCIENCE & AI
-  {
-    id: 3,
-    courseSlug: "data-science-ai",
-    title: "Getting Started with Machine Learning",
-    description:
-      "A beginner roadmap to machine learning, algorithms, datasets, and model training.",
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
 
-    date: "May 12, 2026",
-    read:"3 min read",
-    image: aiImg,
-  },
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
 
-  {
-    id: 4,
-    courseSlug: "data-science-ai",
-    title: "Python Libraries Every Data Scientist Must Know",
-    description:
-      "Explore Pandas, NumPy, Matplotlib, TensorFlow, and essential AI tools.",
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
 
-    date: "May 8, 2026",
-    read:"3 min read",
-    image: nandu,
-  },
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
 
-  // DIGITAL MARKETING
-  {
-    id: 5,
-    courseSlug: "digital-marketing",
-    title: "SEO Strategies That Actually Work in 2026",
-    description:
-      "Learn modern SEO techniques to improve search visibility and organic growth.",
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
 
-    date: "May 10, 2026",
-    read:"3 min read",
-    image: cloudImg,
-  },
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
 
-  // UI / UX
-  {
-    id: 6,
-    courseSlug: "ui-ux-design",
-    title: "UI vs UX: Understanding the Difference",
-    description:
-      "Discover the core principles of user interface and user experience design.",
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
 
-    date: "May 6, 2026",
-    read:"3 min read",
-    image: cloudImg,
-  },
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
 
-  // PYTHON
-  {
-    id: 7,
-    courseSlug: "python-programming",
-    title: "Python for Beginners: Complete Starter Guide",
-    description:
-      "Learn variables, loops, functions, OOP, and practical scripting with Python.",
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 2,
+  courseSlug: "full-stack-web-development",
 
-    date: "May 3, 2026",
-    read:"3 min read",
-    image: reactImg,
-  },
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
 
-  // AWS CLOUD
-  {
-    id: 8,
-    courseSlug: "aws-cloud-computing",
-    title: "AWS Beginner Guide: EC2, S3 & IAM Explained",
-    description:
-      "Start your cloud journey by understanding AWS core services and architecture.",
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
 
-    date: "May 1, 2026",
-    read:"3 min read",
-    image: cloudImg,
-  },
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
 
-  // CYBER SECURITY
-  {
-    id: 9,
-    courseSlug: "cyber-security",
-    title: "Ethical Hacking Roadmap for Beginners",
-    description:
-      "Learn penetration testing, network security, Linux basics, and security tools.",
+    heroImage: cyberImg,
 
-    date: "April 28, 2026",
-    read:"3 min read",
-    image: cyberImg,
-  },
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
 
-  {
-    id: 10,
-    courseSlug: "cyber-security",
-    title: "Top Cyber Security Tools You Should Know",
-    description:
-      "Explore Nmap, Wireshark, Burp Suite, Metasploit, and real-world security workflows.",
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
 
-    date: "April 24, 2026",
-    read:"1 min read",
-    image: cyberImg,
-  },
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
 
-  // MERN STACK
-  {
-    id: 11,
-    courseSlug: "mern-stack",
-    title: "Complete MERN Stack Development Guide",
-    description:
-      "Master MongoDB, Express, React, and Node.js for full-stack applications.",
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
 
-    date: "April 20, 2026",
-    read:"3 min read",
-    image: reactImg,
-  },
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 3,
+  courseSlug: "full-stack-web-development",
+
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
+
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
+
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
+
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
+
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 4,
+  courseSlug: "full-stack-web-development",
+
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
+
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
+
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
+
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
+
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 5,
+  courseSlug: "full-stack-web-development",
+
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
+
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
+
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
+
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
+
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 6,
+  courseSlug: "full-stack-web-development",
+
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
+
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
+
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
+
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
+
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 7,
+  courseSlug: "full-stack-web-development",
+
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
+
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
+
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
+
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
+
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 8,
+  courseSlug: "full-stack-web-development",
+
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
+
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
+
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
+
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
+
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 9,
+  courseSlug: "full-stack-web-development",
+
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
+
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
+
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
+
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
+
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 10,
+  courseSlug: "full-stack-web-development",
+
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
+
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
+
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
+
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
+
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 11,
+  courseSlug: "full-stack-web-development",
+
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
+
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
+
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
+
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
+
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+{
+  id: 1,
+  courseSlug: "full-stack-web-development",
+
+  // Card Data (used in blog listing)
+  title: "React vs Next.js: Which Should You Learn?",
+  description:
+    "Understand the differences between React and Next.js and choose the right path for modern web development.",
+  date: "May 20, 2026",
+  read: "3 min read",
+  image: aiImg,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "React vs Next.js: Which Should You Learn?",
+
+    heroDescription:
+      "Learn the key differences between React and Next.js and understand when to use each for modern web applications.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is React?",
+      "What is Next.js?",
+      "React vs Next.js Comparison",
+      "When Should You Choose React?",
+      "When Should You Choose Next.js?",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+React and Next.js are two popular technologies used for modern web development.
+While React is a JavaScript library for building user interfaces,
+Next.js is a framework built on top of React.
+Choosing the right one depends on your project requirements.
+        `
+      },
+
+      {
+        heading: "What is React?",
+        text: `
+React is an open-source JavaScript library developed by Meta.
+It focuses on creating reusable UI components and dynamic interfaces.
+React mainly handles the frontend view layer.
+        `
+      },
+
+      {
+        heading: "What is Next.js?",
+        text: `
+Next.js is a React framework that adds routing,
+server-side rendering, API routes, SEO optimization,
+and improved performance capabilities.
+        `
+      },
+
+      {
+        heading: "React vs Next.js Comparison",
+        text: `
+React provides flexibility and control.
+Next.js provides structure, performance optimizations,
+and production-ready features out of the box.
+        `
+      },
+
+      {
+        heading: "When Should You Choose React?",
+        text: `
+Choose React if you need a lightweight frontend library,
+custom architecture, or SPA applications.
+        `
+      },
+
+      {
+        heading: "When Should You Choose Next.js?",
+        text: `
+Choose Next.js when SEO, server rendering,
+performance optimization, or full-stack capabilities are important.
+        `
+      },
+
+      {
+        heading: "Conclusion",
+        text: `
+Both React and Next.js are powerful.
+Your choice should depend on project goals,
+SEO needs, scalability, and development style.
+        `
+      }
+    ],
+
+    cta: {
+      title: "Ready to Start Learning Web Development?",
+      description:
+        "Join our Full Stack Development program and build real-world applications.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
+
+  
 ];

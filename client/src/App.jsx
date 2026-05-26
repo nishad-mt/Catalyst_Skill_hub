@@ -28,6 +28,7 @@ import CourseDetailPage from './pages/CourseDetailPage/CourseDetailPage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import SuccessStoriesPage from './pages/SuccessStoriesPage/SuccessStoriesPage';
 import BlogPage from './pages/BlogPage/BlogPage';
+import BlogDetails from './pages/BlogDetails/BlogDetails';
 import LifePage from './pages/LifePage/LifePage';
 import CenterDetailPage from './pages/CenterDetailPage/CenterDetailPage';
 import ContactModal from './components/ContactModal/ContactModal';
@@ -44,6 +45,7 @@ export default function App() {
     if (path.includes('/about')) return 'about';
     if (path.includes('/success-stories')) return 'success-stories';
     if (path.includes('/life')) return 'life';
+    if (path.includes('/blogs/'))return 'blog-detail';
     if (path.includes('/blogs')) return 'blogs';
     return 'home';
   });
@@ -79,7 +81,8 @@ export default function App() {
       else if (path.includes('/about')) setCurrentPage('about');
       else if (path.includes('/success-stories')) setCurrentPage('success-stories');
       else if (path.includes('/life')) setCurrentPage('life');
-      else if (path.includes('/blogs')) setCurrentPage('blogs');
+      else if (path.includes('/blogs/')) setCurrentPage('blog-detail');
+      else if (path.includes('/blogs')) setCurrentPage('blogs'); 
       else setCurrentPage('home');
       window.scrollTo(0, 0);
     };
@@ -98,6 +101,7 @@ export default function App() {
     else if (path.includes('/about')) setCurrentPage('about');
     else if (path.includes('/success-stories')) setCurrentPage('success-stories');
     else if (path.includes('/life')) setCurrentPage('life');
+    else if (path.includes('/blogs/')) setCurrentPage('blog-detail');
     else if (path.includes('/blogs')) setCurrentPage('blogs');
     else setCurrentPage('home');
     window.scrollTo(0, 0);
@@ -123,9 +127,11 @@ export default function App() {
           <SuccessStoriesPage />
         ) : currentPage === 'life' ? (
           <LifePage />
+        ) : currentPage === 'blog-detail' ? (
+          <BlogDetails key={currentPath} />
         ) : currentPage === 'blogs' ? (
           <BlogPage />
-        ) : (
+        ): (
           <>
             <Hero    />
             <StatsBar    />
