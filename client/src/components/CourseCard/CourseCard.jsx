@@ -42,6 +42,11 @@ export default function CourseCard({ course, navigate }) {
       <div className={styles.cardBody}>
         {/* Title */}
         <h3 className={styles.title}>{course.title}</h3>
+        <p className={styles.revrating}><span className={styles.rating}>{course.rating}</span> rating</p>
+
+         {/* Duration */}
+        <p className={styles.duration}>{course.duration || '6 months / 3 Months'} 
+          <span className={styles.mode}>{course.mode || 'Online / Offline'}</span></p>
 
         {/* Description */}
         <p className={styles.desc}>
@@ -55,12 +60,6 @@ export default function CourseCard({ course, navigate }) {
             </button>
           )}
         </p>
-
-        {/* Duration */}
-        <p className={styles.duration}>{course.duration || '6 months / 3 Months'}</p>
-
-        {/* Mode */}
-        <p className={styles.mode}>{course.mode || 'Online / Offline'}</p>
 
         <div className={styles.actions}>
           <a

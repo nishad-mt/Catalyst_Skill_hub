@@ -215,6 +215,11 @@ const CourseDetailPage = () => {
 
     if (foundCourse) {
       setCourse(foundCourse);
+      document.title = `${foundCourse.title} Course | Catalyst Skill Hub`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', `${foundCourse.desc} Duration: ${foundCourse.duration}. Learn in-demand skills through hands-on training.`);
+      }
     } else {
       setCourse(null);
     }

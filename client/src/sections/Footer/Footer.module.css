@@ -252,6 +252,17 @@
   color: #4b5563;
 }
 
+.campusLink {
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.campusLink:hover {
+  color: #312e81;
+}
+
 @media (min-width: 768px) {
   .campusList {
     flex: 1;
@@ -286,10 +297,17 @@
     gap: 0.5rem;
   }
   
-  .campusList span {
+  .campusList a {
     background: #e5e7eb;
     padding: 2px 8px;
     border-radius: 4px;
     font-size: 0.75rem;
+    color: #4b5563;
+    text-decoration: none;
+  }
+
+  .campusList a:hover {
+    background: #312e81;
+    color: #ffffff;
   }
 }

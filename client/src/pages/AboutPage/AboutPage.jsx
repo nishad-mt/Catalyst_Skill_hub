@@ -14,6 +14,11 @@ const AboutPage = () => {
   useScrollReveal();
 
   useEffect(() => {
+    document.title = "About Us | Catalyst Skill Hub — Architecting the Future of Digital Talent";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', "At Catalyst, we cultivate the next generation of innovators, problem-solvers, and digital leaders through industry-aligned, practical learning.");
+    }
     window.scrollTo(0, 0);
   }, []);
 

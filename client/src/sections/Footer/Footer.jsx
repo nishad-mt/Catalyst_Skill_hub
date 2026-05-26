@@ -122,23 +122,23 @@ export default function Footer({ navigate }) {
         <div className={styles.bottom}>
           <h4 className={styles.campusTitle}>Campus</h4>
           <div className={styles.campusList}>
-            <span>Calicut</span>
+            <a href="/center/calicut" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/calicut'); }}>Calicut</a>
             <span className={styles.divider}>|</span>
-            <span>Kannur</span>
+            <a href="/center/kannur" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/kannur'); }}>Kannur</a>
             <span className={styles.divider}>|</span>
-            <span>Thrissur</span>
+            <a href="/center/thrissur" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/thrissur'); }}>Thrissur</a>
             <span className={styles.divider}>|</span>
-            <span>Manjeri</span>
+            <a href="/center/manjeri" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/manjeri'); }}>Manjeri</a>
             <span className={styles.divider}>|</span>
-            <span>Vadakara</span>
+            <a href="/center/vadakara" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/vadakara'); }}>Vadakara</a>
             <span className={styles.divider}>|</span>
-            <span>Perinthelmanna</span>
+            <a href="/center/perinthalmanna" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/perinthalmanna'); }}>Perinthelmanna</a>
             <span className={styles.divider}>|</span>
-            <span>Edappal</span>
+            <a href="/center/edappal" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/edappal'); }}>Edappal</a>
             <span className={styles.divider}>|</span>
-            <span>Kottakkal</span>
+            <a href="/center/kottakkal" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/kottakkal'); }}>Kottakkal</a>
             <span className={styles.divider}>|</span>
-            <span>Ernakulam</span>
+            <a href="/center/ernakulam" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/ernakulam'); }}>Ernakulam</a>
           </div>
         </div>
       </div>

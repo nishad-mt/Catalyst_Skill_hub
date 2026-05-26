@@ -1,0 +1,739 @@
+/* CenterDetailPage.module.css */
+
+.loadingContainer,
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+  text-align: center;
+  color: #111827;
+}
+
+.errorContainer h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.errorContainer p {
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.centerPage {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+  color: #1f2937;
+  background-color: #ffffff;
+}
+
+/* Announcement Strip */
+.announcementStrip {
+  background-color: #2563eb;
+  padding: 0.75rem 0;
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.announcementText {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #01053C;
+  padding: 5rem 0;
+  color: #ffffff;
+  position: relative;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.campusBadge {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(37, 99, 235, 0.4);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: 0.4rem 1.2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  line-height: 1.25;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+}
+
+.heroDesc {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0 0 2.5rem 0;
+}
+
+.exploreBtn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.95rem 2.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.exploreBtn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.exploreBtn:active {
+  transform: translateY(0);
+}
+
+/* Form Card */
+.formCard {
+  background-color: #c4c4c4; /* Silver/grey matching reference image */
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  color: #111827;
+  max-width: 420px;
+  margin-left: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.formTitle {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 1.75rem 0;
+  color: #1f2937;
+  letter-spacing: -0.2px;
+}
+
+.inputGroup {
+  margin-bottom: 1.2rem;
+}
+
+.inputField,
+.selectField {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid #b3b3b3;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.inputField::placeholder {
+  color: #7c7c7c;
+}
+
+.inputField:focus,
+.selectField:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.selectField {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234b5563' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  background-size: 1.1rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.submitBtn {
+  width: 100%;
+  background-color: #2563eb; /* Prominent Blue Button */
+  color: #ffffff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  letter-spacing: 0.5px;
+}
+
+.submitBtn:hover {
+  background-color: #1d4ed8;
+}
+
+.submitBtn:active {
+  transform: scale(0.98);
+}
+
+.requestCallText {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1.25rem;
+  color: #1f2937;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.requestCallText:hover {
+  color: #2563eb;
+}
+
+/* Success State */
+.successState {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.successIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #d1fae5;
+  color: #10b981;
+  font-size: 1.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-bottom: 1.25rem;
+}
+
+.successState h4 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+  color: #111827;
+}
+
+.successState p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.resetBtn {
+  background-color: transparent;
+  color: #2563eb;
+  border: 1px dashed #2563eb;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.resetBtn:hover {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+/* Stats Bar */
+.statsBar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #f3f4f6;
+  padding: 2.5rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+  z-index: 10;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.statNum {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.4;
+}
+
+
+
+
+/* Courses Offered Section */
+.coursesSection {
+  padding: 7rem 0;
+  background-color: #ffffff;
+}
+
+.coursesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .coursesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .coursesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.noCourses {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  color: #4b5563;
+}
+
+/* ===== CONTACT & MAP SECTION ===== */
+
+/* SECTION */
+
+.contactMapSection{
+  padding:1rem 0;
+  background:#f8fafc;
+}
+
+.sectionTitle{
+  font-size:3rem;
+  margin-bottom:2rem;
+  color:#111827;
+}
+
+/* GRID */
+
+.contactMapGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:stretch;
+}
+
+/* MAP */
+
+.mapCard{
+  overflow:hidden;
+  border-radius:12px;
+  background:#fff;
+}
+
+.iframeWrapper{
+  height:100%;
+  min-height:280px;
+}
+
+.iframeWrapper iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* RIGHT PANEL */
+
+.infoPanel{
+  background:#dfeaf3;
+  border-radius:12px;
+  padding:1rem;
+
+  display:flex;
+  flex-direction:column;
+  gap:0.4rem;
+}
+
+.addressBox{
+  margin-bottom: 0.5rem;
+}
+
+.addressBox h4{
+  margin-bottom:0.5rem;
+  font-size:1.1rem;
+}
+
+.locationCard{
+  background:#fff;
+  padding:0.75rem;
+
+  border-radius:20px;
+
+  color:#4b5563;
+  line-height:1.5;
+}
+
+/* BOTTOM CARDS */
+
+.bottomGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+
+.contactMiniCard{
+  background:#fff;
+
+  padding:0.75rem;
+  border-radius:22px;
+}
+
+.contactMiniCard h5{
+  margin-bottom:0.5rem;
+  font-size:1.1rem;
+}
+
+.contactMiniCard a{
+  display:block;
+  color:#111827;
+  font-size:1.1rem;
+  font-weight:700;
+
+  text-decoration:none;
+
+  margin-bottom:0.3rem;
+}
+
+.contactMiniCard p{
+  color:#6b7280;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+  .contactMapGrid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .sectionTitle{
+    font-size:2rem;
+  }
+
+  .bottomGrid{
+    grid-template-columns:1fr;
+  }
+
+  .iframeWrapper{
+    min-height:350px;
+  }
+
+}
+
+.blueText{
+  color: #1d4ed8;
+}
+
+.header{
+  margin-top: 80px;
+  font-size: 2rem;
+  color: #1d4ed8;
+}
+
+.Subtitle{
+  margin-bottom: 80px;
+}
+
+.campusGridSubtitle{
+  display: flow-root;
+}
+
+.skilled{
+  font-size: 2.5rem;
+}
+
+.campusGridLayout {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* LEFT SIDE */
+.campusStatsLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Top Row */
+.statsRowTop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Bottom Row */
+.statsRowBottom {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+}
+
+/* Card Styling */
+.blueStatCard {
+  background: #c5dcff8b;
+  padding: 20px 22px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+}
+
+.blueStatCard h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.blueStatCard h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.blueStatCard p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Optional column customizations */
+.col1 {
+  min-height: 220px;
+}
+
+.col2 {
+  background: #c5dcff8b;
+}
+
+.col3 {
+  min-height: 220px;
+}
+
+/* RIGHT IMAGE SECTION */
+.campusImageRight {
+  width: 100%;
+  height: 100%;
+}
+
+.campusImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.skillsCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.skillCheckCard {
+  background: #8faef85d;
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  transition: 0.3s ease;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .skillsCardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .skillsCardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+
+  /* Image top */
+  .campusGridLayout{
+    display:flex;
+    flex-direction:column-reverse;
+    gap:20px;
+  }
+
+  /* Make one unified grid */
+  .campusStatsLeft{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .statsRowTop,
+  .statsRowBottom{
+    display:contents;
+  }
+
+  /* Make col2 go down */
+  .col2{
+    grid-column: span 2;
+    order:10;
+  }
+
+  .campusImg{
+    height:280px;
+    object-fit:cover;
+  }
+
+}
+/* Media Queries */
+@media (max-width: 1100px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .formCard {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contactMapGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3.5rem 0;
+  }
+  
+  .heroTitle {
+    font-size: 2.15rem;
+  }
+  
+  .featuresSection,
+  .coursesSection,
+  .contactMapSection {
+    padding: 3.5rem 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .announcementText {
+    font-size: 0.85rem;
+  }
+  
+  .heroTitle {
+    font-size: 1.85rem;
+  }
+  
+  .heroDesc {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .statNum {
+    font-size: 2.25rem;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sectionHeader h2,
+  .contactInfo h2 {
+    font-size: 1.75rem;
+  }
+  
+  .formCard {
+    padding: 1.75rem 1.25rem;
+  }
+  
+  .iframeWrapper {
+    height: 280px;
+  }
+}

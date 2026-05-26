@@ -29,6 +29,7 @@ import AboutPage from './pages/AboutPage/AboutPage';
 import SuccessStoriesPage from './pages/SuccessStoriesPage/SuccessStoriesPage';
 import BlogPage from './pages/BlogPage/BlogPage';
 import LifePage from './pages/LifePage/LifePage';
+import CenterDetailPage from './pages/CenterDetailPage/CenterDetailPage';
 import ContactModal from './components/ContactModal/ContactModal';
 
 export default function App() {
@@ -39,12 +40,15 @@ export default function App() {
     const path = window.location.pathname;
     if (path.includes('/courses')) return 'courses';
     if (path.includes('/course/')) return 'course-detail';
+    if (path.includes('/center/')) return 'center-detail';
     if (path.includes('/about')) return 'about';
     if (path.includes('/success-stories')) return 'success-stories';
     if (path.includes('/life')) return 'life';
     if (path.includes('/blogs')) return 'blogs';
     return 'home';
   });
+  
+  const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
 
   const [modalConfig, setModalConfig] = useState({
     isOpen: false,
@@ -68,8 +72,10 @@ export default function App() {
 
     const handlePopState = () => {
       const path = window.location.pathname;
+      setCurrentPath(path);
       if (path.includes('/courses')) setCurrentPage('courses');
       else if (path.includes('/course/')) setCurrentPage('course-detail');
+      else if (path.includes('/center/')) setCurrentPage('center-detail');
       else if (path.includes('/about')) setCurrentPage('about');
       else if (path.includes('/success-stories')) setCurrentPage('success-stories');
       else if (path.includes('/life')) setCurrentPage('life');
@@ -85,8 +91,10 @@ export default function App() {
 
   const navigate = (path) => {
     window.history.pushState({}, '', path);
+    setCurrentPath(path);
     if (path.includes('/courses')) setCurrentPage('courses');
     else if (path.includes('/course/')) setCurrentPage('course-detail');
+    else if (path.includes('/center/')) setCurrentPage('center-detail');
     else if (path.includes('/about')) setCurrentPage('about');
     else if (path.includes('/success-stories')) setCurrentPage('success-stories');
     else if (path.includes('/life')) setCurrentPage('life');
@@ -106,7 +114,9 @@ export default function App() {
         {currentPage === 'courses' ? (
           <CoursesPage searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
         ) : currentPage === 'course-detail' ? (
-          <CourseDetailPage />
+          <CourseDetailPage key={currentPath} />
+        ) : currentPage === 'center-detail' ? (
+          <CenterDetailPage key={currentPath} navigate={navigate} />
         ) : currentPage === 'about' ? (
           <AboutPage />
         ) : currentPage === 'success-stories' ? (

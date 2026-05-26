@@ -10,6 +10,7 @@ export const courses = [
     desc: "Master React, Node.js, MongoDB & more. Build production-grade apps from scratch.",
     duration: "6 months",
     fee: "₹45,000",
+    rating:"4.8",
     img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",
     whatYouWillLearn: [
       { id: 1, icon: "🌐", title: "Frontend Mastery", desc: "Deep dive into HTML5, CSS3, and modern JavaScript (ES6+)." },
@@ -34,6 +35,7 @@ export const courses = [
     desc: "Python, ML, deep learning, and real-world datasets with live industry projects.",
     duration: "6 months",
     fee: "₹50,000",
+    rating:"4.9",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
     whatYouWillLearn: [
       { id: 1, icon: "🐍", title: "Python for Data Science", desc: "Master Python libraries like Pandas, NumPy, and Matplotlib." },
@@ -58,6 +60,7 @@ export const courses = [
     desc: "SEO, SEM, social media strategy, analytics, and high-performance campaigns.",
     duration: "3 months",
     fee: "₹25,000",
+    rating:"4.7",
     img: nandanaImg,
     whatYouWillLearn: [
       { id: 1, icon: "🔍", title: "SEO Optimization", desc: "Master on-page and off-page SEO to rank higher on Google." },
@@ -82,6 +85,7 @@ export const courses = [
     desc: "Figma, user research, wireframing, and building modern design systems.",
     duration: "4 months",
     fee: "₹35,000",
+    rating:"4.8",
     img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80",
     whatYouWillLearn: [
       { id: 1, icon: "🎨", title: "Design Principles", desc: "Learn color theory, typography, and visual hierarchy." },
@@ -106,6 +110,7 @@ export const courses = [
     desc: "From basics to advanced: automation, scripting, APIs, and data processing.",
     duration: "3 months",
     fee: "₹20,000",
+    rating:"4.8",
     img: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600&q=80",
     whatYouWillLearn: [
       { id: 1, icon: "📜", title: "Core Python", desc: "Master variables, loops, functions, and data structures." },
@@ -130,6 +135,7 @@ export const courses = [
     desc: "Cloud fundamentals, EC2, S3, Lambda, DevOps essentials, and certifications.",
     duration: "4 months",
     fee: "₹40,000",
+    rating:"4.8",
     img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
     whatYouWillLearn: [
       { id: 1, icon: "☁️", title: "Cloud Fundamentals", desc: "Understand IaaS, PaaS, and SaaS models on AWS." },
@@ -155,6 +161,7 @@ export const courses = [
     desc: "Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed",
     duration: "8 months",
     fee: "₹89,999",
+    rating:"4.8",
     img: chork,
     whatYouWillLearn: [
       { id: 1, icon: "🛡️", title: "Fundamentals of Cyber Security", desc: "Understand core concepts like threats, vulnerabilities, risk management, and security principles." },
@@ -187,6 +194,7 @@ export const courses = [
     desc: "Javascript, Node js, Type Script, React, Mongo DB , and PSQL.",
     duration: "7 months",
     fee: "₹59,000",
+    rating:"4.7",
     img: rose,
     whatYouWillLearn: [
       { id: 1, icon: "🍃", title: "MongoDB Mastery", desc: "Deep dive into NoSQL database design and aggregation." },
