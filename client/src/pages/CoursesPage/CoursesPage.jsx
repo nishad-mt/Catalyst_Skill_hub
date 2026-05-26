@@ -56,18 +56,8 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
         <div className={`${styles.promoSection} reveal`}>
           <div className={`${styles.promoContainer} reveal-group`}>
 
-            <div className={styles.promoLeft}>
+            <div className={styles.promoTopRow}>
               <h2 className={styles.promoHeading}>Explore All Tech Professional Ai Powered Courses</h2>
-              <div className={styles.promoImgWrap}>
-                <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
-                  alt="Students reading"
-                  className={styles.promoImg}
-                />
-              </div>
-            </div>
-
-            <div className={styles.promoRight}>
               <div className={styles.statsRow}>
                 <div className={styles.statItem}>
                   <h3 className={styles.statNum}>100%</h3>
@@ -81,6 +71,20 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
                   <h3 className={styles.statNum}>25000+</h3>
                   <p className={styles.statLabel}>Students Yearly</p>
                 </div>
+                <div className={styles.statItem}>
+                  <h3 className={styles.statNum}>50+</h3>
+                  <p className={styles.statLabel}>Hiring Partners</p>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.promoBottomRow}>
+              <div className={styles.promoImgWrap}>
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
+                  alt="Students reading"
+                  className={styles.promoImg}
+                />
               </div>
 
               <div className={styles.feeCards}>
@@ -96,7 +100,6 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
                     >
                       Know Fee Structure
                     </button>
-
                   </div>
                 ))}
               </div>
