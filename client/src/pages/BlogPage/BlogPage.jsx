@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './BlogPage.module.css';
 import { courses } from '../../data/siteData';
 import { blogs } from '../../data/blogs';
@@ -10,6 +10,8 @@ export default function BlogPage() {
   }, []);
 
   const [selectedCourse, setSelectedCourse] = useState(null);
+
+  const itemRefs = useRef({});
 
   const filteredBlogs = selectedCourse
     ? blogs.filter(
@@ -34,30 +36,50 @@ export default function BlogPage() {
 
       <section className={styles.layout}>
 
-        {/* LEFT SIDEBAR */}
-        <aside className={styles.sidebar}>
+<aside className={styles.sidebar}>
 
-          <div
-            className={`${styles.courseItem}
-            ${selectedCourse === null ? styles.active : ''}`}
-            onClick={() => setSelectedCourse(null)}
-          >
-            All Blogs
-          </div>
+  <div
+    ref={(el) => (itemRefs.current["all"] = el)}
+    className={`${styles.courseItem}
+    ${selectedCourse === null ? styles.active : ''}`}
 
-          {courses.map((course) => (
-            <div
-              key={course.id}
-              className={`${styles.courseItem}
-              ${selectedCourse?.id === course.id ? styles.active : ''}`}
+    onClick={() => {
+      setSelectedCourse(null);
 
-              onClick={() => setSelectedCourse(course)}
-            >
-              {course.title}
-            </div>
-          ))}
+      itemRefs.current["all"]?.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest"
+      });
+    }}
+  >
+    All Blogs
+  </div>
 
-        </aside>
+  {courses.map((course) => (
+    <div
+      key={course.id}
+
+      ref={(el) => (itemRefs.current[course.id] = el)}
+
+      className={`${styles.courseItem}
+      ${selectedCourse?.id === course.id ? styles.active : ''}`}
+
+      onClick={() => {
+        setSelectedCourse(course);
+
+        itemRefs.current[course.id]?.scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest"
+        });
+      }}
+    >
+      {course.title}
+    </div>
+  ))}
+
+</aside>
 
         {/* RIGHT BLOG GRID */}
         <div className={styles.blogGrid}>

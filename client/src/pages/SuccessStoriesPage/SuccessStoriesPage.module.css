@@ -1,383 +1,394 @@
-/* src/pages/SuccessStoriesPage/SuccessStoriesPage.module.css */
+/* ---------- PAGE ---------- */
 
-.page {
-  color: #1e293b;
-  overflow-x: hidden;
-  font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
-  position: relative;
+.page{
+    width:100%;
+    overflow:hidden;
 }
 
-/* Background Orbs */
-.orb1, .orb2 {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  z-index: 0;
-  pointer-events: none;
+
+/* ---------- HERO ---------- */
+
+.hero{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+
+    padding:170px 50px 80px;
 }
 
-.orb1 {
-  width: 50vw;
-  height: 50vw;
-  top: -10vw;
-  left: -20vw;
-  background: rgba(99, 102, 241, 0.15);
+.heroContent{
+    max-width:700px;
 }
 
-.orb2 {
-  width: 60vw;
-  height: 60vw;
-  top: 40vh;
-  right: -30vw;
-  background: rgba(236, 72, 153, 0.1);
+.heroTitle{
+    display:flex;
+    flex-direction:column;
+
+    font-size:2rem;
+    color:#0a1450;
 }
 
-/* Hero Section */
-.hero {
-  position: relative;
-  padding: 200px 0 120px;
-  text-align: center;
-  z-index: 2;
+.heroDesc{
+    margin-top:20px;
+
+    color:#444;
+    line-height:1.8;
 }
 
-.heroContent {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
+
+/* ---------- IMAGE SECTION ---------- */
+
+.imageSection{
+
+    width:100%;
+
+    display:flex;
+    gap:8px;
+
+    height:360px;
+
+    margin-top:50px;
 }
 
-.badgeWrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
+.imageCard{
+
+    flex:1;
+    overflow:hidden;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.45s ease;
 }
 
-.badge {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border-radius: 100px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  color: #4f46e5;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+.imageCard:first-child{
+    flex:2.5;
 }
 
-.badgeGlow {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
-  animation: shine 3s infinite;
+.imageSection:hover .imageCard{
+    flex:1;
 }
 
-@keyframes shine {
-  to {
-    left: 200%;
-  }
+.imageSection:hover .imageCard:hover{
+    flex:2.5;
 }
 
-.heroTitle {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  font-weight: 900;
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.03em;
-  color: #0f172a;
+.imageCard img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    display:block;
 }
 
-.gradientText {
-  background: linear-gradient(135deg, #6366f1 0%, #ec4899 50%, #f43f5e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
+
+/* ---------- CAREER SECTION ---------- */
+
+.careerSection{
+    width:100%;
+    margin-top:90px;
 }
 
-.heroDesc {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
-  color: #475569;
-  line-height: 1.8;
-  max-width: 600px;
-  margin: 0 auto;
+
+/* ---------- SLIDER ---------- */
+
+.sliderWrapper{
+    position:relative;
+    margin-top:40px;
 }
 
-/* Stories Zig Zag */
-.storiesSection {
-  padding: 40px 0 160px;
-  position: relative;
-  z-index: 2;
+.slider{
+    overflow:hidden;
+    background:#0a1450;
+    border-radius:16px;
+    padding:20px 0;
 }
 
-.zigZagContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
+
+/* ---------- PLAY BUTTON ---------- */
+
+.playBtn{
+
+    position:absolute;
+    top:-60px;
+    right:0;
+    border:none;
+    padding:12px 22px;
+    border-radius:999px;
+    background:#0a1450;
+    color:#fff;
+    cursor:pointer;
+    font-weight:600;
+    transition:.25s ease;
+    z-index:10;
 }
 
-.zigZagRow {
-  display: flex;
-  align-items: center;
-  gap: 80px;
+.playBtn:hover{
+    background:#16237d;
 }
 
-.rowReverse {
-  flex-direction: row-reverse;
+.track{
+
+    display:flex;
+    gap:20px;
+    width:max-content;
+    padding-inline:20px;
+    animation:scroll 80s linear infinite;
 }
 
-.imageCol {
-  flex: 0.75;
-  position: relative;
+.paused{
+    animation-play-state:paused;
 }
 
-.imageGlow {
-  position: absolute;
-  inset: -20px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
-  filter: blur(40px);
-  border-radius: 40px;
-  z-index: 0;
-  opacity: 0.4;
-  transition: opacity 0.5s ease;
+.card{
+    flex:0 0 250px;
+    min-height:300px;
+    background:#fff;
+    border-radius:16px;
+    padding:12px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.10);
+
+    transition:.3s ease;
 }
 
-.zigZagRow:hover .imageGlow {
-  opacity: 0.7;
+.card:hover{
+    transform:translateY(-5px);
 }
 
-.imageWrapper {
-  position: relative;
-  z-index: 1;
-  border-radius: 30px;
-  overflow: hidden;
-  aspect-ratio: 1 / 1;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+
+/* ---------- TEXT ---------- */
+
+.role{
+    font-weight: 500;
+    color:#222;
+    font-size:15px;
 }
 
-.studentImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+.text{
+
+    color:#222;
+    line-height:1.9;
+    font-size:15px;
 }
 
-.zigZagRow:hover .studentImg {
-  transform: scale(1.05) rotate(1deg);
+.name{
+
+    text-align:center;
+    color:#0a1450;
+    font-size:18px;
+    font-weight:700;
 }
 
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.4) 0%, transparent 40%);
+
+/* ---------- VIDEO ---------- */
+
+.video{
+
+    width:100%;
+    height:100%;
+    border-radius:cover;
+    object-fit:cover;
 }
 
-.textCol {
-  flex: 1.2;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+.videoCard{
+    padding:0;
+    overflow:hidden;
 }
 
-.quoteMark {
-  font-family: 'Outfit', serif;
-  font-size: 8rem;
-  line-height: 0.8;
-  color: rgba(99, 102, 241, 0.15);
-  position: absolute;
-  top: -40px;
-  left: -20px;
-  pointer-events: none;
+/* ---------- ANIMATION ---------- */
+
+@keyframes scroll{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(calc(-50% - 10px));
+    }
 }
 
-.quote {
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
-  color: #334155;
-  line-height: 1.6;
-  font-style: italic;
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 1;
+
+/* ---------- CTA SECTION ---------- */
+
+.ctaSection{
+    padding:40px 20px 80px;
 }
 
-.studentInfo {
-  margin-bottom: 20px;
+.ctaBox{
+
+    position:relative;
+
+    border-radius:40px;
+
+    padding:1px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(99,102,241,.5),
+        rgba(236,72,153,.5)
+    );
 }
 
-.studentName {
-  font-family: 'Outfit', sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 8px;
+.ctaGlow{
+
+    position:absolute;
+    inset:0;
+
+    border-radius:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #6366f1,
+        #ec4899
+    );
+
+    filter:blur(40px);
+
+    opacity:.20;
+
+    z-index:-1;
 }
 
-.studentRole {
-  color: #6366f1;
-  font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+.ctaContent{
+
+    background:#0a1450;
+
+    border-radius:39px;
+
+    padding:45px 30px;
+
+    text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
-.placementBadge {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 20px;
-  padding: 16px 24px;
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  align-self: flex-start;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+.ctaBox h2{
+
+    color:#fff;
+
+    font-size:clamp(1.8rem,3vw,3rem);
+
+    margin-bottom:20px;
 }
 
-.companyLabel {
-  font-size: 0.85rem;
-  color: #64748b;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+.ctaBox p{
+
+    max-width:650px;
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
 }
 
-.companyName {
-  font-size: 1.3rem;
-  font-weight: 900;
-  background: linear-gradient(to right, #0f172a, #334155);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.ctaBtn{
+
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+
+    border:none;
+
+    padding:18px 40px;
+
+    border-radius:100px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #6366f1,
+        #ec4899
+    );
+
+    color:#fff;
+
+    font-size:1rem;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s ease;
 }
 
-/* CTA Section */
-.ctaSection {
-  padding: 40px 20px 80px;
-  position: relative;
-  z-index: 2;
+.ctaBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(236,72,153,.35);
 }
 
-.ctaBox {
-  position: relative;
-  border-radius: 40px;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(236, 72, 153, 0.5));
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:992px){
+
+    .card{
+        flex:0 0 250px;
+        min-height:320px;
+    }
+
 }
 
-.ctaGlow {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #6366f1, #ec4899);
-  filter: blur(40px);
-  opacity: 0.2;
-  z-index: -1;
-  border-radius: 40px;
+
+@media(max-width:768px){
+
+    .hero{
+        padding:150px 20px 70px;
+    }
+
+    .imageSection{
+        height:auto;
+        gap:6px;
+        margin-top:30px;
+    }
+
+    .imageCard{
+        height:220px;
+    } 
+
+
+    .track{
+        gap:16px;
+        padding-inline:16px;
+    }
+
+    .card{
+
+        flex:0 0 250px;
+        min-height:200px;
+    }
+
+    .playBtn{
+
+        top:-55px;
+        right:10px;
+    }
+
+    .ctaContent{
+        padding:35px 20px;
+    }
+
 }
 
-.ctaContent {
-  background: #0a1450;
-  border-radius: 39px;
-  padding: 40px 30px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
 
-.ctaBox h2 {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 3rem);
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #ffffff;
-}
+@media(max-width:480px){
 
-.ctaBox p {
-  font-size: 1.05rem;
-  color: #cbd5e1;
-  max-width: 600px;
-  margin: 0 auto 30px;
-  line-height: 1.6;
-}
+    .card{
+        flex:0 0 200px;
+    }
 
-.ctaBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-  color: #ffffff;
-  border: none;
-  padding: 18px 40px;
-  border-radius: 100px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.25);
-}
+    .heroTitle{
+        font-size:1.6rem;
+    }
 
-.ctaBtn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(236, 72, 153, 0.35);
-}
-
-.ctaBtn svg {
-  transition: transform 0.3s ease;
-}
-
-.ctaBtn:hover svg {
-  transform: translateX(4px);
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .zigZagRow {
-    flex-direction: column;
-    gap: 60px;
-  }
-  
-  .rowReverse {
-    flex-direction: column;
-  }
-  
-  .imageCol, .textCol {
-    width: 100%;
-  }
-
-  .imageWrapper {
-    aspect-ratio: 16 / 9;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding: 160px 0 80px;
-  }
-  
-  .storiesSection {
-    padding: 20px 0 80px;
-  }
-  
-  .zigZagContainer {
-    gap: 80px;
-  }
-  
-  .imageWrapper {
-    aspect-ratio: 4 / 3;
-  }
-  
-  .ctaContent {
-    padding: 30px 20px;
-  }
 }

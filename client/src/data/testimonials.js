@@ -1,3 +1,7 @@
+import successVideo from '../assets/videos/success.mp4';
+import parthivVideo from '../assets/videos/parthiv.mp4';
+import adithVideo from '../assets/videos/adith.mp4';
+
 export const testimonials = [
   {
     id: 1,
@@ -8,10 +12,11 @@ export const testimonials = [
   },
   {
     id: 2,
-    name: "Angelina joy",
-    role: "Data Analytics Student",
-    text: "I joined Tech Hub for the Data Analytics course without any prior knowledge. The way they teach from basics and move step by step made it very easy for me to understand.",
-    initials: "AJ",
+    name: "Arya Biju",
+    role: "React Developer",
+    text: "Catalyst completely changed my career trajectory. The Full Stack program was intense but incredibly rewarding. I got placed within 2 months.",
+    initials: "AM",
+    video: successVideo,
   },
   {
     id: 3,
@@ -28,11 +33,12 @@ export const testimonials = [
     initials: "PN",
   },
   {
-    id: 5,
-    name: "Arun K",
-    role: "Career Transitioner",
-    text: "Excellent mentorship! I was able to transition from non-tech to tech smoothly. The real-world projects gave me the confidence to ace my interviews.",
-    initials: "AK",
+    id: 10,
+    name: "Parthiv",
+    role: "Full stack Developer",
+    text: "Catalyst completely changed my career trajectory. The Full Stack program was intense but incredibly rewarding. I got placed within 2 months.",
+    initials: "AM",
+    video: parthivVideo,
   },
   {
     id: 6,
@@ -55,4 +61,27 @@ export const testimonials = [
     text: "Catalyst completely changed my career trajectory. The Full Stack program was intense but incredibly rewarding. I got placed within 2 months.",
     initials: "AM",
   },
+  {
+    id: 9,
+    name: "Adith",
+    role: "Python Developer",
+    text: "Catalyst completely changed my career trajectory. The Full Stack program was intense but incredibly rewarding. I got placed within 2 months.",
+    initials: "AM",
+    video: adithVideo,
+  },
+  {
+    id: 10,
+    name: "Arun K",
+    role: "Career Transitioner",
+    text: "Excellent mentorship! I was able to transition from non-tech to tech smoothly. The real-world projects gave me the confidence to ace my interviews.",
+    initials: "AK",
+  },
+  {
+    id: 11,
+    name: "Angelina joy",
+    role: "Data Analytics Student",
+    text: "I joined Tech Hub for the Data Analytics course without any prior knowledge. The way they teach from basics and move step by step made it very easy for me to understand.",
+    initials: "AJ",
+  },
+  
 ];

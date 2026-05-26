@@ -14,7 +14,6 @@
   --blue-light: #eff6ff;
   --white: #ffffff;
   --bg: #0a1450;
-  --bg: #0a1450;
   --text: #ffffff;
   --muted: #94a3b8;
   --border: rgba(255, 255, 255, 0.1);
@@ -33,31 +32,34 @@
 }
 
 /* 2. Global Base Styles */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100%;
-  position: relative;
-  max-width: 100%;
-
-
-  background-color: white;
-  color: var(--text);
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* scroll-behavior: smooth; */
-
-  /* Allow native scrolling behavior */
-  touch-action: auto;
+html{
+  width:100%;
+  overflow-x:hidden;
 }
 
-#root {
-  width: 100%;
-  max-width: 100%;
-  position: relative;
+body{
+  margin:0;
+  padding:0;
+
+  width:100%;
+  min-height:100%;
+
+  overflow-x:hidden;   /* IMPORTANT */
+
+  background:white;
+  color:var(--text);
+
+  font-family:'Open Sans',sans-serif;
+
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+
+  touch-action:auto;
+}
+
+#root{
+  width:100%;
+  overflow-x:hidden;   /* IMPORTANT */
 }
 
 main {
