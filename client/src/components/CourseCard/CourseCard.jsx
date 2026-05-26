@@ -37,11 +37,11 @@ export default function CourseCard({ course, navigate }) {
           loading="lazy"
         />
         {course.tag && <span className={styles.categoryBadge}>{course.tag}</span>}
+        <h3 className={styles.titleOverlay}>{course.title}</h3>
       </div>
 
       <div className={styles.cardBody}>
-        {/* Title */}
-        <h3 className={styles.title}>{course.title}</h3>
+        <h3 className={styles.courseTitle}>{course.title} + AI Integration</h3>
         <p className={styles.revrating}><span className={styles.rating}>{course.rating}</span> rating</p>
 
          {/* Duration */}

@@ -1,6 +1,7 @@
 import nandanaImg from '../assets/nandana.jpeg';
 import chork from '../assets/chorkk.png'
 import rose from '../assets/rose.png'
+import list from '../assets/list.png'
 
 export const courses = [
   {
@@ -11,7 +12,7 @@ export const courses = [
     duration: "6 months",
     fee: "₹45,000",
     rating:"4.8",
-    img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",
+    img: list,
     whatYouWillLearn: [
       { id: 1, icon: "🌐", title: "Frontend Mastery", desc: "Deep dive into HTML5, CSS3, and modern JavaScript (ES6+)." },
       { id: 2, icon: "⚛️", title: "React & Redux", desc: "Build dynamic, high-performance UIs with React and state management." },
@@ -36,7 +37,7 @@ export const courses = [
     duration: "6 months",
     fee: "₹50,000",
     rating:"4.9",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    img: list,
     whatYouWillLearn: [
       { id: 1, icon: "🐍", title: "Python for Data Science", desc: "Master Python libraries like Pandas, NumPy, and Matplotlib." },
       { id: 2, icon: "📊", title: "Statistical Analysis", desc: "Learn probability, statistics, and hypothesis testing." },
@@ -61,7 +62,7 @@ export const courses = [
     duration: "3 months",
     fee: "₹25,000",
     rating:"4.7",
-    img: nandanaImg,
+    img: list,
     whatYouWillLearn: [
       { id: 1, icon: "🔍", title: "SEO Optimization", desc: "Master on-page and off-page SEO to rank higher on Google." },
       { id: 2, icon: "📱", title: "Social Media Marketing", desc: "Build brand presence on Instagram, LinkedIn, and Facebook." },
@@ -86,7 +87,7 @@ export const courses = [
     duration: "4 months",
     fee: "₹35,000",
     rating:"4.8",
-    img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80",
+    img: list,
     whatYouWillLearn: [
       { id: 1, icon: "🎨", title: "Design Principles", desc: "Learn color theory, typography, and visual hierarchy." },
       { id: 2, icon: "👥", title: "User Research", desc: "Conduct interviews and usability testing to understand users." },
