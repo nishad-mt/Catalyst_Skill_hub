@@ -98,17 +98,16 @@ export default function BlogPage() {
                 <p className={styles.blogDescription}>
           {blog.description}
         </p>
-<a
-  className={styles.link}
-  href="#"
-  onClick={(e) => {
-    e.preventDefault();
-    window.history.pushState({}, '', `/blogs/${blog.id}`);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  }}
->
-  Read More
-</a>
+        <a
+          className={styles.link}
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.history.pushState({}, '', `/blogs/${blog.id}`);
+            window.dispatchEvent(new PopStateEvent('popstate'));
+          }}>
+          Read More
+        </a>
               </div>
 
             </div>

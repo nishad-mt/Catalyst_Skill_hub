@@ -34,7 +34,7 @@
 /* 2. Global Base Styles */
 html{
   width:100%;
-  overflow-x:hidden;
+  overflow-x:clip;
 }
 
 body{
@@ -44,7 +44,7 @@ body{
   width:100%;
   min-height:100%;
 
-  overflow-x:hidden;   /* IMPORTANT */
+  overflow-x:clip;   /* IMPORTANT */
 
   background:white;
   color:var(--text);
@@ -59,7 +59,7 @@ body{
 
 #root{
   width:100%;
-  overflow-x:hidden;   /* IMPORTANT */
+  overflow-x:clip;   /* IMPORTANT */
 }
 
 main {
