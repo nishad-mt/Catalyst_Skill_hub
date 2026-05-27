@@ -2035,6 +2035,18 @@
   .marqueeContainer::after {
     width: 60px;
   }
+  .tag{
+    margin-top: 10px;
+  }
+  .statGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1rem;
+  }
+
+  .statItem{
+    width:100%;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2048,9 +2060,10 @@
   .learnListGrid, .toolsLearnGrid {
     grid-template-columns: 1fr;
   }
-  .statGrid {
-    grid-template-columns: 1fr;
-    margin-top: 30px;
+  .statGrid{
+    grid-template-columns:repeat(2,1fr);
+    gap:1rem;
+    margin-top:30px;
   }
   .newPromoGrid, .featuresGrid, .splitInfoGrid {
     grid-template-columns: 1fr;

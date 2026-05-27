@@ -39,8 +39,8 @@ export default function App() {
 
   const [currentPage, setCurrentPage] = useState(() => {
     const path = window.location.pathname;
-    if (path.includes('/courses')) return 'courses';
     if (path.includes('/course/')) return 'course-detail';
+    if (path.includes('/courses')) return 'courses';
     if (path.includes('/center/')) return 'center-detail';
     if (path.includes('/about')) return 'about';
     if (path.includes('/success-stories')) return 'success-stories';
@@ -75,8 +75,8 @@ export default function App() {
     const handlePopState = () => {
       const path = window.location.pathname;
       setCurrentPath(path);
-      if (path.includes('/courses')) setCurrentPage('courses');
-      else if (path.includes('/course/')) setCurrentPage('course-detail');
+      if (path.includes('/course/')) setCurrentPage('course-detail');
+      else if (path.includes('/courses')) setCurrentPage('courses');
       else if (path.includes('/center/')) setCurrentPage('center-detail');
       else if (path.includes('/about')) setCurrentPage('about');
       else if (path.includes('/success-stories')) setCurrentPage('success-stories');
@@ -95,8 +95,8 @@ export default function App() {
   const navigate = (path) => {
     window.history.pushState({}, '', path);
     setCurrentPath(path);
-    if (path.includes('/courses')) setCurrentPage('courses');
-    else if (path.includes('/course/')) setCurrentPage('course-detail');
+    if (path.includes('/course/')) setCurrentPage('course-detail');
+    else if (path.includes('/courses')) setCurrentPage('courses');
     else if (path.includes('/center/')) setCurrentPage('center-detail');
     else if (path.includes('/about')) setCurrentPage('about');
     else if (path.includes('/success-stories')) setCurrentPage('success-stories');

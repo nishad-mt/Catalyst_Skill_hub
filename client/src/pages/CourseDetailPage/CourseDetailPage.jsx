@@ -134,7 +134,7 @@ const CourseDetailPage = () => {
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/nishadmt.py@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -150,7 +150,7 @@ const CourseDetailPage = () => {
       setHeroSuccess(true);
     } catch (error) {
       console.error(error);
-      const mailtoLink = `mailto:nishadmt.py@gmail.com?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
+      const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
         `Name: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}`
       )}`;
       
@@ -502,7 +502,7 @@ const CourseDetailPage = () => {
                     PageURL: window.location.href,
                   };
                   try {
-                    await fetch("https://formsubmit.co/ajax/nishadmt.py@gmail.com", {
+                    await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
                       method: "POST",
                       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                       body: JSON.stringify(payload)

@@ -124,7 +124,7 @@ export default function CenterDetailPage({ navigate }) {
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/nishadmt.py@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -140,7 +140,7 @@ export default function CenterDetailPage({ navigate }) {
       setSuccess(true);
     } catch (error) {
       console.error(error);
-      const mailtoLink = `mailto:nishadmt.py@gmail.com?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
+      const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
         `Name: ${payload.Name}\nPhone: ${payload.Phone}\nCourse: ${payload.SelectedCourse}\nCenter: ${payload.CenterName}\nPage: ${payload.PageURL}`
       )}`;
       

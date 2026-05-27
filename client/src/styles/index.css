@@ -2,8 +2,10 @@
 /* 1. Global Reset & Box Sizing */
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
+*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 :root {
@@ -35,16 +37,16 @@
 html{
   width:100%;
   overflow-x:clip;
+  overscroll-behavior:none;
 }
 
 body{
   margin:0;
   padding:0;
-
+  overscroll-behavior:none;
   width:100%;
   min-height:100%;
 
-  overflow-x:clip;   /* IMPORTANT */
 
   background:white;
   color:var(--text);

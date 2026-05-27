@@ -57,9 +57,9 @@ export default function Footer({ navigate }) {
             <div className={styles.col}>
               <h4 className={styles.colTitle}>Courses</h4>
               <ul className={styles.colLinks}>
-                <li><a href="/courses" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/courses'); }}>Data Analytics</a></li>
-                <li><a href="/courses" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/courses'); }}>Devops</a></li>
-                <li><a href="/courses" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/courses'); }}>Cyber Security</a></li>
+                <li><a href="/course/digital-marketing" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/course/digital-marketing'); }}>Digital Marketing</a></li>
+                <li><a href="/course/python-programming" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/course/python-programming'); }}>Python Developer</a></li>
+                <li><a href="/course/data-science-ai" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/course/data-science-ai'); }}>Data Science</a></li>
               </ul>
             </div>
 
@@ -75,8 +75,8 @@ export default function Footer({ navigate }) {
             <div className={styles.col}>
               <h4 className={styles.colTitle}>Resources</h4>
               <ul className={styles.colLinks}>
-                <li><a href="#" className={styles.colLink}>Academic Updates</a></li>
-                <li><a href="#" className={styles.colLink}>Blogs</a></li>
+                <li><a href="/life" className={styles.colLink} onClick={(e)=>{e.preventDefault();navigate('/life')}}>Life @ Catalyst</a></li>
+                <li><a href="/blogs" className={styles.colLink} onClick={(e)=>{e.preventDefault();navigate('/blogs')}}>Blogs</a></li>
                 <li><a href="#contact" className={styles.colLink}>Contact</a></li>
               </ul>
             </div>
@@ -84,14 +84,14 @@ export default function Footer({ navigate }) {
               <h4 className={styles.infoTitle}>Contact us</h4>
               <ul className={styles.infoLinks}>
                 <li>
-                  <a href="mailto:catalyst.tech.hub@gmail.com" className={styles.infoLink}>
+                  <a href="mailto:hello@catalysthub.in@gmail.com" className={styles.infoLink}>
                     <span className={styles.infoIcon}>
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                       </svg>
                     </span>
-                    catalyst.tech.hub@gmail.com
+                    hello@catalysthub.in@gmail.com
                   </a>
                 </li>
                 <li>

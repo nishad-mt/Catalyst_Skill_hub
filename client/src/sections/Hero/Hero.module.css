@@ -442,44 +442,30 @@
 }
 
 /* Mobile — stack vertically */
-@media (max-width: 850px) {
+@media (max-width: 860px) {
   .hero {
-    padding: 10px 0 60px;
+    padding: 0px 0 60px;
+  }
+
+  .left{
+    margin-top: 70px;
   }
 
   .heroBox {
     flex-direction: column;
     text-align: center;
-    padding: 5rem 1.25rem 4rem;
+    padding: 4rem 1.25rem 4rem;
     /* Reduced top padding to match compact mobile navbar */
     gap: 0;
     border-radius: 0 0 70px 70px;
   }
 
-  .left {
-    max-width: 100%;
-    align-items: center;
-    display: contents;
-  }
-
-  .badge {
-    order: 1;
-    margin: 0 auto 1.5rem !important;
-    /* Center and add space below badge */
-  }
-
-  /* ── Correct visual order ──
-     1. badge
-     2. title
-     3. image (right)
-     4. desc
-     5. button
-     6. "Our Programmes" label + tags
-     7. companiesWrapper (contains its own label + logos)
-  */
-  .badge {
-    order: 1;
-  }
+  .left{
+  max-width:100%;
+  display:block;
+  flex-direction:column;
+  align-items:center;
+}
 
   .title {
     order: 2;

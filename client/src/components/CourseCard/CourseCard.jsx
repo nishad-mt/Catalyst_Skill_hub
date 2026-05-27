@@ -68,8 +68,7 @@ export default function CourseCard({ course, navigate }) {
             onClick={(e) => {
               e.preventDefault();
               navigate(`/course/${course.slug}`);
-            }}
-          >
+            }}>
             View Course
           </a>
         </div>

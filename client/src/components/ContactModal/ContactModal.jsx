@@ -41,7 +41,7 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '' }) 
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/nishadmt.py@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '' }) 
       }, 2000);
     } catch (error) {
       console.error(error);
-      const mailtoLink = `mailto:nishadmt.py@gmail.com?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
+      const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
         `Name: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}`
       )}`;
       

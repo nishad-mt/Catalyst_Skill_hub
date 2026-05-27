@@ -37,7 +37,7 @@ export default function Contact() {
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/nishadmt.py@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export default function Contact() {
       setForm({ name: '', phone: '', email: '' });
     } catch (error) {
       console.error(error);
-      const mailtoLink = `mailto:nishadmt.py@gmail.com?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
+      const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
         `Name: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nPage: ${payload.PageURL}`
       )}`;
       
@@ -81,7 +81,7 @@ export default function Contact() {
             </p>
 
             <div className={styles.contactInfo}>
-              <a href="mailto:catalyst.tech@gmail.com" className={styles.infoItem}>
+              <a href="mailto:hello@catalysthub.in@gmail.com" className={styles.infoItem}>
                 <div className={styles.iconWrapper}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -90,7 +90,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className={styles.infoLabel}>Email Us</span>
-                  <span className={styles.infoValue}>catalyst.tech@gmail.com</span>
+                  <span className={styles.infoValue}>hello@catalysthub.in@gmail.com</span>
                 </div>
               </a>
 
