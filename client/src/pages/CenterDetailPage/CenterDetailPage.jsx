@@ -112,15 +112,17 @@ export default function CenterDetailPage({ navigate }) {
     setSubmitting(true);
 
     const payload = {
-      _subject: `New Lead: Center Page Callback [${center.name}]`,
-      _captcha: 'false',
+      _subject: `🚀 New Lead - ${center.name}`,
+      _captcha: "false",
+      _template: "table",
+
       FormType: type,
       Name: formData.name,
       Phone: formData.phone,
-      SelectedCourse: formData.course || 'Not Selected',
+      SelectedCourse: formData.course || "Not Selected",
       CenterName: center.name,
       PageURL: window.location.href,
-      SubmissionTime: new Date().toLocaleString()
+      SubmissionTime: new Date().toLocaleString(),
     };
 
     try {

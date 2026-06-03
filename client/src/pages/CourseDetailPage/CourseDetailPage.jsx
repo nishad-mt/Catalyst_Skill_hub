@@ -122,15 +122,25 @@ const CourseDetailPage = () => {
     setHeroSubmitting(true);
 
     const payload = {
-      _subject: type === 'enroll' ? `New Enrollment Lead: ${course ? course.title : 'General'}` : `New Callback Request: ${course ? course.title : 'General'}`,
-      _captcha: 'false',
-      FormType: type === 'enroll' ? 'Enrollment' : 'Callback Request',
+      _subject:
+        type === "enroll"
+          ? `🎓 New Enrollment Lead - ${course?.title || "General"}`
+          : `📞 New Callback Request - ${course?.title || "General"}`,
+
+      _captcha: "false",
+      _template: "table",
+
+      LeadType: type === "enroll" ? "Enrollment" : "Callback Request",
       Name: heroFormData.name,
       Phone: heroFormData.phone,
-      Email: heroFormData.email || 'N/A',
+      Email: heroFormData.email || "N/A",
+      Course: course?.title || "N/A",
+
+      Source: "Course Landing Page",
+      Referrer: document.referrer || "Direct",
+
       PageURL: window.location.href,
-      CourseOfInterest: course ? course.title : 'N/A',
-      SubmissionTime: new Date().toLocaleString()
+      SubmittedAt: new Date().toLocaleString(),
     };
 
     try {

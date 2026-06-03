@@ -35,15 +35,21 @@ const BlogDetails = () => {
     setIsSubmitting(true);
 
     const payload = {
-      _subject: `New Enrollment Lead from Blog: ${blog.title}`,
-      _captcha: 'false',
-      FormType: 'Enrollment',
-      Name: 'Blog Reader Lead',
+      _subject: `📝 Blog Lead - ${blog.title}`,
+      _captcha: "false",
+      _template: "table",
+
+      LeadType: "Blog Inquiry",
+      Name: "Blog Reader Lead",
       Phone: cleanPhone,
-      Email: 'N/A',
+      Email: "N/A",
+
+      BlogTitle: blog.title,
+      Source: "Blog Page",
+
+      Referrer: document.referrer || "Direct",
       PageURL: window.location.href,
-      CourseOfInterest: blog.title || 'N/A',
-      SubmissionTime: new Date().toLocaleString()
+      SubmittedAt: new Date().toLocaleString(),
     };
 
     try {

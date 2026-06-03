@@ -26,14 +26,14 @@ export default function Contact() {
     setLoading(true);
 
     const payload = {
-      _subject: 'New Contact Form Submission',
-      _captcha: 'false',
-      FormType: 'General Contact',
+      _subject: "New Contact Form Submission",
+      _template: "table",
+
       Name: form.name,
       Phone: form.phone,
       Email: form.email,
       PageURL: window.location.href,
-      SubmissionTime: new Date().toLocaleString()
+      SubmissionTime: new Date().toLocaleString(),
     };
 
     try {
@@ -89,7 +89,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className={styles.infoLabel}>Email Us</span>
-                  <span className={styles.infoValue}>hello@catalysthub.in@gmail.com</span>
+                  <span className={styles.infoValue}>hello@catalysthub.in</span>
                 </div>
               </a>
 

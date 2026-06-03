@@ -29,15 +29,27 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '' }) 
     setIsSubmitting(true);
 
     const payload = {
-      _subject: type === 'enroll' ? `New Enrollment Lead: ${courseTitle || 'General'}` : 'New Callback Request',
-      _captcha: 'false',
-      FormType: type === 'enroll' ? 'Enrollment' : 'Callback Request',
+      _subject:
+        type === "enroll"
+          ? `🎓 New Enrollment Lead - ${courseTitle || "General"}`
+          : "📞 New Callback Request",
+
+      _captcha: "false",
+      _template: "table",
+
+      LeadType: type === "enroll" ? "Enrollment" : "Callback Request",
+
       Name: formData.name,
       Phone: formData.phone,
-      Email: formData.email,
+      Email: formData.email || "N/A",
+
+      Course: courseTitle || "N/A",
+
+      Source: "Course Page",
+      Referrer: document.referrer || "Direct",
+
       PageURL: window.location.href,
-      CourseOfInterest: courseTitle || 'N/A',
-      SubmissionTime: new Date().toLocaleString()
+      SubmittedAt: new Date().toLocaleString(),
     };
 
     try {
