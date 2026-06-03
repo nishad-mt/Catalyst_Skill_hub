@@ -141,7 +141,7 @@ export default function CenterDetailPage({ navigate }) {
     } catch (error) {
       console.error(error);
       const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Name: ${payload.Name}\nPhone: ${payload.Phone}\nCourse: ${payload.SelectedCourse}\nCenter: ${payload.CenterName}\nPage: ${payload.PageURL}`
+        `Form Type: ${payload.FormType}\nName: ${payload.Name}\nPhone: ${payload.Phone}\nCourse: ${payload.SelectedCourse}\nCenter: ${payload.CenterName}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
       )}`;
       
       if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via email instead?")) {

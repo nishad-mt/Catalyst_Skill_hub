@@ -61,7 +61,7 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '' }) 
     } catch (error) {
       console.error(error);
       const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Name: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}`
+        `Form Type: ${payload.FormType}\nName: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
       )}`;
       
       if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via your email app instead?")) {

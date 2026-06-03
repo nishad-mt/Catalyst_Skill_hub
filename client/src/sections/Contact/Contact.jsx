@@ -55,12 +55,11 @@ export default function Contact() {
     } catch (error) {
       console.error(error);
       const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Name: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nPage: ${payload.PageURL}`
+        `Form Type: ${payload.FormType}\nName: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
       )}`;
       
-      if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via your email app instead?")) {
+      if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via email instead?")) {
         window.location.href = mailtoLink;
-        setForm({ name: '', phone: '', email: '' });
       }
     } finally {
       setLoading(false);
@@ -81,7 +80,7 @@ export default function Contact() {
             </p>
 
             <div className={styles.contactInfo}>
-              <a href="mailto:hello@catalysthub.in@gmail.com" className={styles.infoItem}>
+              <a href="mailto:hello@catalysthub.in" className={styles.infoItem}>
                 <div className={styles.iconWrapper}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>

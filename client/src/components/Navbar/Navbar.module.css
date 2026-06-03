@@ -98,7 +98,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: clamp(160px, 25vw, 380px);
+  width: clamp(140px, 20vw, 280px);
   flex-shrink: 1;
   min-width: 0;
 }
@@ -130,6 +130,140 @@
 
 .searchInput::placeholder {
   color:#393939
+}
+
+/* ============================================================
+   AUTOCOMPLETE SUGGESTION LIST — Desktop
+   ============================================================ */
+
+.suggestionList {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  z-index: 2000;
+  animation: suggestionFadeIn 0.18s ease;
+  overflow: hidden;
+  min-width: 580px;
+  max-width: 90vw;
+}
+
+.trendSearchHeader {
+  padding: 0.4rem 0.75rem 0.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2d3138;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.suggestionGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+}
+
+@keyframes suggestionFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.suggestionItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.86rem;
+  color: #1e293b;
+  background: #6565655c;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 2px;
+}
+
+.suggestionItem:hover {
+  background: #3333336d;
+}
+
+.suggestionActive {
+  background: #e8eeff !important;
+  color: #1378D1;
+}
+
+.suggestionIcon {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #000000;
+}
+
+/* ============================================================
+   AUTOCOMPLETE SUGGESTION LIST — Mobile
+   ============================================================ */
+
+.mobileSuggestionList {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background: #1a2460;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  z-index: 2100;
+  animation: suggestionFadeIn 0.18s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.mobileSuggestionItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 2px;
+}
+
+.mobileSuggestionItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mobileSuggestionActive {
+  background: rgba(19, 120, 209, 0.35) !important;
+  color: #93c5fd;
+}
+
+.mobileSuggestionIcon {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.mobileSearchBox {
+  position: relative;
 }
 /* ============================================================
    RIGHT SIDE
@@ -484,7 +618,12 @@
   }
 
   .inner {
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 4rem;
+  }
+
+  .right {
+    margin-left: auto;
   }
 }
 
@@ -517,7 +656,7 @@
   }
 
   .searchBox {
-    width: clamp(120px, 18vw, 220px);
+    width: clamp(100px, 15vw, 180px);
   }
 
   .searchIcon {
@@ -556,7 +695,7 @@
   }
 
   .searchBox {
-    width: clamp(160px, 20vw, 280px);
+    width: clamp(140px, 16vw, 220px);
   }
 }
 
@@ -573,7 +712,7 @@
   }
 
   .searchBox {
-    width: clamp(240px, 24vw, 340px);
+    width: clamp(180px, 18vw, 260px);
   }
 }
 
@@ -599,7 +738,7 @@
   }
 
   .searchBox {
-    width: 380px;
+    width: 280px;
   }
 
   .nav .logo {

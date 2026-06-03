@@ -151,7 +151,7 @@ const CourseDetailPage = () => {
     } catch (error) {
       console.error(error);
       const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Name: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}`
+        `Form Type: ${payload.FormType}\nName: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
       )}`;
       
       if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via your email app instead?")) {
@@ -500,17 +500,25 @@ const CourseDetailPage = () => {
                     Phone: phone,
                     CourseOfInterest: course.title,
                     PageURL: window.location.href,
+                    SubmissionTime: new Date().toLocaleString(),
                   };
                   try {
-                    await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
+                    const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
                       method: "POST",
                       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                       body: JSON.stringify(payload)
                     });
+                    if (!response.ok) throw new Error("Server error");
                     alert("Thank you! We will contact you soon regarding your eligibility.");
                     e.target.reset();
                   } catch (err) {
-                    alert("Something went wrong. Please try again.");
+                    console.error(err);
+                    const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
+                      `Form Type: ${payload.FormType}\nPhone: ${payload.Phone}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
+                    )}`;
+                    if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via email instead?")) {
+                      window.location.href = mailtoLink;
+                    }
                   }
                 }}>
                   <input type="tel" name="phone" placeholder="Phone Number" required />

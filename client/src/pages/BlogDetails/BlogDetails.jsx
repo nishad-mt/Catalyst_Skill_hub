@@ -65,7 +65,7 @@ const BlogDetails = () => {
     } catch (error) {
       console.error(error);
       const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Phone: ${payload.Phone}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}`
+        `Form Type: ${payload.FormType}\nPhone: ${payload.Phone}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
       )}`;
       
       if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via your email app instead?")) {
