@@ -1,30 +1,30 @@
 export const mentors = [
   {
     id: 1,
-    name: "James Alex",
+    name: "Gayathri",
     title: "CMA USA CMA India",
     description: "cyber security skills with hands-on training. Learn ethical hacking and protect real-world systems.",
-    image: "https://i.pravatar.cc/300?img=11"
+    image: "#"
   },
   {
     id: 2,
-    name: "Abdu Rahman",
+    name: "Shahabas",
     title: "CMA USA CMA India",
     description: "cyber security skills with hands-on training. Learn ethical hacking and protect real-world systems.",
-    image: "https://i.pravatar.cc/300?img=12"
+    image: "#"
   },
   {
     id: 3,
     name: "James Alex",
     title: "CMA USA CMA India",
     description: "cyber security skills with hands-on training. Learn ethical hacking and protect real-world systems.",
-    image: "https://i.pravatar.cc/300?img=13"
+    image: "#"
   },
   {
     id: 4,
-    name: "James Alex",
+    name: "James",
     title: "CMA USA CMA India",
     description: "cyber security skills with hands-on training. Learn ethical hacking and protect real-world systems.",
-    image: "https://i.pravatar.cc/300?img=14"
+    image: "#"
   }
 ];
