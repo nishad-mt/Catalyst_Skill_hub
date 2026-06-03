@@ -10,35 +10,12 @@ import studentsBanner from '../../assets/students_banner.png';
 import learningImg from '../../assets/learning.png';
 
 const AboutPage = () => {
-  // Initialize scroll reveal
-  useScrollReveal();
-
-  useEffect(() => {
-    document.title = "About Us | Catalyst Skill Hub — Architecting the Future of Digital Talent";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', "At Catalyst, we cultivate the next generation of innovators, problem-solvers, and digital leaders through industry-aligned, practical learning.");
-    }
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <div className={styles.aboutPage}>
-      {/* Hero Section */}
-      <section className={styles.hero}>
-        <div className={styles.heroBg} style={{ backgroundImage: `url(${heroBg})` }}></div>
-        <div className={styles.heroOverlay}></div>
-        <div className="container">
-          <div className={`${styles.heroContent} reveal`}>
-            <span className={styles.badge}>Our Journey</span>
-            <h1>Architecting the Future of <span className={styles.gradientText}>Digital Talent</span></h1>
-            <p>
-              At Catalyst, we don't just teach technology; we cultivate the next generation of innovators, 
-              problem-solvers, and digital leaders.
-            </p>
-          </div>
-        </div>
-      </section>
+      <div className="hero">
+        <h1>Shaping the Next Gerneration of Tech Professionals</h1>
+      </div>
 
       {/* Stats Section */}
       <section className={styles.statsSection}>

@@ -48,9 +48,20 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
     }
   };
 
+  const showTopBar = ['home', 'courses', 'course-detail', 'center-detail'].includes(currentPage);
+
   return (
     <>
-      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
+    {showTopBar && (
+      <div
+        className={`${styles.topBar} ${
+          scrolled ? styles.topBarHidden : ''
+        }`}
+      >
+        Hurry Up! New Batch Starts June 6th. Limited Seats Available.
+      </div>
+    )}
+      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''} ${!showTopBar ? styles.navNoTopBar : ''}`}>
         <div className={styles.inner}>
 
           {/* Logo */}

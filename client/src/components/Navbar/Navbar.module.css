@@ -1,12 +1,27 @@
-/* Navbar.module.css */
+.topBar {
+  width: 100%;
+  height: 50px;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
 
-/* ============================================================
-   BASE
-   ============================================================ */
+.topBarHidden {
+  transform: translateY(-100%);
+}
 
 .nav {
   position: fixed;
-  top: 0;
+  top: 50px;
   left: 0;
   width: 100%;
   height: 100px;
@@ -17,9 +32,15 @@
   align-items: center;
   transition: all 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: top 0.3s ease, height 0.3s ease;
+}
+
+.navNoTopBar {
+  top: 0 !important;
 }
 
 .scrolled {
+  top: 0;
   height: 70px;
   /* Compact height when scrolled */
   /* background: transparent !important; */
@@ -28,10 +49,10 @@
 }
 
 .inner {
-  max-width: 1360px;
+  max-width: var(--container-max-width);
   width: 100%;
   margin: 0 auto;
-  padding: 0 1.5rem 0 0;
+  padding: var(--container-padding);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -98,17 +119,18 @@
   border: none;
   font-size: 0.88rem;
   background: #949596;
-  color: #141517;
+  color: #000000;
   outline: none;
   min-width: 0;
 }
 
-.searchInput::placeholder {
-  color: #13171e;
-  opacity: 1;
-  /* Browser defaults can be transparent */
+.searchInput:hover {
+  background: #b1b1b1;
 }
 
+.searchInput::placeholder {
+  color:#393939
+}
 /* ============================================================
    RIGHT SIDE
    ============================================================ */
@@ -185,7 +207,7 @@
 }
 
 .dropdownInner {
-  background: #01053C;
+  background: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   min-width: 200px;
@@ -196,7 +218,7 @@
 
 .dropdownItem {
   display: block;
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
   padding: 0.6rem 1rem;
   font-size: 0.88rem;
@@ -206,8 +228,7 @@
 }
 
 .dropdownItem:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: rgba(208, 207, 207, 0.533);
 }
 
 
@@ -216,8 +237,11 @@
    ============================================================ */
 
 .cta {
-  background: #ffffff;
-  color: #0a1450;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: #1378D1;
+  color: #ffffff;
   padding: 0.6rem 1.1rem;
   border-radius: 8px;
   font-weight: 700;
@@ -229,8 +253,9 @@
 }
 
 .cta:hover {
-  background: rgba(55, 55, 214, 0.644);
+  background: #1378d1b1;
   color: white;
+  cursor: pointer;
 }
 
 /* ============================================================
@@ -432,13 +457,6 @@
   display: block;
 }
 
-/* ============================================================
-   BREAKPOINTS
-
-   Threshold: 680px (half of 1360px max-width)
-   >= 680px  →  full navbar: logo + search + links + CTA
-   <  680px  →  logo + hamburger only, sidebar for links
-   ============================================================ */
 
 /* ── FULL NAVBAR: 680px and above ── */
 @media (min-width: 680px) {
@@ -473,7 +491,6 @@
 /* 680px – 899px: compact */
 @media (min-width: 680px) and (max-width: 899px) {
   .inner {
-    padding: 0 1.25rem 0 0;
     gap: 0.75rem;
   }
 
@@ -518,7 +535,6 @@
 /* 900px – 1199px: medium */
 @media (min-width: 900px) and (max-width: 1199px) {
   .inner {
-    padding: 0 2rem 0 0;
     gap: 1rem;
   }
 
@@ -546,9 +562,7 @@
 
 /* 1200px – 1439px */
 @media (min-width: 1200px) and (max-width: 1439px) {
-  .inner {
-    padding: 0 3rem 0 0;
-  }
+
 
   .right {
     gap: 1.5rem;
@@ -565,9 +579,7 @@
 
 /* 1440px+ */
 @media (min-width: 1440px) {
-  .inner {
-    padding: 0 4rem 0 0;
-  }
+
 
   .right {
     gap: 2.5rem;
@@ -617,9 +629,17 @@
     padding: 0;
     position: absolute;
     /* Overlay content on mobile */
-    top: 0;
+    top: 50px;
     display: flex;
     align-items: center;
+  }
+
+  .nav.navNoTopBar {
+    top: 0 !important;
+  }
+
+  .scrolled {
+    top: 0;
   }
 
   .hamburger {
@@ -627,7 +647,6 @@
   }
 
   .inner {
-    padding: 0 1rem 0 0;
     justify-content: space-between;
   }
 

@@ -23,10 +23,10 @@
   /* Spacing */
   --section-padding: 120px 0;
   --section-padding-mobile: 60px 0;
-  --container-padding: 0 3rem;
+  --container-padding: 0 2rem;
   /* Increased side space */
-  --container-max-width: 1500px;
-  --container-wide-max-width: 1500px;
+  --container-max-width: 1570px;
+  --container-wide-max-width: 1550px;
 
   /* Border Radius */
   --radius-main: 14px;
