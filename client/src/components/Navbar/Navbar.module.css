@@ -594,7 +594,9 @@
 
 /* ── FULL NAVBAR: 680px and above ── */
 @media (min-width: 680px) {
-
+  .topBar{
+    text-align: center;
+  }
   .hamburger,
   .mobileMenu,
   .backdrop {
@@ -757,6 +759,10 @@
 /* ── SIDEBAR MODE: below 680px ── */
 @media (max-width: 679px) {
 
+  .topBar{
+    font-size: small;
+    text-align: center;
+  }
   .searchBox,
   .links,
   .cta {
