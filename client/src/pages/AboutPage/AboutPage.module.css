@@ -10,6 +10,7 @@
   position: relative;
   height: 80vh;
   min-height: 600px;
+  padding-top: 160px;
   display: flex;
   align-items: center;
   justify-content: center;

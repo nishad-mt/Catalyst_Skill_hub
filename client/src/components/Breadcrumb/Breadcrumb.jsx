@@ -3,7 +3,11 @@ import styles from './Breadcrumb.module.css';
 import { courses } from '../../data/siteData';
 
 export default function Breadcrumb({ currentPage, navigate }) {
+  // Hide breadcrumbs on the home page
   if (currentPage === 'home') return null;
+
+  // Pages that have the 50px TopBar (total navbar = 150px)
+  const hasTopBar = ['courses', 'course-detail', 'center-detail'].includes(currentPage);
 
   // Build the breadcrumb path dynamically
   const pathItems = [
@@ -20,6 +24,11 @@ export default function Breadcrumb({ currentPage, navigate }) {
     pathItems.push({ label: 'Life @ Catalyst', path: '/life', isCurrent: true });
   } else if (currentPage === 'blogs') {
     pathItems.push({ label: 'Blogs', path: '/blogs', isCurrent: true });
+  } else if (currentPage === 'center-detail') {
+    pathItems.push({ label: 'Centers', path: '#', isCurrent: true });
+  } else if (currentPage === 'blog-detail') {
+    pathItems.push({ label: 'Blogs', path: '/blogs' });
+    pathItems.push({ label: 'Blog Post', path: '#', isCurrent: true });
   } else if (currentPage === 'course-detail') {
     pathItems.push({ label: 'Courses', path: '/courses' });
     
@@ -41,8 +50,10 @@ export default function Breadcrumb({ currentPage, navigate }) {
     }
   };
 
+  const isDarkBackground = ['home', 'about', 'center-detail'].includes(currentPage);
+
   return (
-    <div className={styles.breadcrumbWrapper}>
+    <div className={`${styles.breadcrumbWrapper} ${isDarkBackground ? styles.darkBg : styles.lightBg} ${!hasTopBar ? styles.noTopBar : ''}`}>
       <div className="container">
         <nav aria-label="breadcrumb">
           <ul className={styles.breadcrumb}>

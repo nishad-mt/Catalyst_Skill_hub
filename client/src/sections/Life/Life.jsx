@@ -9,7 +9,7 @@ import img4 from '../../assets/learning.png';
 import img5 from '../../assets/trainee.png';
 import img6 from '../../assets/catalyst.png';
 
-const Life = () => {
+const Life = ({ navigate }) => {
   const images = [
     { id: 1, src: img1, className: styles.span1x1 },
     { id: 2, src: img2, className: styles.span1x1 },
@@ -36,7 +36,7 @@ const Life = () => {
         </div>
 
         <div className={`${styles.buttonContainer} reveal`}>
-          <button className={styles.viewAllBtn}>View All</button>
+          <button className={styles.viewAllBtn} onClick={() => navigate('/life')}>View All</button>
         </div>
       </div>
     </section>

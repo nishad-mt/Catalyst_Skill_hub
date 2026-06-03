@@ -18,10 +18,10 @@
 }
 
 
-/* 2. Hero Section */
 .hero {
+  margin-top: 70px;
   padding: var(--section-padding);
-  padding-top: clamp(100px, 15vw, 120px); /* Extra space for navbar on mobile */
+  padding-top: clamp(160px, 15vw, 180px); /* Extra space for navbar */
 }
 
 .heroBox {

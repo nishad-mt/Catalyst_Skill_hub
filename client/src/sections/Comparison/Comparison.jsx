@@ -208,7 +208,7 @@ const Comparison = () => {
         </div>
 
         <div className={`${styles.buttonContainer} reveal`}>
-          <button className={styles.checkBtn}>Check Eligibility</button>
+          <button className={styles.checkBtn} onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}>Check Eligibility</button>
         </div>
       </div>
     </section>

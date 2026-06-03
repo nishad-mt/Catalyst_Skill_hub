@@ -49,7 +49,7 @@
 /* Hero Section */
 .hero {
   background-color: #01053C;
-  padding: 5rem 0;
+  padding: 160px 0 5rem 0;
   color: #ffffff;
   position: relative;
 }
@@ -683,7 +683,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 3.5rem 0;
+    padding: 160px 0 3.5rem 0;
   }
   
   .heroTitle {

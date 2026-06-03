@@ -30,7 +30,7 @@ const Mentors = () => {
         </div>
 
         <div className={`${styles.buttonContainer} reveal`}>
-          <button className={styles.talkBtn}>Talk to an Expert</button>
+          <button className={styles.talkBtn} onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}>Talk to an Expert</button>
         </div>
       </div>
     </section>

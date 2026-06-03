@@ -133,14 +133,14 @@ export default function App() {
           <BlogPage />
         ): (
           <>
-            <Hero    />
+            <Hero navigate={navigate} />
             <StatsBar    />
             <Courses searchQuery={searchQuery} navigate={navigate} />
             <Mentors />
             <Skills />
             <Comparison />
             <Testimonials />
-            <Life />
+            <Life navigate={navigate} />
             <ResourceCenter />
           </>
         )}

@@ -48,7 +48,7 @@ const ResourceCenter = () => {
         </div>
 
         <div className={`${styles.buttonContainer} reveal`}>
-          <button className={styles.advisorBtn}>Talk with an Advisor</button>
+          <button className={styles.advisorBtn} onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}>Talk with an Advisor</button>
         </div>
       </div>
     </section>

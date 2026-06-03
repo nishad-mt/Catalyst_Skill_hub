@@ -1,18 +1,26 @@
 .breadcrumbWrapper {
   width: 100%;
-  padding: 1.5rem 0 0.5rem;
-  margin-top: 90px; /* To account for fixed navbar */
+  padding: 0;
+  margin-top: 150px; /* To account for fixed navbar + topBar */
   z-index: 10;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-/* Adjust margin-top on mobile if navbar height is different */
+/* Pages without the 50px TopBar — only 100px navbar */
+.noTopBar {
+  margin-top: 100px;
+}
+
+/* Adjust on mobile */
 @media (max-width: 768px) {
   .breadcrumbWrapper {
-    margin-top: 70px;
-    padding: 1rem 0 0 1.6rem;
+    margin-top: 150px;
+  }
+
+  .noTopBar {
+    margin-top: 100px;
   }
 }
 
@@ -23,9 +31,8 @@
   gap: 0.5rem;
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
-  color: #64748b;
   margin: 0;
-  padding: 1.5rem 1rem;
+  padding: 0.75rem 0;
   list-style: none;
 }
 
@@ -34,7 +41,8 @@
   align-items: center;
 }
 
-.breadcrumbLink {
+/* --- LIGHT BACKGROUND THEME --- */
+.lightBg .breadcrumbLink {
   color: #475569;
   text-decoration: none;
   font-weight: 500;
@@ -42,18 +50,44 @@
   cursor: pointer;
 }
 
-.breadcrumbLink:hover {
+.lightBg .breadcrumbLink:hover {
   color: #2563eb;
 }
 
-.separator {
+.lightBg .separator {
   margin: 0 0.5rem;
   color: #cbd5e1;
   font-size: 0.8rem;
 }
 
-.current {
+.lightBg .current {
   color: #0f172a;
   font-weight: 600;
   pointer-events: none;
 }
+
+/* --- DARK BACKGROUND THEME --- */
+.darkBg .breadcrumbLink {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.darkBg .breadcrumbLink:hover {
+  color: #60a5fa;
+}
+
+.darkBg .separator {
+  margin: 0 0.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+}
+
+.darkBg .current {
+  color: #ffffff;
+  font-weight: 600;
+  pointer-events: none;
+}
+

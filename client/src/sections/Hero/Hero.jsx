@@ -88,7 +88,7 @@ function OrbitAnimation() {
   );
 }
 
-export default function Hero() {
+export default function Hero({ navigate }) {
 
   return (
     <section className={styles.hero}>
@@ -111,13 +111,16 @@ export default function Hero() {
               to get you hired.
             </p>
 
+            <button 
+              className={`${styles.primaryBtn} reveal reveal-d3`}
+              onClick={() => navigate && navigate('/courses')}
+            >
+              Go to Programmes →
+            </button>
+
             <div className={`${styles.orbitMobileWrapper} reveal`}>
               <OrbitAnimation />
             </div>
-
-            <button className={`${styles.primaryBtn} reveal reveal-d3`}>
-              Go to Programmes →
-            </button>
 
             {/* course tags */}
             <p className={`${styles.sectionLabel} reveal reveal-d4`}>Our Programmes</p>
