@@ -5,7 +5,7 @@ import { useScrollReveal } from './hooks/useScrollReveal';
 
 // Layout components
 import Navbar     from './components/Navbar/Navbar';
-import FloatingCTA from './components/FloatingCTA/FloatingCTA';
+import WhatsAppWidget from './components/WhatsAppWidget/WhatsAppWidget';
 import MobileActionBar from './components/MobileActionBar/MobileActionBar';
 import Breadcrumb from './components/Breadcrumb/Breadcrumb';
 
@@ -110,7 +110,7 @@ export default function App() {
   return (
     <>
       <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} currentPage={currentPage} />
-      <FloatingCTA />
+      <WhatsAppWidget />
       <MobileActionBar navigate={navigate} currentPage={currentPage} />
 
       <main>
