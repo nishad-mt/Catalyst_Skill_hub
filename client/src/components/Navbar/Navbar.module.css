@@ -807,6 +807,7 @@
   .topBar{
     font-size: 0.7rem;
     text-align: center;
+    height: 35px;
   }
   .searchBox,
   .links,
@@ -815,7 +816,7 @@
   }
 
   .nav {
-    height: 80px;
+    height: 50px;
     padding: 0;
     position: absolute;
     /* Overlay content on mobile */
@@ -851,9 +852,9 @@
   }
 
   .nav .logo {
-    height: 45px !important;
-    max-height: 45px !important;
-    min-height: 45px !important;
+    height: 40px !important;
+    max-height: 40px !important;
+    min-height: 40px !important;
   }
 }
 

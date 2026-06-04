@@ -464,22 +464,25 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: -130px 0;
+    margin: -160px 0;
     overflow: hidden;
   }
 
   .left {
-    margin-top: 8px;
+    margin-top: 0px;
     max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
-
+  .badge{
+    margin-top: 55px;
+  }
   .title {
-    margin: 0.5rem 0 1.5rem !important;
+    margin: 0.2rem 0 1rem !important;
     display: block;
     width: 100%;
+    font-size: 1.5rem;
   }
 
   .desc {
