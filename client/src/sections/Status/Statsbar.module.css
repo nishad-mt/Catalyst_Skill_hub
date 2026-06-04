@@ -217,6 +217,13 @@
     border-radius: var(--radius-main);
   }
 
+  .number {
+    font-size: 2rem; /* increase this */
+  }
+
+  .suffix{
+    font-size: 1.5rem;
+  }
   .statItem {
     flex: 1 1 50%;
     min-width: 50%;

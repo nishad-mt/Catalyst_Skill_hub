@@ -164,7 +164,8 @@
 }
 
 .tags span:hover {
-  background: #5896e7;
+  background: #6fa0e1e6;
+  font-weight: 500;
   color: #01053C;
   transform: translateY(-1px);
 }
