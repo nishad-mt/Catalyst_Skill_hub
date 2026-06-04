@@ -114,6 +114,12 @@
   overflow-wrap: anywhere;
 }
 
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 @media (max-width: 767px) {
   .contactInfo {
     margin-bottom: 1.5rem;

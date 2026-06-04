@@ -160,14 +160,13 @@
   color: #d7d9ed;
   background: #030748cc;
   white-space: nowrap;
-  transition: all 0.25s ease;
 }
 
 .tags span:hover {
   background: #6fa0e1e6;
   font-weight: 500;
   color: #01053C;
-  transform: translateY(-1px);
+  transform: translateY(1px);
 }
 
 /* ===== COMPANIES SECTION ===== */

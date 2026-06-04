@@ -225,7 +225,10 @@
   color:transparent;
   vertical-align:middle;
 }
-
+.address{
+  color:rgba(61, 61, 61, 0.749);
+  padding-bottom: 1rem;
+}
 /* ---------- TABLET ---------- */
 
 @media (min-width:768px){

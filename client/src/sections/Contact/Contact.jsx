@@ -1,10 +1,10 @@
 // src/sections/Contact/Contact.jsx
 import { useState, useEffect } from 'react';
-import { testimonials, alumni } from '../../data/siteData';
+import { testimonials, alumni, courses } from '../../data/siteData';
 import styles from './Contact.module.css';
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '' });
+  const [form, setForm] = useState({ name: '', phone: '', email: '', course: '', place: '' });
   const [loading, setLoading] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -32,6 +32,8 @@ export default function Contact() {
       Name: form.name,
       Phone: form.phone,
       Email: form.email,
+      Cource: form.course,
+      Place: form.place,
       PageURL: window.location.href,
       SubmissionTime: new Date().toLocaleString(),
     };
@@ -151,7 +153,9 @@ export default function Contact() {
                 />
               </div>
 
-              <div className={styles.formGroup}>
+              
+              <div className={styles.twoCol}>
+                <div className={styles.formGroup}>
                 <label className={styles.label}>Phone Number</label>
                 <input
                   type="tel"
@@ -172,8 +176,35 @@ export default function Contact() {
                   required
                 />
               </div>
+                <div className={styles.formGroup}>
+                  <label className={styles.label}>Course</label>
+                  <select
+                    value={form.course}
+                    onChange={handleChange('course')}
+                    className={styles.input}
+                    required
+                  >
+                    <option value="">Select Course</option>
+                    {courses.map(course => (
+                      <option key={course.id} value={course.title}>
+                        {course.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-
+                <div className={styles.formGroup}>
+                  <label className={styles.label}>Place</label>
+                  <input
+                    type="text"
+                    value={form.place}
+                    onChange={handleChange('place')}
+                    className={styles.input}
+                    placeholder="Your Place"
+                    required
+                  />
+                </div>
+              </div>
 
               <button
                 type="submit"
