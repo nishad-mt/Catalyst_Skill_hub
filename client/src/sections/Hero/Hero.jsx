@@ -115,7 +115,7 @@ export default function Hero({ navigate }) {
               className={`${styles.primaryBtn} reveal reveal-d3`}
               onClick={() => navigate && navigate('/courses')}
             >
-              Go to Programmes →
+              Go to Programmes <span className={styles.arrow}>→</span>
             </button>
 
             <div className={`${styles.orbitMobileWrapper} reveal`}>
