@@ -31,10 +31,14 @@ export default function WhatsAppWidget() {
   }, [open]);
 
   const toggle = () => {
+  setOpen(prev => !prev);
+  setPulse(false);
+  if (open) {
+    setTimeout(() => setVisible(false), 300); // match your CSS transition duration
+  } else {
     setVisible(true);
-    setOpen(prev => !prev);
-    setPulse(false);
-  };
+  }
+};
 
   const sendMessage = () => {
     const text = message.trim() || 'Hi';
