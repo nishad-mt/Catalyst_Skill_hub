@@ -33,11 +33,7 @@
   pointer-events: all;
 }
 
-.chatClosed {
-  transform: scale(0.85) translateY(16px);
-  opacity: 0;
-  pointer-events: none;
-}
+
 
 /* ── Header ── */
 .header {
@@ -321,17 +317,7 @@
   100% { transform: scale(1.5); opacity: 0; }
 }
 
-/* ── Unread dot ── */
-.unreadDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #f44336;
-  border: 2px solid #fff;
-  position: absolute;
-  top: 2px;
-  right: 2px;
-}
+
 
 /* ════════════════════════════════
    RESPONSIVE BREAKPOINTS
@@ -386,15 +372,60 @@
     max-height: calc(60vh - 120px);
   }
 
-  .fab {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10000;
+  /* Header: shrink avatar, tighten gap so close btn never crowds */
+  .header {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
   }
 
   .headerName {
     font-size: 14px;
+  }
+
+  /* Close button — larger tap target, no shrink */
+  .closeBtn {
+    padding: 8px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .closeBtn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Input bar — keep send button from being pushed off screen */
+  .inputBar {
+    padding: 8px 12px 12px;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .input {
+    min-height: 40px;
+    font-size: 15px;
+  }
+
+  .sendBtn {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  /* FAB — only visible when chat is closed, positioned away from edges */
+  .fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10000;
+    width: 54px;
+    height: 54px;
   }
 }
 
