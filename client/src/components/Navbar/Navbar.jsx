@@ -21,7 +21,7 @@ const buildSuggestions = () => {
   blogs.forEach((b) => {
     list.push({ 
       label: b.title, 
-      href: `/blog/${b.id}`, 
+      href: `/blogs/${b.id}`, 
       type: 'Blog',
       keywords: [b.title, b.description].join(' ').toLowerCase()
     });
@@ -268,7 +268,7 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
               autoComplete="off"
             />
             {showSuggestions && (
-              <div className={styles.suggestionList} role="listbox">
+              <div className={`${styles.suggestionList} ${searchQuery.trim() ? styles.suggestionListTyped : ''}`} role="listbox">
                 {!searchQuery.trim() && <div className={styles.trendSearchHeader}>Trend Search</div>}
                 <ul className={!searchQuery.trim() ? styles.suggestionGrid : ''} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
                   {suggestions.map((s, i) => (
@@ -276,18 +276,17 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
                       key={`${s.label}-${i}`}
                       role="option"
                       aria-selected={i === activeSuggestion}
-                      className={`${styles.suggestionItem} ${
+                      className={`${searchQuery.trim() ? styles.suggestionItemTyped : styles.suggestionItem} ${
                         i === activeSuggestion ? styles.suggestionActive : ''
                       }`}
                       onMouseDown={() => selectSuggestion(s)}
-                      style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
                     >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <FiSearch className={styles.suggestionIcon} style={{ marginRight: '8px' }} />
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <FiSearch className={styles.suggestionIcon} />
                         <span>{s.label}</span>
                       </div>
                       {s.type !== 'Course' && (
-                        <span style={{ fontSize: '0.75rem', color: '#666', background: '#eee', padding: '2px 6px', borderRadius: '4px', marginLeft: '8px' }}>{s.type}</span>
+                        <span className={styles.suggestionTypeBadge}>{s.type}</span>
                       )}
                     </li>
                   ))}

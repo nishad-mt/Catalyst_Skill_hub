@@ -209,6 +209,51 @@
   color: #000000;
 }
 
+/* ── Typed-results dropdown (narrower, no item backgrounds) ── */
+.suggestionListTyped {
+  min-width: 320px !important;
+  max-width: 420px !important;
+  padding: 4px 0 !important;
+}
+
+.suggestionItemTyped {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.86rem;
+  color: #1e293b;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.12s ease, border-left 0.12s ease;
+  border-left: 2px solid transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.suggestionItemTyped:hover {
+  background: #f1f5f9;
+  border-left: 2px solid #1378D1;
+}
+
+.suggestionItemTyped.suggestionActive {
+  background: #e8eeff !important;
+  border-left: 2px solid #1378D1;
+  color: #1378D1;
+}
+
+.suggestionTypeBadge {
+  font-size: 0.7rem;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+
 /* ============================================================
    AUTOCOMPLETE SUGGESTION LIST — Mobile
    ============================================================ */
