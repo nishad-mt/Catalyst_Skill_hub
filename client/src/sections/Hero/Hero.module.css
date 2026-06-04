@@ -448,7 +448,6 @@
 
 }
 
-/* Mobile — stack vertically */
 @media (max-width: 860px) {
 
   .heroBox {
@@ -460,28 +459,32 @@
     border-radius: 0 0 70px 70px;
   }
 
+  .orbitMobileWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: -80px 0;
+    overflow: hidden;
+  }
+
   .left {
-    order: 1;
     margin-top: 8px;
     max-width: 100%;
-
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
   }
 
   .title {
     margin: 0.5rem 0 1.5rem !important;
-    /* Add vertical breathing room around title */
     display: block;
     width: 100%;
   }
 
   .desc {
-    /* Moved above image */
     max-width: 100%;
     margin-top: 0 !important;
-    /* Reset margin since we use title margin */
     margin-bottom: 0.5rem;
   }
 
@@ -489,33 +492,13 @@
     display: none;
   }
 
-  .orbitMobileWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .companiesWrapper {
     width: 100%;
-    margin: -50px 0;
-    overflow: hidden;
-    order: 5;
-  }
-
-  .primaryBtn {
-    order: 4;
-  }
-
-  .sectionLabel {
-    order: 6;
   }
 
   .tags {
-    order: 7;
     max-width: 100%;
     justify-content: center;
-  }
-
-  .companiesWrapper {
-    order: 3;
-    width: 100%;
   }
 
   .orbitContainer {
@@ -541,7 +524,6 @@
     max-width: 360px;
     height: 300px;
   }
-
 }
 /* Small mobile */
 @media (max-width: 420px) {

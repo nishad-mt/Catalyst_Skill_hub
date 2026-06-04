@@ -96,6 +96,9 @@ export default function Hero({ navigate }) {
         <div className={styles.heroBox}>
           {/* LEFT */}
           <div className={styles.left}>
+            <div className={`${styles.orbitMobileWrapper} reveal`}>
+              <OrbitAnimation />
+            </div>
             <span className={styles.badge}>
               No.1 Tech Training Institute in Kerala
             </span>
@@ -117,10 +120,6 @@ export default function Hero({ navigate }) {
             >
               Go to Programmes <span className={styles.arrow}>→</span>
             </button>
-
-            <div className={`${styles.orbitMobileWrapper} reveal`}>
-              <OrbitAnimation />
-            </div>
 
             {/* course tags */}
             <p className={`${styles.sectionLabel} reveal reveal-d4`}>Our Programmes</p>
