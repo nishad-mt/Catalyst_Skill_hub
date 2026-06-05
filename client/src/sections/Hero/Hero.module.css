@@ -162,11 +162,13 @@
   white-space: nowrap;
 }
 
-.tags span:hover {
-  background: #6fa0e1e6;
-  font-weight: 500;
-  color: #01053C;
-  transform: translateY(1px);
+@media (hover: hover) and (pointer: fine) {
+  .tags span:hover {
+    background: #6fa0e1e6;
+    font-weight: 500;
+    color: #01053C;
+    transform: translateY(1px);
+  }
 }
 
 /* ===== COMPANIES SECTION ===== */
@@ -464,7 +466,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: -160px 0;
+    margin: -175px 0;
     overflow: hidden;
   }
 
@@ -476,7 +478,7 @@
     align-items: flex-start;
   }
   .badge{
-    margin-top: 55px;
+    margin-top: 60px;
   }
   .title {
     margin: 0.2rem 0 1rem !important;
@@ -506,8 +508,8 @@
   }
 
   .orbit1Wrapper {
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
 }
 
 .orbit2Wrapper {
@@ -516,8 +518,8 @@
 }
 
 .orbit3Wrapper {
-  width: 480px;
-  height: 480px;
+  width: 450px;
+  height: 450px;
 }
 
   .tags {

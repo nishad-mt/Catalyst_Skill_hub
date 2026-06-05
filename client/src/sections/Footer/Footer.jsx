@@ -1,6 +1,8 @@
 // src/sections/Footer/Footer.jsx
 import React from 'react';
 import styles from './Footer.module.css';
+import logo from '../../assets/logo.png';
+
 
 export default function Footer({ navigate }) {
   return (
@@ -10,8 +12,13 @@ export default function Footer({ navigate }) {
           {/* Brand Column */}
           <div className={styles.brandCol}>
             <div className={styles.logo}>
-              <span className={styles.logoHighlight}>CATALYST</span><br />
-              <span className={styles.logoSub}>EDUCATION</span>
+              <a
+                href="/"
+                className={styles.logoLink}
+                onClick={(e) => { e.preventDefault(); navigate('/'); }}
+              >
+                <img src={logo} alt="Logo" className={styles.logo} />
+              </a>
             </div>
             <p className={styles.tagline}>
               Top-rated Tech institute in India guiding for a future in high-demand

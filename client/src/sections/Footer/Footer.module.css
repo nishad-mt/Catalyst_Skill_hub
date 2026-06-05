@@ -20,21 +20,8 @@
 }
 
 .logo{
-  font-size:1.5rem;
-  font-weight:800;
-  line-height:1.2;
+  height:3rem;
   margin-bottom:1rem;
-}
-
-.logoHighlight{
-  color:#312e81;
-}
-
-.logoSub{
-  font-size:.8rem;
-  font-weight:500;
-  color:#6b7280;
-  letter-spacing:1px;
 }
 
 .tagline{

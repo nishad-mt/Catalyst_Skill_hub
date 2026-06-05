@@ -7,7 +7,7 @@ export const courses = [
   {
     id: 1,
     slug: "full-stack-web-development",
-    title: "Full Stack Web Development",
+    title: "Python Full Stack",
     desc: "Master React, Node.js, MongoDB & more. Build production-grade apps from scratch.",
     duration: "6 months",
     fee: "₹45,000",

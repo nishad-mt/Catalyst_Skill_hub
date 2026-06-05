@@ -1,10 +1,10 @@
 // src/sections/Contact/Contact.jsx
 import { useState, useEffect } from 'react';
-import { testimonials, alumni, courses } from '../../data/siteData';
+import { testimonials, alumni, courses, centers } from '../../data/siteData';
 import styles from './Contact.module.css';
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', course: '', place: '' });
+  const [form, setForm] = useState({ name: '', phone: '', email: '', course: '', center: '' });
   const [loading, setLoading] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -33,7 +33,7 @@ export default function Contact() {
       Phone: form.phone,
       Email: form.email,
       Cource: form.course,
-      Place: form.place,
+      Center: form.center,
       PageURL: window.location.href,
       SubmissionTime: new Date().toLocaleString(),
     };
@@ -194,15 +194,20 @@ export default function Contact() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label className={styles.label}>Place</label>
-                  <input
-                    type="text"
-                    value={form.place}
-                    onChange={handleChange('place')}
+                  <label className={styles.label}>Centers</label>
+                  <select
+                    value={form.center}
+                    onChange={handleChange('center')}
                     className={styles.input}
-                    placeholder="Your Place"
                     required
-                  />
+                  >
+                    <option value="">Select location</option>
+                    {centers.map(centers => (
+                      <option key={centers.id} value={centers.name}>
+                        {centers.name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
 

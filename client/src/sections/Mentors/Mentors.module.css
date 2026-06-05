@@ -113,3 +113,25 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+@media (max-width: 576px) {
+  .mentorsGrid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 8px;
+    width: 100%;
+    scrollbar-width: none; /* Firefox */
+    margin-bottom: 2rem;
+  }
+
+  .mentorsGrid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .mentorCard {
+    flex: 0 0 240px;
+    scroll-snap-align: start;
+  }
+}

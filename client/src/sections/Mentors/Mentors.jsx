@@ -7,7 +7,7 @@ const Mentors = () => {
 
   return (
     <section className={`section ${styles.mentorsSection}`}>
-      {/* <div className="container">
+      <div className="container">
         <h2 className={`${styles.sectionTitle} reveal`}>Learn From the Best</h2>
 
         <div className={`${styles.mentorsGrid} reveal-group`}>
@@ -32,7 +32,7 @@ const Mentors = () => {
         <div className={`${styles.buttonContainer} reveal`}>
           <button className={styles.talkBtn} onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}>Talk to an Expert</button>
         </div>
-      </div> */}
+      </div>
     </section>
   );
 };

@@ -254,7 +254,7 @@
 /* Tiny phones */
 @media (max-width: 380px) {
   .number {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 
   .suffix {

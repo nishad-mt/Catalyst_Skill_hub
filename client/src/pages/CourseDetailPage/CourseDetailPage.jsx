@@ -8,6 +8,7 @@ import { testimonials } from '../../data/testimonials';
 import successVideo from '../../assets/videos/success.mp4';
 import parthivVideo from '../../assets/videos/parthiv.mp4';
 import adithVideo from '../../assets/videos/adith.mp4';
+import StudentTestimonialsBanner from '../../components/StudentTestimonialsBanner/StudentTestimonialsBanner';
 
 const PlayIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="#ffffff" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85 }}>

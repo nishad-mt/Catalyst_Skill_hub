@@ -3,6 +3,8 @@ import { FiSearch } from 'react-icons/fi';
 import { courses } from '../../data/siteData';
 import styles from './CoursesPage.module.css';
 import CourseCard from '../../components/CourseCard/CourseCard';
+import Mentors from '../../sections/Mentors/Mentors';
+import StudentTestimonialsBanner from '../../components/StudentTestimonialsBanner/StudentTestimonialsBanner';
 
 export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
   useEffect(() => {
@@ -23,7 +25,13 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
       <div className="container">
         <div className={`${styles.topSection} reveal`}>
           <div className={styles.headerRow}>
-            <h1 className={styles.mainHeading}>Explore All Tech Professional Ai Powered Courses</h1>
+            <div className={styles.headingGroup}>
+              <h1 className={styles.mainHeading}>Explore All Tech Professional Ai Powered Courses</h1>
+              <p className={styles.subHeading}>
+                Unlock your potential with industry-leading programs built for the future. From AI to Full Stack, our expert-led courses are designed to get you job-ready fast.
+              </p>
+            </div>
+
             <div className={styles.searchBox}>
               <input
                 type="text"
@@ -50,6 +58,9 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
           ))}
         </div>
       </div>
+
+      {/* Mentors Section */}
+      <Mentors />
 
       {/* Bottom Promo Section */}
       <div className="container">
@@ -88,17 +99,34 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
               </div>
 
               <div className={styles.feeCards}>
-                {[1, 2, 3].map((item) => (
-                  <div key={item} className={styles.feeCard}>
-                    <h4 className={styles.feeTitle}>Affordable Fee Structure</h4>
-                    <p className={styles.feeDesc}>
-                      Get access to expert-led training, hands-on projects, and career support — all at a price that fits your budget. No hidden costs, no unnecessary extras. Get access to expert-led training, hands
-                    </p>
+                {[
+                  {
+                    id: 1,
+                    title: "Expert Mentors",
+                    desc: "Learn from industry professionals with years of real-world experience guiding you through practical assignments and career milestones.",
+                    btnText: "Meet Mentors"
+                  },
+                  {
+                    id: 2,
+                    title: "Online/Offline Classes",
+                    desc: "Choose what fits you best: attend interactive online sessions from home or join our offline classes for full face-to-face interaction.",
+                    btnText: "Choose Batch Mode"
+                  },
+                  {
+                    id: 3,
+                    title: "State-of-the-Art Labs",
+                    desc: "Get access to fully-equipped learning labs with high-speed internet, premium systems, and space to collaborate on code.",
+                    btnText: "Explore Facilities"
+                  }
+                ].map((item) => (
+                  <div key={item.id} className={styles.feeCard}>
+                    <h4 className={styles.feeTitle}>{item.title}</h4>
+                    <p className={styles.feeDesc}>{item.desc}</p>
                     <button 
                       className={styles.feeBtn}
                       onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}
                     >
-                      Know Fee Structure
+                      {item.btnText}
                     </button>
                   </div>
                 ))}
@@ -107,6 +135,11 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
 
           </div>
         </div>
+      </div>
+
+            {/* Student Testimonials Banner Section */}
+      <div className="container">
+        <StudentTestimonialsBanner />
       </div>
     </div>
   );

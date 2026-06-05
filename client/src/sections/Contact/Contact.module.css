@@ -21,6 +21,11 @@
     gap: 2rem;
     padding: 3rem;
   }
+  .twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
 }
 
 @media (min-width: 1024px) {
@@ -114,11 +119,7 @@
   overflow-wrap: anywhere;
 }
 
-.twoCol {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
+
 
 @media (max-width: 767px) {
   .contactInfo {
