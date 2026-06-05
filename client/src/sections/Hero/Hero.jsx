@@ -31,7 +31,7 @@ function OrbitAnimation() {
         </div>
       </div>
 
-      {/* Orbit 2 - 3 icons: Cybersecurity, Digital Marketing, AWS Cloud */}
+      {/* Orbit 2 - 3 icons: Cybersecurity, Ethical Hacking, AWS Cloud */}
       <div className={`${styles.orbitWrapper} ${styles.orbit2Wrapper}`}>
         <div className={styles.orbitRing2}>
           {/* Top center */}
@@ -41,7 +41,7 @@ function OrbitAnimation() {
             </div>
           </div>
           {/* Bottom Right (120 deg) */}
-          <div className={styles.orbitIconWrap} style={{ top: 'calc(93.3% - 25px)', right: 'calc(25% - 25px)' }} title="Digital Marketing">
+          <div className={styles.orbitIconWrap} style={{ top: 'calc(93.3% - 25px)', right: 'calc(25% - 25px)' }} title="Ethical Hacking">
             <div className={styles.orbitIcon}>
               <FaBullhorn />
             </div>

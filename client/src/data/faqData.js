@@ -77,7 +77,7 @@ export const faqData = {
     {
       question: "What roles can I apply for?",
       bullets: [
-        "Full Stack Developer, Frontend/Backend Engineer, or UI/UX Designer.",
+        "Full Stack Developer, Frontend/Backend Engineer, or Data Analyst.",
         "Data Analyst, AI Specialist, or Machine Learning Engineer.",
         "Cyber Security Analyst, SOC Engineer, or Penetration Tester."
       ]

@@ -32,7 +32,7 @@ export const courses = [
   {
     id: 2,
     slug: "data-science-ai",
-    title: "Data Science & AI",
+    title: "Data Science",
     desc: "Python, ML, deep learning, and real-world datasets with live industry projects.",
     duration: "6 months",
     fee: "₹50,000",
@@ -54,56 +54,110 @@ export const courses = [
       { name: "Pandas", icon: "🐼" },
     ]
   },
-  {
-    id: 3,
-    slug: "digital-marketing",
-    title: "Digital Marketing",
-    desc: "SEO, SEM, social media strategy, analytics, and high-performance campaigns.",
-    duration: "3 months",
-    fee: "₹25,000",
-    rating:"4.7",
-    img: list,
-    whatYouWillLearn: [
-      { id: 1, icon: "🔍", title: "SEO Optimization", desc: "Master on-page and off-page SEO to rank higher on Google." },
-      { id: 2, icon: "📱", title: "Social Media Marketing", desc: "Build brand presence on Instagram, LinkedIn, and Facebook." },
-      { id: 3, icon: "📧", title: "Email Marketing", desc: "Design high-converting email campaigns and automation." },
-      { id: 4, icon: "📊", title: "Google Analytics", desc: "Track user behavior and optimize marketing ROI." },
-      { id: 5, icon: "💰", title: "Paid Advertising", desc: "Master Google Ads and Meta Ads for lead generation." },
-    ],
-    tools: [
-      { name: "Google Ads", icon: "🎯" },
-      { name: "Meta Ads", icon: "📱" },
-      { name: "Mailchimp", icon: "🐒" },
-      { name: "SEMrush", icon: "📈" },
-      { name: "Canva", icon: "🎨" },
-      { name: "Ahrefs", icon: "🔗" },
-    ]
-  },
-  {
-    id: 4,
-    slug: "ui-ux-design",
-    title: "UI/UX Design",
-    desc: "Figma, user research, wireframing, and building modern design systems.",
-    duration: "4 months",
-    fee: "₹35,000",
-    rating:"4.8",
-    img: list,
-    whatYouWillLearn: [
-      { id: 1, icon: "🎨", title: "Design Principles", desc: "Learn color theory, typography, and visual hierarchy." },
-      { id: 2, icon: "👥", title: "User Research", desc: "Conduct interviews and usability testing to understand users." },
-      { id: 3, icon: "📝", title: "Wireframing", desc: "Create low-fidelity and high-fidelity wireframes in Figma." },
-      { id: 4, icon: "🔄", title: "Prototyping", desc: "Build interactive prototypes to test user flows." },
-      { id: 5, icon: "📏", title: "Design Systems", desc: "Create scalable UI kits and component libraries." },
-    ],
-    tools: [
-      { name: "Figma", icon: "🎨" },
-      { name: "Adobe XD", icon: "💎" },
-      { name: "Sketch", icon: "💎" },
-      { name: "InVision", icon: "👓" },
-      { name: "Miro", icon: "📝" },
-      { name: "Zeplin", icon: "🚀" },
-    ]
-  },
+ {
+  id: 3,
+  slug: "ethical-hacking",
+  title: "Ethical Hacking",
+  desc: "Learn penetration testing, network security, vulnerability assessment, and cybersecurity fundamentals.",
+  duration: "3 months",
+  fee: "₹25,000",
+  rating: "4.7",
+  img: list,
+
+  whatYouWillLearn: [
+    {
+      id: 1,
+      icon: "🛡️",
+      title: "Cybersecurity Fundamentals",
+      desc: "Understand security principles, threats, vulnerabilities, and attack vectors."
+    },
+    {
+      id: 2,
+      icon: "🌐",
+      title: "Network Security",
+      desc: "Learn networking concepts, protocols, firewalls, and secure network design."
+    },
+    {
+      id: 3,
+      icon: "🔎",
+      title: "Vulnerability Assessment",
+      desc: "Identify, analyze, and report security weaknesses in systems and applications."
+    },
+    {
+      id: 4,
+      icon: "💻",
+      title: "Penetration Testing",
+      desc: "Perform ethical hacking techniques to test and strengthen system security."
+    },
+    {
+      id: 5,
+      icon: "🚨",
+      title: "Incident Response",
+      desc: "Learn how to detect, investigate, and respond to cybersecurity incidents."
+    }
+  ],
+
+  tools: [
+    { name: "Kali Linux", icon: "🐉" },
+    { name: "Wireshark", icon: "🦈" },
+    { name: "Nmap", icon: "🌐" },
+    { name: "Burp Suite", icon: "🔍" },
+    { name: "Metasploit", icon: "⚡" },
+    { name: "OWASP ZAP", icon: "🛡️" }
+  ]
+},
+{
+  id: 4,
+  slug: "data-analyst",
+  title: "Data Analyst",
+  desc: "Learn Excel, SQL, Python, Power BI, and data visualization to turn data into actionable insights.",
+  duration: "4 months",
+  fee: "₹35,000",
+  rating: "4.8",
+  img: list,
+
+  whatYouWillLearn: [
+    {
+      id: 1,
+      icon: "📊",
+      title: "Data Analysis Fundamentals",
+      desc: "Understand data collection, cleaning, transformation, and analysis techniques."
+    },
+    {
+      id: 2,
+      icon: "📈",
+      title: "Excel & Advanced Excel",
+      desc: "Master formulas, pivot tables, dashboards, and data visualization in Excel."
+    },
+    {
+      id: 3,
+      icon: "🗄️",
+      title: "SQL for Data Analysis",
+      desc: "Query, filter, join, and analyze data stored in relational databases."
+    },
+    {
+      id: 4,
+      icon: "🐍",
+      title: "Python for Analytics",
+      desc: "Use Pandas, NumPy, and Matplotlib to analyze and visualize datasets."
+    },
+    {
+      id: 5,
+      icon: "📉",
+      title: "Power BI & Dashboards",
+      desc: "Create interactive dashboards and reports for business decision-making."
+    }
+  ],
+
+  tools: [
+    { name: "Microsoft Excel", icon: "📊" },
+    { name: "SQL", icon: "🗄️" },
+    { name: "Python", icon: "🐍" },
+    { name: "Power BI", icon: "📈" },
+    { name: "Tableau", icon: "📉" },
+    { name: "Google Sheets", icon: "📋" }
+  ]
+},
   {
     id: 5,
     slug: "python-programming",

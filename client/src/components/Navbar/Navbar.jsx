@@ -70,6 +70,7 @@ const DEFAULT_SUGGESTIONS = courses.slice(0, 5).map(c => ({
 export default function Navbar({ searchQuery, setSearchQuery, navigate, currentPage }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuDirection, setMenuDirection] = useState('left'); // 'left' or 'right'
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   // Autocomplete state
@@ -241,6 +242,21 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''} ${!showTopBar ? styles.navNoTopBar : ''}`}>
         <div className={styles.inner}>
 
+          {/* HAMBURGER — mobile/tablet only */}
+          <button
+            className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
+            onClick={() => {
+              setMenuDirection('left');
+              setMenuOpen((prev) => !prev);
+            }}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
           {/* Logo */}
           <a
             href="/"
@@ -351,16 +367,20 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
               Talk With Expert
             </button>
 
-            {/* HAMBURGER — mobile/tablet only */}
+            {/* Mobile Search Toggle Icon */}
             <button
-              className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
-              onClick={() => setMenuOpen((prev) => !prev)}
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={menuOpen}
+              className={styles.mobileSearchToggle}
+              onClick={() => {
+                setMenuDirection('right');
+                setMenuOpen(true);
+                setTimeout(() => {
+                  const input = document.querySelector(`.${styles.mobileSearchInput}`);
+                  if (input) input.focus();
+                }, 300);
+              }}
+              aria-label="Search"
             >
-              <span />
-              <span />
-              <span />
+              <FiSearch />
             </button>
 
           </div>
@@ -374,7 +394,9 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
 
       {/* MOBILE MENU — slides in from right */}
       <div
-        className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ''}`}
+        className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ''} ${
+          menuDirection === 'left' ? styles.slideLeft : styles.slideRight
+        }`}
         aria-hidden={!menuOpen}
       >
         {/* Close button */}
@@ -386,115 +408,117 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
           ✕
         </button>
 
-        {/* Mobile search bar */}
-        <div className={styles.mobileSearchBox}>
-          <FiSearch className={styles.mobileSearchIcon} />
-          <input
-            type="text"
-            placeholder="What do you want to learn?"
-            value={searchQuery}
-            onChange={handleMobileSearchChange}
-            onKeyDown={handleMobileKeyDown}
-            onFocus={handleMobileFocus}
-            onBlur={() => {
-              mobileBlurTimer.current = setTimeout(() => setShowMobileSuggestions(false), 150);
-            }}
-            className={styles.mobileSearchInput}
-            aria-label="Search"
-            autoComplete="off"
-          />
-          {showMobileSuggestions && (
-            <div className={styles.mobileSuggestionList} role="listbox">
-              {!searchQuery.trim() && <div className={styles.trendSearchHeader} style={{ color: '#94a3b8' }}>Trend Search</div>}
-              <ul className={!searchQuery.trim() ? styles.suggestionGrid : ''} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-                {mobileSuggestions.map((s, i) => (
-                  <li
-                    key={`${s.label}-${i}`}
-                    role="option"
-                    aria-selected={i === activeMobileSuggestion}
-                    className={`${styles.mobileSuggestionItem} ${
-                      i === activeMobileSuggestion ? styles.mobileSuggestionActive : ''
-                    }`}
-                    onMouseDown={() => {
-                      selectMobileSuggestion(s);
-                    }}
-                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                      <FiSearch className={styles.mobileSuggestionIcon} style={{ marginRight: '8px' }} />
-                      <span>{s.label}</span>
-                    </div>
-                    {s.type !== 'Course' && (
-                      <span style={{ fontSize: '0.75rem', color: '#ccc', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '4px', marginLeft: '8px' }}>{s.type}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-
-        <div className={styles.mobileDivider} />
-
-        {navLinks.map((link) => (
-          <div key={link.label} className={styles.mobileLinkContainer}>
-            {link.subLinks ? (
-              <>
-                <button
-                  onClick={() => toggleMobileDropdown(link.label)}
-                  className={`${styles.mobileLink} ${styles.mobileDropdownBtn} ${activeDropdown === link.label ? styles.active : ''}`}
-                >
-                  {link.label}
-                  <FiChevronDown className={`${styles.mobileChevron} ${activeDropdown === link.label ? styles.rotate : ''}`} />
-                </button>
-                <div className={`${styles.mobileSubLinks} ${activeDropdown === link.label ? styles.show : ''}`}>
-                  {link.subLinks.map((sub) => (
-                    <a
-                      key={sub.label}
-                      href={sub.href}
-                      onClick={(e) => {
-                        closeMenu();
-                        if (sub.href.startsWith('/')) {
-                          e.preventDefault();
-                          navigate(sub.href);
-                        }
+        {menuDirection === 'right' ? (
+          /* Mobile search bar */
+          <div className={styles.mobileSearchBox}>
+            <FiSearch className={styles.mobileSearchIcon} />
+            <input
+              type="text"
+              placeholder="What do you want to learn?"
+              value={searchQuery}
+              onChange={handleMobileSearchChange}
+              onKeyDown={handleMobileKeyDown}
+              onFocus={handleMobileFocus}
+              onBlur={() => {
+                mobileBlurTimer.current = setTimeout(() => setShowMobileSuggestions(false), 150);
+              }}
+              className={styles.mobileSearchInput}
+              aria-label="Search"
+              autoComplete="off"
+            />
+            {showMobileSuggestions && (
+              <div className={styles.mobileSuggestionList} role="listbox">
+                {!searchQuery.trim() && <div className={styles.trendSearchHeader} style={{ color: '#94a3b8' }}>Trend Search</div>}
+                <ul className={!searchQuery.trim() ? styles.suggestionGrid : ''} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                  {mobileSuggestions.map((s, i) => (
+                    <li
+                      key={`${s.label}-${i}`}
+                      role="option"
+                      aria-selected={i === activeMobileSuggestion}
+                      className={`${styles.mobileSuggestionItem} ${
+                        i === activeMobileSuggestion ? styles.mobileSuggestionActive : ''
+                      }`}
+                      onMouseDown={() => {
+                        selectMobileSuggestion(s);
                       }}
-                      className={styles.mobileSubLink}
+                      style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
                     >
-                      {sub.label}
-                    </a>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <FiSearch className={styles.mobileSuggestionIcon} style={{ marginRight: '8px' }} />
+                        <span>{s.label}</span>
+                      </div>
+                      {s.type !== 'Course' && (
+                        <span style={{ fontSize: '0.75rem', color: '#ccc', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '4px', marginLeft: '8px' }}>{s.type}</span>
+                      )}
+                    </li>
                   ))}
-                </div>
-              </>
-            ) : (
-              <a
-                href={link.href}
-                onClick={(e) => {
-                  closeMenu();
-                  if (link.href.startsWith('/')) {
-                    e.preventDefault();
-                    navigate(link.href);
-                  }
-                }}
-                className={styles.mobileLink}
-              >
-                {link.label}
-              </a>
+                </ul>
+              </div>
             )}
           </div>
-        ))}
+        ) : (
+          /* Mobile navigation links */
+          <>
+            {navLinks.map((link) => (
+              <div key={link.label} className={styles.mobileLinkContainer}>
+                {link.subLinks ? (
+                  <>
+                    <button
+                      onClick={() => toggleMobileDropdown(link.label)}
+                      className={`${styles.mobileLink} ${styles.mobileDropdownBtn} ${activeDropdown === link.label ? styles.active : ''}`}
+                    >
+                      {link.label}
+                      <FiChevronDown className={`${styles.mobileChevron} ${activeDropdown === link.label ? styles.rotate : ''}`} />
+                    </button>
+                    <div className={`${styles.mobileSubLinks} ${activeDropdown === link.label ? styles.show : ''}`}>
+                      {link.subLinks.map((sub) => (
+                        <a
+                          key={sub.label}
+                          href={sub.href}
+                          onClick={(e) => {
+                            closeMenu();
+                            if (sub.href.startsWith('/')) {
+                              e.preventDefault();
+                              navigate(sub.href);
+                            }
+                          }}
+                          className={styles.mobileSubLink}
+                        >
+                          {sub.label}
+                        </a>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <a
+                    href={link.href}
+                    onClick={(e) => {
+                      closeMenu();
+                      if (link.href.startsWith('/')) {
+                        e.preventDefault();
+                        navigate(link.href);
+                      }
+                    }}
+                    className={styles.mobileLink}
+                  >
+                    {link.label}
+                  </a>
+                )}
+              </div>
+            ))}
 
-
-        {/* CTA */}
-        <button 
-          onClick={() => {
-            closeMenu();
-            window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }));
-          }} 
-          className={styles.mobileCta}
-        >
-          Talk With Expert
-        </button>
+            {/* CTA */}
+            <button 
+              onClick={() => {
+                closeMenu();
+                window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }));
+              }} 
+              className={styles.mobileCta}
+            >
+              Talk With Expert
+            </button>
+          </>
+        )}
       </div>
     </>
   );

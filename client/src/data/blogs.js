@@ -197,7 +197,7 @@ SEO needs, scalability, and development style.
 },
 {
   id: 3,
-  courseSlug: "digital-marketing",
+  courseSlug: "ethical-hacking",
 
   // Card Data (used in blog listing)
   title: "React vs Next.js: Which Should You Learn?",

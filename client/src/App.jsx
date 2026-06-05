@@ -32,6 +32,7 @@ import BlogDetails from './pages/BlogDetails/BlogDetails';
 import LifePage from './pages/LifePage/LifePage';
 import CenterDetailPage from './pages/CenterDetailPage/CenterDetailPage';
 import ContactModal from './components/ContactModal/ContactModal';
+import StudentTestimonialsBanner from './components/StudentTestimonialsBanner/StudentTestimonialsBanner';
 
 export default function App() {
   // Attach scroll-reveal observer after mount
@@ -142,6 +143,9 @@ export default function App() {
             <Testimonials />
             <Life navigate={navigate} />
             <ResourceCenter />
+            <div className="container">
+              <StudentTestimonialsBanner />
+            </div>
           </>
         )}
         <FAQ />

@@ -64,7 +64,7 @@ export default function Footer({ navigate }) {
             <div className={styles.col}>
               <h4 className={styles.colTitle}>Courses</h4>
               <ul className={styles.colLinks}>
-                <li><a href="/course/digital-marketing" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/course/digital-marketing'); }}>Digital Marketing</a></li>
+                <li><a href="/course/ethical-hacking" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/course/ethical-hacking'); }}>Ethical Hacking</a></li>
                 <li><a href="/course/python-programming" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/course/python-programming'); }}>Python Developer</a></li>
                 <li><a href="/course/data-science-ai" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/course/data-science-ai'); }}>Data Science</a></li>
               </ul>

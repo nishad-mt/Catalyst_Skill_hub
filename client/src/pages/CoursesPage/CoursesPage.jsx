@@ -11,7 +11,7 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
     document.title = "All Tech Programs & Courses | Catalyst Skill Hub";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', "Explore our wide range of AI-powered tech professional programs. Python, Full Stack, Data Science, Cyber Security, UI/UX, and more with 100% placement support.");
+      metaDesc.setAttribute('content', "Explore our wide range of AI-powered tech professional programs. Python, Full Stack, Data Science, Cyber Security, Data Analyst, and more with 100% placement support.");
     }
     window.scrollTo(0, 0);
   }, []);
