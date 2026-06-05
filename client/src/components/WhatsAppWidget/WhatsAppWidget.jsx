@@ -10,8 +10,11 @@ export default function WhatsAppWidget() {
   const [message, setMessage] = useState('');
   const inputRef = useRef(null);
 
-  // Auto-open after 2.5s on first load
+  // Auto-open after 2.5s on first load — desktop only
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) return; // no auto-popup on mobile
+
     const openTimer = setTimeout(() => {
       setOpen(true);
       setVisible(true);
