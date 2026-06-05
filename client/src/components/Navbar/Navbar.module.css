@@ -264,7 +264,7 @@
   left: 0;
   width: 100%;
   background: #ffffff;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #000000a7;
   border-radius: 12px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
   list-style: none;
@@ -531,6 +531,20 @@
   right: 0 !important;
 }
 
+.mobilePanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.mobilePanelLogo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
 .closeBtn {
   align-self: flex-end;
   background: #f1f5f9;
@@ -569,8 +583,7 @@
   width: 100%;
   padding: 0.8rem 1rem 0.8rem 2.5rem;
   border-radius: 8px;
-  border: 1px solid #cbd5e1;
-  background: #f8fafc;
+  border: 1px solid #000000a7;
   color: #0f172a;
   font-size: 1rem;
   box-sizing: border-box;

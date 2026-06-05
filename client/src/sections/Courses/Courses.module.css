@@ -65,7 +65,10 @@
   .grid > * {
     flex: 0 0 85%;
     display: flex; /* important */
+    flex-direction: column;
     scroll-snap-align: start;
+    height: auto;
+    align-self: stretch;
   }
 }
 

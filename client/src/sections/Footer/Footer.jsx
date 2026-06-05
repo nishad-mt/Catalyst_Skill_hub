@@ -1,7 +1,7 @@
 // src/sections/Footer/Footer.jsx
 import React from 'react';
 import styles from './Footer.module.css';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/techhub.png';
 
 
 export default function Footer({ navigate }) {

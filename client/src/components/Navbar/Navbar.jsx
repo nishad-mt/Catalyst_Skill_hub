@@ -3,6 +3,7 @@ import { navLinks, blogs, centers } from '../../data/siteData';
 import styles from './Navbar.module.css';
 import { FiSearch, FiChevronDown } from 'react-icons/fi';
 import logo from '../../assets/logo.png';
+import techhub from '../../assets/techhub.png';
 import { courses } from '../../data/courses';
 
 // Build a flat list of searchable suggestion objects
@@ -399,14 +400,17 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
         }`}
         aria-hidden={!menuOpen}
       >
-        {/* Close button */}
-        <button
-          className={styles.closeBtn}
-          onClick={closeMenu}
-          aria-label="Close menu"
-        >
-          ✕
-        </button>
+        {/* Techhub logo at top */}
+        <div className={styles.mobilePanelHeader}>
+          <img src={techhub} alt="TechHub" className={styles.mobilePanelLogo} />
+          <button
+            className={styles.closeBtn}
+            onClick={closeMenu}
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+        </div>
 
         {menuDirection === 'right' ? (
           /* Mobile search bar */

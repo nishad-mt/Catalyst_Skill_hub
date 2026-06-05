@@ -1,5 +1,4 @@
 // src/components/CourseCard/CourseCard.jsx
-import { useState } from 'react';
 import styles from './CourseCard.module.css';
 
 /**
@@ -17,14 +16,6 @@ import styles from './CourseCard.module.css';
  * }
  */
 export default function CourseCard({ course, navigate }) {
-  const [expanded, setExpanded] = useState(false);
-
-  const limit = 60; // Point where 'read more' appears
-  const threshold = 95; // Only show 'read more' if it significantly exceeds 2 lines
-  const isLong = course.desc?.length > threshold;
-  const shortDesc = isLong && !expanded
-    ? course.desc.slice(0, limit).trimEnd() + '... '
-    : course.desc;
 
   return (
     <div className={styles.card}>
@@ -49,17 +40,7 @@ export default function CourseCard({ course, navigate }) {
           <span className={styles.mode}>{course.mode || 'Online / Offline'}</span></p>
 
         {/* Description */}
-        <p className={styles.desc}>
-          {shortDesc}
-          {isLong && (
-            <button
-              className={styles.moreBtn}
-              onClick={() => setExpanded(v => !v)}
-            >
-              {expanded ? 'less..' : 'read more..'}
-            </button>
-          )}
-        </p>
+        <p className={styles.desc}>{course.desc}</p>
 
         <div className={styles.actions}>
           <a

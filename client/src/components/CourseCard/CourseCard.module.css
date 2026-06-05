@@ -87,8 +87,8 @@
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
-  width: 38%;
-  font-size: 1rem;
+  width: 40%;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #000000;
   /* text-shadow: 0px 2px 4px rgba(0,0,0,0.7); */
@@ -127,20 +127,6 @@
   flex-grow: 1;
 }
 
-.moreBtn {
-  background: none;
-  border: none;
-  padding: 0;
-  color: #1d4ed8;
-  font-size: 0.82rem;
-  font-weight: 500;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.moreBtn:hover {
-  text-decoration: underline;
-}
 
 /* ── Duration ── */
 .duration {
