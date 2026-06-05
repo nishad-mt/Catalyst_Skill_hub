@@ -273,19 +273,31 @@
   object-fit: contain;
 }
 
-/* ── Responsive ── */
 @media (max-width: 768px) {
+  .marqueeRow {
+    display: block;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .marqueeRow::-webkit-scrollbar {
+    display: none;
+  }
+
+  .marqueeTrack {
+    animation: none;
+    width: max-content;
+    padding: 10px 16px;
+  }
+
   .card,
   .videoCard {
     width: 280px;
-  }
-  
-  .marqueeTrack {
-    animation-duration: 45s;
-  }
-
-  .marqueeContainer::before,
-  .marqueeContainer::after {
-    width: 60px;
+    flex-shrink: 0;
   }
 }

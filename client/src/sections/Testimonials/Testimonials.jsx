@@ -34,10 +34,10 @@ const videoTestimonials = [
     videoUrl: adithVideo
   }
 ];
-
 const Testimonials = () => {
   const [isMobile, setIsMobile] = React.useState(false);
   const [selectedVideo, setSelectedVideo] = React.useState(null);
+  const scrollRef = React.useRef(null);
 
   React.useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -45,6 +45,32 @@ const Testimonials = () => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+
+React.useEffect(() => {
+  if (!isMobile || !scrollRef.current) return;
+
+  const container = scrollRef.current;
+
+  const interval = setInterval(() => {
+    if (
+      container.scrollLeft + container.clientWidth >=
+      container.scrollWidth - 5
+    ) {
+      container.scrollTo({
+        left: 0,
+        behavior: 'smooth',
+      });
+    } else {
+      container.scrollBy({
+        left: 1,
+        behavior: 'auto',
+      });
+    }
+  }, 20);
+
+  return () => clearInterval(interval);
+}, [isMobile]);
 
   const allTestimonials = [
     videoTestimonials[0],
@@ -101,7 +127,7 @@ const Testimonials = () => {
       <div className={`${styles.marqueeContainer} reveal`}>
         {isMobile ? (
           /* Mobile: Single row with all items */
-          <div className={styles.marqueeRow}>
+          <div className={styles.marqueeRow} ref={scrollRef}>
             <div className={styles.marqueeTrack}>
               {triple(allTestimonials).map((item, idx) => renderCard(item, `mob-${idx}`))}
             </div>
