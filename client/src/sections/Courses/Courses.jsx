@@ -33,6 +33,9 @@ export default function Courses({ searchQuery, navigate }) {
             <h2 className={styles.heading}>
               {searchQuery ? `Search Results for "${searchQuery}"` : "Most Popular Courses"}
             </h2>
+            <p className={styles.subHeading}>
+                Unlock your potential with industry-leading programs built for the future. From AI to Full Stack, our expert-led courses are designed to get you job-ready fast.
+              </p>
           </div>
 
           {/* Course grid */}

@@ -3,12 +3,21 @@
   width: 100%;
 }
 
+
 .sectionTitle {
   font-size: 2rem;
   font-weight: 600;
   color: #0a0927; /* deep purple/indigo from image */
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   text-align: left;
+}
+
+.subHeading {
+  max-width: 50%;
+  font-size: 15px;
+  color: #373737;
+  line-height: 1.7;
+  margin-bottom: 2rem;
 }
 
 .tableContainer {
@@ -232,6 +241,10 @@
     opacity: 0.7;
     margin-bottom: 0.25rem;
     display: block;
+  }
+  .checkBtn{
+    padding: 0.65rem 0.7rem;
+    font-size: 0.9rem;
   }
 }
 

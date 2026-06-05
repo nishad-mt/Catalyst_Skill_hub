@@ -140,6 +140,10 @@ const Comparison = () => {
     <section className={styles.comparisonSection}>
       <div className="container">
         <h2 className={`${styles.sectionTitle} reveal`}>What Makes Catalyst the best</h2>
+        <p className={styles.subHeading}>
+          Industry-focused training, expert mentors, and hands-on projects all in one place.
+          Everything you need to build skills, gain confidence, and launch your career.
+        </p>
 
         <div className={styles.tableContainer}>
           <table className={styles.comparisonTable}>
@@ -208,7 +212,9 @@ const Comparison = () => {
         </div>
 
         <div className={`${styles.buttonContainer} reveal`}>
-          <button className={styles.checkBtn} onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}>Check Eligibility</button>
+          <button className={styles.checkBtn} onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}>
+            Check Eligibility
+          </button>
         </div>
       </div>
     </section>

@@ -20,6 +20,9 @@ const Placements = () => {
         <h2 className={`${styles.sectionTitle} reveal`}>
           Placement Records
         </h2>
+        <p className={styles.subHeading}>
+From learning new skills to landing rewarding careers.
+Our placement records highlight the success journeys of our students.        </p>
 
         <div className={styles.grid}>
           {placementImages.map((image, index) => (

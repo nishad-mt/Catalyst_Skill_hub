@@ -2,6 +2,14 @@
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 700;
   color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.subHeading {
+  max-width: 50%;
+  font-size: 15px;
+  color: #373737;
+  line-height: 1.7;
   margin-bottom: 2rem;
 }
 
