@@ -172,4 +172,8 @@
   .marqueeContainer::after {
     width: 60px;
   }
+
+  .subheading {
+    max-width: 100%;
+  }
 }

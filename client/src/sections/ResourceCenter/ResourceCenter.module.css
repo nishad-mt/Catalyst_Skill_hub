@@ -24,6 +24,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .advisorBtn {
+    padding: 0.65rem 1rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
 .videoCard {
   position: relative;
   border-radius: var(--radius-main);

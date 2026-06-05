@@ -13,7 +13,7 @@
 }
 
 .subHeading {
-  max-width: 50%;
+  max-width: 600px;
   font-size: 15px;
   color: #373737;
   line-height: 1.7;
@@ -122,7 +122,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .mentorsGrid {
     display: flex;
     overflow-x: auto;
@@ -141,6 +141,9 @@
   .mentorCard {
     flex: 0 0 280px;
     scroll-snap-align: start;
+  }
+  .subHeading{
+    max-width: 100%;
   }
   .talkBtn{
       padding: 0.65rem 0.7rem;

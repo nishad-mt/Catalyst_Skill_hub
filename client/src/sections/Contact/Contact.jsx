@@ -1,6 +1,6 @@
 // src/sections/Contact/Contact.jsx
 import { useState, useEffect } from 'react';
-import { testimonials, alumni, courses, centers } from '../../data/siteData';
+import { testimonials, courses, centers } from '../../data/siteData';
 import styles from './Contact.module.css';
 
 export default function Contact() {
@@ -28,11 +28,10 @@ export default function Contact() {
     const payload = {
       _subject: "New Contact Form Submission",
       _template: "table",
-
       Name: form.name,
       Phone: form.phone,
       Email: form.email,
-      Cource: form.course,
+      Course: form.course,
       Center: form.center,
       PageURL: window.location.href,
       SubmissionTime: new Date().toLocaleString(),
@@ -41,25 +40,25 @@ export default function Contact() {
     try {
       const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
         method: "POST",
-        headers: { 
+        headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify(payload)
       });
-      
+
       if (!response.ok) {
         throw new Error('Server error or form API is down');
       }
 
       alert('Message Sent Successfully! We will get back to you soon.');
-      setForm({ name: '', phone: '', email: '' });
+      setForm({ name: '', phone: '', email: '', course: '', center: '' });
     } catch (error) {
       console.error(error);
       const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Form Type: ${payload.FormType}\nName: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
+        `Name: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nCourse: ${payload.Course}\nCenter: ${payload.Center}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
       )}`;
-      
+
       if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via email instead?")) {
         window.location.href = mailtoLink;
       }
@@ -109,13 +108,8 @@ export default function Contact() {
             </div>
 
             <div className={styles.testimonialBox}>
-              <div
-                key={activeIdx}
-                className={styles.testimonialContent}
-              >
-                <p className={styles.testimonialText}>
-                  {currentTestimonial.text}
-                </p>
+              <div key={activeIdx} className={styles.testimonialContent}>
+                <p className={styles.testimonialText}>{currentTestimonial.text}</p>
                 <div className={styles.testimonialAuthor}>
                   <div className={styles.initialsCircle}>
                     {currentTestimonial.initials}
@@ -142,6 +136,7 @@ export default function Contact() {
           {/* Right Form */}
           <div className={`${styles.formContainer} reveal`}>
             <form onSubmit={handleSubmit}>
+
               <div className={styles.formGroup}>
                 <label className={styles.label}>Name</label>
                 <input
@@ -149,33 +144,36 @@ export default function Contact() {
                   value={form.name}
                   onChange={handleChange('name')}
                   className={styles.input}
+                  placeholder="Your full name"
                   required
                 />
               </div>
 
-              
               <div className={styles.twoCol}>
                 <div className={styles.formGroup}>
-                <label className={styles.label}>Phone Number</label>
-                <input
-                  type="tel"
-                  value={form.phone}
-                  onChange={handleChange('phone')}
-                  className={styles.input}
-                  required
-                />
-              </div>
+                  <label className={styles.label}>Phone Number</label>
+                  <input
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange('phone')}
+                    className={styles.input}
+                    placeholder="+91 00000 00000"
+                    required
+                  />
+                </div>
 
-              <div className={styles.formGroup}>
-                <label className={styles.label}>Email ID</label>
-                <input
-                  type="email"
-                  value={form.email}
-                  onChange={handleChange('email')}
-                  className={styles.input}
-                  required
-                />
-              </div>
+                <div className={styles.formGroup}>
+                  <label className={styles.label}>Email ID</label>
+                  <input
+                    type="email"
+                    value={form.email}
+                    onChange={handleChange('email')}
+                    className={styles.input}
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+
                 <div className={styles.formGroup}>
                   <label className={styles.label}>Course</label>
                   <select
@@ -184,8 +182,8 @@ export default function Contact() {
                     className={styles.input}
                     required
                   >
-                    <option value="">Select Course</option>
-                    {courses.map(course => (
+                    <option value="">Select a course</option>
+                    {courses.map((course) => (
                       <option key={course.id} value={course.title}>
                         {course.title}
                       </option>
@@ -194,17 +192,17 @@ export default function Contact() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label className={styles.label}>Centers</label>
+                  <label className={styles.label}>Center</label>
                   <select
                     value={form.center}
                     onChange={handleChange('center')}
                     className={styles.input}
                     required
                   >
-                    <option value="">Select location</option>
-                    {centers.map(centers => (
-                      <option key={centers.id} value={centers.name}>
-                        {centers.name}
+                    <option value="">Select a location</option>
+                    {centers.map((center) => (
+                      <option key={center.id} value={center.name}>
+                        {center.name}
                       </option>
                     ))}
                   </select>
@@ -218,6 +216,7 @@ export default function Contact() {
               >
                 {loading ? 'SENDING...' : 'SUBMIT'}
               </button>
+
             </form>
           </div>
 

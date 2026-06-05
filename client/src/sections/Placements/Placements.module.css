@@ -6,7 +6,7 @@
 }
 
 .subHeading {
-  max-width: 50%;
+  max-width: 600px;
   font-size: 15px;
   color: #373737;
   line-height: 1.7;
@@ -57,5 +57,8 @@
     scroll-snap-align: start;
     height: auto;
     align-self: stretch;
+  }
+  .subHeading{
+    max-width: 100%;
   }
 }

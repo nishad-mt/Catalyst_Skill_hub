@@ -13,7 +13,7 @@
 }
 
 .subHeading {
-  max-width: 50%;
+  max-width: 600px;
   font-size: 15px;
   color: #373737;
   line-height: 1.7;
@@ -169,6 +169,10 @@
     font-size: 1.5rem;
     text-align: left;
     margin-bottom: 2rem;
+  }
+
+  .subHeading {
+    max-width: 100%;
   }
 
   .tableContainer {

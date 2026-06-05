@@ -594,5 +594,14 @@
   .primaryBtn {
     width: 100%;
     text-align: center;
+    padding: 0.65rem 0.7rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .primaryBtn {
+    padding: 0.65rem 0.7rem;
+    font-size: 0.9rem;
   }
 }
