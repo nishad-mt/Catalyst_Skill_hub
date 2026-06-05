@@ -22,6 +22,7 @@ import ResourceCenter from './sections/ResourceCenter/ResourceCenter';
 import FAQ from './sections/FAQ/FAQ';
 import Contact from './sections/Contact/Contact';
 import Footer  from './sections/Footer/Footer';
+import Placements from './sections/Placements/Placements';
 
 import CoursesPage from './pages/CoursesPage/CoursesPage';
 import CourseDetailPage from './pages/CourseDetailPage/CourseDetailPage';
@@ -137,6 +138,7 @@ export default function App() {
             <Hero navigate={navigate} />
             <StatsBar    />
             <Courses searchQuery={searchQuery} navigate={navigate} />
+            <Placements />
             <Mentors />
             <Skills />
             <Comparison />
