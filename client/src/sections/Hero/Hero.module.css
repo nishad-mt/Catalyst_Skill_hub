@@ -323,7 +323,7 @@
   border-radius: 50%;
   border: 1.5px dashed rgba(96, 165, 250, 0.25);
   position: relative;
-  animation: spinLeft 30s linear infinite;
+  animation: spinLeft 20s linear infinite;
   pointer-events: all;
 }
 
@@ -333,7 +333,7 @@
   border-radius: 50%;
   border: 1.5px dashed rgba(96, 165, 250, 0.15);
   position: relative;
-  animation: spinRight 40s linear infinite;
+  animation: spinRight 20s linear infinite;
   pointer-events: all;
 }
 
@@ -385,11 +385,11 @@
 }
 
 .orbitRing2 .orbitIcon {
-  animation: counterSpinLeft 30s linear infinite;
+  animation: counterSpinRight 20s linear infinite;
 }
 
 .orbitRing3 .orbitIcon {
-  animation: counterSpinRight 40s linear infinite;
+  animation: counterSpinRight 20s  linear infinite;
 }
 
 @keyframes counterSpinRight {

@@ -4,11 +4,12 @@ import heroImg from "../../assets/image.png";
 import nsdcLogo from "../../assets/nsdc.png";
 
 import { companyLogos } from "../../data/siteData";
-import { SiPython, SiDocker, SiReact, SiScikitlearn } from "react-icons/si";
+import { SiPython, SiDocker, SiReact, SiScikitlearn, SiLinux, SiPostgresql, SiKubernetes } from "react-icons/si";
 import { MdSecurity } from "react-icons/md";
 import { FaBullhorn, FaChartBar, FaFlask, FaAws } from "react-icons/fa";
 
 function OrbitAnimation() {
+  
   return (
     <div className={styles.orbitContainer}>
       <div className={styles.centerSphere}>
@@ -34,54 +35,94 @@ function OrbitAnimation() {
       {/* Orbit 2 - 3 icons: Cybersecurity, Ethical Hacking, AWS Cloud */}
       <div className={`${styles.orbitWrapper} ${styles.orbit2Wrapper}`}>
         <div className={styles.orbitRing2}>
-          {/* Top center */}
-          <div className={styles.orbitIconWrap} style={{ top: '-25px', left: 'calc(50% - 25px)' }} title="Cybersecurity">
+
+          {/* Top */}
+          <div
+            className={styles.orbitIconWrap}
+            style={{ top: '-25px', left: 'calc(50% - 25px)' }}
+            title="Cybersecurity"
+          >
             <div className={styles.orbitIcon}>
-              <MdSecurity />
+              <SiKubernetes />
             </div>
           </div>
-          {/* Bottom Right (120 deg) */}
-          <div className={styles.orbitIconWrap} style={{ top: 'calc(93.3% - 25px)', right: 'calc(25% - 25px)' }} title="Ethical Hacking">
+
+          {/* Right */}
+          <div
+            className={styles.orbitIconWrap}
+            style={{ right: '-25px', top: 'calc(50% - 25px)' }}
+            title="Ethical Hacking"
+          >
             <div className={styles.orbitIcon}>
               <FaBullhorn />
             </div>
           </div>
-          {/* Bottom Left (240 deg) */}
-          <div className={styles.orbitIconWrap} style={{ top: 'calc(93.3% - 25px)', left: 'calc(25% - 25px)' }} title="AWS Cloud">
+
+          {/* Bottom */}
+          <div
+            className={styles.orbitIconWrap}
+            style={{ bottom: '-25px', left: 'calc(50% - 25px)' }}
+            title="AWS Cloud"
+          >
             <div className={styles.orbitIcon}>
               <FaAws />
             </div>
           </div>
+
+          {/* Left - New Icon */}
+          <div
+            className={styles.orbitIconWrap}
+            style={{ left: '-25px', top: 'calc(50% - 25px)' }}
+            title="DevOps"
+          >
+            <div className={styles.orbitIcon}>
+              <SiLinux />
+            </div>
+          </div>
+
         </div>
       </div>
 
       {/* Orbit 3 - 4 icons: MERN, Data Analytics, Data Science, Machine Learning */}
       <div className={`${styles.orbitWrapper} ${styles.orbit3Wrapper}`}>
         <div className={styles.orbitRing3}>
+
           {/* Top */}
-          <div className={styles.orbitIconWrap} style={{ top: '-25px', left: 'calc(50% - 25px)' }} title="MERN Stack">
-            <div className={styles.orbitIcon}>
-              <SiReact />
-            </div>
+          <div className={styles.orbitIconWrap}
+            style={{ top: '-25px', left: 'calc(50% - 25px)' }}>
+            <div className={styles.orbitIcon}><SiReact /></div>
           </div>
+
+          {/* Top Right */}
+          <div className={styles.orbitIconWrap}
+            style={{ top: '15%', right: '8%' }}>
+            <div className={styles.orbitIcon}><FaChartBar /></div>
+          </div>
+
+          {/* Bottom Right */}
+          <div className={styles.orbitIconWrap}
+            style={{ bottom: '15%', right: '8%' }}>
+            <div className={styles.orbitIcon}><SiScikitlearn /></div>
+          </div>
+
           {/* Bottom */}
-          <div className={styles.orbitIconWrap} style={{ bottom: '-25px', left: 'calc(50% - 25px)' }} title="Data Analytics">
-            <div className={styles.orbitIcon}>
-              <FaChartBar />
-            </div>
+          <div className={styles.orbitIconWrap}
+            style={{ bottom: '-25px', left: 'calc(50% - 25px)' }}>
+            <div className={styles.orbitIcon}><FaFlask /></div>
           </div>
-          {/* Left */}
-          <div className={styles.orbitIconWrap} style={{ left: '-25px', top: 'calc(50% - 25px)' }} title="Data Science">
-            <div className={styles.orbitIcon}>
-              <FaFlask />
-            </div>
+
+          {/* Bottom Left */}
+          <div className={styles.orbitIconWrap}
+            style={{ bottom: '15%', left: '8%' }}>
+            <div className={styles.orbitIcon}><SiPostgresql /></div>
           </div>
-          {/* Right */}
-          <div className={styles.orbitIconWrap} style={{ right: '-25px', top: 'calc(50% - 25px)' }} title="Machine Learning">
-            <div className={styles.orbitIcon}>
-              <SiScikitlearn />
-            </div>
+
+          {/* Top Left */}
+          <div className={styles.orbitIconWrap}
+            style={{ top: '15%', left: '8%' }}>
+            <div className={styles.orbitIcon}><MdSecurity /></div>
           </div>
+
         </div>
       </div>
     </div>

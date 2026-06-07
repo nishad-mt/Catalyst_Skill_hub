@@ -601,13 +601,13 @@
 
 .mobileLinkContainer {
   border-bottom: 1px solid rgba(0, 0, 0, 0.64);
-  padding-bottom: 0.5rem;
+  /* padding-bottom: 0.5rem; */
   margin-bottom: 0.5rem;
 }
 
 .mobileLink {
   color: #0f172a;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
   padding: 0.5rem 0;

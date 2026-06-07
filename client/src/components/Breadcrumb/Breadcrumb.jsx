@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaHome } from "react-icons/fa";
 import styles from './Breadcrumb.module.css';
 import { courses } from '../../data/siteData';
 
@@ -65,13 +66,14 @@ export default function Breadcrumb({ currentPage, navigate }) {
                   </span>
                 ) : (
                   <>
-                    <a 
-                      href={item.path} 
-                      className={styles.breadcrumbLink}
-                      onClick={(e) => handleNavigation(e, item.path)}
-                    >
-                      {item.label}
-                    </a>
+                  <a
+                    href={item.path}
+                    className={styles.breadcrumbLink}
+                    onClick={(e) => handleNavigation(e, item.path)}
+                    aria-label="Home"
+                  >
+                    {item.label === "Home" ? <FaHome /> : item.label}
+                  </a>
                     <span className={styles.separator}>/</span>
                   </>
                 )}

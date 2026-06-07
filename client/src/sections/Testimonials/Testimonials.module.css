@@ -69,6 +69,10 @@
   100% { transform: translateX(-33.33%); }
 }
 
+.breadcrumbLink svg {
+  font-size: 14px;
+}
+
 /* ── Card Styling ── */
 .card {
   flex: 0 0 auto;
