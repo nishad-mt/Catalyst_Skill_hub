@@ -36,7 +36,7 @@ export default function Alumni() {
         {/* Row 1 */}
         <div className={styles.marqueeRow}>
           <div className={styles.marqueeTrack}>
-            {triple(row1).map((person, index) => (
+            {(row1).map((person, index) => (
               <AlumniCard key={`${person.id}-r1-${index}`} person={person} />
             ))}
           </div>
@@ -45,7 +45,7 @@ export default function Alumni() {
         {/* Row 2 */}
         <div className={styles.marqueeRow}>
           <div className={styles.marqueeTrack}>
-            {triple(row2).map((person, index) => (
+            {(row2).map((person, index) => (
               <AlumniCard key={`${person.id}-r2-${index}`} person={person} />
             ))}
           </div>
