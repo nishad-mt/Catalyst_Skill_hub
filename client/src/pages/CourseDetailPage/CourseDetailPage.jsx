@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from './CourseDetailPage.module.css';
 import { courses } from '../../data/siteData';
-import nsdcLogo from '../../assets/nsdc.png';
 import promoImg from '../../assets/promo_thinking.png';
 import studentsBanner from '../../assets/students_banner.png';
 import { testimonials } from '../../data/testimonials';
@@ -654,7 +653,7 @@ const CourseDetailPage = () => {
                 <div className={styles.mentorInfo}>
                   <h4>James Alex</h4>
                   <p className={styles.mentorRole}>CISSP, CISM, CEH, India</p>
-                  <p className={styles.mentorWork}>Work @</p>
+                  {/* <p className={styles.mentorWork}>Work @</p> */}
                   <p className={styles.mentorDesc}>Cyber security skills with hands-on training. Learn ethical hacking and protect real-world systems.</p>
                   <div className={styles.mentorSocial}>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />

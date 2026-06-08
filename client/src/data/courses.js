@@ -140,7 +140,7 @@ export const courses = [
     title: "Cyber Security",
     location: "Calicut",
     desc: "Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed",
-    duration: "8 months",
+    duration: "6 months",
     fee: "₹89,999",
     rating:"4.8",
     img: list,

@@ -179,7 +179,7 @@
 }
 
 .companies {
-  background: #abb0ff47;
+  background: #e7e9fcbd;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 1.5rem 3rem;
@@ -575,13 +575,7 @@
     height: 26px;
   }
 
-  .nsdcLogo {
-    height: 30px;
-  }
 
-  .nsdcText {
-    font-size: 0.65rem;
-  }
 
   .greenDecoration {
     width: 80px;

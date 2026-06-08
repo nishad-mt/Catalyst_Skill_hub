@@ -22,7 +22,7 @@ export default function Courses({ searchQuery, navigate }) {
     course.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const visible = filteredCourses.slice(0, limit);
+  const visible = filteredCourses.slice(0, 4);
 
   return (
     <section id="courses" className={styles.section}>

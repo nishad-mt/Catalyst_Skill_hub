@@ -1,7 +1,6 @@
 // Hero.jsx
 import styles from "./Hero.module.css";
 import heroImg from "../../assets/image.png";
-import nsdcLogo from "../../assets/nsdc.png";
 
 import { companyLogos } from "../../data/siteData";
 import { SiPython, SiDocker, SiReact, SiScikitlearn, SiLinux, SiPostgresql, SiKubernetes } from "react-icons/si";
@@ -161,8 +160,8 @@ export default function Hero({ navigate }) {
               <span>Cyber Security</span>
               <span>MERN Stack</span>
               <span>Python Full Stack Development</span>
-              <span>Flutter</span>
-              <span>Software Testing</span>
+              <span>Data Science</span>
+              {/* <span>Software Testing</span> */}
             </div>
 
           </div>

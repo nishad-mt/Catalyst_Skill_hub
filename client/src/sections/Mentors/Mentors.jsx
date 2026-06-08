@@ -25,7 +25,7 @@ Learn through industry-focused guidance and hands-on experience.        </p>
               <div className={styles.cardContent}>
                 <h3 className={styles.mentorName}>{mentor.name}</h3>
                 <p className={styles.mentorTitle}>{mentor.title}</p>
-                <a href="#" className={styles.workAtLink}>Work @</a>
+                {/* <a href="#" className={styles.workAtLink}>Work @</a> */}
                 <p className={styles.mentorDesc}>{mentor.description}</p>
               </div>
             </div>

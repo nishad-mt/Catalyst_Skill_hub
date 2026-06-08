@@ -72,7 +72,7 @@ export default function Breadcrumb({ currentPage, navigate }) {
                     onClick={(e) => handleNavigation(e, item.path)}
                     aria-label="Home"
                   >
-                    {item.label === "Home" ? <FaHome /> : item.label}
+                    {item.label === "Home" ? <FaHome className={styles.homeIcon} /> : item.label}
                   </a>
                     <span className={styles.separator}>/</span>
                   </>

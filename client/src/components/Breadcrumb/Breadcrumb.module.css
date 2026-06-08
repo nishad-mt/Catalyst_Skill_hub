@@ -8,6 +8,10 @@
   left: 0;
 }
 
+.homeIcon {
+  font-size: 1.3rem;
+}
+
 /* Pages without the 50px TopBar — only 100px navbar */
 .noTopBar {
   margin-top: 100px;
