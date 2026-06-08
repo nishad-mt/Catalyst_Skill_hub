@@ -35,6 +35,17 @@ Our placement records highlight the success journeys of our students.        </p
             </div>
           ))}
         </div>
+        <div className={`${styles.btnWrap} reveal`}>
+          <button
+            className={styles.viewAllBtn}
+            onClick={() => {
+              window.history.pushState({}, '', '/success-stories');
+              window.dispatchEvent(new PopStateEvent('popstate'));
+            }}
+          >
+            View All Placements
+          </button>
+        </div>
       </div>
     </section>
   );

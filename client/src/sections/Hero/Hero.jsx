@@ -9,7 +9,14 @@ import { MdSecurity } from "react-icons/md";
 import { FaBullhorn, FaChartBar, FaFlask, FaAws } from "react-icons/fa";
 
 function OrbitAnimation() {
-  
+  const orbit3Icons = [
+  { icon: <SiReact />, angle: 0 },
+  { icon: <FaChartBar />, angle: 60 },
+  { icon: <SiScikitlearn />, angle: 120 },
+  { icon: <FaFlask />, angle: 180 },
+  { icon: <SiPostgresql />, angle: 240 },
+  { icon: <MdSecurity />, angle: 300 },
+];
   return (
     <div className={styles.orbitContainer}>
       <div className={styles.centerSphere}>
@@ -86,43 +93,27 @@ function OrbitAnimation() {
       {/* Orbit 3 - 4 icons: MERN, Data Analytics, Data Science, Machine Learning */}
       <div className={`${styles.orbitWrapper} ${styles.orbit3Wrapper}`}>
         <div className={styles.orbitRing3}>
+          {orbit3Icons.map((item, index) => {
+            const radius = 255; // orbit diameter 510 / 2
 
-          {/* Top */}
-          <div className={styles.orbitIconWrap}
-            style={{ top: '-25px', left: 'calc(50% - 25px)' }}>
-            <div className={styles.orbitIcon}><SiReact /></div>
-          </div>
+            const x = Math.sin(item.angle * Math.PI / 180) * radius;
+            const y = Math.cos(item.angle * Math.PI / 180) * radius;
 
-          {/* Top Right */}
-          <div className={styles.orbitIconWrap}
-            style={{ top: '15%', right: '8%' }}>
-            <div className={styles.orbitIcon}><FaChartBar /></div>
-          </div>
-
-          {/* Bottom Right */}
-          <div className={styles.orbitIconWrap}
-            style={{ bottom: '15%', right: '8%' }}>
-            <div className={styles.orbitIcon}><SiScikitlearn /></div>
-          </div>
-
-          {/* Bottom */}
-          <div className={styles.orbitIconWrap}
-            style={{ bottom: '-25px', left: 'calc(50% - 25px)' }}>
-            <div className={styles.orbitIcon}><FaFlask /></div>
-          </div>
-
-          {/* Bottom Left */}
-          <div className={styles.orbitIconWrap}
-            style={{ bottom: '15%', left: '8%' }}>
-            <div className={styles.orbitIcon}><SiPostgresql /></div>
-          </div>
-
-          {/* Top Left */}
-          <div className={styles.orbitIconWrap}
-            style={{ top: '15%', left: '8%' }}>
-            <div className={styles.orbitIcon}><MdSecurity /></div>
-          </div>
-
+            return (
+              <div
+                key={index}
+                className={styles.orbitIconWrap}
+                style={{
+                  left: `calc(50% + ${x}px - 25px)`,
+                  top: `calc(50% - ${y}px - 25px)`
+                }}
+              >
+                <div className={styles.orbitIcon}>
+                  {item.icon}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

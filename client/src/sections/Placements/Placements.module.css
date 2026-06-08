@@ -30,7 +30,36 @@
   display: block;
   object-fit: cover;
 }
+/* ── View All button ── */
+.btnWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.75rem;
+}
 
+.viewAllBtn {
+  background: #1e3a8a;
+  color: #ffffff;
+  border: 2px solid #1e3a8a;
+  border-radius: var(--radius-btn);
+  padding: 0.85rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+}
+
+.viewAllBtn:hover {
+  background: transparent;
+  color: #1f02fc;
+  transform: translateY(-2px);
+}
+
+.viewAllBtn:active {
+  transform: translateY(0);
+}
 
 /* Mobile: single horizontal scrollable row */
 @media (max-width: 768px) {
@@ -60,5 +89,9 @@
   }
   .subHeading{
     max-width: 100%;
+  }
+  .viewAllBtn{
+      padding: 0.65rem 0.7rem;
+      font-size: 0.9rem;
   }
 }

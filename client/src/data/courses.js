@@ -166,7 +166,7 @@ export const courses = [
     duration: "3 months",
     fee: "₹20,000",
     rating:"4.8",
-    img: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600&q=80",
+    img: list,
     whatYouWillLearn: [
       { id: 1, icon: "📜", title: "Core Python", desc: "Master variables, loops, functions, and data structures." },
       { id: 2, icon: "🧩", title: "OOPs Concepts", desc: "Learn object-oriented programming for scalable code." },
@@ -191,7 +191,7 @@ export const courses = [
     duration: "4 months",
     fee: "₹40,000",
     rating:"4.8",
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
+    img: list,
     whatYouWillLearn: [
       { id: 1, icon: "☁️", title: "Cloud Fundamentals", desc: "Understand IaaS, PaaS, and SaaS models on AWS." },
       { id: 2, icon: "🖥️", title: "EC2 & S3", desc: "Master virtual servers and scalable object storage." },
@@ -217,7 +217,7 @@ export const courses = [
     duration: "8 months",
     fee: "₹89,999",
     rating:"4.8",
-    img: chork,
+    img: list,
     whatYouWillLearn: [
       { id: 1, icon: "🛡️", title: "Fundamentals of Cyber Security", desc: "Understand core concepts like threats, vulnerabilities, risk management, and security principles." },
       { id: 2, icon: "🌐", title: "Network Security & Protocols", desc: "Learn how networks operate, common attack methods, and how to secure them using firewalls, VPNs, and IDS/IPS." },
@@ -250,7 +250,7 @@ export const courses = [
     duration: "7 months",
     fee: "₹59,000",
     rating:"4.7",
-    img: rose,
+    img: list,
     whatYouWillLearn: [
       { id: 1, icon: "🍃", title: "MongoDB Mastery", desc: "Deep dive into NoSQL database design and aggregation." },
       { id: 2, icon: "🚂", title: "Express.js", desc: "Build robust APIs and middleware with Express." },
