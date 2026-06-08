@@ -1,9 +1,9 @@
 export const courseOptions = [
-  "Full Stack Web Development",
+  "DevOps",
   "Data Science & AI",
-  "Ethical Hacking",
-  "Data Analyst",
+  "Cyber Security",
+  "Data Analatics",
   "Python Programming",
-  "AWS Cloud Computing",
+  "Mern Stack",
   "Other / Not Sure Yet",
 ];

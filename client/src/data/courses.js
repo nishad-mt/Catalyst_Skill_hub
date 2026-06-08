@@ -1,11 +1,91 @@
-import nandanaImg from '../assets/nandana.jpeg';
-import chork from '../assets/chorkk.png'
-import rose from '../assets/rose.png'
 import list from '../assets/list.png'
 
 export const courses = [
   {
-    id: 1,
+  id: 1,
+  slug: "devops",
+  title: "DevOps",
+  location: "Calicut",
+  desc: "Master modern DevOps practices through hands-on projects, cloud deployments, CI/CD pipelines, and infrastructure automation.",
+  duration: "6 months",
+  fee: "₹89,999",
+  rating: "4.8",
+  img: list,
+
+  whatYouWillLearn: [
+    {
+      id: 1,
+      icon: "🐧",
+      title: "Linux Administration",
+      desc: "Learn Linux fundamentals, shell scripting, user management, file systems, and server administration."
+    },
+    {
+      id: 2,
+      icon: "🔀",
+      title: "Git & Version Control",
+      desc: "Master Git workflows, branching strategies, pull requests, and collaborative development practices."
+    },
+    {
+      id: 3,
+      icon: "⚙️",
+      title: "CI/CD Pipelines",
+      desc: "Build automated pipelines using Jenkins and GitHub Actions for testing, building, and deployment."
+    },
+    {
+      id: 4,
+      icon: "🐳",
+      title: "Containerization with Docker",
+      desc: "Create, manage, and deploy containerized applications using Docker and Docker Compose."
+    },
+    {
+      id: 5,
+      icon: "☸️",
+      title: "Kubernetes Orchestration",
+      desc: "Deploy and manage scalable containerized applications using Kubernetes."
+    },
+    {
+      id: 6,
+      icon: "☁️",
+      title: "Cloud Computing",
+      desc: "Work with cloud services, virtual machines, networking, storage, and cloud security concepts."
+    },
+    {
+      id: 7,
+      icon: "🏗️",
+      title: "Infrastructure as Code",
+      desc: "Automate infrastructure provisioning using Terraform and configuration management tools."
+    },
+    {
+      id: 8,
+      icon: "📊",
+      title: "Monitoring & Logging",
+      desc: "Implement monitoring, alerting, and centralized logging using industry-standard tools."
+    },
+    {
+      id: 9,
+      icon: "🚀",
+      title: "DevOps Project & Career Preparation",
+      desc: "Build real-world deployment projects and prepare for DevOps Engineer and Cloud Engineer roles."
+    }
+  ],
+
+  tools: [
+    { name: "Linux", icon: "🐧" },
+    { name: "Git", icon: "🔀" },
+    { name: "GitHub Actions", icon: "⚡" },
+    { name: "Jenkins", icon: "⚙️" },
+    { name: "Docker", icon: "🐳" },
+    { name: "Kubernetes", icon: "☸️" },
+    { name: "Terraform", icon: "🏗️" },
+    { name: "Ansible", icon: "📦" },
+    { name: "Prometheus", icon: "📈" },
+    { name: "Grafana", icon: "📊" },
+    { name: "AWS", icon: "☁️" },
+    { name: "NGINX", icon: "🌐" }
+  ]
+},
+  {
+    id: 2,
     slug: "full-stack-web-development",
     title: "Python Full Stack",
     desc: "Master React, Node.js, MongoDB & more. Build production-grade apps from scratch.",
@@ -30,7 +110,7 @@ export const courses = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     slug: "data-science-ai",
     title: "Data Science",
     desc: "Python, ML, deep learning, and real-world datasets with live industry projects.",
@@ -54,64 +134,46 @@ export const courses = [
       { name: "Pandas", icon: "🐼" },
     ]
   },
- {
-  id: 3,
-  slug: "ethical-hacking",
-  title: "Ethical Hacking",
-  desc: "Learn penetration testing, network security, vulnerability assessment, and cybersecurity fundamentals.",
-  duration: "3 months",
-  fee: "₹25,000",
-  rating: "4.7",
-  img: list,
-
-  whatYouWillLearn: [
     {
-      id: 1,
-      icon: "🛡️",
-      title: "Cybersecurity Fundamentals",
-      desc: "Understand security principles, threats, vulnerabilities, and attack vectors."
-    },
-    {
-      id: 2,
-      icon: "🌐",
-      title: "Network Security",
-      desc: "Learn networking concepts, protocols, firewalls, and secure network design."
-    },
-    {
-      id: 3,
-      icon: "🔎",
-      title: "Vulnerability Assessment",
-      desc: "Identify, analyze, and report security weaknesses in systems and applications."
-    },
-    {
-      id: 4,
-      icon: "💻",
-      title: "Penetration Testing",
-      desc: "Perform ethical hacking techniques to test and strengthen system security."
-    },
-    {
-      id: 5,
-      icon: "🚨",
-      title: "Incident Response",
-      desc: "Learn how to detect, investigate, and respond to cybersecurity incidents."
-    }
-  ],
-
-  tools: [
-    { name: "Kali Linux", icon: "🐉" },
-    { name: "Wireshark", icon: "🦈" },
-    { name: "Nmap", icon: "🌐" },
-    { name: "Burp Suite", icon: "🔍" },
-    { name: "Metasploit", icon: "⚡" },
-    { name: "OWASP ZAP", icon: "🛡️" }
-  ]
-},
+    id: 4,
+    slug: "cyber-security",
+    title: "Cyber Security",
+    location: "Calicut",
+    desc: "Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed",
+    duration: "8 months",
+    fee: "₹89,999",
+    rating:"4.8",
+    img: list,
+    whatYouWillLearn: [
+      { id: 1, icon: "🛡️", title: "Fundamentals of Cyber Security", desc: "Understand core concepts like threats, vulnerabilities, risk management, and security principles." },
+      { id: 2, icon: "🌐", title: "Network Security & Protocols", desc: "Learn how networks operate, common attack methods, and how to secure them using firewalls, VPNs, and IDS/IPS." },
+      { id: 3, icon: "🕵️", title: "Ethical Hacking & Testing", desc: "Learn the methodology of penetration testing and how to identify system weaknesses legally." },
+      { id: 4, icon: "💻", title: "Web Application Security", desc: "Gain hands-on knowledge of securing websites against attacks like SQL injection, XSS, and CSRF." },
+      { id: 5, icon: "🔑", title: "Cryptography Basics", desc: "Understand encryption, hashing, and secure communication methods used to protect sensitive data." },
+      { id: 6, icon: "🖥️", title: "Operating System Security", desc: "Learn to secure Windows and Linux systems, manage permissions, and detect system-level threats." },
+      { id: 7, icon: "🛠️", title: "Security Tools & Technologies", desc: "Work with industry tools like Wireshark, Metasploit, Nmap, and Burp Suite." },
+      { id: 8, icon: "☁️", title: "Cloud & Data Security", desc: "Understand how to protect data in cloud environments and follow best practices for secure storage." },
+      { id: 9, icon: "💼", title: "Career Preparation", desc: "Get guidance for certifications like CEH, CompTIA Security+, and real-world job readiness." },
+    ],
+    tools: [
+      { name: "Nmap", icon: "🔍" },
+      { name: "Wireshark", icon: "📡" },
+      { name: "Metasploit", icon: "💣" },
+      { name: "Burp Suite", icon: "🕷️" },
+      { name: "Hydra", icon: "🐉" },
+      { name: "John the Ripper", icon: "💀" },
+      { name: "Aircrack-ng", icon: "📶" },
+      { name: "OWASP ZAP", icon: "⚡" },
+      { name: "Snort", icon: "👃" },
+      { name: "Splunk", icon: "📊" },
+    ]
+  },
 {
-  id: 4,
+  id: 5,
   slug: "data-analyst",
-  title: "Data Analyst",
+  title: "Data Analatics",
   desc: "Learn Excel, SQL, Python, Power BI, and data visualization to turn data into actionable insights.",
-  duration: "4 months",
+  duration: "6 months",
   fee: "₹35,000",
   rating: "4.8",
   img: list,
@@ -159,91 +221,7 @@ export const courses = [
   ]
 },
   {
-    id: 5,
-    slug: "python-programming",
-    title: "Python Programming",
-    desc: "From basics to advanced: automation, scripting, APIs, and data processing.",
-    duration: "3 months",
-    fee: "₹20,000",
-    rating:"4.8",
-    img: list,
-    whatYouWillLearn: [
-      { id: 1, icon: "📜", title: "Core Python", desc: "Master variables, loops, functions, and data structures." },
-      { id: 2, icon: "🧩", title: "OOPs Concepts", desc: "Learn object-oriented programming for scalable code." },
-      { id: 3, icon: "🌐", title: "Web Scraping", desc: "Extract data from websites using Beautiful Soup and Selenium." },
-      { id: 4, icon: "🔌", title: "API Development", desc: "Build RESTful APIs with Flask and FastAPI." },
-      { id: 5, icon: "🤖", title: "Automation", desc: "Automate repetitive tasks with Python scripts." },
-    ],
-    tools: [
-      { name: "PyCharm", icon: "🐍" },
-      { name: "VS Code", icon: "💻" },
-      { name: "Anaconda", icon: "🧪" },
-      { name: "Git", icon: "🐙" },
-      { name: "Docker", icon: "🐳" },
-      { name: "SQLite", icon: "🗄️" },
-    ]
-  },
-  {
     id: 6,
-    slug: "aws-cloud-computing",
-    title: "AWS Cloud Computing",
-    desc: "Cloud fundamentals, EC2, S3, Lambda, DevOps essentials, and certifications.",
-    duration: "4 months",
-    fee: "₹40,000",
-    rating:"4.8",
-    img: list,
-    whatYouWillLearn: [
-      { id: 1, icon: "☁️", title: "Cloud Fundamentals", desc: "Understand IaaS, PaaS, and SaaS models on AWS." },
-      { id: 2, icon: "🖥️", title: "EC2 & S3", desc: "Master virtual servers and scalable object storage." },
-      { id: 3, icon: "🔐", title: "IAM & Security", desc: "Manage user access and secure your cloud infrastructure." },
-      { id: 4, icon: "⚡", title: "Serverless (Lambda)", desc: "Build event-driven applications without managing servers." },
-      { id: 5, icon: "🚢", title: "DevOps on AWS", desc: "Implement CI/CD using AWS CodePipeline and CodeDeploy." },
-    ],
-    tools: [
-      { name: "AWS Console", icon: "☁️" },
-      { name: "Terraform", icon: "🏗️" },
-      { name: "Docker", icon: "🐳" },
-      { name: "Jenkins", icon: "🤵" },
-      { name: "Kubernetes", icon: "☸️" },
-      { name: "CloudWatch", icon: "📊" },
-    ]
-  },
-  {
-    id: 7,
-    slug: "cyber-security",
-    title: "Cyber Security",
-    location: "Calicut",
-    desc: "Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed",
-    duration: "8 months",
-    fee: "₹89,999",
-    rating:"4.8",
-    img: list,
-    whatYouWillLearn: [
-      { id: 1, icon: "🛡️", title: "Fundamentals of Cyber Security", desc: "Understand core concepts like threats, vulnerabilities, risk management, and security principles." },
-      { id: 2, icon: "🌐", title: "Network Security & Protocols", desc: "Learn how networks operate, common attack methods, and how to secure them using firewalls, VPNs, and IDS/IPS." },
-      { id: 3, icon: "🕵️", title: "Ethical Hacking & Testing", desc: "Learn the methodology of penetration testing and how to identify system weaknesses legally." },
-      { id: 4, icon: "💻", title: "Web Application Security", desc: "Gain hands-on knowledge of securing websites against attacks like SQL injection, XSS, and CSRF." },
-      { id: 5, icon: "🔑", title: "Cryptography Basics", desc: "Understand encryption, hashing, and secure communication methods used to protect sensitive data." },
-      { id: 6, icon: "🖥️", title: "Operating System Security", desc: "Learn to secure Windows and Linux systems, manage permissions, and detect system-level threats." },
-      { id: 7, icon: "🛠️", title: "Security Tools & Technologies", desc: "Work with industry tools like Wireshark, Metasploit, Nmap, and Burp Suite." },
-      { id: 8, icon: "☁️", title: "Cloud & Data Security", desc: "Understand how to protect data in cloud environments and follow best practices for secure storage." },
-      { id: 9, icon: "💼", title: "Career Preparation", desc: "Get guidance for certifications like CEH, CompTIA Security+, and real-world job readiness." },
-    ],
-    tools: [
-      { name: "Nmap", icon: "🔍" },
-      { name: "Wireshark", icon: "📡" },
-      { name: "Metasploit", icon: "💣" },
-      { name: "Burp Suite", icon: "🕷️" },
-      { name: "Hydra", icon: "🐉" },
-      { name: "John the Ripper", icon: "💀" },
-      { name: "Aircrack-ng", icon: "📶" },
-      { name: "OWASP ZAP", icon: "⚡" },
-      { name: "Snort", icon: "👃" },
-      { name: "Splunk", icon: "📊" },
-    ]
-  },
-  {
-    id: 8,
     slug: "mern-stack",
     title: "Mern Stack",
     desc: "Javascript, Node js, Type Script, React, Mongo DB , and PSQL.",
