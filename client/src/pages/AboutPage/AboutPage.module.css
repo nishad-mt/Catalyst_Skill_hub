@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 80px 8%;
+  padding: 80px 5rem;
   gap: 50px;
 }
 
@@ -79,7 +79,7 @@
 /* Stats */
 
 .statsSection {
-  margin: 0 8%;
+  margin: 0 5rem;
   background: #2563eb;
   border-radius: 10px;
   padding: 30px;
@@ -90,6 +90,7 @@
 
 .statCard {
   color: white;
+  text-align: center;
 }
 
 .statCard h2 {
@@ -104,7 +105,7 @@
 /* Mission Section */
 
 .missionSection {
-  padding: 80px 8%;
+  padding: 80px 5rem;
 }
 
 .missionSection h2 {
@@ -192,6 +193,119 @@
   color: #6b7280;
   line-height: 1.7;
 }
+.locationsSection {
+  padding: 4rem 5rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 2rem;
+}
+
+.locationsGrid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 0.8rem;
+}
+
+.locationCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.locationCard img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.locationCard:hover img {
+  transform: translateY(-4px);
+}
+
+.locationCard span {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.boardMembers {
+  padding: 0 5rem;
+  margin-bottom: 5rem;
+}
+
+.membersGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.memberCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.memberCard img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.memberOverlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.memberContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.memberContent h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.memberContent p {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.linkedinIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.75rem;
+  color: #0A66C2;
+
+  transition: transform 0.2s ease;
+}
+
+.linkedinIcon:hover {
+  transform: scale(1.1);
+}
+
 
 /* Tablet */
 

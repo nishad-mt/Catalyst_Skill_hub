@@ -466,7 +466,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: -175px 0;
+    margin: -165px 0;
     overflow: hidden;
   }
 
@@ -574,8 +574,6 @@
   .companies img {
     height: 26px;
   }
-
-
 
   .greenDecoration {
     width: 80px;

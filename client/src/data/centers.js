@@ -1,3 +1,13 @@
+import kochi from "../assets/location/kochi.png"
+import calicut from "../assets/location/calicut.png"
+import edappal from "../assets/location/edappal.png"
+import kannur from "../assets/location/kannur.png"
+import kottakkal from "../assets/location/kottakkal.png"
+import perinthalmanna from "../assets/location/perinthelmanna.png"
+import manjeri from "../assets/location/manjeri.png"
+import trissur from "../assets/location/trissur.png"
+import vadakara from "../assets/location/vadakara.png"
+
 export const centers = [
   {
     id: 1,
@@ -5,6 +15,7 @@ export const centers = [
     name: "Calicut",
     fullName: "Calicut Main Center",
     badge: "Main Campus",
+    image: calicut,
     icon: "🏢",
     address: "3rd Floor, Catalyst Skill Hub, Mavoor Rd, Calicut, Kerala 673004",
     phone: "+91 90000 00001",
@@ -37,6 +48,7 @@ export const centers = [
     name: "Kannur",
     fullName: "Kannur Center",
     badge: "Weekend Batches",
+    image: kannur,
     icon: "🏙️",
     address: "2nd Floor, Tech Hub, SM Street, Kannur, Kerala 670001",
     phone: "+91 90000 00002",
@@ -69,6 +81,7 @@ export const centers = [
     name: "Thrissur",
     fullName: "Thrissur Center",
     badge: "New Campus",
+    image: trissur,
     icon: "🏫",
     address: "1st Floor, Innovation Hub, Round South, Thrissur, Kerala 680001",
     phone: "+91 90000 00003",
@@ -101,6 +114,7 @@ export const centers = [
     name: "Manjeri",
     fullName: "Manjeri Center",
     badge: "Fast Growing",
+    image: manjeri,
     icon: "🏬",
     address: "3rd Floor, Techno Park, Bank Road, Manjeri, Malappuram, Kerala 676121",
     phone: "+91 90000 00004",
@@ -133,6 +147,7 @@ export const centers = [
     name: "Vadakara",
     fullName: "Vadakara Center",
     badge: "Growing Hub",
+    image:vadakara,
     icon: "🏢",
     address: "2nd Floor, Digital Square, Vadakara, Kozhikode, Kerala 673101",
     phone: "+91 90000 00005",
@@ -165,6 +180,7 @@ export const centers = [
     name: "Perinthalmanna",
     fullName: "Perinthalmanna Center",
     badge: "New Center",
+    image: perinthalmanna,
     icon: "🏫",
     address: "1st Floor, Skill Square, Perinthalmanna, Malappuram, Kerala 679322",
     phone: "+91 90000 00006",
@@ -197,6 +213,7 @@ export const centers = [
     name: "Edappal",
     fullName: "Edappal Center",
     badge: "Growing Hub",
+    image: edappal,
     icon: "🏬",
     address: "2nd Floor, Tech Hub, Edappal, Malappuram, Kerala 679576",
     phone: "+91 90000 00007",
@@ -229,6 +246,7 @@ export const centers = [
     name: "Kottakkal",
     fullName: "Kottakkal Center",
     badge: "New Center",
+    image:kottakkal,
     icon: "🏙️",
     address: "1st Floor, Digital Hub, Kottakkal, Malappuram, Kerala 676503",
     phone: "+91 90000 00008",
@@ -261,6 +279,7 @@ export const centers = [
     name: "Ernakulam",
     fullName: "Ernakulam Center",
     badge: "Smart City Hub",
+    image:kochi,
     icon: "🏙️",
     address: "4th Floor, Tech Tower, MG Road, Ernakulam, Kerala 682016",
     phone: "+91 90000 00009",

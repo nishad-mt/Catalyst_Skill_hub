@@ -421,8 +421,8 @@
   /* FAB — only visible when chat is closed, positioned away from edges */
   .fab {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: 90px;
+    right: 20px;
     z-index: 10000;
     width: 54px;
     height: 54px;

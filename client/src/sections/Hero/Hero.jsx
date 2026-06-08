@@ -92,21 +92,21 @@ function OrbitAnimation() {
       {/* Orbit 3 - 4 icons: MERN, Data Analytics, Data Science, Machine Learning */}
       <div className={`${styles.orbitWrapper} ${styles.orbit3Wrapper}`}>
         <div className={styles.orbitRing3}>
-          {orbit3Icons.map((item, index) => {
-            const radius = 255; // orbit diameter 510 / 2
+            {orbit3Icons.map((item, index) => {
+              const radius = window.innerWidth <= 860 ? 225 : 255;
 
-            const x = Math.sin(item.angle * Math.PI / 180) * radius;
-            const y = Math.cos(item.angle * Math.PI / 180) * radius;
+              const x = Math.sin(item.angle * Math.PI / 180) * radius;
+              const y = Math.cos(item.angle * Math.PI / 180) * radius;
 
-            return (
-              <div
-                key={index}
-                className={styles.orbitIconWrap}
-                style={{
-                  left: `calc(50% + ${x}px - 25px)`,
-                  top: `calc(50% - ${y}px - 25px)`
-                }}
-              >
+              return (
+                <div
+                  key={index}
+                  className={styles.orbitIconWrap}
+                  style={{
+                    left: `calc(50% + ${x}px - 25px)`,
+                    top: `calc(50% - ${y}px - 25px)`
+                  }}
+                >
                 <div className={styles.orbitIcon}>
                   {item.icon}
                 </div>

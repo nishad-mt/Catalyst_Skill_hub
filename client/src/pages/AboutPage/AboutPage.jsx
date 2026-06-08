@@ -1,5 +1,8 @@
 import React from "react";
 import styles from "./AboutPage.module.css";
+import { centers } from '../../data/siteData';
+import { boardMembers } from '../../data/boardMembers';
+import { FaLinkedin } from "react-icons/fa";
 
 function AboutPage() {
   const stats = [
@@ -102,6 +105,52 @@ function AboutPage() {
           ))}
         </div>
       </section>
+
+      <section className={styles.locationsSection}>
+        <h2 className={styles.sectionTitle}>Our Campus Locations</h2>
+
+        <div className={styles.locationsGrid}>
+          {centers.map((center) => (
+            <a
+              key={center.id}
+              href={`/center/${center.slug}`}
+              className={styles.locationCard}
+            >
+              <img src={center.image} alt={center.name} />
+              <span>{center.name}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <div className={styles.boardMembers}>
+        <h2 className={styles.sectionTitle}>Meet Our Board Members</h2>
+        <div className={styles.membersGrid}>
+          {boardMembers.map((member) => (
+            <div key={member.id} className={styles.memberCard}>
+              <img src={member.image} alt={member.name} />
+
+              <div className={styles.memberOverlay}>
+                <div className={styles.memberContent}>
+                  <div>
+                    <h4>{member.name}</h4>
+                    <p>{member.role}</p>
+                  </div>
+
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.linkedinIcon}
+                  >
+                    <FaLinkedin />
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

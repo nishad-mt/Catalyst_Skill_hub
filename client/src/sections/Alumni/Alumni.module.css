@@ -153,27 +153,21 @@
   margin: 0;
 }
 
-/* ── Responsive ── */
 @media (max-width: 768px) {
-  .section {
-    padding: 60px 0;
+  .marqueeRow {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-  
-  .card {
-    width: 240px;
-    padding: 0.85rem;
+
+  .marqueeRow::-webkit-scrollbar {
+    display: none;
   }
-  
+
   .marqueeTrack {
-    animation-duration: 20s; /* Faster for mobile feeling */
-  }
-
-  .marqueeContainer::before,
-  .marqueeContainer::after {
-    width: 60px;
-  }
-
-  .subheading {
-    max-width: 100%;
+    display: inline-flex;
+    min-width: max-content;
+    animation: none;
   }
 }
