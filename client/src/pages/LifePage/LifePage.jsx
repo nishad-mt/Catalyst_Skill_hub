@@ -3,6 +3,8 @@ import styles from './LifePage.module.css';
 import { life } from '../../data/life';
 
 export default function LifePage() {
+  const [selectedImg, setSelectedImg] = useState(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -47,10 +49,12 @@ export default function LifePage() {
           <div className={styles.left}>
             <h1 className={styles.title}>{item.thread.replace(/[-_]/g, ' ').toUpperCase()}</h1>
 
-            <img
+             <img
               src={item.image}
               alt={item.thread}
               className={styles.heroImage}
+              style={{ cursor: 'pointer' }}
+              onClick={() => setSelectedImg(item.image)}
             />
 
             <section className={styles.section}>
@@ -152,7 +156,12 @@ export default function LifePage() {
         {/* RIGHT GALLERY GRID */}
         <div className={styles.galleryGrid}>
           {filteredLife.map((item) => (
-            <div key={item.id} className={styles.galleryCard}>
+            <div
+              key={item.id}
+              className={styles.galleryCard}
+              style={{ cursor: 'pointer' }}
+              onClick={() => setSelectedImg(item.image)}
+            >
               <img
                 src={item.image}
                 alt={item.thread}
@@ -174,6 +183,63 @@ export default function LifePage() {
           ))}
         </div>
       </section>
+
+      {/* Full Screen Image Lightbox */}
+      {selectedImg && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 99999,
+            backdropFilter: 'blur(8px)',
+            cursor: 'zoom-out'
+          }}
+          onClick={() => setSelectedImg(null)}
+        >
+          <button
+            style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              background: 'rgba(255, 255, 255, 0.2)',
+              border: 'none',
+              color: 'white',
+              fontSize: '2rem',
+              width: '45px',
+              height: '45px',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 100000
+            }}
+            onClick={() => setSelectedImg(null)}
+          >
+            ×
+          </button>
+          <img
+            src={selectedImg}
+            alt="Preview"
+            style={{
+              maxWidth: '90%',
+              maxHeight: '90%',
+              objectFit: 'contain',
+              borderRadius: '8px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+              cursor: 'default'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }

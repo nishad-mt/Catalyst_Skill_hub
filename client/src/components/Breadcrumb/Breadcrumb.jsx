@@ -74,7 +74,7 @@ export default function Breadcrumb({ currentPage, navigate }) {
                   >
                     {item.label === "Home" ? <FaHome className={styles.homeIcon} /> : item.label}
                   </a>
-                    <span className={styles.separator}>/</span>
+                    <span className={styles.separator}>&gt;</span>
                   </>
                 )}
               </li>

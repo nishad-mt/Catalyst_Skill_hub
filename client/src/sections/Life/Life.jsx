@@ -10,6 +10,8 @@ import img5 from '../../assets/trainee.png';
 import img6 from '../../assets/catalyst.png';
 
 const Life = ({ navigate }) => {
+  const [selectedImg, setSelectedImg] = React.useState(null);
+
   const images = [
     { id: 1, src: img1, className: styles.span1x1 },
     { id: 2, src: img2, className: styles.span1x1 },
@@ -29,7 +31,12 @@ const Life = ({ navigate }) => {
 
         <div className={`${styles.masonryGrid} reveal-group`}>
           {images.map((img) => (
-            <div key={img.id} className={`${styles.imageWrapper} ${img.className}`}>
+            <div
+              key={img.id}
+              className={`${styles.imageWrapper} ${img.className}`}
+              style={{ cursor: 'pointer' }}
+              onClick={() => setSelectedImg(img.src)}
+            >
               <img src={img.src} alt="Life at Catalyst" className={styles.gridImage} />
             </div>
           ))}
@@ -39,6 +46,63 @@ const Life = ({ navigate }) => {
           <button className={styles.viewAllBtn} onClick={() => navigate('/life')}>View All</button>
         </div>
       </div>
+
+      {/* Full Screen Image Lightbox */}
+      {selectedImg && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 99999,
+            backdropFilter: 'blur(8px)',
+            cursor: 'zoom-out'
+          }}
+          onClick={() => setSelectedImg(null)}
+        >
+          <button
+            style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              background: 'rgba(255, 255, 255, 0.2)',
+              border: 'none',
+              color: 'white',
+              fontSize: '2rem',
+              width: '45px',
+              height: '45px',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 100000
+            }}
+            onClick={() => setSelectedImg(null)}
+          >
+            ×
+          </button>
+          <img
+            src={selectedImg}
+            alt="Preview"
+            style={{
+              maxWidth: '90%',
+              maxHeight: '90%',
+              objectFit: 'contain',
+              borderRadius: '8px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+              cursor: 'default'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 };

@@ -8,7 +8,7 @@ const Mentors = () => {
   return (
     <section className={`section ${styles.mentorsSection}`}>
       <div className="container">
-        <h2 className={`${styles.sectionTitle} reveal`}>Learn From the Best</h2>
+        <h2 className={`${styles.sectionTitle} reveal`}>Learn From the Best Faculties</h2>
         <p className={styles.subHeading}>
 Get mentored by experts who have built successful careers in their fields.
 Learn through industry-focused guidance and hands-on experience.        </p>

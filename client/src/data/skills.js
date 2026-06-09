@@ -1,52 +1,52 @@
 export const skills = [
-  {
-    id: 1,
-    title: "Expert Mentorship",
-    desc: "Learn from experienced trainers who bring real industry knowledge into every session."
-  },
-  {
-    id: 2,
-    title: "Hands-on Training",
-    desc: "Work directly with tools, platforms, and workflows used in real job roles."
-  },
-  {
-    id: 3,
-    title: "Industry-Relevant Curriculum",
-    desc: "Stay updated with skills and concepts aligned to current market demands."
-  },
-  {
-    id: 4,
-    title: "Live Project Experience",
-    desc: "Learn from experienced trainers who bring real industry knowledge into every session."
-  },
-  {
-    id: 5,
-    title: "Placement support",
-    desc: "Learn from experienced trainers who bring real industry knowledge into every session."
-  },
-  {
-    id: 6,
-    title: "Portfolio Development",
-    desc: "Create a strong portfolio that showcases your skills and work to employers."
-  },
-  {
-    id: 7,
-    title: "Continuous Support",
-    desc: "Get regular guidance, feedback, and doubt-clearing throughout your learning journey."
-  },
-  {
-    id: 8,
-    title: "Flexible Learning Structure",
-    desc: "Structured programs, designed to help you learn effectively."
-  },
-  {
-    id: 9,
-    title: "Career-Focused Approach",
-    desc: "Everything you learn is aligned with what companies expect from job-ready candidates."
-  },
-  {
-    id: 10,
-    title: "Flexible learning",
-    desc: "Learn from experienced trainers who bring real industry knowledge into every session."
-  }
+{
+id: 1,
+title: "Real-Time Projects",
+desc: "Work on practical projects that help you gain hands-on experience and confidence in applying your skills."
+},
+{
+id: 2,
+title: "Expert Mentorship",
+desc: "Learn from experienced trainers and industry professionals who provide valuable guidance and career insights."
+},
+{
+id: 3,
+title: "Industry-Focused Learning",
+desc: "Our curriculum is designed around current industry trends, technologies, and real-world skill requirements."
+},
+{
+id: 4,
+title: "Placement Assistance",
+desc: "Get support with resume building, interview preparation, technical training, and career opportunities."
+},
+{
+id: 5,
+title: "Career-Oriented Programs",
+desc: "Courses are structured to help students develop job-ready technical and professional skills."
+},
+{
+id: 6,
+title: "Beginner-Friendly Learning",
+desc: "Whether you are starting from scratch or upgrading your skills, our approach supports every learning stage."
+},
+{
+id: 7,
+title: "Modern Technologies & AI Tools",
+desc: "Learn the latest technologies, frameworks, and AI tools widely used across the tech industry."
+},
+{
+id: 8,
+title: "Supportive Learning Environment",
+desc: "Study in a positive and encouraging environment where questions, collaboration, and growth are welcomed."
+},
+{
+id: 9,
+title: "Focus on Long-Term Growth",
+desc: "Build strong foundations that support continuous learning and long-term career success."
+},
+{
+id: 10,
+title: "Practical Training Approach",
+desc: "Learn through hands-on sessions, assignments, live projects, and real-world implementation rather than theory alone."
+}
 ];

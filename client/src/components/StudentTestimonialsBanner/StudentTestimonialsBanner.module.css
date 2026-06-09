@@ -118,9 +118,9 @@
 
   .leftContent {
     flex: none;
-    text-align: center;
+    text-align: left;
     max-width: 100%;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .heading {

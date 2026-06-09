@@ -47,30 +47,6 @@ const Testimonials = () => {
   }, []);
 
 
-React.useEffect(() => {
-  if (!isMobile || !scrollRef.current) return;
-
-  const container = scrollRef.current;
-
-  const interval = setInterval(() => {
-    if (
-      container.scrollLeft + container.clientWidth >=
-      container.scrollWidth - 5
-    ) {
-      container.scrollTo({
-        left: 0,
-        behavior: 'smooth',
-      });
-    } else {
-      container.scrollBy({
-        left: 1,
-        behavior: 'auto',
-      });
-    }
-  }, 20);
-
-  return () => clearInterval(interval);
-}, [isMobile]);
 
   const allTestimonials = [
     videoTestimonials[0],

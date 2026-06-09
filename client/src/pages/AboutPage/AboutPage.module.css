@@ -326,6 +326,25 @@
   .featuresGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .locationsSection {
+    padding: 3rem 2rem;
+  }
+
+  .locationsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .boardMembers {
+    padding: 0 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .membersGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 /* Mobile */
@@ -361,5 +380,24 @@
   .missionSection h2,
   .featuresSection h2 {
     font-size: 1.6rem;
+  }
+
+  .locationsSection {
+    padding: 2rem 5%;
+  }
+
+  .locationsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .boardMembers {
+    padding: 0 5%;
+    margin-bottom: 3rem;
+  }
+
+  .membersGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }

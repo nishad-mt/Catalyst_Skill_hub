@@ -23,27 +23,7 @@
   position: relative;
 }
 
-/* Edge Fade Gradients */
-.marqueeContainer::before,
-.marqueeContainer::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 120px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.marqueeContainer::before {
-  left: 0;
-  background: linear-gradient(to right, #f8fafc, transparent);
-}
-
-.marqueeContainer::after {
-  right: 0;
-  background: linear-gradient(to left, #f8fafc, transparent);
-}
+/* Edge Fade Gradients removed */
 
 .marqueeRow {
   display: flex;

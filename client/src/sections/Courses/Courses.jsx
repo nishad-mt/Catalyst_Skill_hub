@@ -31,11 +31,10 @@ export default function Courses({ searchQuery, navigate }) {
           {/* Header row */}
           <div className={`${styles.header} reveal`}>
             <h2 className={styles.heading}>
-              {searchQuery ? `Search Results for "${searchQuery}"` : "Most Popular Courses"}
+              {searchQuery ? `Search Results for "${searchQuery}"` : "Explore our Courses"}
             </h2>
             <p className={styles.subHeading}>
-                Unlock your potential with industry-leading programs built for the future. From AI to Full Stack, our expert-led courses are designed to get you job-ready fast.
-              </p>
+Discover Skills, technologies and opportunities that can shape your future in the tech industry.              </p>
           </div>
 
           {/* Course grid */}
