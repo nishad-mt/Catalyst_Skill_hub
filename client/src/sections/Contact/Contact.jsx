@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { testimonials, courses, centers } from '../../data/siteData';
 import styles from './Contact.module.css';
 
@@ -6,43 +6,40 @@ export default function Contact() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', course: '', center: '' });
   const [loading, setLoading] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
-  const sliderRef = useRef(null);
+
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  const minSwipeDistance = 50;
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const nextIdx = (activeIdx + 1) % testimonials.length;
-      if (sliderRef.current) {
-        const width = sliderRef.current.offsetWidth;
-        sliderRef.current.scrollTo({
-          left: nextIdx * width,
-          behavior: 'smooth'
-        });
-      }
-      setActiveIdx(nextIdx);
-    }, 4000);
+      setActiveIdx((prev) => (prev + 1) % testimonials.length);
+    }, 3000);
     return () => clearInterval(timer);
-  }, [activeIdx]);
+  }, [activeIdx]); // Recreate interval on index change to avoid immediately sliding after a manual swipe
 
-  const handleScroll = () => {
-    if (!sliderRef.current) return;
-    const width = sliderRef.current.offsetWidth;
-    if (width === 0) return;
-    const scrollLeft = sliderRef.current.scrollLeft;
-    const newIdx = Math.round(scrollLeft / width);
-    if (newIdx !== activeIdx && newIdx >= 0 && newIdx < testimonials.length) {
-      setActiveIdx(newIdx);
-    }
+  const currentTestimonial = testimonials[activeIdx];
+
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
   };
 
-  const scrollToIdx = (idx) => {
-    if (sliderRef.current) {
-      const width = sliderRef.current.offsetWidth;
-      sliderRef.current.scrollTo({
-        left: idx * width,
-        behavior: 'smooth'
-      });
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      setActiveIdx((prev) => (prev + 1) % testimonials.length);
+    } else if (isRightSwipe) {
+      setActiveIdx((prev) => (prev - 1 + testimonials.length) % testimonials.length);
     }
-    setActiveIdx(idx);
   };
 
   const handleChange = (field) => (e) => {
@@ -135,26 +132,23 @@ export default function Contact() {
               </a>
             </div>
 
-            <div className={styles.testimonialBox}>
-              <div
-                className={styles.testimonialSlider}
-                ref={sliderRef}
-                onScroll={handleScroll}
-              >
-                {testimonials.map((testimonial, idx) => (
-                  <div key={idx} className={styles.testimonialContent}>
-                    <p className={styles.testimonialText}>{testimonial.text}</p>
-                    <div className={styles.testimonialAuthor}>
-                      <div className={styles.initialsCircle}>
-                        {testimonial.initials}
-                      </div>
-                      <div>
-                        <h4 className={styles.authorName}>{testimonial.name}</h4>
-                        <p className={styles.authorRole}>{testimonial.role}</p>
-                      </div>
-                    </div>
+            <div 
+              className={styles.testimonialBox}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div key={activeIdx} className={styles.testimonialContent}>
+                <p className={styles.testimonialText}>{currentTestimonial.text}</p>
+                <div className={styles.testimonialAuthor}>
+                  <div className={styles.initialsCircle}>
+                    {currentTestimonial.initials}
                   </div>
-                ))}
+                  <div>
+                    <h4 className={styles.authorName}>{currentTestimonial.name}</h4>
+                    <p className={styles.authorRole}>{currentTestimonial.role}</p>
+                  </div>
+                </div>
               </div>
 
               <div className={styles.dots}>
@@ -162,7 +156,7 @@ export default function Contact() {
                   <span
                     key={i}
                     className={i === activeIdx ? styles.dotActive : styles.dot}
-                    onClick={() => scrollToIdx(i)}
+                    onClick={() => setActiveIdx(i)}
                   ></span>
                 ))}
               </div>
