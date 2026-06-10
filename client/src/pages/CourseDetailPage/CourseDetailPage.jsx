@@ -54,7 +54,7 @@ const CourseDetailPage = () => {
   }, []);
 
   const [heroFormData, setHeroFormData] = useState({ name: '', phone: '', email: '' });
-  const [heroSubmitting, setHeroSubmitting] = useState(false);
+  const [heroSubmittingType, setHeroSubmittingType] = useState(null);
   const [heroSuccess, setHeroSuccess] = useState(false);
 
   const [expandedCurriculumIdx, setExpandedCurriculumIdx] = useState(0);
@@ -119,7 +119,7 @@ const CourseDetailPage = () => {
       return;
     }
 
-    setHeroSubmitting(true);
+    setHeroSubmittingType(type);
 
     const payload = {
       _subject:
@@ -168,7 +168,7 @@ const CourseDetailPage = () => {
         window.location.href = mailtoLink;
       }
     } finally {
-      setHeroSubmitting(false);
+      setHeroSubmittingType(null);
     }
   };
 
@@ -237,7 +237,7 @@ const CourseDetailPage = () => {
 
     // Reset hero form states when switching courses
     setHeroFormData({ name: '', phone: '', email: '' });
-    setHeroSubmitting(false);
+    setHeroSubmittingType(null);
     setHeroSuccess(false);
 
     window.scrollTo(0, 0);
@@ -353,16 +353,16 @@ const CourseDetailPage = () => {
                       <button 
                         className={styles.heroEnrollBtn}
                         onClick={() => handleHeroSubmit('enroll')}
-                        disabled={heroSubmitting}
+                        disabled={heroSubmittingType !== null}
                       >
-                        {heroSubmitting ? 'Submitting...' : 'Enroll Now'}
+                        {heroSubmittingType === 'enroll' ? 'Submitting...' : 'Enroll Now'}
                       </button>
                       <button 
                         className={styles.heroCallbackBtn}
                         onClick={() => handleHeroSubmit('callback')}
-                        disabled={heroSubmitting}
+                        disabled={heroSubmittingType !== null}
                       >
-                        {heroSubmitting ? 'Submitting...' : 'Request a Call back'}
+                        {heroSubmittingType === 'callback' ? 'Submitting...' : 'Request a Call back'}
                       </button>
                     </>
                   )}

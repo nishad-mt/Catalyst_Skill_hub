@@ -51,7 +51,7 @@ export default function Breadcrumb({ currentPage, navigate }) {
     }
   };
 
-  const isDarkBackground = ['home', 'about', 'center-detail'].includes(currentPage);
+  const isDarkBackground = ['home', 'center-detail'].includes(currentPage);
 
   return (
     <div className={`${styles.breadcrumbWrapper} ${isDarkBackground ? styles.darkBg : styles.lightBg} ${!hasTopBar ? styles.noTopBar : ''}`}>

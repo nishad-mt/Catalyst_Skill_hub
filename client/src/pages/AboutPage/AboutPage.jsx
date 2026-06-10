@@ -3,6 +3,7 @@ import styles from "./AboutPage.module.css";
 import { centers } from '../../data/siteData';
 import { boardMembers } from '../../data/boardMembers';
 import { FaLinkedin } from "react-icons/fa";
+import snapcat from '../../assets/snapcat.jpg';
 
 function AboutPage() {
   const stats = [
@@ -39,7 +40,7 @@ function AboutPage() {
         </div>
 
         <div className={styles.heroImage}>
-          <div className={styles.imagePlaceholder}>IMAGE</div>
+          <img src={snapcat} alt="About Catalyst" className={styles.heroImg} />
         </div>
       </section>
 

@@ -60,7 +60,7 @@
   display:grid;
   grid-template-columns:280px 1fr;
   gap:2rem;
-  padding:2rem;
+  padding:2rem 0;
 }
 
 /* LEFT SIDEBAR */

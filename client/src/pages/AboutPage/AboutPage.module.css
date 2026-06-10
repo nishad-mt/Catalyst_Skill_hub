@@ -64,6 +64,15 @@
   justify-content: center;
 }
 
+.heroImg {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+}
+
 .imagePlaceholder {
   width: 280px;
   height: 280px;
@@ -312,7 +321,7 @@
 @media (max-width: 992px) {
   .aboutHero {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
   }
 
   .statsSection {
@@ -351,7 +360,7 @@
 
 @media (max-width: 600px) {
   .aboutHero {
-    padding: 60px 5%;
+    padding: 2px 5%;
   }
 
   .heroContent h1 {
@@ -364,8 +373,18 @@
   }
 
   .statsSection {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     margin: 0 5%;
+    background: transparent;
+    padding: 0;
+    gap: 12px;
+  }
+
+  .statCard {
+    background: #2563eb;
+    border-radius: 8px;
+    padding: 20px 10px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
   }
 
   .missionSection,

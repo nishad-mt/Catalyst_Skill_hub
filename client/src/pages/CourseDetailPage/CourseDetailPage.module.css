@@ -19,9 +19,8 @@
 
 
 .hero {
-  margin-top: 70px;
   padding: var(--section-padding);
-  padding-top: clamp(160px, 15vw, 180px); /* Extra space for navbar */
+  padding-top: clamp(140px, 15vw, 180px); /* Extra space for navbar */
 }
 
 .heroBox {

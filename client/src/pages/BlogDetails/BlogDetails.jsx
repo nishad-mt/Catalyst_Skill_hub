@@ -86,7 +86,7 @@ const BlogDetails = () => {
 
     <section className={styles.page}>
 
-      <div className={styles.container}>
+      <div className={`container ${styles.contentWrapper}`}>
 
         <h1 className={styles.title}>
           {content.heroTitle} :

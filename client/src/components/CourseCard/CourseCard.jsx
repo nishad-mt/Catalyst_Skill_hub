@@ -18,7 +18,15 @@ import styles from './CourseCard.module.css';
 export default function CourseCard({ course, navigate }) {
 
   return (
-    <div className={styles.card}>
+    <a 
+      href={`/course/${course.slug}`}
+      className={styles.card}
+      onClick={(e) => {
+        e.preventDefault();
+        navigate(`/course/${course.slug}`);
+      }}
+      style={{ textDecoration: 'none', color: 'inherit' }}
+    >
       {/* Image Section */}
       <div className={styles.imageContainer}>
         <img
@@ -43,17 +51,11 @@ export default function CourseCard({ course, navigate }) {
         <p className={styles.desc}>{course.desc}</p>
 
         <div className={styles.actions}>
-          <a
-            href={`/course/${course.slug}`}
-            className={styles.btnPrimary}
-            onClick={(e) => {
-              e.preventDefault();
-              navigate(`/course/${course.slug}`);
-            }}>
+          <span className={styles.btnPrimary}>
             View Course
-          </a>
+          </span>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
