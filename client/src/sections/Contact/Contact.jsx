@@ -1,5 +1,4 @@
-// src/sections/Contact/Contact.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { testimonials, courses, centers } from '../../data/siteData';
 import styles from './Contact.module.css';
 
@@ -7,15 +6,44 @@ export default function Contact() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', course: '', center: '' });
   const [loading, setLoading] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % testimonials.length);
-    }, 3000);
+      const nextIdx = (activeIdx + 1) % testimonials.length;
+      if (sliderRef.current) {
+        const width = sliderRef.current.offsetWidth;
+        sliderRef.current.scrollTo({
+          left: nextIdx * width,
+          behavior: 'smooth'
+        });
+      }
+      setActiveIdx(nextIdx);
+    }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [activeIdx]);
 
-  const currentTestimonial = testimonials[activeIdx];
+  const handleScroll = () => {
+    if (!sliderRef.current) return;
+    const width = sliderRef.current.offsetWidth;
+    if (width === 0) return;
+    const scrollLeft = sliderRef.current.scrollLeft;
+    const newIdx = Math.round(scrollLeft / width);
+    if (newIdx !== activeIdx && newIdx >= 0 && newIdx < testimonials.length) {
+      setActiveIdx(newIdx);
+    }
+  };
+
+  const scrollToIdx = (idx) => {
+    if (sliderRef.current) {
+      const width = sliderRef.current.offsetWidth;
+      sliderRef.current.scrollTo({
+        left: idx * width,
+        behavior: 'smooth'
+      });
+    }
+    setActiveIdx(idx);
+  };
 
   const handleChange = (field) => (e) => {
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
@@ -108,17 +136,25 @@ export default function Contact() {
             </div>
 
             <div className={styles.testimonialBox}>
-              <div key={activeIdx} className={styles.testimonialContent}>
-                <p className={styles.testimonialText}>{currentTestimonial.text}</p>
-                <div className={styles.testimonialAuthor}>
-                  <div className={styles.initialsCircle}>
-                    {currentTestimonial.initials}
+              <div
+                className={styles.testimonialSlider}
+                ref={sliderRef}
+                onScroll={handleScroll}
+              >
+                {testimonials.map((testimonial, idx) => (
+                  <div key={idx} className={styles.testimonialContent}>
+                    <p className={styles.testimonialText}>{testimonial.text}</p>
+                    <div className={styles.testimonialAuthor}>
+                      <div className={styles.initialsCircle}>
+                        {testimonial.initials}
+                      </div>
+                      <div>
+                        <h4 className={styles.authorName}>{testimonial.name}</h4>
+                        <p className={styles.authorRole}>{testimonial.role}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className={styles.authorName}>{currentTestimonial.name}</h4>
-                    <p className={styles.authorRole}>{currentTestimonial.role}</p>
-                  </div>
-                </div>
+                ))}
               </div>
 
               <div className={styles.dots}>
@@ -126,7 +162,7 @@ export default function Contact() {
                   <span
                     key={i}
                     className={i === activeIdx ? styles.dotActive : styles.dot}
-                    onClick={() => setActiveIdx(i)}
+                    onClick={() => scrollToIdx(i)}
                   ></span>
                 ))}
               </div>
