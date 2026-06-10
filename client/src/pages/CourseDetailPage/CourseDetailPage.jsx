@@ -448,6 +448,7 @@ const CourseDetailPage = () => {
               </div>
 
               <h3 className={styles.overviewHeadingSmall}>Tools You'll Learn</h3>
+              <div className={styles.learnExperience}>Learn 15 + Essential Tools learning experience with us</div>
               <div className={styles.toolsLearnGrid}>
                 {course.tools && course.tools.slice(0, 6).map((tool, idx) => (
                   <div className={styles.toolLearnCard} key={idx}>
@@ -460,7 +461,7 @@ const CourseDetailPage = () => {
               </div>
 
               <span className={styles.subTag} style={{ marginTop: '50px' }}>Key Features: Executive Diploma in {course.title}</span>
-              <h3 className={styles.overviewHeading}>Experience an all-new 2025 curriculum</h3>
+              <h3 className={styles.overviewHeading}>Experience an all-new 2026 curriculum</h3>
               <div className={styles.curriculumContainer}>
                 <div className={styles.curriculumTimeline}>
                   {mockCurriculum.map((node, idx) => {
@@ -537,7 +538,6 @@ const CourseDetailPage = () => {
               </div>
             </div>
           </div>
-          <div className={styles.learnExperience}>Learn 15 + Essential Tools learning experience with us</div>
         </div>
       </section>
 
@@ -614,14 +614,53 @@ const CourseDetailPage = () => {
       <section className={styles.splitInfoSection}>
         <div className={styles.container}>
           <h2 className={`${styles.splitInfoTitle} reveal`}>
-            <span style={{color: '#1e3a8a'}}>Learn in-demand tech skills</span> through hands-on training, real-world projects, and expert mentorship designed
+            <span style={{color: '#1e3a8a'}}>Learn in-demand tech skills</span> through hands-on training, real-world projects
           </h2>
           <div className={`${styles.splitInfoGrid} reveal-group`}>
             <div className={styles.splitInfoLeft}>
               <img src={promoImg} alt="Student" className={styles.splitInfoImg} />
             </div>
             <div className={styles.splitInfoRight}>
-              <div className={styles.splitInfoBox}></div>
+              <div className={styles.splitInfoBox}>
+                <div className={styles.statGrid}>
+                  <div className={styles.statItem}>
+                    <div className={styles.statIconWrapper}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                    </div>
+                    <div className={styles.statInfo}>
+                      <h3>25000+</h3>
+                      <p>Students Yearly</p>
+                    </div>
+                  </div>
+                  <div className={styles.statItem}>
+                    <div className={styles.statIconWrapper}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                    </div>
+                    <div className={styles.statInfo}>
+                      <h3>100%</h3>
+                      <p>Placement Assistance Assurance</p>
+                    </div>
+                  </div>
+                  <div className={styles.statItem}>
+                    <div className={styles.statIconWrapper}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                    </div>
+                    <div className={styles.statInfo}>
+                      <h3>25+</h3>
+                      <p>High tech classrooms</p>
+                    </div>
+                  </div>
+                  <div className={styles.statItem}>
+                    <div className={styles.statIconWrapper}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div className={styles.statInfo}>
+                      <h3>200+</h3>
+                      <p>Expert Faculties</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <p className={styles.splitInfoDesc}>
                 The mentors were incredibly supportive and always ready to help. I especially loved the hands-on projects they made learning much more effective. Joining this course was one of the best decisions I've made. The training was practical, easy to understand. The mentors were incredibly
               </p>
@@ -679,7 +718,7 @@ const CourseDetailPage = () => {
             /* Mobile: Single row with all items */
             <div className={styles.marqueeRow}>
               <div className={styles.marqueeTrack}>
-                {triple(allTestimonials).map((item, idx) => renderCard(item, `mob-${idx}`))}
+                {allTestimonials.map((item, idx) => renderCard(item, `mob-${idx}`))}
               </div>
             </div>
           ) : (

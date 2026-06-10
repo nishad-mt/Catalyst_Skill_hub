@@ -5,6 +5,7 @@ import { testimonials } from '../../data/siteData';
 const SuccessStoriesPage = () => {
 
     const [paused, setPaused] = useState(false);
+    const [playingVideoIndex, setPlayingVideoIndex] = useState(null);
 
     useEffect(() => {
         window.scrollTo(0,0);
@@ -25,6 +26,7 @@ const SuccessStoriesPage = () => {
             {/* HERO SECTION */}
 
             <section className={styles.hero}>
+                <div className="container">
 
                 {/* Hero Content */}
 
@@ -112,28 +114,75 @@ const SuccessStoriesPage = () => {
                                         key={index}>
                                           
                                         {item.video ? (
+                                        <div className={styles.videoWrapper}>
+                                            <video
+                                                src={item.video}
+                                                loop
+                                                muted
+                                                playsInline
+                                                className={styles.video}
 
-                                        <video
-                                            src={item.video}
-                                            autoPlay
-                                            loop
-                                            muted
-                                            playsInline
-                                            className={styles.video}
+                                                onClick={(e)=>{
+                                                    const video = e.currentTarget;
+                                                    
+                                                    // Pause all other videos
+                                                    const allVideos = document.querySelectorAll(`.${styles.video}`);
+                                                    allVideos.forEach((vid) => {
+                                                        if (vid !== video) {
+                                                            vid.pause();
+                                                            vid.muted = true;
+                                                        }
+                                                    });
 
-                                            onMouseEnter={(e)=>{
-                                                const video = e.currentTarget;
-                                                video.muted = false;
-                                                video.volume = 1;
-                                                video.play();
-                                            }}
+                                                    if (video.paused) {
+                                                        video.muted = false;
+                                                        video.volume = 1;
+                                                        video.play();
+                                                        setPlayingVideoIndex(index);
+                                                    } else {
+                                                        if (video.muted) {
+                                                            video.muted = false;
+                                                            video.volume = 1;
+                                                            setPlayingVideoIndex(index);
+                                                        } else {
+                                                            video.pause();
+                                                            setPlayingVideoIndex(null);
+                                                        }
+                                                    }
+                                                }}
 
-                                            onMouseLeave={(e)=>{
-                                                const video = e.currentTarget;
-                                                video.muted = true;
-                                            }}
-                                        />
+                                                onMouseEnter={(e)=>{
+                                                    // Only trigger hover effects if it's not a touch device
+                                                    if(window.matchMedia("(hover: hover)").matches) {
+                                                        const video = e.currentTarget;
+                                                        video.muted = false;
+                                                        video.volume = 1;
+                                                        video.play();
+                                                        setPlayingVideoIndex(index);
+                                                    }
+                                                }}
 
+                                                onMouseLeave={(e)=>{
+                                                    if(window.matchMedia("(hover: hover)").matches) {
+                                                        const video = e.currentTarget;
+                                                        video.muted = true;
+                                                        setPlayingVideoIndex(null);
+                                                    }
+                                                }}
+                                            />
+                                            <div className={styles.playPauseOverlay} onClick={(e) => e.currentTarget.previousSibling.click()}>
+                                                {playingVideoIndex === index ? (
+                                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="6" y="4" width="4" height="16" />
+                                                        <rect x="14" y="4" width="4" height="16" />
+                                                    </svg>
+                                                ) : (
+                                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                                        <polygon points="5 3 19 12 5 21 5 3" />
+                                                    </svg>
+                                                )}
+                                            </div>
+                                        </div>
                                         ) : (
 
                                             <>
@@ -161,6 +210,7 @@ const SuccessStoriesPage = () => {
 
                 </div>
 
+                </div>
             </section>
 
             {/* CTA SECTION */}

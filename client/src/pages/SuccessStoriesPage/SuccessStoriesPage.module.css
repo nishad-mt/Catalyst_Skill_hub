@@ -13,7 +13,7 @@
     flex-direction:column;
     align-items:flex-start;
 
-    padding:170px 50px 80px;
+    padding:170px 0 80px;
 }
 
 .heroContent{
@@ -343,7 +343,7 @@
 @media(max-width:768px){
 
     .hero{
-        padding:170px 20px 70px;
+        padding:100px 0 70px;
     }
 
     .imageSection{
@@ -357,9 +357,20 @@
     } 
 
 
+    .slider{
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .slider::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
     .track{
         gap:16px;
         padding-inline:16px;
+        animation: none;
     }
 
     .card{
@@ -369,9 +380,7 @@
     }
 
     .playBtn{
-
-        top:-55px;
-        right:10px;
+        display: none;
     }
 
     .ctaContent{
@@ -391,4 +400,28 @@
         font-size:1.6rem;
     }
 
+}
+
+/* ---------- VIDEO OVERLAY ---------- */
+.videoWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.playPauseOverlay {
+    display: none;
+}
+
+@media(max-width:768px) {
+    .playPauseOverlay {
+        display: flex;
+        position: absolute;
+        inset: 0;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        z-index: 5;
+    }
 }

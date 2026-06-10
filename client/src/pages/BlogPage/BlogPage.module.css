@@ -42,7 +42,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 160px 0 60px;
+    padding: 100px 0 10px;
   }
   .blogSection {
     padding: 60px 0;
@@ -200,6 +200,25 @@
     flex:0 0 auto;
     white-space:nowrap;
     min-width:max-content;
+  }
+
+  .blogGrid{
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+    padding-bottom: 20px;
+  }
+
+  .blogGrid::-webkit-scrollbar{
+    display: none;
+  }
+
+  .blogCard{
+    flex: 0 0 280px;
+    min-width: 280px;
   }
 
 }

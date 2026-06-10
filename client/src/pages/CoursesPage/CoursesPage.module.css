@@ -3,6 +3,10 @@
   padding-bottom: 100px;
   font-family: inherit;
 }
+.feeCards {
+  margin-top: 3rem;
+}
+
 
 @media (min-width: 769px) {
   .page {

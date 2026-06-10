@@ -360,6 +360,7 @@
 
 @media (max-width: 600px) {
   .aboutHero {
+    margin-bottom: 1.5rem;
     padding: 2px 5%;
   }
 
