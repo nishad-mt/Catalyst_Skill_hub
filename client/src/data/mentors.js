@@ -1,31 +1,34 @@
+import sruthi from '../assets/mentors/sruthi.jpeg'
+import shakir from '../assets/mentors/shakir.jpeg'
+import benaseer from '../assets/mentors/benaseer.jpeg'
 export const mentors = [
   {
     id: 1,
-    name: "Gayathri",
-    title: "Cyber Security Analyst",
-    description: "Specialized in network security, ethical hacking, and threat analysis. Guides students through real-world cyber security practices and industry-standard tools.",
-    image: "#"
+    name: "Benaseer PT",
+    title: "Data Science Faculty",
+    description: "Data Science Faculty specializing in Data Analytics, ML, AI, and Business Intelligence. She delivers industry-focused training in Python, SQL, Power BI, and AI technologies, while mentoring students through hands-on projects and real-world case studies",
+    image: benaseer
   },
   {
     id: 2,
-    name: "Shahabas",
-    title: "Python Developer",
-    description: "Experienced in Python programming, backend development, and automation. Helps students build practical applications and strong programming fundamentals.",
+    name: "Sahla Nargees P",
+    title: "English Communication & Soft Skills Trainer",
+    description: "With over 2 years of experience in English language and soft skills training, Sahla has mentored 150+ learners ranging from school students to graduate job seekers and working professionals. ",
     image: "#"
   },
   {
     id: 3,
-    name: "James Alex",
-    title: "Data Scientist",
-    description: "Expert in data analytics, machine learning, and AI solutions. Mentors students in transforming data into actionable insights through real-world projects.",
-    image: "#"
+    name: "Sruthi K R",
+    title: "Data Science Faculty",
+    description: "Certified Data Science Faculty with IBM Professional Certification and NACTET Certification, specializing in Data Science, Data Analytics, Machine Learning, and Data-Driven Decision Making. ",
+    image: sruthi
   },
   {
     id: 4,
-    name: "Akhil",
-    title: "Software Development Trainer",
-    description: "Passionate about programming fundamentals, problem-solving, and software development. Trains students in C, C++, Java, and coding best practices.",
-    image: "#"
+    name: "Shakir",
+    title: "Full Stack Developer",
+    description: "Passionate about programming fundamentals, problem-solving, and software development. Trains students in React.js, Javascript, Data Bases, Deploying and git best practices.",
+    image: shakir
   }
 ];
 

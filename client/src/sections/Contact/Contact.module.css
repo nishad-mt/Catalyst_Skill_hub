@@ -266,6 +266,11 @@
     margin-bottom: 0.5rem;
   }
 
+  .requiredStar {
+    color: #ef4444; /* red color */
+    margin-right: 4px;
+  }
+
   .input,
   .textarea {
     width: 100%;

@@ -138,7 +138,9 @@ export default function Contact() {
             <form onSubmit={handleSubmit}>
 
               <div className={styles.formGroup}>
-                <label className={styles.label}>Name</label>
+                <label className={styles.label}>
+                  <span className={styles.requiredStar}>*</span> Name
+                </label>
                 <input
                   type="text"
                   value={form.name}
@@ -151,7 +153,9 @@ export default function Contact() {
 
               <div className={styles.twoCol}>
                 <div className={styles.formGroup}>
-                  <label className={styles.label}>Phone Number</label>
+                  <label className={styles.label}>
+                    <span className={styles.requiredStar}>*</span> Phone Number
+                  </label>
                   <input
                     type="tel"
                     value={form.phone}
@@ -170,7 +174,6 @@ export default function Contact() {
                     onChange={handleChange('email')}
                     className={styles.input}
                     placeholder="you@example.com"
-                    required
                   />
                 </div>
 
@@ -180,7 +183,6 @@ export default function Contact() {
                     value={form.course}
                     onChange={handleChange('course')}
                     className={styles.input}
-                    required
                   >
                     <option value="">Select a course</option>
                     {courses.map((course) => (
@@ -197,7 +199,6 @@ export default function Contact() {
                     value={form.center}
                     onChange={handleChange('center')}
                     className={styles.input}
-                    required
                   >
                     <option value="">Select a location</option>
                     {centers.map((center) => (

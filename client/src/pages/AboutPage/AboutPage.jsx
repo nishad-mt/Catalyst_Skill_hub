@@ -6,10 +6,10 @@ import { FaLinkedin } from "react-icons/fa";
 
 function AboutPage() {
   const stats = [
-    { number: "250+", text: "Expert Faculties" },
-    { number: "250+", text: "Expert Faculties" },
-    { number: "250+", text: "Expert Faculties" },
-    { number: "250+", text: "Expert Faculties" },
+    { number: "50,000+", text: "Happy Students" },
+    { number: "10+", text: "Industry focused Programmes" },
+    { number: "100+", text: "Career Experts" },
+    { number: "50+", text: "Lab facilities" },
   ];
 
   const features = [
@@ -25,13 +25,14 @@ function AboutPage() {
       <section className={styles.aboutHero}>
         <div className={styles.heroContent}>
           <h1>
-            Shaping the <span>Next Generation of Tech</span> Professionals
+            Creating the <span>Next Generation of Tech</span> Professionals
           </h1>
 
           <p>
-            Understand how SEO works across the complete customer journey and
-            learn how to optimize content for awareness, consideration, and
-            conversion stages to generate real business results.
+            At Catalyst Tech Hub, we are committed to delivering industry-focused technology education that empowers
+             learners to achieve their professional aspirations. Through expert-led training, hands-on learning experiences,
+              and a curriculum aligned with evolving industry demands, we help students develop the skills and confidence required
+               to succeed in today's competitive technology landscape. 
           </p>
 
           <button>Learn More</button>
@@ -63,11 +64,9 @@ function AboutPage() {
           <div
             className={`${styles.missionCard} ${styles.light}`}
           >
-            <h3>Mission</h3>
+            <h3>Vission</h3>
             <p>
-              Understand how SEO works across the complete customer journey and
-              learn how to optimize content for awareness, consideration, and
-              conversion stages to generate real business results.
+             To make quality technology education a pathway to meaningful and sustainable careers.
             </p>
           </div>
 
@@ -76,9 +75,8 @@ function AboutPage() {
           >
             <h3>Mission</h3>
             <p>
-              Understand how SEO works across the complete customer journey and
-              learn how to optimize content for awareness, consideration, and
-              conversion stages to generate real business results.
+              To equip learners with industry-ready skills, practical experience, and professional confidence,
+               enabling them to successfully transition into high-growth technology careers. 
             </p>
           </div>
         </div>
