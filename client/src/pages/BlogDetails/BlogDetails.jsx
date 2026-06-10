@@ -88,13 +88,13 @@ const BlogDetails = () => {
 
       <div className={styles.container}>
 
+        <h1 className={styles.title}>
+          {content.heroTitle} :
+        </h1>
+
         {/* LEFT CONTENT */}
 
         <div className={styles.left}>
-
-          <h1 className={styles.title}>
-            {content.heroTitle} :
-          </h1>
 
           <img
             src={content.heroImage}
@@ -107,6 +107,7 @@ const BlogDetails = () => {
             <section
               key={index}
               className={styles.section}
+              id={`section-${index}`}
             >
 
               <h2 className={styles.heading}>
@@ -138,7 +139,9 @@ const BlogDetails = () => {
               {content.tableOfContents.map((item,index)=>(
 
                 <li key={index}>
-                  {item}
+                  <a href={`#section-${index}`} className={styles.tocLink}>
+                    {item}
+                  </a>
                 </li>
 
               ))}

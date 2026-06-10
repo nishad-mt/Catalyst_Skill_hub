@@ -9,6 +9,7 @@ import ai from "../assets/ai.png";
 import mern from "../assets/mern.png";
 import analyst from "../assets/analyst.png";
 import devops from "../assets/devops.png";
+import benaseer from "../assets/mentors/benaseer.jpeg";
 
 export const blogs = [
 {
@@ -668,6 +669,152 @@ while helping organizations defend against cyber threats.
       buttonText: "Enroll Now"
     }
   }
-}
+},{
+  id: 13,
+  courseSlug: "data-science-ai",
+
+  // Card Data (used in blog listing)
+  title: "Course Details",
+  description:
+    "Discover how Data Science and Artificial Intelligence are transforming industries and learn the skills needed to start a career in this exciting field.",
+
+  date: "June 8, 2026",
+  read: "5 min read",
+  image: benaseer,
+
+  // Full Blog Page Data
+  content: {
+    heroTitle: "What is Data Science and AI? A Beginner's Guide",
+
+    heroDescription:
+      "Learn how Data Science and Artificial Intelligence work together to solve real-world problems and drive innovation across industries.",
+
+    heroImage: cyberImg,
+
+    tableOfContents: [
+      "Introduction",
+      "What is Data Science?",
+      "What is Artificial Intelligence?",
+      "How Data Science and AI Work Together",
+      "Essential Skills to Learn",
+      "Career Opportunities",
+      "Conclusion"
+    ],
+
+    sections: [
+      {
+        heading: "Introduction",
+        text: `
+Data has become one of the world's most valuable resources.
+Organizations generate massive amounts of information every day,
+and they need professionals who can analyze data and build
+intelligent systems that make smarter decisions.
+This is where Data Science and Artificial Intelligence come in.
+        `
+      },
+      {
+        heading: "What is Data Science?",
+        text: `
+Data Science is the process of collecting, cleaning,
+analyzing, and interpreting data to uncover patterns,
+trends, and insights. Data Scientists use statistics,
+programming, and machine learning techniques to help
+organizations make data-driven decisions.
+        `
+      },
+      {
+        heading: "What is Artificial Intelligence?",
+        text: `
+Artificial Intelligence (AI) is a branch of computer science
+focused on creating systems that can perform tasks that normally
+require human intelligence. These tasks include learning,
+problem-solving, decision-making, language understanding,
+and image recognition.
+        `
+      },
+      {
+        heading: "How Data Science and AI Work Together",
+        text: `
+Data Science provides the data, analysis, and insights needed
+to train intelligent AI systems. Artificial Intelligence uses
+that data to make predictions, automate tasks, and improve
+decision-making. Together, they power technologies such as
+recommendation systems, chatbots, fraud detection, and self-driving vehicles.
+        `
+      },
+      {
+        heading: "Essential Skills to Learn",
+        text: `
+A successful Data Science and AI professional should learn
+Python programming, statistics, SQL, data visualization,
+machine learning, deep learning, data preprocessing,
+and model deployment. Familiarity with tools like Pandas,
+NumPy, Scikit-learn, TensorFlow, and Power BI is highly valuable.
+        `
+      },
+      {
+        heading: "Career Opportunities",
+        text: `
+The demand for Data Science and AI professionals continues to grow rapidly.
+Popular roles include Data Scientist, AI Engineer,
+Machine Learning Engineer, Data Analyst, Business Intelligence Analyst,
+Computer Vision Engineer, and NLP Engineer.
+These careers offer strong growth opportunities across industries.
+        `
+      },
+      {
+        heading: "Conclusion",
+        text: `
+Data Science and Artificial Intelligence are shaping the future
+of technology and business. By learning the right skills and gaining
+hands-on experience with real-world projects, you can build a rewarding
+career in one of the fastest-growing fields in the world.
+        `
+      }
+    ],
+
+    articles: {
+      courseDetails: [
+        {
+          title: "What Is a Data Analyst? Responsibilities, Salary & How to Become One",
+        },
+        {
+          title: "What Does a Data Analyst Do? Career Guide for Students and Freshers",
+        }
+      ],
+      careerAndIndustryInsights: [
+        {
+          title: "Data Analytics Career in India 2026",
+        },
+        {
+          title: "Top IT Careers After Graduation",
+        }
+      ],
+      skillsAndTools: [
+        {
+          title: "Excel Skills Every Analyst Should Know",
+        },
+        {
+          title: "SQL for Beginners",
+        }
+      ]
+    },
+
+    faculty: {
+      name: "Benaseer P.T.",
+      designation: "Data Science Faculty",
+      course: "Data Science & Data Analytics",
+      bio: "Benaseer P.T. is a Data Science Faculty specializing in Data Analytics, Machine Learning, Artificial Intelligence, and Business Intelligence. She delivers industry-focused training in Python, SQL, Power BI, and AI technologies, while mentoring students through hands-on projects and real-world case studies. Her expertise lies in transforming complex technical concepts into practical learning experiences and preparing aspiring professionals for successful careers in Data Analytics and Data Science.",
+      keyAchievements: "Data Analytics, Machine Learning, Artificial Intelligence, Business Intelligence, Python, SQL, Power BI"
+    },
+
+    cta: {
+      title: "Ready to Build a Career in Data Science & AI?",
+      description:
+        "Join our Data Science & AI program and gain hands-on experience with Python, Machine Learning, Deep Learning, and real-world AI projects.",
+      buttonText: "Enroll Now"
+    }
+  }
+},
   
 ];
