@@ -8,6 +8,9 @@ import successVideo from '../../assets/videos/success.mp4';
 import parthivVideo from '../../assets/videos/parthiv.mp4';
 import adithVideo from '../../assets/videos/adith.mp4';
 import StudentTestimonialsBanner from '../../components/StudentTestimonialsBanner/StudentTestimonialsBanner';
+import mentor1 from '../../assets/mentors/benaseer.jpeg';
+import mentor2 from '../../assets/mentors/shakir.jpeg';
+import mentor3 from '../../assets/mentors/sruthi.jpeg';
 
 const PlayIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="#ffffff" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85 }}>
@@ -272,9 +275,9 @@ const CourseDetailPage = () => {
 
                 <div className={styles.avatarBadge}>
                   <div className={styles.avatars}>
-                    <img src="https://i.pravatar.cc/150?u=1" alt="mentor" />
-                    <img src="https://i.pravatar.cc/150?u=2" alt="mentor" />
-                    <img src="https://i.pravatar.cc/150?u=3" alt="mentor" />
+                    <img src={mentor1} alt="mentor" />
+                    <img src={mentor2} alt="mentor" />
+                    <img src={mentor3} alt="mentor" />
                   </div>
                   <span className={styles.avatarText}>Learn in-demand tech skills through hands</span>
                 </div>
