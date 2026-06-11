@@ -88,7 +88,7 @@ export const courses = [
     id: 2,
     slug: "full-stack-web-development",
     title: "Python Full Stack",
-    desc: "Develop modern web applications using Python and full stack technologies. Learn both frontend and backend development through practical projects and real-world application building.",
+    desc: "Master the skills required to build complete web applications from front-end interfaces to back-end systems using Python and industry-standard technologies. Through hands-on projects and practical training, you'll learn to develop, manage, and deploy dynamic web applications while gaining the expertise needed for careers in software development, web development, and full stack engineering.",
     duration: "6 months",
     fee: "₹45,000",
     rating:"4.8",

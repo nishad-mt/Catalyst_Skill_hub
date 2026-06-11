@@ -25,8 +25,8 @@
 .heroBox {
   background: linear-gradient(to bottom,
       #e0e9ff 0%,
-      #dde6ff 70%,
-      #d4ddff 100%);
+      #E7EDF8 70%,
+      #d4edff 100%);
 
   border-radius: clamp(24px, 5vw, 40px);
   padding: clamp(30px, 5vw, 60px) clamp(15px, 3vw, 30px);
@@ -71,13 +71,13 @@
 }
 
 .tag {
-  background: white;
-  color: #64748b;
-  padding: 8px 10px;
-  border-radius:8px;
-  font-size: 0.8rem;
+  color: #1e1b4b;
+  padding: 4px 10px;
+  border: solid 1px #1e1b4b;
+  border-radius: 6px;
+  font-size: 0.75rem;
   font-weight: 500;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   display: inline-block;
   width: fit-content;
 }
@@ -91,23 +91,34 @@
   letter-spacing: -0.01em;
 }
 
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
 .description {
-  font-size: 1.1rem;
-  color: #475569;
-  margin-bottom: 40px;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #1e1b4b;
+  line-height: 1.5;
+  margin-bottom: 0;
   max-width: 500px;
 }
 
+.firstSentence {
+  font-weight: 700;
+}
+
 .avatarBadge {
-  background: rgba(255, 255, 255, 0.6);
-  padding: 4px 10px;
-  border-radius: 100px;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 12px;
   width: fit-content;
-  margin-bottom: 48px;
+  margin-bottom: 20px;
 }
 
 .avatars {
@@ -115,11 +126,11 @@
 }
 
 .avatars img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   border: 2px solid white;
-  margin-left: -10px;
+  margin-left: -8px;
   object-fit: cover;
 }
 
@@ -128,22 +139,41 @@
 }
 
 .avatarText {
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.65rem;
+  font-weight: 500;
   color: #1e1b4b;
+  line-height: 1.2;
+}
+
+.mobileHeroBtn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background-color: #100a40;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.mobileHeroBtn:hover {
+  background-color: #0b072c;
 }
 
 .infoBar {
-  background: rgb(255, 255, 255);
+  /* background: rgb(255, 255, 255); */
   border-radius: 20px;
-  padding: clamp(10px, 2vw, 15px) clamp(5px, 1.5vw, 10px); /* Dynamically shrinks */
+  padding: clamp(10px, 2vw, 15px) clamp(2px, 1vw, 4px); /* Dynamically shrinks */
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-between; /* Distribute space evenly */
+  justify-content: space-evenly; /* Center and distribute items evenly */
   gap: 0; /* Removing gap to rely on item padding */
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  /* border: 1px solid rgba(255, 255, 255, 0.5); */
   margin-top: 25px;
   width: 100%;
   position: sticky;
@@ -163,13 +193,13 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 8px clamp(2px, 1vw, 8px); /* Added vertical padding for wrapped text */
+  padding: 8px clamp(1px, 0.5vw, 3px); /* Added vertical padding for wrapped text */
   min-width: 0;
 }
 
 .infoLabel {
   text-align: center;
-  font-size: clamp(0.45rem, 1.2vw, 0.6rem);
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
   color: #1e1b4b;
   font-weight: 700;
   text-transform: uppercase;
@@ -180,7 +210,7 @@
 }
 
 .infoValue {
-  font-size: clamp(0.7rem, 1.3vw, 0.85rem);
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
   color: #475569;
   font-weight: 600;
   white-space: normal; /* Allow value to wrap if needed */
@@ -201,13 +231,13 @@
 }
 
 .ratingVal {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #1e1b4b;
 }
 
 .ratingLabel {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #64748b;
 }
 
@@ -220,7 +250,7 @@
 .infoDivider {
   width: 1px;
   align-self: stretch; /* Stretches to fit the wrapped item height */
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.61);
   margin: 10px 0;
   flex-shrink: 0;
 }
@@ -255,7 +285,7 @@
 }
 
 .heroRight {
-  display: flex;
+  display: none;
   justify-content: center;
 }
 
@@ -354,9 +384,9 @@
 }
 
 .sectionTitle {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #0f172a;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 700;
+  color: #1e1b4b;
   margin-bottom: 32px;
   text-align: left;
 }
@@ -750,6 +780,11 @@
 
   .heroRight {
     flex: 0.9;
+    display: flex; /* Ensure it shows on desktop */
+  }
+
+  .mobileHeroBtn {
+    display: none; /* Hide on desktop */
   }
 
   .heroEnrollBtn {
@@ -771,7 +806,7 @@
 
 
   .infoValue {
-    font-size: 0.95rem;
+    font-size: 1.15rem;
   }
 
 
@@ -789,7 +824,7 @@
   }
 
   .infoLabel {
-    font-size: 0.75rem; /* Scales up slightly for desktop */
+    font-size: 0.9rem; /* Scales up slightly for desktop */
   }
 
   .statsBar {
@@ -1179,11 +1214,12 @@
 }
 
 .overviewHeaderLeft h2 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
   font-weight: 700;
-  color: #111;
+  color: #1e1b4b;
   margin-bottom: 16px;
   line-height: 1.3;
+  text-align: left;
 }
 
 .highlightBlue {
@@ -1249,7 +1285,7 @@
 
 .overviewContentLeft {
   flex: 1;
-  background-color: #e2e8f0; /* Light blue-gray from image */
+  background-color: #d7e5f1; /* Light blue-gray from image */
   border-radius: 12px;
   padding: 24px;
 }
@@ -1589,11 +1625,12 @@
   margin-bottom: 40px;
 }
 .featuresHeader h2 {
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 700;
   color: #1e1b4b;
   margin-bottom: 16px;
   line-height: 1.3;
+  text-align: left;
 }
 .featuresHeader p {
   color: #475569;
@@ -1639,12 +1676,13 @@
   padding: 60px 0;
 }
 .splitInfoTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #111;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 700;
+  color: #1e1b4b;
   max-width: 800px;
   margin-bottom: 40px;
   line-height: 1.3;
+  text-align: left;
 }
 .splitInfoGrid {
   display: grid;
@@ -1699,10 +1737,11 @@
 
 /* Mentors Update */
 .sectionTitleLeft {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #111;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 700;
+  color: #1e1b4b;
   margin-bottom: 30px;
+  text-align: left;
 }
 .mentorsSection {
   padding: 60px 0;
@@ -1775,9 +1814,9 @@
 }
 
 .sectionTitle {
-  font-size: clamp(1.75rem, 4vw, 2.4rem);
-  font-weight: 800;
-  color: #0a1450;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 700;
+  color: #1e1b4b;
   margin-bottom: 3.5rem;
   text-align: left;
   font-family: 'Outfit', sans-serif;
@@ -2113,6 +2152,15 @@
   .overviewHeader, .overviewBody {
     flex-direction: column;
   }
+  .overviewSection {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .overviewContentLeft {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    border-radius: 0;
+  }
   .overviewContentRight {
     width: 100%;
     position: static; /* disable sticky on mobile */
@@ -2132,7 +2180,27 @@
     grid-template-columns: 1fr;
   }
   .mentorsGrid {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mentorsGrid::-webkit-scrollbar {
+    height: 6px;
+  }
+  .mentorsGrid::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .mentorsGrid::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  .mentorCard {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
   }
   .testimonialsGrid {
     grid-template-columns: 1fr 1fr;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from './CourseDetailPage.module.css';
-import { courses } from '../../data/siteData';
+import { courses, mentors } from '../../data/siteData';
 import promoImg from '../../assets/promo_thinking.png';
 import studentsBanner from '../../assets/students_banner.png';
 import { testimonials } from '../../data/testimonials';
@@ -41,6 +41,75 @@ const videoTestimonials = [
     videoUrl: adithVideo
   }
 ];
+
+const BoldFirstTwoLinesText = ({ text, className }) => {
+  const containerRef = useRef(null);
+  const [boldLimit, setBoldLimit] = useState(-1);
+
+  const calculateLimit = () => {
+    if (!containerRef.current) return;
+    const words = containerRef.current.querySelectorAll('.word-span');
+    if (words.length === 0) return;
+
+    let lineCount = 0;
+    let currentTop = -1;
+    let limitIndex = words.length;
+
+    for (let i = 0; i < words.length; i++) {
+      const top = words[i].offsetTop;
+      if (top !== currentTop) {
+        currentTop = top;
+        lineCount++;
+        if (lineCount > 2) {
+          limitIndex = i;
+          break;
+        }
+      }
+    }
+    setBoldLimit(limitIndex);
+  };
+
+  useEffect(() => {
+    setBoldLimit(-1);
+  }, [text]);
+
+  useEffect(() => {
+    if (boldLimit === -1) {
+      calculateLimit();
+    }
+  }, [boldLimit, text]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setBoldLimit(-1);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  if (!text) return null;
+
+  const tokens = text.split(/(\s+)/);
+
+  if (boldLimit === -1) {
+    return (
+      <p ref={containerRef} className={className} style={{ opacity: 0, position: 'absolute', pointerEvents: 'none' }}>
+        {tokens.map((token, idx) => (
+          <span key={idx} className="word-span">{token}</span>
+        ))}
+      </p>
+    );
+  }
+
+  return (
+    <p className={className}>
+      <strong>
+        {tokens.slice(0, boldLimit).join('')}
+      </strong>
+      {tokens.slice(boldLimit).join('')}
+    </p>
+  );
+};
 
 const CourseDetailPage = () => {
   const [course, setCourse] = useState(null);
@@ -266,12 +335,41 @@ const CourseDetailPage = () => {
           <div className={styles.heroBox}>
             <div className={styles.heroMain}>
               <div className={`${styles.heroLeft} reveal-group`}>
-                <span className={styles.tag}>Best Tech Courses in Calicut</span>
+                <span className={styles.tag}>Best Tech Institute in kerala</span>
                 <h1 className={styles.title}>
-                  {course.title} Course <br />
-                  {course.location ? `in ${course.location}` : 'in Calicut'}
+                  Best {course.title} Course in {course.location || 'Kerala'}
                 </h1>
-                <p className={styles.description}>{course.desc}</p>
+                
+                {/* Render description as two paragraphs to match the design */}
+                <div className={styles.descriptionContainer}>
+                  {course.desc && course.desc.split('. ').map((sentence, idx) => {
+                    if (!sentence) return null;
+                    if (idx === 0) {
+                      const splitWord = 'back-end systems';
+                      const splitIdx = sentence.indexOf(splitWord);
+                      if (splitIdx !== -1) {
+                        const cut = splitIdx + splitWord.length;
+                        return (
+                          <p key={idx} className={styles.description}>
+                            <span className={styles.firstSentence}>{sentence.substring(0, cut)}</span>
+                            {sentence.substring(cut)}
+                            {idx === 0 ? '.' : ''}
+                          </p>
+                        );
+                      }
+                      return (
+                        <p key={idx} className={`${styles.description} ${styles.firstSentence}`}>
+                          {sentence}{idx === 0 ? '.' : ''}
+                        </p>
+                      );
+                    }
+                    return (
+                      <p key={idx} className={styles.description}>
+                        {sentence}
+                      </p>
+                    );
+                  })}
+                </div>
 
                 <div className={styles.avatarBadge}>
                   <div className={styles.avatars}>
@@ -279,8 +377,15 @@ const CourseDetailPage = () => {
                     <img src={mentor2} alt="mentor" />
                     <img src={mentor3} alt="mentor" />
                   </div>
-                  <span className={styles.avatarText}>Learn in-demand tech skills through hands</span>
+                  <span className={styles.avatarText}>Learn in-demand tech<br />skills through hands</span>
                 </div>
+
+                <button 
+                  className={styles.mobileHeroBtn}
+                  onClick={() => handleOpenModal('callback')}
+                >
+                  Get Free Career Counselling
+                </button>
                 {/* infoBar moved here to span full width */}
             <div className={styles.infoBar}>
               <div className={`${styles.infoItem} ${styles.googleReviewItem}`}>
@@ -687,16 +792,19 @@ const CourseDetailPage = () => {
         <div className={styles.container}>
           <h2 className={`${styles.sectionTitleLeft} reveal`}>Learn 15 + Essential Tools learning experience with us</h2>
           <div className={`${styles.mentorsGrid} reveal-group`}>
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className={styles.mentorCard}>
+            {mentors.map((mentor, i) => (
+              <div key={mentor.id || i} className={styles.mentorCard}>
                 <div className={styles.mentorTop}>
-                  <img src={`https://i.pravatar.cc/300?u=mentor${i}`} alt="James Alex" className={styles.mentorImg} />
+                  <img 
+                    src={mentor.image && mentor.image !== '#' ? mentor.image : `https://i.pravatar.cc/300?u=mentor${mentor.id || i}`} 
+                    alt={mentor.name} 
+                    className={styles.mentorImg} 
+                  />
                 </div>
                 <div className={styles.mentorInfo}>
-                  <h4>James Alex</h4>
-                  <p className={styles.mentorRole}>CISSP, CISM, CEH, India</p>
-                  {/* <p className={styles.mentorWork}>Work @</p> */}
-                  <p className={styles.mentorDesc}>Cyber security skills with hands-on training. Learn ethical hacking and protect real-world systems.</p>
+                  <h4>{mentor.name}</h4>
+                  <p className={styles.mentorRole}>{mentor.title}</p>
+                  <p className={styles.mentorDesc}>{mentor.description}</p>
                   <div className={styles.mentorSocial}>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
                     <span>View Profile</span>
@@ -711,7 +819,7 @@ const CourseDetailPage = () => {
       {/* Student Testimonials Grid */}
       <section className={styles.testimonialsSection}>
         <div className="container">
-          <h2 className={`${styles.sectionTitle} reveal`} style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          <h2 className={`${styles.sectionTitle} reveal`} style={{ textAlign: 'left', marginBottom: '3.5rem' }}>
             What our Students says about their learning experience with us
           </h2>
         </div>
