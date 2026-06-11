@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styles from './BlogDetails.module.css';
 import { blogs } from '../../data/blogs';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 const BlogDetails = () => {
   const [phone, setPhone] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState(null);
 
   const path = window.location.pathname;
   const id = path.split('/blogs/')[1];
@@ -32,28 +34,23 @@ const BlogDetails = () => {
       return;
     }
 
+    if (!turnstileToken) {
+      alert("Please complete the captcha.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     const payload = {
-      _subject: `📝 Blog Lead - ${blog.title}`,
-      _captcha: "false",
-      _template: "table",
-
-      LeadType: "Blog Inquiry",
-      Name: "Blog Reader Lead",
-      Phone: cleanPhone,
-      Email: "N/A",
-
-      BlogTitle: blog.title,
-      Source: "Blog Page",
-
-      Referrer: document.referrer || "Direct",
-      PageURL: window.location.href,
-      SubmittedAt: new Date().toLocaleString(),
+      name: "Blog Reader Lead",
+      phone: cleanPhone,
+      email: "N/A",
+      course: blog.title,
+      center: "N/A"
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -68,10 +65,11 @@ const BlogDetails = () => {
 
       setIsSuccess(true);
       setPhone('');
+      setTurnstileToken(null);
     } catch (error) {
       console.error(error);
-      const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Form Type: ${payload.FormType}\nPhone: ${payload.Phone}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
+      const mailtoLink = `mailto:hello@catalysthub.in?subject=Blog Lead&body=${encodeURIComponent(
+        `Phone: ${payload.phone}\nCourse: ${payload.course}`
       )}`;
       
       if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via your email app instead?")) {
@@ -181,7 +179,11 @@ const BlogDetails = () => {
                     required
                   />
 
-                  <button type="submit" className={styles.button} disabled={isSubmitting}>
+                  <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                    <Turnstile siteKey="1x00000000000000000000AA" onSuccess={(token) => setTurnstileToken(token)} />
+                  </div>
+
+                  <button type="submit" className={styles.button} disabled={isSubmitting || !turnstileToken}>
                     {isSubmitting ? 'Enrolling...' : content.cta.buttonText}
                   </button>
                 </form>

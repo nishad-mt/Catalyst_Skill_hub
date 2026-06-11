@@ -244,19 +244,21 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
         <div className={styles.inner}>
 
           {/* HAMBURGER — mobile/tablet only */}
-          <button
-            className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
-            onClick={() => {
-              setMenuDirection('left');
-              setMenuOpen((prev) => !prev);
-            }}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={menuOpen}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+          {currentPage !== '404' && (
+            <button
+              className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
+              onClick={() => {
+                setMenuDirection('left');
+                setMenuOpen((prev) => !prev);
+              }}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          )}
 
           {/* Logo */}
           <a
@@ -268,262 +270,268 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
           </a>
 
           {/* SEARCH — hidden on mobile, shown ≥ 680px */}
-          <div className={styles.searchBox} style={{ position: 'relative' }}>
-            <FiSearch className={styles.searchIcon} />
-            <input
-              type="text"
-              placeholder="What do you want to learn?"
-              value={searchQuery}
-              onChange={handleSearchChange}
-              onKeyDown={handleDesktopKeyDown}
-              onFocus={handleDesktopFocus}
-              onBlur={() => {
-                desktopBlurTimer.current = setTimeout(() => setShowSuggestions(false), 150);
-              }}
-              className={styles.searchInput}
-              aria-label="Search"
-              autoComplete="off"
-            />
-            {showSuggestions && (
-              <div className={`${styles.suggestionList} ${searchQuery.trim() ? styles.suggestionListTyped : ''}`} role="listbox">
-                {!searchQuery.trim() && <div className={styles.trendSearchHeader}>Trend Search</div>}
-                <ul className={!searchQuery.trim() ? styles.suggestionGrid : ''} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-                  {suggestions.map((s, i) => (
-                    <li
-                      key={`${s.label}-${i}`}
-                      role="option"
-                      aria-selected={i === activeSuggestion}
-                      className={`${searchQuery.trim() ? styles.suggestionItemTyped : styles.suggestionItem} ${
-                        i === activeSuggestion ? styles.suggestionActive : ''
-                      }`}
-                      onMouseDown={() => selectSuggestion(s)}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <FiSearch className={styles.suggestionIcon} />
-                        <span>{s.label}</span>
-                      </div>
-                      {s.type !== 'Course' && (
-                        <span className={styles.suggestionTypeBadge}>{s.type}</span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
+          {currentPage !== '404' && (
+            <div className={styles.searchBox} style={{ position: 'relative' }}>
+              <FiSearch className={styles.searchIcon} />
+              <input
+                type="text"
+                placeholder="What do you want to learn?"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                onKeyDown={handleDesktopKeyDown}
+                onFocus={handleDesktopFocus}
+                onBlur={() => {
+                  desktopBlurTimer.current = setTimeout(() => setShowSuggestions(false), 150);
+                }}
+                className={styles.searchInput}
+                aria-label="Search"
+                autoComplete="off"
+              />
+              {showSuggestions && (
+                <div className={`${styles.suggestionList} ${searchQuery.trim() ? styles.suggestionListTyped : ''}`} role="listbox">
+                  {!searchQuery.trim() && <div className={styles.trendSearchHeader}>Trend Search</div>}
+                  <ul className={!searchQuery.trim() ? styles.suggestionGrid : ''} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                    {suggestions.map((s, i) => (
+                      <li
+                        key={`${s.label}-${i}`}
+                        role="option"
+                        aria-selected={i === activeSuggestion}
+                        className={`${searchQuery.trim() ? styles.suggestionItemTyped : styles.suggestionItem} ${
+                          i === activeSuggestion ? styles.suggestionActive : ''
+                        }`}
+                        onMouseDown={() => selectSuggestion(s)}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <FiSearch className={styles.suggestionIcon} />
+                          <span>{s.label}</span>
+                        </div>
+                        {s.type !== 'Course' && (
+                          <span className={styles.suggestionTypeBadge}>{s.type}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* RIGHT SIDE */}
-          <div className={styles.right}>
+          {currentPage !== '404' && (
+            <div className={styles.right}>
 
-            <ul className={styles.links}>
+              <ul className={styles.links}>
+                {navLinks.map((link) => (
+                  <li key={link.label} className={link.subLinks ? styles.hasDropdown : ''}>
+                    <a 
+                      href={link.href} 
+                      className={styles.link}
+                      onClick={(e) => {
+                        if (link.subLinks) {
+                          e.preventDefault();
+                        } else if (link.href.startsWith('/')) {
+                          e.preventDefault();
+                          navigate(link.href);
+                        }
+                      }}
+                    >
+                      {link.label}
+                      {link.subLinks && <FiChevronDown className={styles.chevron} />}
+                    </a>
+
+                    {link.subLinks && (
+                      <div className={styles.dropdown}>
+                        <div className={styles.dropdownInner}>
+                          {link.subLinks.map((sub) => (
+                            <a
+                              key={sub.label}
+                              href={sub.href}
+                              className={styles.dropdownItem}
+                              onClick={(e) => {
+                                if (sub.href.startsWith('/')) {
+                                  e.preventDefault();
+                                  navigate(sub.href);
+                                }
+                              }}
+                            >
+                              {sub.label}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+
+
+              {/* CTA — desktop only */}
+              <button 
+                className={styles.cta}
+                onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}
+              >
+                Talk With Expert
+              </button>
+
+              {/* Mobile Search Toggle Icon */}
+              <button
+                className={styles.mobileSearchToggle}
+                onClick={() => {
+                  setMenuDirection('right');
+                  setMenuOpen(true);
+                  setTimeout(() => {
+                    const input = document.querySelector(`.${styles.mobileSearchInput}`);
+                    if (input) input.focus();
+                  }, 300);
+                }}
+                aria-label="Search"
+              >
+                <FiSearch />
+              </button>
+
+            </div>
+          )}
+        </div>
+      </nav>
+
+      {/* BACKDROP — tap outside to close */}
+      {currentPage !== '404' && menuOpen && (
+        <div className={styles.backdrop} onClick={closeMenu} aria-hidden="true" />
+      )}
+
+      {/* MOBILE MENU — slides in from right */}
+      {currentPage !== '404' && (
+        <div
+          className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ''} ${
+            menuDirection === 'left' ? styles.slideLeft : styles.slideRight
+          }`}
+          aria-hidden={!menuOpen}
+        >
+          {/* Techhub logo at top */}
+          <div className={styles.mobilePanelHeader}>
+            <img src={techhub} alt="TechHub" className={styles.mobilePanelLogo} />
+            <button
+              className={styles.closeBtn}
+              onClick={closeMenu}
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
+          </div>
+
+          {menuDirection === 'right' ? (
+            /* Mobile search bar */
+            <div className={styles.mobileSearchBox}>
+              <FiSearch className={styles.mobileSearchIcon} />
+              <input
+                type="text"
+                placeholder="What do you want to learn?"
+                value={searchQuery}
+                onChange={handleMobileSearchChange}
+                onKeyDown={handleMobileKeyDown}
+                onFocus={handleMobileFocus}
+                onBlur={() => {
+                  mobileBlurTimer.current = setTimeout(() => setShowMobileSuggestions(false), 150);
+                }}
+                className={styles.mobileSearchInput}
+                aria-label="Search"
+                autoComplete="off"
+              />
+              {showMobileSuggestions && (
+                <div className={styles.mobileSuggestionList} role="listbox">
+                  {!searchQuery.trim() && <div className={styles.trendSearchHeader} style={{ color: '#94a3b8' }}>Trend Search</div>}
+                  <ul className={!searchQuery.trim() ? styles.suggestionGrid : ''} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                    {mobileSuggestions.map((s, i) => (
+                      <li
+                        key={`${s.label}-${i}`}
+                        role="option"
+                        aria-selected={i === activeMobileSuggestion}
+                        className={`${styles.mobileSuggestionItem} ${
+                          i === activeMobileSuggestion ? styles.mobileSuggestionActive : ''
+                        }`}
+                        onMouseDown={() => {
+                          selectMobileSuggestion(s);
+                        }}
+                        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <FiSearch className={styles.mobileSuggestionIcon} style={{ marginRight: '8px' }} />
+                          <span>{s.label}</span>
+                        </div>
+                        {s.type !== 'Course' && (
+                          <span style={{ fontSize: '0.75rem', color: '#ccc', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '4px', marginLeft: '8px' }}>{s.type}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ) : (
+            /* Mobile navigation links */
+            <>
               {navLinks.map((link) => (
-                <li key={link.label} className={link.subLinks ? styles.hasDropdown : ''}>
-                  <a 
-                    href={link.href} 
-                    className={styles.link}
-                    onClick={(e) => {
-                      if (link.subLinks) {
-                        e.preventDefault();
-                      } else if (link.href.startsWith('/')) {
-                        e.preventDefault();
-                        navigate(link.href);
-                      }
-                    }}
-                  >
-                    {link.label}
-                    {link.subLinks && <FiChevronDown className={styles.chevron} />}
-                  </a>
-
-                  {link.subLinks && (
-                    <div className={styles.dropdown}>
-                      <div className={styles.dropdownInner}>
+                <div key={link.label} className={styles.mobileLinkContainer}>
+                  {link.subLinks ? (
+                    <>
+                      <button
+                        onClick={() => toggleMobileDropdown(link.label)}
+                        className={`${styles.mobileLink} ${styles.mobileDropdownBtn} ${activeDropdown === link.label ? styles.active : ''}`}
+                      >
+                        {link.label}
+                        <FiChevronDown className={`${styles.mobileChevron} ${activeDropdown === link.label ? styles.rotate : ''}`} />
+                      </button>
+                      <div className={`${styles.mobileSubLinks} ${activeDropdown === link.label ? styles.show : ''}`}>
                         {link.subLinks.map((sub) => (
                           <a
                             key={sub.label}
                             href={sub.href}
-                            className={styles.dropdownItem}
                             onClick={(e) => {
+                              closeMenu();
                               if (sub.href.startsWith('/')) {
                                 e.preventDefault();
                                 navigate(sub.href);
                               }
                             }}
+                            className={styles.mobileSubLink}
                           >
                             {sub.label}
                           </a>
                         ))}
                       </div>
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-
-
-            {/* CTA — desktop only */}
-            <button 
-              className={styles.cta}
-              onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}
-            >
-              Talk With Expert
-            </button>
-
-            {/* Mobile Search Toggle Icon */}
-            <button
-              className={styles.mobileSearchToggle}
-              onClick={() => {
-                setMenuDirection('right');
-                setMenuOpen(true);
-                setTimeout(() => {
-                  const input = document.querySelector(`.${styles.mobileSearchInput}`);
-                  if (input) input.focus();
-                }, 300);
-              }}
-              aria-label="Search"
-            >
-              <FiSearch />
-            </button>
-
-          </div>
-        </div>
-      </nav>
-
-      {/* BACKDROP — tap outside to close */}
-      {menuOpen && (
-        <div className={styles.backdrop} onClick={closeMenu} aria-hidden="true" />
-      )}
-
-      {/* MOBILE MENU — slides in from right */}
-      <div
-        className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ''} ${
-          menuDirection === 'left' ? styles.slideLeft : styles.slideRight
-        }`}
-        aria-hidden={!menuOpen}
-      >
-        {/* Techhub logo at top */}
-        <div className={styles.mobilePanelHeader}>
-          <img src={techhub} alt="TechHub" className={styles.mobilePanelLogo} />
-          <button
-            className={styles.closeBtn}
-            onClick={closeMenu}
-            aria-label="Close menu"
-          >
-            ✕
-          </button>
-        </div>
-
-        {menuDirection === 'right' ? (
-          /* Mobile search bar */
-          <div className={styles.mobileSearchBox}>
-            <FiSearch className={styles.mobileSearchIcon} />
-            <input
-              type="text"
-              placeholder="What do you want to learn?"
-              value={searchQuery}
-              onChange={handleMobileSearchChange}
-              onKeyDown={handleMobileKeyDown}
-              onFocus={handleMobileFocus}
-              onBlur={() => {
-                mobileBlurTimer.current = setTimeout(() => setShowMobileSuggestions(false), 150);
-              }}
-              className={styles.mobileSearchInput}
-              aria-label="Search"
-              autoComplete="off"
-            />
-            {showMobileSuggestions && (
-              <div className={styles.mobileSuggestionList} role="listbox">
-                {!searchQuery.trim() && <div className={styles.trendSearchHeader} style={{ color: '#94a3b8' }}>Trend Search</div>}
-                <ul className={!searchQuery.trim() ? styles.suggestionGrid : ''} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-                  {mobileSuggestions.map((s, i) => (
-                    <li
-                      key={`${s.label}-${i}`}
-                      role="option"
-                      aria-selected={i === activeMobileSuggestion}
-                      className={`${styles.mobileSuggestionItem} ${
-                        i === activeMobileSuggestion ? styles.mobileSuggestionActive : ''
-                      }`}
-                      onMouseDown={() => {
-                        selectMobileSuggestion(s);
+                    </>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={(e) => {
+                        closeMenu();
+                        if (link.href.startsWith('/')) {
+                          e.preventDefault();
+                          navigate(link.href);
+                        }
                       }}
-                      style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <FiSearch className={styles.mobileSuggestionIcon} style={{ marginRight: '8px' }} />
-                        <span>{s.label}</span>
-                      </div>
-                      {s.type !== 'Course' && (
-                        <span style={{ fontSize: '0.75rem', color: '#ccc', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '4px', marginLeft: '8px' }}>{s.type}</span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        ) : (
-          /* Mobile navigation links */
-          <>
-            {navLinks.map((link) => (
-              <div key={link.label} className={styles.mobileLinkContainer}>
-                {link.subLinks ? (
-                  <>
-                    <button
-                      onClick={() => toggleMobileDropdown(link.label)}
-                      className={`${styles.mobileLink} ${styles.mobileDropdownBtn} ${activeDropdown === link.label ? styles.active : ''}`}
+                      className={styles.mobileLink}
                     >
                       {link.label}
-                      <FiChevronDown className={`${styles.mobileChevron} ${activeDropdown === link.label ? styles.rotate : ''}`} />
-                    </button>
-                    <div className={`${styles.mobileSubLinks} ${activeDropdown === link.label ? styles.show : ''}`}>
-                      {link.subLinks.map((sub) => (
-                        <a
-                          key={sub.label}
-                          href={sub.href}
-                          onClick={(e) => {
-                            closeMenu();
-                            if (sub.href.startsWith('/')) {
-                              e.preventDefault();
-                              navigate(sub.href);
-                            }
-                          }}
-                          className={styles.mobileSubLink}
-                        >
-                          {sub.label}
-                        </a>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      closeMenu();
-                      if (link.href.startsWith('/')) {
-                        e.preventDefault();
-                        navigate(link.href);
-                      }
-                    }}
-                    className={styles.mobileLink}
-                  >
-                    {link.label}
-                  </a>
-                )}
-              </div>
-            ))}
+                    </a>
+                  )}
+                </div>
+              ))}
 
-            {/* CTA */}
-            <button 
-              onClick={() => {
-                closeMenu();
-                window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }));
-              }} 
-              className={styles.mobileCta}
-            >
-              Talk With Expert
-            </button>
-          </>
-        )}
-      </div>
+              {/* CTA */}
+              <button 
+                onClick={() => {
+                  closeMenu();
+                  window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }));
+                }} 
+                className={styles.mobileCta}
+              >
+                Talk With Expert
+              </button>
+            </>
+          )}
+        </div>
+      )}
     </>
   );
 }

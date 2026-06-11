@@ -34,6 +34,8 @@ import LifePage from './pages/LifePage/LifePage';
 import CenterDetailPage from './pages/CenterDetailPage/CenterDetailPage';
 import ContactModal from './components/ContactModal/ContactModal';
 import StudentTestimonialsBanner from './components/StudentTestimonialsBanner/StudentTestimonialsBanner';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import ThankYouPage from './pages/ThankYouPage/ThankYouPage';
 
 export default function App() {
   // Attach scroll-reveal observer after mount
@@ -41,6 +43,7 @@ export default function App() {
 
   const [currentPage, setCurrentPage] = useState(() => {
     const path = window.location.pathname;
+    if (path === '/' || path === '') return 'home';
     if (path.includes('/course/')) return 'course-detail';
     if (path.includes('/courses')) return 'courses';
     if (path.includes('/center/')) return 'center-detail';
@@ -49,7 +52,8 @@ export default function App() {
     if (path.includes('/life')) return 'life';
     if (path.includes('/blogs/'))return 'blog-detail';
     if (path.includes('/blogs')) return 'blogs';
-    return 'home';
+    if (path.includes('/thank-you')) return 'thank-you';
+    return '404';
   });
   
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
@@ -77,7 +81,8 @@ export default function App() {
     const handlePopState = () => {
       const path = window.location.pathname;
       setCurrentPath(path);
-      if (path.includes('/course/')) setCurrentPage('course-detail');
+      if (path === '/' || path === '') setCurrentPage('home');
+      else if (path.includes('/course/')) setCurrentPage('course-detail');
       else if (path.includes('/courses')) setCurrentPage('courses');
       else if (path.includes('/center/')) setCurrentPage('center-detail');
       else if (path.includes('/about')) setCurrentPage('about');
@@ -85,7 +90,8 @@ export default function App() {
       else if (path.includes('/life')) setCurrentPage('life');
       else if (path.includes('/blogs/')) setCurrentPage('blog-detail');
       else if (path.includes('/blogs')) setCurrentPage('blogs'); 
-      else setCurrentPage('home');
+      else if (path.includes('/thank-you')) setCurrentPage('thank-you');
+      else setCurrentPage('404');
       window.scrollTo(0, 0);
     };
     window.addEventListener('popstate', handlePopState);
@@ -97,7 +103,8 @@ export default function App() {
   const navigate = (path) => {
     window.history.pushState({}, '', path);
     setCurrentPath(path);
-    if (path.includes('/course/')) setCurrentPage('course-detail');
+    if (path === '/' || path === '') setCurrentPage('home');
+    else if (path.includes('/course/')) setCurrentPage('course-detail');
     else if (path.includes('/courses')) setCurrentPage('courses');
     else if (path.includes('/center/')) setCurrentPage('center-detail');
     else if (path.includes('/about')) setCurrentPage('about');
@@ -105,19 +112,26 @@ export default function App() {
     else if (path.includes('/life')) setCurrentPage('life');
     else if (path.includes('/blogs/')) setCurrentPage('blog-detail');
     else if (path.includes('/blogs')) setCurrentPage('blogs');
-    else setCurrentPage('home');
+    else if (path.includes('/thank-you')) setCurrentPage('thank-you');
+    else setCurrentPage('404');
     window.scrollTo(0, 0);
   };
+
+  const isMinimalLayout = ['404', 'thank-you'].includes(currentPage);
 
   return (
     <>
       <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} currentPage={currentPage} />
-      <WhatsAppWidget />
-      <MobileActionBar navigate={navigate} currentPage={currentPage} />
+      {!isMinimalLayout && <WhatsAppWidget />}
+      {!isMinimalLayout && <MobileActionBar navigate={navigate} currentPage={currentPage} />}
 
       <main>
-        <Breadcrumb currentPage={currentPage} navigate={navigate} />
-        {currentPage === 'courses' ? (
+        {!isMinimalLayout && <Breadcrumb currentPage={currentPage} navigate={navigate} />}
+        {currentPage === '404' ? (
+          <NotFoundPage navigate={navigate} />
+        ) : currentPage === 'thank-you' ? (
+          <ThankYouPage navigate={navigate} />
+        ) : currentPage === 'courses' ? (
           <CoursesPage searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
         ) : currentPage === 'course-detail' ? (
           <CourseDetailPage key={currentPath} />
@@ -150,17 +164,18 @@ export default function App() {
             </div>
           </>
         )}
-        <FAQ />
-        <Contact />
+        {!isMinimalLayout && <FAQ />}
+        {!isMinimalLayout && <Contact navigate={navigate} />}
       </main>
 
-      <Footer navigate={navigate} />
+      {!isMinimalLayout && <Footer navigate={navigate} />}
 
       <ContactModal 
         isOpen={modalConfig.isOpen} 
         onClose={() => setModalConfig(prev => ({ ...prev, isOpen: false }))}
         type={modalConfig.type}
         courseTitle={modalConfig.courseTitle}
+        navigate={navigate}
       />
     </>
   );

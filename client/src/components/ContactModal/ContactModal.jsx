@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ContactModal.module.css';
+import { Turnstile } from '@marsidev/react-turnstile';
 
-const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '' }) => {
+const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '', navigate }) => {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState(null);
 
   // Lock body scroll when modal is open and reset form
   useEffect(() => {
@@ -12,6 +14,7 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '' }) 
       document.body.style.overflow = 'hidden';
       setFormData({ name: '', phone: '', email: '' });
       setIsSuccess(false);
+      setTurnstileToken(null);
     } else {
       document.body.style.overflow = '';
     }
@@ -26,34 +29,22 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '' }) 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!turnstileToken) {
+      alert("Please complete the captcha.");
+      return;
+    }
     setIsSubmitting(true);
 
     const payload = {
-      _subject:
-        type === "enroll"
-          ? `🎓 New Enrollment Lead - ${courseTitle || "General"}`
-          : "📞 New Callback Request",
-
-      _captcha: "false",
-      _template: "table",
-
-      LeadType: type === "enroll" ? "Enrollment" : "Callback Request",
-
-      Name: formData.name,
-      Phone: formData.phone,
-      Email: formData.email || "N/A",
-
-      Course: courseTitle || "N/A",
-
-      Source: "Course Page",
-      Referrer: document.referrer || "Direct",
-
-      PageURL: window.location.href,
-      SubmittedAt: new Date().toLocaleString(),
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email || "N/A",
+      course: courseTitle || "N/A",
+      center: "N/A"
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -69,11 +60,12 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '' }) 
       setIsSuccess(true);
       setTimeout(() => {
         onClose();
-      }, 2000);
+        navigate('/thank-you');
+      }, 1000);
     } catch (error) {
       console.error(error);
-      const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Form Type: ${payload.FormType}\nName: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
+      const mailtoLink = `mailto:hello@catalysthub.in?subject=New Lead&body=${encodeURIComponent(
+        `Name: ${payload.name}\nPhone: ${payload.phone}\nEmail: ${payload.email}\nCourse: ${payload.course}`
       )}`;
       
       if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via your email app instead?")) {
@@ -121,7 +113,10 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '' }) 
               <label>Email Address</label>
               <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" required />
             </div>
-            <button type="submit" className={styles.modalSubmitBtn} disabled={isSubmitting}>
+            <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+              <Turnstile siteKey="1x00000000000000000000AA" onSuccess={(token) => setTurnstileToken(token)} />
+            </div>
+            <button type="submit" className={styles.modalSubmitBtn} disabled={isSubmitting || !turnstileToken}>
               {isSubmitting ? 'Submitting...' : (type === 'enroll' ? 'Submit Application' : 'Request Callback')}
             </button>
           </form>

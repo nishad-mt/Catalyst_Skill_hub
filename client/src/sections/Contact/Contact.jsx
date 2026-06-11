@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { testimonials, courses, centers } from '../../data/siteData';
 import styles from './Contact.module.css';
+import { Turnstile } from '@marsidev/react-turnstile';
 
-export default function Contact() {
+export default function Contact({ navigate }) {
   const [form, setForm] = useState({ name: '', phone: '', email: '', course: '', center: '' });
   const [loading, setLoading] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
+  const [turnstileToken, setTurnstileToken] = useState(null);
 
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -48,22 +50,22 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!turnstileToken) {
+      alert("Please complete the captcha.");
+      return;
+    }
     setLoading(true);
 
     const payload = {
-      _subject: "New Contact Form Submission",
-      _template: "table",
-      Name: form.name,
-      Phone: form.phone,
-      Email: form.email,
-      Course: form.course,
-      Center: form.center,
-      PageURL: window.location.href,
-      SubmissionTime: new Date().toLocaleString(),
+      name: form.name,
+      phone: form.phone,
+      email: form.email || "N/A",
+      course: form.course || "N/A",
+      center: form.center || "N/A"
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -76,12 +78,13 @@ export default function Contact() {
         throw new Error('Server error or form API is down');
       }
 
-      alert('Message Sent Successfully! We will get back to you soon.');
       setForm({ name: '', phone: '', email: '', course: '', center: '' });
+      setTurnstileToken(null);
+      navigate('/thank-you');
     } catch (error) {
       console.error(error);
-      const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Name: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nCourse: ${payload.Course}\nCenter: ${payload.Center}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
+      const mailtoLink = `mailto:hello@catalysthub.in?subject=New Contact&body=${encodeURIComponent(
+        `Name: ${payload.name}\nPhone: ${payload.phone}\nEmail: ${payload.email}\nCourse: ${payload.course}\nCenter: ${payload.center}`
       )}`;
 
       if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via email instead?")) {
@@ -240,10 +243,14 @@ export default function Contact() {
                 </div>
               </div>
 
+              <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                <Turnstile siteKey="1x00000000000000000000AA" onSuccess={(token) => setTurnstileToken(token)} />
+              </div>
+
               <button
                 type="submit"
                 className={styles.submitBtn}
-                disabled={loading}
+                disabled={loading || !turnstileToken}
               >
                 {loading ? 'SENDING...' : 'SUBMIT'}
               </button>

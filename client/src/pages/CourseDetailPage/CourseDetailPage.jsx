@@ -11,6 +11,7 @@ import StudentTestimonialsBanner from '../../components/StudentTestimonialsBanne
 import mentor1 from '../../assets/mentors/benaseer.jpeg';
 import mentor2 from '../../assets/mentors/shakir.jpeg';
 import mentor3 from '../../assets/mentors/sruthi.jpeg';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 const PlayIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="#ffffff" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85 }}>
@@ -128,6 +129,7 @@ const CourseDetailPage = () => {
   const [heroFormData, setHeroFormData] = useState({ name: '', phone: '', email: '' });
   const [heroSubmittingType, setHeroSubmittingType] = useState(null);
   const [heroSuccess, setHeroSuccess] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState(null);
 
   const [expandedCurriculumIdx, setExpandedCurriculumIdx] = useState(0);
   const toggleCurriculum = (idx) => {
@@ -190,33 +192,23 @@ const CourseDetailPage = () => {
       alert("Please enter your email address");
       return;
     }
+    if (!turnstileToken) {
+      alert("Please complete the captcha.");
+      return;
+    }
 
     setHeroSubmittingType(type);
 
     const payload = {
-      _subject:
-        type === "enroll"
-          ? `🎓 New Enrollment Lead - ${course?.title || "General"}`
-          : `📞 New Callback Request - ${course?.title || "General"}`,
-
-      _captcha: "false",
-      _template: "table",
-
-      LeadType: type === "enroll" ? "Enrollment" : "Callback Request",
-      Name: heroFormData.name,
-      Phone: heroFormData.phone,
-      Email: heroFormData.email || "N/A",
-      Course: course?.title || "N/A",
-
-      Source: "Course Landing Page",
-      Referrer: document.referrer || "Direct",
-
-      PageURL: window.location.href,
-      SubmittedAt: new Date().toLocaleString(),
+      name: heroFormData.name,
+      phone: heroFormData.phone,
+      email: heroFormData.email || "N/A",
+      course: course?.title || "N/A",
+      center: "N/A"
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -230,10 +222,11 @@ const CourseDetailPage = () => {
       }
 
       setHeroSuccess(true);
+      setTurnstileToken(null);
     } catch (error) {
       console.error(error);
-      const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Form Type: ${payload.FormType}\nName: ${payload.Name}\nPhone: ${payload.Phone}\nEmail: ${payload.Email}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
+      const mailtoLink = `mailto:hello@catalysthub.in?subject=Course Lead&body=${encodeURIComponent(
+        `Name: ${payload.name}\nPhone: ${payload.phone}\nEmail: ${payload.email}\nCourse: ${payload.course}`
       )}`;
       
       if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via your email app instead?")) {
@@ -311,6 +304,7 @@ const CourseDetailPage = () => {
     setHeroFormData({ name: '', phone: '', email: '' });
     setHeroSubmittingType(null);
     setHeroSuccess(false);
+    setTurnstileToken(null);
 
     window.scrollTo(0, 0);
   }, [window.location.pathname]);
@@ -458,17 +452,20 @@ const CourseDetailPage = () => {
                           required 
                         />
                       </div>
+                      <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                        <Turnstile siteKey="1x00000000000000000000AA" onSuccess={(token) => setTurnstileToken(token)} />
+                      </div>
                       <button 
                         className={styles.heroEnrollBtn}
                         onClick={() => handleHeroSubmit('enroll')}
-                        disabled={heroSubmittingType !== null}
+                        disabled={heroSubmittingType !== null || !turnstileToken}
                       >
                         {heroSubmittingType === 'enroll' ? 'Submitting...' : 'Enroll Now'}
                       </button>
                       <button 
                         className={styles.heroCallbackBtn}
                         onClick={() => handleHeroSubmit('callback')}
-                        disabled={heroSubmittingType !== null}
+                        disabled={heroSubmittingType !== null || !turnstileToken}
                       >
                         {heroSubmittingType === 'callback' ? 'Submitting...' : 'Request a Call back'}
                       </button>

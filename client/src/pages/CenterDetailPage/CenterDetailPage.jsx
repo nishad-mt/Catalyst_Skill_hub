@@ -3,6 +3,7 @@ import styles from './CenterDetailPage.module.css';
 import { centers, courses } from '../../data/siteData';
 import CourseCard from '../../components/CourseCard/CourseCard';
 import campusImage from "../../assets/campus.jpg";
+import { Turnstile } from '@marsidev/react-turnstile';
 
 export default function CenterDetailPage({ navigate }) {
   const [center, setCenter] = useState(null);
@@ -10,6 +11,7 @@ export default function CenterDetailPage({ navigate }) {
   const [formData, setFormData] = useState({ name: '', phone: '', course: '' });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState(null);
   const coursesRef = useRef(null);
 
   const advantagesData = [
@@ -72,6 +74,7 @@ export default function CenterDetailPage({ navigate }) {
     }
     setLoading(false);
     setSuccess(false);
+    setTurnstileToken(null);
     window.scrollTo(0, 0);
   }, [window.location.pathname]);
 
@@ -108,25 +111,23 @@ export default function CenterDetailPage({ navigate }) {
       alert("Please enter your phone number");
       return;
     }
+    if (!turnstileToken) {
+      alert("Please complete the captcha.");
+      return;
+    }
 
     setSubmitting(true);
 
     const payload = {
-      _subject: `🚀 New Lead - ${center.name}`,
-      _captcha: "false",
-      _template: "table",
-
-      FormType: type,
-      Name: formData.name,
-      Phone: formData.phone,
-      SelectedCourse: formData.course || "Not Selected",
-      CenterName: center.name,
-      PageURL: window.location.href,
-      SubmissionTime: new Date().toLocaleString(),
+      name: formData.name,
+      phone: formData.phone,
+      email: "N/A",
+      course: formData.course || "Not Selected",
+      center: center.name
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/hello@catalysthub.in", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -140,10 +141,11 @@ export default function CenterDetailPage({ navigate }) {
       }
 
       setSuccess(true);
+      setTurnstileToken(null);
     } catch (error) {
       console.error(error);
-      const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-        `Form Type: ${payload.FormType}\nName: ${payload.Name}\nPhone: ${payload.Phone}\nCourse: ${payload.SelectedCourse}\nCenter: ${payload.CenterName}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
+      const mailtoLink = `mailto:hello@catalysthub.in?subject=New Lead&body=${encodeURIComponent(
+        `Name: ${payload.name}\nPhone: ${payload.phone}\nCourse: ${payload.course}\nCenter: ${payload.center}`
       )}`;
       
       if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via email instead?")) {
@@ -250,9 +252,12 @@ export default function CenterDetailPage({ navigate }) {
                         ))}
                       </select>
                     </div>
+                    <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                      <Turnstile siteKey="1x00000000000000000000AA" onSuccess={(token) => setTurnstileToken(token)} />
+                    </div>
                     <button 
                       type="submit" 
-                      disabled={submitting} 
+                      disabled={submitting || !turnstileToken} 
                       className={styles.submitBtn}
                     >
                       {submitting ? 'SUBMITTING...' : 'SUBMIT'}
