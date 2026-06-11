@@ -212,6 +212,120 @@
 }
 
 
+/* ---------- PLACEMENTS SECTION ---------- */
+
+.placementsSection {
+    padding: 80px 0;
+}
+
+.placementsTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0a1450;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.placementsDesc {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 700px;
+    text-align: left;
+}
+
+.placementsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.placementCard {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: .3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.placementCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.placementImageWrap {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.placementImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.placementInfo {
+    padding: 24px 20px;
+    text-align: center;
+    background: #fafafa;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.placementName {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0a1450;
+    margin: 0 0 6px 0;
+}
+
+.placementRole {
+    font-size: 0.95rem;
+    color: #444;
+    font-weight: 500;
+    margin: 0;
+}
+
+.placementCompany {
+    font-size: 0.9rem;
+    color: #6366f1;
+    font-weight: 600;
+    margin: 8px 0 0 0;
+}
+
+@media (max-width: 1024px) {
+    .placementsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .placementsGrid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 8px;
+        width: 100%;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .placementsGrid::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    .placementCard {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+    }
+}
+
 /* ---------- CTA SECTION ---------- */
 
 .ctaSection{

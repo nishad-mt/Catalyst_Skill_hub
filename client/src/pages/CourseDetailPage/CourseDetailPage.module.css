@@ -1350,8 +1350,8 @@
 }
 
 .eligibilityCard {
-  background-color: #d1d5db; /* Light gray card */
-  border-radius: 12px;
+  background-color: #d6cce69b; /* Light gray card */
+  border-radius: 10px;
   padding: 24px 20px;
   position: sticky;
   top: 100px;

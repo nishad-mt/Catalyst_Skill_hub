@@ -6,7 +6,7 @@ export const courses = [
   slug: "devops",
   title: "DevOps",
   location: "Calicut",
-  desc: "Master modern DevOps practices through hands-on projects, cloud deployments, CI/CD pipelines, and infrastructure automation.",
+  desc: "This DevOps course provides you with the hands-on skills to automate software delivery, manage cloud infrastructure, implement CI/CD pipelines, and work with industry-standard tools such as Linux, Git, Docker, Kubernetes, Jenkins, AWS, Terraform, and Ansible. Learn through practical projects and real-world scenarios to build a successful career as a DevOps Engineer, Cloud Engineer, Site Reliability Engineer (SRE), or Infrastructure Automation Specialist.",
   duration: "6 months",
   fee: "₹89,999",
   rating: "4.8",
@@ -16,163 +16,383 @@ export const courses = [
     {
       id: 1,
       icon: "🐧",
-      title: "Linux Administration",
-      desc: "Learn Linux fundamentals, shell scripting, user management, file systems, and server administration."
+      title: "Linux Fundamentals",
+      desc: "Operate Linux systems confidently using the command line, manage files, users, permissions, and perform system administration tasks."
     },
     {
       id: 2,
       icon: "🔀",
-      title: "Git & Version Control",
-      desc: "Master Git workflows, branching strategies, pull requests, and collaborative development practices."
+      title: "Git & GitHub",
+      desc: "Learn version control, branching strategies, repository management, and team collaboration using Git and GitHub."
     },
     {
       id: 3,
-      icon: "⚙️",
-      title: "CI/CD Pipelines",
-      desc: "Build automated pipelines using Jenkins and GitHub Actions for testing, building, and deployment."
+      icon: "🐳",
+      title: "Docker & Containerization",
+      desc: "Build, run, and manage containerized applications using Docker and Docker Compose."
     },
     {
       id: 4,
-      icon: "🐳",
-      title: "Containerization with Docker",
-      desc: "Create, manage, and deploy containerized applications using Docker and Docker Compose."
+      icon: "⚙️",
+      title: "CI/CD with Jenkins",
+      desc: "Automate software build, testing, and deployment workflows using Jenkins and modern CI/CD practices."
     },
     {
       id: 5,
       icon: "☸️",
-      title: "Kubernetes Orchestration",
-      desc: "Deploy and manage scalable containerized applications using Kubernetes."
+      title: "Kubernetes",
+      desc: "Deploy, manage, scale, and orchestrate containerized applications using Kubernetes."
     },
     {
       id: 6,
       icon: "☁️",
-      title: "Cloud Computing",
-      desc: "Work with cloud services, virtual machines, networking, storage, and cloud security concepts."
+      title: "AWS Cloud Services",
+      desc: "Deploy and manage cloud infrastructure, virtual servers, networking, and cloud-based services using AWS."
     },
     {
       id: 7,
       icon: "🏗️",
       title: "Infrastructure as Code",
-      desc: "Automate infrastructure provisioning using Terraform and configuration management tools."
+      desc: "Provision and manage infrastructure efficiently using Terraform and automate configuration with Ansible."
     },
     {
       id: 8,
       icon: "📊",
-      title: "Monitoring & Logging",
-      desc: "Implement monitoring, alerting, and centralized logging using industry-standard tools."
+      title: "Monitoring & Observability",
+      desc: "Monitor application and infrastructure performance using Prometheus and Grafana."
     },
     {
       id: 9,
       icon: "🚀",
-      title: "DevOps Project & Career Preparation",
-      desc: "Build real-world deployment projects and prepare for DevOps Engineer and Cloud Engineer roles."
+      title: "Real-World DevOps Project",
+      desc: "Apply DevOps practices by building an end-to-end deployment pipeline and managing production-ready infrastructure."
     }
   ],
 
   tools: [
     { name: "Linux", icon: "🐧" },
     { name: "Git", icon: "🔀" },
-    { name: "GitHub Actions", icon: "⚡" },
-    { name: "Jenkins", icon: "⚙️" },
+    { name: "GitHub", icon: "🐙" },
     { name: "Docker", icon: "🐳" },
+    { name: "Docker Compose", icon: "📦" },
     { name: "Kubernetes", icon: "☸️" },
+    { name: "Jenkins", icon: "⚙️" },
+    { name: "AWS", icon: "☁️" },
     { name: "Terraform", icon: "🏗️" },
-    { name: "Ansible", icon: "📦" },
+    { name: "Ansible", icon: "📋" },
+    { name: "Nginx", icon: "🌐" },
     { name: "Prometheus", icon: "📈" },
     { name: "Grafana", icon: "📊" },
-    { name: "AWS", icon: "☁️" },
-    { name: "NGINX", icon: "🌐" }
+    { name: "Maven", icon: "🔨" },
+    { name: "SonarQube", icon: "🔍" },
+    { name: "GitHub Actions", icon: "⚡" }
+  ],
+
+  curriculum: [
+    "Introduction to DevOps & Linux Fundamentals",
+    "Git & GitHub",
+    "Containerisation & Docker",
+    "Jenkins & Continuous Integration / Continuous Delivery",
+    "Kubernetes",
+    "AWS Cloud Services",
+    "Terraform & Ansible",
+    "Monitoring with Prometheus & Grafana",
+    "DevOps Final Project"
   ]
 },
   {
-    id: 2,
-    slug: "full-stack-web-development",
-    title: "Python Full Stack",
-    desc: "Master the skills required to build complete web applications from front-end interfaces to back-end systems using Python and industry-standard technologies. Through hands-on projects and practical training, you'll learn to develop, manage, and deploy dynamic web applications while gaining the expertise needed for careers in software development, web development, and full stack engineering.",
-    duration: "6 months",
-    fee: "₹45,000",
-    rating:"4.8",
-    img: list,
-    whatYouWillLearn: [
-      { id: 1, icon: "🌐", title: "Frontend Mastery", desc: "Deep dive into HTML5, CSS3, and modern JavaScript (ES6+)." },
-      { id: 2, icon: "⚛️", title: "React & Redux", desc: "Build dynamic, high-performance UIs with React and state management." },
-      { id: 3, icon: "⚙️", title: "Backend with Node.js", desc: "Learn server-side programming with Node and Express." },
-      { id: 4, icon: "🗄️", title: "Database Management", desc: "Master MongoDB for NoSQL and PostgreSQL for relational data." },
-      { id: 5, icon: "🚀", title: "Deployment & DevOps", desc: "Deploy apps using AWS, Docker, and CI/CD pipelines." },
-    ],
-    tools: [
-      { name: "VS Code", icon: "💻" },
-      { name: "GitHub", icon: "🐙" },
-      { name: "Postman", icon: "🚀" },
-      { name: "Docker", icon: "🐳" },
-      { name: "MongoDB", icon: "🍃" },
-      { name: "React", icon: "⚛️" },
-    ]
-  },
-  {
-    id: 3,
-    slug: "data-science-ai",
-    title: "Data Science",
-    desc: "Build expertise in data analysis, machine learning, and predictive modeling through hands-on learning and real-world projects. ",
-    duration: "6 months",
-    fee: "₹50,000",
-    rating:"4.9",
-    img: list,
-    whatYouWillLearn: [
-      { id: 1, icon: "🐍", title: "Python for Data Science", desc: "Master Python libraries like Pandas, NumPy, and Matplotlib." },
-      { id: 2, icon: "📊", title: "Statistical Analysis", desc: "Learn probability, statistics, and hypothesis testing." },
-      { id: 3, icon: "🤖", title: "Machine Learning", desc: "Implement supervised and unsupervised learning algorithms." },
-      { id: 4, icon: "🧠", title: "Deep Learning", desc: "Build neural networks using TensorFlow and PyTorch." },
-      { id: 5, icon: "📈", title: "Data Visualization", desc: "Create compelling stories with Tableau and PowerBI." },
-    ],
-    tools: [
-      { name: "Python", icon: "🐍" },
-      { name: "Jupyter", icon: "📓" },
-      { name: "TensorFlow", icon: "🧠" },
-      { name: "PyTorch", icon: "🔥" },
-      { name: "Tableau", icon: "📊" },
-      { name: "Pandas", icon: "🐼" },
-    ]
-  },
+  id: 2,
+  slug: "full-stack-web-development",
+  title: "Python Full Stack",
+  desc: "This Python Full Stack Development course is designed to make you a job-ready web developer with hands-on training and real-world projects. Learn to create dynamic, responsive, and scalable web applications using Python, Django, HTML, CSS, JavaScript, databases, REST APIs, and modern development tools. Gain the practical skills required for careers in web development, software engineering, and full stack development.",
+  duration: "6 months",
+  fee: "₹45,000",
+  rating: "4.8",
+  img: list,
+
+  whatYouWillLearn: [
     {
-    id: 4,
-    slug: "cyber-security",
-    title: "Cyber Security",
-    location: "Calicut",
-    desc: " Learn practical security concepts, risk management, and industry-relevant tools used in modern cyber security. Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed",
-    duration: "6 months",
-    fee: "₹89,999",
-    rating:"4.8",
-    img: list,
-    whatYouWillLearn: [
-      { id: 1, icon: "🛡️", title: "Fundamentals of Cyber Security", desc: "Understand core concepts like threats, vulnerabilities, risk management, and security principles." },
-      { id: 2, icon: "🌐", title: "Network Security & Protocols", desc: "Learn how networks operate, common attack methods, and how to secure them using firewalls, VPNs, and IDS/IPS." },
-      { id: 3, icon: "🕵️", title: "Ethical Hacking & Testing", desc: "Learn the methodology of penetration testing and how to identify system weaknesses legally." },
-      { id: 4, icon: "💻", title: "Web Application Security", desc: "Gain hands-on knowledge of securing websites against attacks like SQL injection, XSS, and CSRF." },
-      { id: 5, icon: "🔑", title: "Cryptography Basics", desc: "Understand encryption, hashing, and secure communication methods used to protect sensitive data." },
-      { id: 6, icon: "🖥️", title: "Operating System Security", desc: "Learn to secure Windows and Linux systems, manage permissions, and detect system-level threats." },
-      { id: 7, icon: "🛠️", title: "Security Tools & Technologies", desc: "Work with industry tools like Wireshark, Metasploit, Nmap, and Burp Suite." },
-      { id: 8, icon: "☁️", title: "Cloud & Data Security", desc: "Understand how to protect data in cloud environments and follow best practices for secure storage." },
-      { id: 9, icon: "💼", title: "Career Preparation", desc: "Get guidance for certifications like CEH, CompTIA Security+, and real-world job readiness." },
-    ],
-    tools: [
-      { name: "Nmap", icon: "🔍" },
-      { name: "Wireshark", icon: "📡" },
-      { name: "Metasploit", icon: "💣" },
-      { name: "Burp Suite", icon: "🕷️" },
-      { name: "Hydra", icon: "🐉" },
-      { name: "John the Ripper", icon: "💀" },
-      { name: "Aircrack-ng", icon: "📶" },
-      { name: "OWASP ZAP", icon: "⚡" },
-      { name: "Snort", icon: "👃" },
-      { name: "Splunk", icon: "📊" },
-    ]
-  },
+      id: 1,
+      icon: "🐍",
+      title: "Python Programming",
+      desc: "Understand Python fundamentals, object-oriented programming concepts, and write clean, efficient code."
+    },
+    {
+      id: 2,
+      icon: "🎨",
+      title: "Frontend Development",
+      desc: "Build responsive and interactive user interfaces using HTML5, CSS3, JavaScript, and modern web design principles."
+    },
+    {
+      id: 3,
+      icon: "⚙️",
+      title: "Django Backend Development",
+      desc: "Develop robust server-side applications using Django, including views, models, templates, and application architecture."
+    },
+    {
+      id: 4,
+      icon: "🗄️",
+      title: "Database Management",
+      desc: "Design, manage, and maintain databases using MySQL and SQLite for real-world web applications."
+    },
+    {
+      id: 5,
+      icon: "🔗",
+      title: "REST API Development",
+      desc: "Build and integrate RESTful APIs to enable seamless communication between applications and services."
+    },
+    {
+      id: 6,
+      icon: "🔒",
+      title: "Authentication & Security",
+      desc: "Implement user authentication, authorization, permissions, and security best practices."
+    },
+    {
+      id: 7,
+      icon: "🔀",
+      title: "Git & Collaborative Development",
+      desc: "Use Git and GitHub for version control, team collaboration, and professional development workflows."
+    },
+    {
+      id: 8,
+      icon: "☁️",
+      title: "Deployment & Cloud Hosting",
+      desc: "Learn techniques for deploying and managing web applications on cloud platforms."
+    },
+    {
+      id: 9,
+      icon: "🚀",
+      title: "Capstone Project",
+      desc: "Build and deploy a complete full stack web application to showcase your skills and job readiness."
+    }
+  ],
+
+  tools: [
+    { name: "Python", icon: "🐍" },
+    { name: "Django", icon: "🎯" },
+    { name: "HTML5", icon: "🌐" },
+    { name: "CSS3", icon: "🎨" },
+    { name: "JavaScript", icon: "⚡" },
+    { name: "Bootstrap", icon: "🅱️" },
+    { name: "MySQL", icon: "🗄️" },
+    { name: "SQLite", icon: "💾" },
+    { name: "REST API", icon: "🔗" },
+    { name: "Git", icon: "🔀" },
+    { name: "GitHub", icon: "🐙" },
+    { name: "VS Code", icon: "💻" },
+    { name: "Postman", icon: "📮" },
+    { name: "Linux", icon: "🐧" },
+    { name: "Cloud Deployment", icon: "☁️" }
+  ],
+
+  curriculum: [
+    "Python Basics & Introduction to Programming",
+    "HTML, CSS & Responsive Web Design",
+    "JavaScript & DOM Manipulation",
+    "MySQL Database Management",
+    "Fundamentals of Django Framework",
+    "Django Views, Models and Templates",
+    "REST API Development",
+    "Security & Authentication",
+    "Full Stack Capstone Project & Deployment"
+  ]
+},
+  {
+  id: 3,
+  slug: "data-science-ai",
+  title: "Data Science",
+  desc: "Data Science is one of the fastest-growing fields in technology, combining statistics, programming, machine learning, and data analysis to transform raw data into valuable business insights. Organizations across industries rely on data scientists to analyze trends, solve complex problems, and make data-driven decisions.",
+  duration: "6 months",
+  fee: "₹50,000",
+  rating: "4.9",
+  img: list,
+
+  whatYouWillLearn: [
+    {
+      id: 1,
+      icon: "🐍",
+      title: "Python for Data Science",
+      desc: "Learn Python programming for data analysis, scientific computing, and working with industry-standard data science libraries."
+    },
+    {
+      id: 2,
+      icon: "🧹",
+      title: "Data Collection & Preprocessing",
+      desc: "Master techniques for data collection, cleaning, transformation, and preprocessing to prepare datasets for analysis."
+    },
+    {
+      id: 3,
+      icon: "📊",
+      title: "Data Analysis & EDA",
+      desc: "Perform exploratory data analysis (EDA) to uncover patterns, trends, and insights from real-world datasets."
+    },
+    {
+      id: 4,
+      icon: "📈",
+      title: "Data Visualization",
+      desc: "Create impactful visualizations, dashboards, and reports using modern data visualization tools and techniques."
+    },
+    {
+      id: 5,
+      icon: "📉",
+      title: "Statistics for Data Science",
+      desc: "Apply statistical concepts and data-driven methods to solve analytical and business problems."
+    },
+    {
+      id: 6,
+      icon: "🤖",
+      title: "Machine Learning",
+      desc: "Develop predictive and classification models using supervised and unsupervised machine learning algorithms."
+    },
+    {
+      id: 7,
+      icon: "🧠",
+      title: "Advanced Machine Learning",
+      desc: "Understand advanced machine learning techniques and model evaluation methods for real-world applications."
+    },
+    {
+      id: 8,
+      icon: "🗄️",
+      title: "SQL for Data Analysis",
+      desc: "Query, manage, and analyze structured data efficiently using SQL databases."
+    },
+    {
+      id: 9,
+      icon: "🚀",
+      title: "Data Science Capstone Project",
+      desc: "Apply your skills in an end-to-end data science project involving analysis, visualization, and machine learning."
+    }
+  ],
+
+  tools: [
+    { name: "Python", icon: "🐍" },
+    { name: "Jupyter Notebook", icon: "📓" },
+    { name: "NumPy", icon: "🔢" },
+    { name: "Pandas", icon: "🐼" },
+    { name: "Matplotlib", icon: "📊" },
+    { name: "Seaborn", icon: "📈" },
+    { name: "Scikit-learn", icon: "🤖" },
+    { name: "SQL", icon: "🗄️" },
+    { name: "Power BI", icon: "📉" },
+    { name: "Tableau", icon: "📋" },
+    { name: "TensorFlow", icon: "🧠" },
+    { name: "Google Colab", icon: "☁️" },
+    { name: "Excel", icon: "📑" },
+    { name: "Git", icon: "🔀" },
+    { name: "GitHub", icon: "🐙" }
+  ],
+
+  curriculum: [
+    "Introduction to Data Science & Python Basics",
+    "Pandas Data Analysis",
+    "Data Visualization",
+    "Statistics for Data Scientists",
+    "SQL for Data Analysis",
+    "Machine Learning Introduction",
+    "Advanced Machine Learning",
+    "Tableau & Power BI",
+    "Data Science Capstone Project"
+  ]
+},
+    {
+  id: 4,
+  slug: "cyber-security",
+  title: "Cyber Security",
+  location: "Calicut",
+  desc: "The Cyber Security course aims to provide practical knowledge in network security, ethical hacking, vulnerability assessment, threat detection, security operations, and cyber defense techniques. Through hands-on labs, real-world scenarios, and industry-standard tools, you will learn to identify security risks, protect digital assets, and respond effectively to cyber threats.",
+  duration: "6 months",
+  fee: "₹89,999",
+  rating: "4.8",
+  img: list,
+
+  whatYouWillLearn: [
+    {
+      id: 1,
+      icon: "🛡️",
+      title: "Cyber Security Fundamentals",
+      desc: "Understand the basics of cybersecurity, information security principles, threats, vulnerabilities, and risk management."
+    },
+    {
+      id: 2,
+      icon: "🌐",
+      title: "Network Security",
+      desc: "Learn network architectures, protocols, security concepts, and techniques used to secure organizational networks."
+    },
+    {
+      id: 3,
+      icon: "🕵️",
+      title: "Ethical Hacking & Penetration Testing",
+      desc: "Understand ethical hacking methodologies, reconnaissance techniques, and the fundamentals of penetration testing."
+    },
+    {
+      id: 4,
+      icon: "🔍",
+      title: "Vulnerability Assessment",
+      desc: "Identify security weaknesses, assess risks, and evaluate vulnerabilities in systems, applications, and networks."
+    },
+    {
+      id: 5,
+      icon: "🦠",
+      title: "Threats & Malware Analysis",
+      desc: "Understand malware, ransomware, phishing attacks, and other common cyber threats faced by organizations."
+    },
+    {
+      id: 6,
+      icon: "💻",
+      title: "Web Application Security",
+      desc: "Learn web security concepts, common vulnerabilities, and techniques for securing web applications."
+    },
+    {
+      id: 7,
+      icon: "📊",
+      title: "Security Operations & Incident Response",
+      desc: "Perform security monitoring, threat hunting, incident detection, and response activities in SOC environments."
+    },
+    {
+      id: 8,
+      icon: "📋",
+      title: "Risk Management & Compliance",
+      desc: "Understand cybersecurity frameworks, governance, compliance requirements, and security best practices."
+    },
+    {
+      id: 9,
+      icon: "🚀",
+      title: "Cyber Security Capstone Project",
+      desc: "Apply security concepts and tools in a real-world cybersecurity project covering assessment, monitoring, and defense."
+    }
+  ],
+
+  tools: [
+    { name: "Kali Linux", icon: "🐉" },
+    { name: "Wireshark", icon: "📡" },
+    { name: "Nmap", icon: "🔍" },
+    { name: "Burp Suite", icon: "🕷️" },
+    { name: "Metasploit", icon: "⚔️" },
+    { name: "Nessus", icon: "🔎" },
+    { name: "OWASP ZAP", icon: "⚡" },
+    { name: "Splunk", icon: "📊" },
+    { name: "OpenVAS", icon: "🛡️" },
+    { name: "Linux", icon: "🐧" },
+    { name: "Windows Security Tools", icon: "🪟" }
+  ],
+
+  curriculum: [
+    "Introduction to Cyber Security & Network Fundamentals",
+    "Security of Linux & Windows",
+    "Network Security and Monitoring",
+    "Introduction to Ethical Hacking",
+    "Vulnerability Assessment",
+    "Security of Web Applications",
+    "Security Operations Center (SOC)",
+    "Threat Hunting and Incident Response",
+    "Cyber Security Capstone Project"
+  ]
+},
 {
   id: 5,
   slug: "data-analyst",
-  title: "Data Analatics",
-  desc: " Learn how to collect, analyze, and visualize data to support smarter business decisions. Gain practical skills in tools and techniques used by modern data professionals.",
+  title: "Data Analytics",
+  desc: "This Data Analytics course provides hands-on training in data analysis, visualization, reporting, and business intelligence. Learn to work with real-world datasets, build interactive dashboards, analyze business performance metrics, and communicate insights effectively using industry-standard tools. Gain the skills needed to pursue careers as a Data Analyst, Business Analyst, Reporting Analyst, Business Intelligence Analyst, or Data Visualization Specialist.",
   duration: "6 months",
   fee: "₹35,000",
   rating: "4.8",
@@ -182,67 +402,176 @@ export const courses = [
     {
       id: 1,
       icon: "📊",
-      title: "Data Analysis Fundamentals",
-      desc: "Understand data collection, cleaning, transformation, and analysis techniques."
+      title: "Data Analytics Fundamentals",
+      desc: "Learn the core concepts of data analytics and business intelligence used to support business decision-making."
     },
     {
       id: 2,
-      icon: "📈",
-      title: "Excel & Advanced Excel",
-      desc: "Master formulas, pivot tables, dashboards, and data visualization in Excel."
+      icon: "🧹",
+      title: "Data Collection & Preparation",
+      desc: "Collect, clean, transform, and prepare datasets for accurate analysis and reporting."
     },
     {
       id: 3,
-      icon: "🗄️",
-      title: "SQL for Data Analysis",
-      desc: "Query, filter, join, and analyze data stored in relational databases."
+      icon: "📈",
+      title: "Exploratory Data Analysis",
+      desc: "Analyze datasets to identify trends, patterns, anomalies, and business opportunities through EDA techniques."
     },
     {
       id: 4,
-      icon: "🐍",
-      title: "Python for Analytics",
-      desc: "Use Pandas, NumPy, and Matplotlib to analyze and visualize datasets."
+      icon: "🗄️",
+      title: "SQL for Data Analysis",
+      desc: "Query, manage, and analyze structured data from databases using SQL."
     },
     {
       id: 5,
+      icon: "📋",
+      title: "Excel for Analytics",
+      desc: "Use Excel for data manipulation, reporting, advanced formulas, pivot tables, and business analytics."
+    },
+    {
+      id: 6,
+      icon: "🐍",
+      title: "Python for Data Analytics",
+      desc: "Analyze and visualize data using Python and popular libraries such as Pandas and NumPy."
+    },
+    {
+      id: 7,
       icon: "📉",
-      title: "Power BI & Dashboards",
-      desc: "Create interactive dashboards and reports for business decision-making."
+      title: "Power BI & Tableau",
+      desc: "Build interactive dashboards, reports, and visualizations to communicate insights effectively."
+    },
+    {
+      id: 8,
+      icon: "📊",
+      title: "Business Statistics & Reporting",
+      desc: "Apply statistical techniques and reporting methods to support business intelligence and decision-making."
+    },
+    {
+      id: 9,
+      icon: "🚀",
+      title: "Capstone Analytics Project",
+      desc: "Work on real-world data analytics projects involving analysis, reporting, visualization, and business insights."
     }
   ],
 
   tools: [
     { name: "Microsoft Excel", icon: "📊" },
     { name: "SQL", icon: "🗄️" },
-    { name: "Python", icon: "🐍" },
     { name: "Power BI", icon: "📈" },
     { name: "Tableau", icon: "📉" },
+    { name: "Python", icon: "🐍" },
+    { name: "Pandas", icon: "🐼" },
+    { name: "NumPy", icon: "🔢" },
+    { name: "Jupyter Notebook", icon: "📓" },
     { name: "Google Sheets", icon: "📋" }
+  ],
+
+  curriculum: [
+    "Introduction to Data Analytics & Excel Basics",
+    "Advanced Excel for Analytics",
+    "Data Analysis with SQL",
+    "Visualizing Data in Power BI",
+    "Building a Tableau Dashboard",
+    "Python for Data Analytics",
+    "Business Analytics Statistics",
+    "Reporting and Business Intelligence",
+    "Capstone Data Analytics Projects"
   ]
 },
   {
-    id: 6,
-    slug: "mern-stack",
-    title: "Mern Stack",
-    desc: "Javascript, Node js, Type Script, React, Mongo DB , and PSQL.",
-    duration: "7 months",
-    fee: "₹59,000",
-    rating:"4.7",
-    img: list,
-    whatYouWillLearn: [
-      { id: 1, icon: "🍃", title: "MongoDB Mastery", desc: "Deep dive into NoSQL database design and aggregation." },
-      { id: 2, icon: "🚂", title: "Express.js", desc: "Build robust APIs and middleware with Express." },
-      { id: 3, icon: "⚛️", title: "React Development", desc: "Create interactive frontends with React and Hooks." },
-      { id: 4, icon: "📦", title: "Node.js Runtime", desc: "Understand event loop and asynchronous programming in Node." },
-      { id: 5, icon: "🛡️", title: "Authentication", desc: "Implement JWT, OAuth, and secure session management." },
-    ],
-    tools: [
-      { name: "MongoDB", icon: "🍃" },
-      { name: "Express", icon: "🚂" },
-      { name: "React", icon: "⚛️" },
-      { name: "Node.js", icon: "📦" },
-      { name: "TypeScript", icon: "📘" },
-      { name: "Redux", icon: "⚛️" },
-    ]
-  },
+  id: 6,
+  slug: "mern-stack",
+  title: "MERN Stack",
+  desc: "This MERN Stack Development course will make you a job-ready full stack developer through hands-on training and real-world projects. Learn to build responsive user interfaces, create RESTful APIs, work with databases, implement authentication systems, and deploy modern web applications using industry-standard tools and frameworks.",
+  duration: "7 months",
+  fee: "₹59,000",
+  rating: "4.7",
+  img: list,
+
+  whatYouWillLearn: [
+    {
+      id: 1,
+      icon: "🟨",
+      title: "JavaScript Fundamentals",
+      desc: "Build a strong foundation in modern JavaScript (ES6+) and core web development concepts."
+    },
+    {
+      id: 2,
+      icon: "⚛️",
+      title: "React Development",
+      desc: "Create responsive user interfaces using React.js, component architecture, hooks, and state management."
+    },
+    {
+      id: 3,
+      icon: "📊",
+      title: "State Management",
+      desc: "Manage complex application state efficiently using Redux and modern React patterns."
+    },
+    {
+      id: 4,
+      icon: "📦",
+      title: "Node.js & Express.js",
+      desc: "Build scalable server-side applications and RESTful APIs using Node.js and Express.js."
+    },
+    {
+      id: 5,
+      icon: "🍃",
+      title: "MongoDB Database Management",
+      desc: "Design, manage, and maintain NoSQL databases using MongoDB for modern web applications."
+    },
+    {
+      id: 6,
+      icon: "🔗",
+      title: "REST API Development",
+      desc: "Develop and integrate REST APIs for seamless communication between frontend and backend systems."
+    },
+    {
+      id: 7,
+      icon: "🔒",
+      title: "Authentication & Security",
+      desc: "Implement authentication, authorization, user management, and security best practices."
+    },
+    {
+      id: 8,
+      icon: "🔀",
+      title: "Git & Collaborative Development",
+      desc: "Use Git and GitHub for version control, team collaboration, and professional development workflows."
+    },
+    {
+      id: 9,
+      icon: "🚀",
+      title: "Deployment & Capstone Project",
+      desc: "Deploy full stack applications and build a complete MERN project to showcase your development skills."
+    }
+  ],
+
+  tools: [
+    { name: "JavaScript (ES6+)", icon: "🟨" },
+    { name: "React.js", icon: "⚛️" },
+    { name: "Node.js", icon: "📦" },
+    { name: "Express.js", icon: "🚂" },
+    { name: "MongoDB", icon: "🍃" },
+    { name: "HTML5", icon: "🌐" },
+    { name: "CSS3", icon: "🎨" },
+    { name: "Bootstrap", icon: "🅱️" },
+    { name: "Tailwind CSS", icon: "💨" },
+    { name: "Redux", icon: "📊" },
+    { name: "Git", icon: "🔀" },
+    { name: "GitHub", icon: "🐙" },
+    { name: "Postman", icon: "📮" }
+  ],
+
+  curriculum: [
+    "Introduction to Web Development & JavaScript Basics",
+    "HTML, CSS and Responsive Web Design",
+    "Introduction to React.js",
+    "React & State Management Advanced",
+    "Node.js & Express.js",
+    "Managing MongoDB Database",
+    "Building REST APIs",
+    "Security and Authentication",
+    "Deployment & Capstone MERN Project"
+  ]
+},
 ];

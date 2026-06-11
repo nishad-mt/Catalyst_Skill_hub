@@ -278,6 +278,13 @@
   opacity: 0.9;
 }
 
+/* MENTORS WRAPPER */
+@media (min-width: 1024px) {
+  .mentorsWrapper {
+    margin-bottom: 100px;
+  }
+}
+
 /* PROMO SECTION */
 .promoSection {
   background-color: #dbeafa; /* Light blue background */

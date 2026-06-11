@@ -127,6 +127,18 @@
   flex-grow: 1;
 }
 
+.readMore {
+  color: #1378D1;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 4px;
+  text-decoration: underline;
+}
+
+.readMore:hover {
+  color: #5d8df4;
+}
+
 
 /* ── Duration ── */
 .duration {

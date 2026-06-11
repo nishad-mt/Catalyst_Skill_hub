@@ -105,31 +105,32 @@
 
 .searchIcon {
   position: absolute;
-  left: 14px;
-  color: #151718;
-  font-size: 1.1rem;
+  right: 6px;
+  color: #01053C;
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  box-sizing: border-box;
   pointer-events: none;
   flex-shrink: 0;
 }
 
 .searchInput {
   width: 100%;
-  padding: 0.65rem 1rem 0.65rem 2.75rem;
-  border-radius: 8px;
-  border: none;
+  background-color: transparent;
+  padding: 0.65rem 2.75rem 0.65rem 1rem;
+  border-radius: 6px;
+  border: solid 1px #ffffffcf;
   font-size: 0.88rem;
-  background: #949596;
-  color: #000000;
+  color: #ffffff;
   outline: none;
   min-width: 0;
 }
 
-.searchInput:hover {
-  background: #b1b1b1;
-}
-
 .searchInput::placeholder {
-  color:#393939
+  color:#ffffffcf
 }
 
 /* ============================================================
@@ -745,7 +746,7 @@
 
   .searchInput {
     font-size: 0.8rem;
-    padding: 0.6rem 0.75rem 0.6rem 2.4rem;
+    padding: 0.6rem 2.4rem 0.6rem 0.75rem;
   }
 
   .searchBox {
@@ -753,8 +754,11 @@
   }
 
   .searchIcon {
-    font-size: 0.95rem;
-    left: 10px;
+    right: 4px;
+    left: auto;
+    width: 24px;
+    height: 24px;
+    padding: 5px;
   }
 
   .nav .logo {

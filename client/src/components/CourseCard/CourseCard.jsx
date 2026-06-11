@@ -48,7 +48,16 @@ export default function CourseCard({ course, navigate }) {
           <span className={styles.mode}>{course.mode || 'Online / Offline'}</span></p>
 
         {/* Description */}
-        <p className={styles.desc}>{course.desc}</p>
+        <p className={styles.desc}>
+          {course.desc && course.desc.length > 120 ? (
+            <>
+              {course.desc.slice(0, 117)}... 
+              <span className={styles.readMore}>Read More</span>
+            </>
+          ) : (
+            course.desc
+          )}
+        </p>
 
         <div className={styles.actions}>
           <span className={styles.btnPrimary}>

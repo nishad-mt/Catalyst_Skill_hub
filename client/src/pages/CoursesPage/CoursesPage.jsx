@@ -60,7 +60,9 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
       </div>
 
       {/* Mentors Section */}
-      <Mentors />
+      <div className={styles.mentorsWrapper}>
+        <Mentors />
+      </div>
 
       {/* Bottom Promo Section */}
       <div className="container">

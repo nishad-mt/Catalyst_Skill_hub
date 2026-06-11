@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SuccessStoriesPage.module.css';
-import { testimonials } from '../../data/siteData';
+import { testimonials, alumni } from '../../data/siteData';
 
 const SuccessStoriesPage = () => {
 
@@ -210,6 +210,30 @@ const SuccessStoriesPage = () => {
 
                 </div>
 
+                </div>
+            </section>
+
+            {/* PLACEMENTS SECTION */}
+            <section className={styles.placementsSection}>
+                <div className="container">
+                    <h2 className={styles.placementsTitle}>Our Recent Placements</h2>
+                    <p className={styles.placementsDesc}>
+                        Meet our alumni who have successfully transitioned into high-growth tech careers at top-tier companies globally.
+                    </p>
+                    <div className={styles.placementsGrid}>
+                        {alumni.map((person) => (
+                            <div key={person.id} className={styles.placementCard}>
+                                <div className={styles.placementImageWrap}>
+                                    <img src={person.img} alt={person.name} className={styles.placementImg} />
+                                </div>
+                                <div className={styles.placementInfo}>
+                                    <h3 className={styles.placementName}>{person.name}</h3>
+                                    <p className={styles.placementRole}>{person.role}</p>
+                                    <p className={styles.placementCompany}>@ {person.company}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
