@@ -2,6 +2,7 @@
 import React from 'react';
 import styles from './Footer.module.css';
 import logo from '../../assets/techhub.png';
+import { courses } from '../../data/siteData';
 
 
 export default function Footer({ navigate }) {
@@ -75,9 +76,17 @@ export default function Footer({ navigate }) {
             <div className={styles.col}>
               <h4 className={styles.colTitle}>Courses</h4>
               <ul className={styles.colLinks}>
-                <li><a href="/course/ethical-hacking" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/course/ethical-hacking'); }}>Ethical Hacking</a></li>
-                <li><a href="/course/python-programming" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/course/python-programming'); }}>Python Developer</a></li>
-                <li><a href="/course/data-science-ai" className={styles.colLink} onClick={(e) => { e.preventDefault(); navigate('/course/data-science-ai'); }}>Data Science</a></li>
+                {courses.map(course => (
+                  <li key={course.slug}>
+                    <a 
+                      href={`/course/${course.slug}`} 
+                      className={styles.colLink} 
+                      onClick={(e) => { e.preventDefault(); navigate(`/course/${course.slug}`); }}
+                    >
+                      {course.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 

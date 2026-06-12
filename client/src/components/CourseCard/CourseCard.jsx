@@ -1,4 +1,4 @@
-// src/components/CourseCard/CourseCard.jsx
+import { useState } from 'react';
 import styles from './CourseCard.module.css';
 
 /**
@@ -16,6 +16,7 @@ import styles from './CourseCard.module.css';
  * }
  */
 export default function CourseCard({ course, navigate }) {
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <a 
@@ -50,10 +51,36 @@ export default function CourseCard({ course, navigate }) {
         {/* Description */}
         <p className={styles.desc}>
           {course.desc && course.desc.length > 120 ? (
-            <>
-              {course.desc.slice(0, 117)}... 
-              <span className={styles.readMore}>Read More</span>
-            </>
+            isExpanded ? (
+              <>
+                {course.desc}
+                <span 
+                  className={styles.readMore}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsExpanded(false);
+                  }}
+                  style={{ marginLeft: '5px', display: 'inline-block' }}
+                >
+                  Read Less
+                </span>
+              </>
+            ) : (
+              <>
+                {course.desc.slice(0, 117)}... 
+                <span 
+                  className={styles.readMore}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsExpanded(true);
+                  }}
+                >
+                  Read More
+                </span>
+              </>
+            )
           ) : (
             course.desc
           )}
