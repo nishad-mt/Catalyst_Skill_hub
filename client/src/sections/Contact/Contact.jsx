@@ -244,7 +244,7 @@ export default function Contact({ navigate }) {
               </div>
 
               <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
-                <Turnstile siteKey="1x00000000000000000000AA" onSuccess={(token) => setTurnstileToken(token)} />
+                <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"} onSuccess={(token) => setTurnstileToken(token)} />
               </div>
 
               <button
