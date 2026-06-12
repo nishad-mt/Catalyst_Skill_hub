@@ -454,19 +454,23 @@ const CourseDetailPage = () => {
                         />
                       </div>
                       <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
-                        <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} onSuccess={(token) => setTurnstileToken(token)} />
+                        <Turnstile 
+                          siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} 
+                          onSuccess={(token) => setTurnstileToken(token)} 
+                          onError={(err) => console.error("Turnstile Error:", err)}
+                        />
                       </div>
                       <button 
                         className={styles.heroEnrollBtn}
                         onClick={() => handleHeroSubmit('enroll')}
-                        disabled={heroSubmittingType !== null || !turnstileToken}
+                        disabled={heroSubmittingType !== null}
                       >
                         {heroSubmittingType === 'enroll' ? 'Submitting...' : 'Enroll Now'}
                       </button>
                       <button 
                         className={styles.heroCallbackBtn}
                         onClick={() => handleHeroSubmit('callback')}
-                        disabled={heroSubmittingType !== null || !turnstileToken}
+                        disabled={heroSubmittingType !== null}
                       >
                         {heroSubmittingType === 'callback' ? 'Submitting...' : 'Request a Call back'}
                       </button>

@@ -115,9 +115,13 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '', na
               <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" required />
             </div>
             <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
-              <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} onSuccess={(token) => setTurnstileToken(token)} />
+              <Turnstile 
+                siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} 
+                onSuccess={(token) => setTurnstileToken(token)} 
+                onError={(err) => console.error("Turnstile Error:", err)}
+              />
             </div>
-            <button type="submit" className={styles.modalSubmitBtn} disabled={isSubmitting || !turnstileToken}>
+            <button type="submit" className={styles.modalSubmitBtn} disabled={isSubmitting}>
               {isSubmitting ? 'Submitting...' : (type === 'enroll' ? 'Submit Application' : 'Request Callback')}
             </button>
           </form>

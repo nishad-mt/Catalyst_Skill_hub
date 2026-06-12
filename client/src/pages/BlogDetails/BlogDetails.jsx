@@ -181,10 +181,14 @@ const BlogDetails = () => {
                   />
 
                   <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
-                    <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} onSuccess={(token) => setTurnstileToken(token)} />
+                    <Turnstile 
+                      siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} 
+                      onSuccess={(token) => setTurnstileToken(token)} 
+                      onError={(err) => console.error("Turnstile Error:", err)}
+                    />
                   </div>
 
-                  <button type="submit" className={styles.button} disabled={isSubmitting || !turnstileToken}>
+                  <button type="submit" className={styles.button} disabled={isSubmitting}>
                     {isSubmitting ? 'Enrolling...' : content.cta.buttonText}
                   </button>
                 </form>
