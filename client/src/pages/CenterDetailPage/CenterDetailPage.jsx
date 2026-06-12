@@ -124,6 +124,7 @@ export default function CenterDetailPage({ navigate }) {
       email: "N/A",
       course: formData.course || "Not Selected",
       center: center.name,
+      pageUrl: window.location.href,
       turnstileToken: turnstileToken
     };
 

@@ -16,6 +16,7 @@ export default async function handler(req, res) {
       email,
       course,
       center,
+      pageUrl,
       turnstileToken,
     } = req.body;
 
@@ -49,6 +50,7 @@ export default async function handler(req, res) {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Course:</strong> ${course}</p>
         <p><strong>Center:</strong> ${center}</p>
+        <p><strong>Submitted From URL:</strong> <a href="${pageUrl || '#'}">${pageUrl || 'N/A'}</a></p>
       `,
     });
 

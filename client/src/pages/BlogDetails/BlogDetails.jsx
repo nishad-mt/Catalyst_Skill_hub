@@ -47,6 +47,7 @@ const BlogDetails = () => {
       email: "N/A",
       course: blog.title,
       center: "N/A",
+      pageUrl: window.location.href,
       turnstileToken: turnstileToken
     };
 

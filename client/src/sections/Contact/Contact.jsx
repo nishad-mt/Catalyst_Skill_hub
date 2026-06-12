@@ -62,6 +62,7 @@ export default function Contact({ navigate }) {
       email: form.email || "N/A",
       course: form.course || "N/A",
       center: form.center || "N/A",
+      pageUrl: window.location.href,
       turnstileToken: turnstileToken
     };
 

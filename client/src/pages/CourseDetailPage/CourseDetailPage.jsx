@@ -205,6 +205,7 @@ const CourseDetailPage = () => {
       email: heroFormData.email || "N/A",
       course: course?.title || "N/A",
       center: "N/A",
+      pageUrl: window.location.href,
       turnstileToken: turnstileToken
     };
 

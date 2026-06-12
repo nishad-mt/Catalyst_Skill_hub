@@ -41,6 +41,7 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '', na
       email: formData.email || "N/A",
       course: courseTitle || "N/A",
       center: "N/A",
+      pageUrl: window.location.href,
       turnstileToken: turnstileToken
     };
 
