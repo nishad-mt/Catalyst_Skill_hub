@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /thank-you
 
-Sitemap: https://catalysthub.in/sitemap.xml
+Sitemap: https://www.catalysttech.in/sitemap.xml
