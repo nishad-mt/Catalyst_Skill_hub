@@ -40,7 +40,8 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '', na
       phone: formData.phone,
       email: formData.email || "N/A",
       course: courseTitle || "N/A",
-      center: "N/A"
+      center: "N/A",
+      turnstileToken: turnstileToken
     };
 
     try {
@@ -114,7 +115,7 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '', na
               <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" required />
             </div>
             <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
-              <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"} onSuccess={(token) => setTurnstileToken(token)} />
+              <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} onSuccess={(token) => setTurnstileToken(token)} />
             </div>
             <button type="submit" className={styles.modalSubmitBtn} disabled={isSubmitting || !turnstileToken}>
               {isSubmitting ? 'Submitting...' : (type === 'enroll' ? 'Submit Application' : 'Request Callback')}

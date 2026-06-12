@@ -46,7 +46,8 @@ const BlogDetails = () => {
       phone: cleanPhone,
       email: "N/A",
       course: blog.title,
-      center: "N/A"
+      center: "N/A",
+      turnstileToken: turnstileToken
     };
 
     try {
@@ -180,7 +181,7 @@ const BlogDetails = () => {
                   />
 
                   <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
-                    <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"} onSuccess={(token) => setTurnstileToken(token)} />
+                    <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} onSuccess={(token) => setTurnstileToken(token)} />
                   </div>
 
                   <button type="submit" className={styles.button} disabled={isSubmitting || !turnstileToken}>

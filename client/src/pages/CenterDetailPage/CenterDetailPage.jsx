@@ -123,7 +123,8 @@ export default function CenterDetailPage({ navigate }) {
       phone: formData.phone,
       email: "N/A",
       course: formData.course || "Not Selected",
-      center: center.name
+      center: center.name,
+      turnstileToken: turnstileToken
     };
 
     try {
@@ -253,7 +254,7 @@ export default function CenterDetailPage({ navigate }) {
                       </select>
                     </div>
                     <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
-                      <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"} onSuccess={(token) => setTurnstileToken(token)} />
+                      <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} onSuccess={(token) => setTurnstileToken(token)} />
                     </div>
                     <button 
                       type="submit" 

@@ -61,7 +61,8 @@ export default function Contact({ navigate }) {
       phone: form.phone,
       email: form.email || "N/A",
       course: form.course || "N/A",
-      center: form.center || "N/A"
+      center: form.center || "N/A",
+      turnstileToken: turnstileToken
     };
 
     try {
@@ -244,7 +245,7 @@ export default function Contact({ navigate }) {
               </div>
 
               <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
-                <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA"} onSuccess={(token) => setTurnstileToken(token)} />
+                <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} onSuccess={(token) => setTurnstileToken(token)} />
               </div>
 
               <button

@@ -16,7 +16,26 @@ export default async function handler(req, res) {
       email,
       course,
       center,
+      turnstileToken,
     } = req.body;
+
+    if (!turnstileToken) {
+      return res.status(400).json({ error: "Captcha token missing" });
+    }
+
+    const verifyEndpoint = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    const verifyRes = await fetch(verifyEndpoint, {
+      method: 'POST',
+      body: `secret=${encodeURIComponent(process.env.TURNSTILE_SECRET_KEY)}&response=${encodeURIComponent(turnstileToken)}`,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    });
+
+    const verifyData = await verifyRes.json();
+    if (!verifyData.success) {
+      return res.status(400).json({ error: "Captcha verification failed" });
+    }
 
     await resend.emails.send({
       from: "onboarding@resend.dev",
