@@ -25,12 +25,12 @@ function OrbitAnimation() {
       {/* Inner Orbit - Python & DevOps */}
       <div className={`${styles.orbitWrapper} ${styles.orbit1Wrapper}`}>
         <div className={styles.orbitRing1}>
-          <div className={styles.orbitIconWrap} style={{ top: '-25px', left: 'calc(50% - 25px)' }} title="Python">
+          <div className={styles.orbitIconWrap} style={{ top: 0, left: '50%', transform: 'translate(-50%, -50%)' }} title="Python">
             <div className={styles.orbitIcon}>
               <SiPython />
             </div>
           </div>
-          <div className={styles.orbitIconWrap} style={{ bottom: '-25px', left: 'calc(50% - 25px)' }} title="DevOps">
+          <div className={styles.orbitIconWrap} style={{ top: '100%', left: '50%', transform: 'translate(-50%, -50%)' }} title="DevOps">
             <div className={styles.orbitIcon}>
               <SiDocker />
             </div>
@@ -45,7 +45,7 @@ function OrbitAnimation() {
           {/* Top */}
           <div
             className={styles.orbitIconWrap}
-            style={{ top: '-25px', left: 'calc(50% - 25px)' }}
+            style={{ top: 0, left: '50%', transform: 'translate(-50%, -50%)' }}
             title="Cybersecurity"
           >
             <div className={styles.orbitIcon}>
@@ -56,7 +56,7 @@ function OrbitAnimation() {
           {/* Right */}
           <div
             className={styles.orbitIconWrap}
-            style={{ right: '-25px', top: 'calc(50% - 25px)' }}
+            style={{ top: '50%', left: '100%', transform: 'translate(-50%, -50%)' }}
             title="Ethical Hacking"
           >
             <div className={styles.orbitIcon}>
@@ -67,7 +67,7 @@ function OrbitAnimation() {
           {/* Bottom */}
           <div
             className={styles.orbitIconWrap}
-            style={{ bottom: '-25px', left: 'calc(50% - 25px)' }}
+            style={{ top: '100%', left: '50%', transform: 'translate(-50%, -50%)' }}
             title="AWS Cloud"
           >
             <div className={styles.orbitIcon}>
@@ -78,7 +78,7 @@ function OrbitAnimation() {
           {/* Left - New Icon */}
           <div
             className={styles.orbitIconWrap}
-            style={{ left: '-25px', top: 'calc(50% - 25px)' }}
+            style={{ top: '50%', left: 0, transform: 'translate(-50%, -50%)' }}
             title="DevOps"
           >
             <div className={styles.orbitIcon}>
@@ -93,18 +93,14 @@ function OrbitAnimation() {
       <div className={`${styles.orbitWrapper} ${styles.orbit3Wrapper}`}>
         <div className={styles.orbitRing3}>
             {orbit3Icons.map((item, index) => {
-              const radius = window.innerWidth <= 860 ? 225 : 255;
-
-              const x = Math.sin(item.angle * Math.PI / 180) * radius;
-              const y = Math.cos(item.angle * Math.PI / 180) * radius;
-
               return (
                 <div
                   key={index}
                   className={styles.orbitIconWrap}
                   style={{
-                    left: `calc(50% + ${x}px - 25px)`,
-                    top: `calc(50% - ${y}px - 25px)`
+                    top: '50%',
+                    left: '50%',
+                    transform: `translate(-50%, -50%) rotate(${item.angle}deg) translateY(calc(var(--orbit3-size) / -2)) rotate(-${item.angle}deg)`
                   }}
                 >
                 <div className={styles.orbitIcon}>

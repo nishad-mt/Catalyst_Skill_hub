@@ -223,16 +223,19 @@
 
 .orbitContainer {
   position: relative;
-  width: 550px;
-  height: 550px;
+  --base-size: clamp(240px, min(100vw - 5rem, 60dvh), 550px);
+  width: var(--base-size);
+  height: var(--base-size);
+  --orbit3-size: calc(var(--base-size) * 0.9272);
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 
 .centerSphere {
-  width: 120px;
-  height: 120px;
+  width: clamp(80px, 22%, 120px);
+  height: clamp(80px, 22%, 120px);
   background: radial-gradient(circle at 30% 30%, #3b82f6, #1d4ed8 50%, #0a1450 90%);
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.4);
@@ -245,7 +248,7 @@
   color: white;
   font-family: 'Outfit', sans-serif;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
   letter-spacing: 1px;
 }
 
@@ -269,8 +272,8 @@
 }
 
 .orbit1Wrapper {
-  width: 250px;
-  height: 250px;
+  width: 45.45%;
+  height: 45.45%;
 }
 
 :global(.reveal.visible) .orbit1Wrapper {
@@ -278,8 +281,8 @@
 }
 
 .orbit2Wrapper {
-  width: 380px;
-  height: 380px;
+  width: 69.09%;
+  height: 69.09%;
 }
 
 :global(.reveal.visible) .orbit2Wrapper {
@@ -287,8 +290,8 @@
 }
 
 .orbit3Wrapper {
-  width: 510px;
-  height: 510px;
+  width: 92.72%;
+  height: 92.72%;
 }
 
 :global(.reveal.visible) .orbit3Wrapper {
@@ -359,11 +362,12 @@
 
 .orbitIconWrap {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: clamp(36px, 8vw, 50px);
+  height: clamp(36px, 8vw, 50px);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .orbitIcon {
@@ -376,7 +380,7 @@
   justify-content: center;
   align-items: center;
   color: #93c5fd;
-  font-size: 24px;
+  font-size: clamp(18px, 4vw, 24px);
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
 }
 
@@ -466,8 +470,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: -165px 0;
-    overflow: hidden;
+    margin: 1.5rem 0 2.5rem 0;
+    overflow: visible;
   }
 
   .left {
@@ -477,8 +481,8 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  .badge{
-    margin-top: 60px;
+  .badge {
+    margin-top: 0;
   }
   .title {
     margin: 0.2rem 0 1rem !important;
@@ -501,34 +505,9 @@
     width: 100%;
   }
 
-  .centerSphere {
-    width: 90px;
-    height: 90px;
-    font-size: 0.9rem;
-  }
-
-  .orbit1Wrapper {
-  width: 190px;
-  height: 190px;
-}
-
-.orbit2Wrapper {
-  width: 330px;
-  height: 330px;
-}
-
-.orbit3Wrapper {
-  width: 450px;
-  height: 450px;
-}
-
   .tags {
     max-width: 100%;
     justify-content: center;
-  }
-
-  .orbitContainer {
-    transform: scale(0.6);
   }
 
   .companies {
@@ -556,10 +535,6 @@
   .heroBox {
     padding: 10rem 1rem 1.5rem;
     border-radius: 0 0 40px 40px;
-  }
-
-  .orbitContainer {
-    transform: scale(0.65);
   }
 
   .title {
