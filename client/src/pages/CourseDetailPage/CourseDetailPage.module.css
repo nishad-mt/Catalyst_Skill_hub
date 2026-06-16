@@ -19,7 +19,7 @@
 
 .hero {
   padding: var(--section-padding);
-  padding-top: clamp(80px, 15vw, 180px); /* Extra space for navbar */
+  padding-top: 200px; /* Extra space for navbar */
 }
 
 .heroBox {
@@ -43,6 +43,8 @@
   flex-direction: column;
   gap: 40px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .heroBox::after {
@@ -156,11 +158,30 @@
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  margin-bottom: 40px;
+  margin-bottom: 12px;
 }
 
 .mobileHeroBtn:hover {
   background-color: #0b072c;
+}
+
+.mobileHeroBtnOutline {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background-color: transparent;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 40px;
+  transition: all 0.2s ease;
+}
+
+.mobileHeroBtnOutline:hover {
+  background-color: #eff6ff;
 }
 
 .infoBar {
@@ -169,7 +190,7 @@
   padding: clamp(10px, 2vw, 15px) clamp(2px, 1vw, 4px); /* Dynamically shrinks */
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly; /* Center and distribute items evenly */
   gap: 0; /* Removing gap to rely on item padding */
@@ -294,7 +315,7 @@
   padding: clamp(15px, 3vw, 20px);
   border-radius: 12px;
   width: 100%;
-  max-width: 500px;
+  max-width: clamp(320px, 40vw, 450px);
   border: 1px solid rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
@@ -357,6 +378,11 @@
 /* 4. Partners */
 .partners {
   padding: 40px 0;
+}
+
+.partnersTitle {
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
 .partnersScroll {
@@ -442,7 +468,7 @@
 
 .toolsGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 12px;
 }
 
@@ -613,7 +639,7 @@
 /* 9. Industries Grid */
 .industriesGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 12px;
 }
 
@@ -764,7 +790,7 @@
     align-items: stretch;
     text-align: left;
     width: 100%;
-    gap: 40px;
+    gap: clamp(20px, 3vw, 40px);
   }
 
   .heroBox {
@@ -783,7 +809,8 @@
     display: flex; /* Ensure it shows on desktop */
   }
 
-  .mobileHeroBtn {
+  .mobileHeroBtn,
+  .mobileHeroBtnOutline {
     display: none; /* Hide on desktop */
   }
 
@@ -849,10 +876,6 @@
     gap: 24px;
   }
 
-  .toolsGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
   .promoGrid {
     flex-direction: row;
   }
@@ -878,10 +901,6 @@
 
   .mentorsGrid {
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  .industriesGrid {
-    grid-template-columns: repeat(6, 1fr);
   }
 
   .studentBannerContent {
@@ -924,17 +943,8 @@
 }
 
 @media (max-width: 768px) {
-  .hero {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .hero .container {
-    padding-left: 0;
-    padding-right: 0;
-    max-width: 100%;
-  }
-  .heroBox {
-    border-radius: 0;
+  .title {
+    font-size: 1.7rem;
   }
   .title {
     font-size: 1.7rem;
@@ -1101,20 +1111,20 @@
 }
 
 .heroInputGroup {
-  margin-bottom: 18px;
+  margin-bottom: clamp(12px, 2vw, 18px);
 }
 
 .heroInputGroup:last-of-type {
-  margin-bottom: 30px; /* Space before the buttons */
+  margin-bottom: clamp(20px, 3vw, 30px); /* Space before the buttons */
 }
 
 .heroInputGroup input {
   width: 100%;
-  padding: 24px 18px;
+  padding: clamp(14px, 3vw, 24px) clamp(12px, 3vw, 18px);
   border-radius: 12px;
   border: 1px solid #e2e8f0;
   background: #f8fafc;
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 1.5vw, 1rem);
   color: #0f172a;
   transition: all 0.2s ease;
 }
@@ -1128,15 +1138,15 @@
 
 .heroEnrollBtn {
   width: 100%;
-  padding: 16px;
+  padding: clamp(12px, 2vw, 16px);
   background: #1e1b4b;
   color: white;
   border: none;
   border-radius: 14px;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   font-weight: 700;
   cursor: pointer;
-  margin-bottom: 12px;
+  margin-bottom: clamp(8px, 1.5vw, 12px);
   transition: all 0.2s;
 }
 
@@ -1147,12 +1157,12 @@
 
 .heroCallbackBtn {
   width: 100%;
-  padding: 16px;
+  padding: clamp(12px, 2vw, 16px);
   background: transparent;
   color: #1e1b4b;
   border: 2px solid #e2e8f0;
   border-radius: 14px;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
@@ -1238,7 +1248,7 @@
 
 .statGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 30px;
 }
 
@@ -1323,7 +1333,7 @@
 
 .learnListGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px 24px;
 }
 
@@ -1401,7 +1411,7 @@
 /* Tools Grid */
 .toolsLearnGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
   margin-top: 20px;
 }
@@ -1639,7 +1649,7 @@
 }
 .featuresGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 .featureCard {
@@ -1685,13 +1695,13 @@
   text-align: left;
 }
 .splitInfoGrid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 40px;
   align-items: stretch;
 }
 .splitInfoLeft {
-  width: 100%;
+  flex: 1 1 300px;
 }
 .splitInfoImg {
   width: 100%;
@@ -1700,6 +1710,7 @@
   border-radius: 12px;
 }
 .splitInfoRight {
+  flex: 1.5 1 400px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -2087,34 +2098,9 @@
   .videoCard {
     width: 280px;
   }
-  
-  .marqueeRow {
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .marqueeRow::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .marqueeTrack {
-    animation: none;
-  }
-
-  .marqueeContainer::before,
-  .marqueeContainer::after {
-    display: none;
-  }
   .tag{
     margin-top: 30px;
   }
-  .statGrid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:1rem;
-  }
-
   .statItem{
     width:100%;
     flex-direction: column;
@@ -2149,6 +2135,20 @@
 }
 
 @media (max-width: 900px) {
+  .hero {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .hero .container {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+  .heroBox {
+    border-radius: 0;
+    padding-top: clamp(120px, 15vw, 160px);
+  }
   .overviewHeader, .overviewBody {
     flex-direction: column;
   }
@@ -2171,12 +2171,12 @@
   .toolsLearnGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .statGrid{
-    grid-template-columns:repeat(2,1fr);
-    gap:1rem;
-    margin-top:30px;
+  .statGrid {
+    margin-top: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
-  .newPromoGrid, .featuresGrid, .splitInfoGrid {
+  .newPromoGrid {
     grid-template-columns: 1fr;
   }
   .mentorsGrid {
@@ -2202,7 +2202,23 @@
     flex: 0 0 280px;
     scroll-snap-align: start;
   }
-  .testimonialsGrid {
-    grid-template-columns: 1fr 1fr;
+
+  .marqueeRow {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .marqueeRow::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .marqueeTrack {
+    animation: none;
+  }
+
+  .marqueeContainer::before,
+  .marqueeContainer::after {
+    display: none;
   }
 }

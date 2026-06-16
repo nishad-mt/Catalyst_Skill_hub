@@ -1,10 +1,9 @@
 /* ---------- PAGE ---------- */
 
-.page{
-    width:100%;
-    overflow:hidden;
+.page {
+    width: 100%;
+    overflow: hidden;
 }
-
 
 /* ---------- HERO ---------- */
 
@@ -97,16 +96,20 @@
 }
 
 .slider{
-    overflow:hidden;
+    overflow-x: auto;
     background:#0a1450;
     border-radius:16px;
     padding:20px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
-
+.slider::-webkit-scrollbar {
+    display: none;
+}
 
 /* ---------- PLAY BUTTON ---------- */
 
-.playBtn{
+/* .playBtn{
 
     position:absolute;
     top:-60px;
@@ -124,7 +127,7 @@
 
 .playBtn:hover{
     background:#16237d;
-}
+} */
 
 .track{
 
@@ -132,11 +135,6 @@
     gap:20px;
     width:max-content;
     padding-inline:20px;
-    animation:scroll 80s linear infinite;
-}
-
-.paused{
-    animation-play-state:paused;
 }
 
 .card{
@@ -200,18 +198,6 @@
 
 /* ---------- ANIMATION ---------- */
 
-@keyframes scroll{
-
-    0%{
-        transform:translateX(0);
-    }
-
-    100%{
-        transform:translateX(calc(-50% - 10px));
-    }
-}
-
-
 /* ---------- PLACEMENTS SECTION ---------- */
 
 .placementsSection {
@@ -258,14 +244,16 @@
 
 .placementImageWrap {
     width: 100%;
-    aspect-ratio: 1;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .placementImg {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
 }
 
 .placementInfo {
@@ -328,117 +316,98 @@
 
 /* ---------- CTA SECTION ---------- */
 
-.ctaSection{
-    padding:40px 20px 80px;
+.ctaSection {
+    padding: 40px 0 80px;
 }
 
-.ctaBox{
-
-    position:relative;
-
-    border-radius:40px;
-
-    padding:1px;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(99,102,241,.5),
-        rgba(236,72,153,.5)
-    );
+.ctaGrid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
 }
 
-.ctaGlow{
-
-    position:absolute;
-    inset:0;
-
-    border-radius:40px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #6366f1,
-        #ec4899
-    );
-
-    filter:blur(40px);
-
-    opacity:.20;
-
-    z-index:-1;
+.ctaCardPrimary {
+    background: #4263eb;
+    border-radius: 8px;
+    padding: 60px 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.ctaContent{
-
-    background:#0a1450;
-
-    border-radius:39px;
-
-    padding:45px 30px;
-
-    text-align:center;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+.ctaTitlePrimary {
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    max-width: 90%;
 }
 
-.ctaBox h2{
-
-    color:#fff;
-
-    font-size:clamp(1.8rem,3vw,3rem);
-
-    margin-bottom:20px;
+.ctaDescPrimary {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 90%;
 }
 
-.ctaBox p{
-
-    max-width:650px;
-
-    color:#cbd5e1;
-
-    line-height:1.8;
-
-    margin-bottom:30px;
+.ctaBtnPrimary {
+    background: #101066;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-.ctaBtn{
-
-    display:inline-flex;
-    align-items:center;
-    gap:12px;
-
-    border:none;
-
-    padding:18px 40px;
-
-    border-radius:100px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #6366f1,
-        #ec4899
-    );
-
-    color:#fff;
-
-    font-size:1rem;
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.3s ease;
+.ctaBtnPrimary:hover {
+    background: #0a0a40;
 }
 
-.ctaBtn:hover{
+.ctaCardSecondary {
+    background: #f4f4f4;
+    border-radius: 8px;
+    padding: 60px 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
 
-    transform:translateY(-3px);
+.ctaTitleSecondary {
+    color: #111;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
 
-    box-shadow:
-        0 12px 30px rgba(236,72,153,.35);
+.ctaDescSecondary {
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.ctaBtnSecondary {
+    background: #4f8df2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.ctaBtnSecondary:hover {
+    background: #3b74d6;
 }
 
 
@@ -451,10 +420,18 @@
         min-height:320px;
     }
 
+    .ctaGrid {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 
 @media(max-width:768px){
+
+    .ctaCardPrimary, .ctaCardSecondary {
+        padding: 40px 1.5rem;
+    }
 
     .hero{
         padding:100px 0 70px;
@@ -524,18 +501,34 @@
 }
 
 .playPauseOverlay {
-    display: none;
+    display: flex;
+    position: absolute;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 5;
+    transition: opacity 0.3s ease;
 }
 
-@media(max-width:768px) {
-    .playPauseOverlay {
-        display: flex;
-        position: absolute;
-        inset: 0;
-        justify-content: center;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.3);
-        cursor: pointer;
-        z-index: 5;
+@media(min-width: 769px) {
+    .isPaused .playPauseOverlay {
+        opacity: 1;
+    }
+    .isPlaying .playPauseOverlay {
+        opacity: 0;
+    }
+    .isPlaying:hover .playPauseOverlay {
+        opacity: 1;
+    }
+}
+
+@media(max-width: 768px) {
+    .isPaused .playPauseOverlay {
+        opacity: 1;
+    }
+    .isPlaying .playPauseOverlay {
+        opacity: 0;
     }
 }

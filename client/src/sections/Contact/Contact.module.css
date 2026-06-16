@@ -285,6 +285,11 @@
     transition: all 0.25s ease;
   }
 
+  select.input option {
+    background-color: #ffffff;
+    color: #1f2937;
+  }
+
   .input:hover {
     border-color: #3b3086;
     background: #ffffff;

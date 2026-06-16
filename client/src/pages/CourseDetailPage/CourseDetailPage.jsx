@@ -52,13 +52,14 @@ const BoldFirstTwoLinesText = ({ text, className }) => {
     const words = containerRef.current.querySelectorAll('.word-span');
     if (words.length === 0) return;
 
-    let lineCount = 0;
-    let currentTop = -1;
+    let lineCount = 1;
+    let currentTop = words[0].offsetTop;
     let limitIndex = words.length;
 
-    for (let i = 0; i < words.length; i++) {
+    for (let i = 1; i < words.length; i++) {
       const top = words[i].offsetTop;
-      if (top !== currentTop) {
+      // if top is significantly greater than currentTop, we are on a new line
+      if (top > currentTop + 5) {
         currentTop = top;
         lineCount++;
         if (lineCount > 2) {
@@ -67,6 +68,27 @@ const BoldFirstTwoLinesText = ({ text, className }) => {
         }
       }
     }
+    
+    // If the text is 2 lines or less, don't bold the entire text.
+    // Bold only the first line instead, or half the words.
+    if (limitIndex === words.length && lineCount <= 2) {
+      // Find where line 2 starts
+      let line2Index = -1;
+      let top1 = words[0].offsetTop;
+      for (let i = 1; i < words.length; i++) {
+        if (words[i].offsetTop > top1 + 5) {
+          line2Index = i;
+          break;
+        }
+      }
+      if (line2Index !== -1) {
+        limitIndex = line2Index; // Only bold the first line if it's 2 lines total
+      } else {
+        // If it's only 1 line, don't bold it all
+        limitIndex = Math.ceil(words.length / 2);
+      }
+    }
+    
     setBoldLimit(limitIndex);
   };
 
@@ -120,7 +142,7 @@ const CourseDetailPage = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    const checkMobile = () => setIsMobile(window.innerWidth <= 900);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -354,9 +376,11 @@ const CourseDetailPage = () => {
                         );
                       }
                       return (
-                        <p key={idx} className={`${styles.description} ${styles.firstSentence}`}>
-                          {sentence}{idx === 0 ? '.' : ''}
-                        </p>
+                        <BoldFirstTwoLinesText 
+                          key={idx}
+                          className={styles.description} 
+                          text={sentence + (idx === 0 ? '.' : '')} 
+                        />
                       );
                     }
                     return (
@@ -381,6 +405,12 @@ const CourseDetailPage = () => {
                   onClick={() => handleOpenModal('callback')}
                 >
                   Get Free Career Counselling
+                </button>
+                <button 
+                  className={styles.mobileHeroBtnOutline}
+                  onClick={() => handleOpenModal('syllabus')}
+                >
+                  Download Syllabus
                 </button>
                 {/* infoBar moved here to span full width */}
             <div className={styles.infoBar}>
@@ -502,7 +532,7 @@ const CourseDetailPage = () => {
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
                   </div>
                   <div className={styles.statInfo}>
-                    <h3>25000+</h3>
+                    <h3>1000+</h3>
                     <p>Students Yearly</p>
                   </div>
                 </div>
@@ -520,7 +550,7 @@ const CourseDetailPage = () => {
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
                   </div>
                   <div className={styles.statInfo}>
-                    <h3>25+</h3>
+                    <h3>20+</h3>
                     <p>High tech classrooms</p>
                   </div>
                 </div>
@@ -529,7 +559,7 @@ const CourseDetailPage = () => {
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                   </div>
                   <div className={styles.statInfo}>
-                    <h3>200+</h3>
+                    <h3>25+</h3>
                     <p>Expert Faculties</p>
                   </div>
                 </div>
@@ -541,9 +571,10 @@ const CourseDetailPage = () => {
             <div className={`${styles.overviewContentLeft} reveal`}>
               <span className={styles.subTag}>Key Features: Executive Diploma in {course.title}</span>
               <h3 className={styles.overviewHeading}>{course.title} Course Overview</h3>
-              <p className={styles.overviewParagraph}>
-                The mentors were incredibly supportive and always ready to help. I especially loved the hands-on projects they made learning much more effective. Joining this course was one of the best decisions I've made. The training was practical, easy to understand.The mentors were incredibly
-              </p>
+              <BoldFirstTwoLinesText 
+                className={styles.overviewParagraph}
+                text="The mentors were incredibly supportive and always ready to help. I especially loved the hands-on projects they made learning much more effective. Joining this course was one of the best decisions I've made. The training was practical, easy to understand.The mentors were incredibly"
+              />
               <p className={styles.overviewParagraph}>
                 The mentors were incredibly supportive and always ready to help. I especially loved the hands-on projects they made learning much more effective.
               </p>
@@ -655,6 +686,9 @@ const CourseDetailPage = () => {
       {/* Partners Section */}
       <section className={styles.partners}>
         <div className={styles.container}>
+          <h2 className={`${styles.sectionTitle} ${styles.partnersTitle} reveal`}>
+            Our Placement Partners
+          </h2>
           <div className={`${styles.partnersScroll} reveal-group`}>
             {/* Hiring Partner Logos */}
             {[

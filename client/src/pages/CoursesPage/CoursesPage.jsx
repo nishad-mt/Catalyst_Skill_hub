@@ -5,6 +5,7 @@ import styles from './CoursesPage.module.css';
 import CourseCard from '../../components/CourseCard/CourseCard';
 import Mentors from '../../sections/Mentors/Mentors';
 import StudentTestimonialsBanner from '../../components/StudentTestimonialsBanner/StudentTestimonialsBanner';
+import Placements from '../../sections/Placements/Placements';
 
 export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
   useEffect(() => {
@@ -139,7 +140,12 @@ export default function CoursesPage({ searchQuery, setSearchQuery, navigate }) {
         </div>
       </div>
 
-            {/* Student Testimonials Banner Section */}
+      {/* Placements Section */}
+      <div className={styles.placementsWrapper}>
+        <Placements />
+      </div>
+
+      {/* Student Testimonials Banner Section */}
       <div className="container">
         <StudentTestimonialsBanner />
       </div>

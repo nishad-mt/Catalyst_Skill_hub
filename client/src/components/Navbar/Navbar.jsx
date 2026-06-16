@@ -271,49 +271,66 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
 
           {/* SEARCH — hidden on mobile, shown ≥ 680px */}
           {currentPage !== '404' && (
-            <div className={styles.searchBox} style={{ position: 'relative' }}>
-              <FiSearch className={styles.searchIcon} />
-              <input
-                type="text"
-                placeholder="What do you want to learn?"
-                value={searchQuery}
-                onChange={handleSearchChange}
-                onKeyDown={handleDesktopKeyDown}
-                onFocus={handleDesktopFocus}
-                onBlur={() => {
-                  desktopBlurTimer.current = setTimeout(() => setShowSuggestions(false), 150);
+            <>
+              <div className={styles.searchBox} style={{ position: 'relative' }}>
+                <FiSearch className={styles.searchIcon} />
+                <input
+                  type="text"
+                  placeholder="What do you want to learn?"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  onKeyDown={handleDesktopKeyDown}
+                  onFocus={handleDesktopFocus}
+                  onBlur={() => {
+                    desktopBlurTimer.current = setTimeout(() => setShowSuggestions(false), 150);
+                  }}
+                  className={styles.searchInput}
+                  aria-label="Search"
+                  autoComplete="off"
+                />
+                {showSuggestions && (
+                  <div className={`${styles.suggestionList} ${searchQuery.trim() ? styles.suggestionListTyped : ''}`} role="listbox">
+                    {!searchQuery.trim() && <div className={styles.trendSearchHeader}>Trend Search</div>}
+                    <ul className={!searchQuery.trim() ? styles.suggestionGrid : ''} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                      {suggestions.map((s, i) => (
+                        <li
+                          key={`${s.label}-${i}`}
+                          role="option"
+                          aria-selected={i === activeSuggestion}
+                          className={`${searchQuery.trim() ? styles.suggestionItemTyped : styles.suggestionItem} ${
+                            i === activeSuggestion ? styles.suggestionActive : ''
+                          }`}
+                          onMouseDown={() => selectSuggestion(s)}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <FiSearch className={styles.suggestionIcon} />
+                            <span>{s.label}</span>
+                          </div>
+                          {s.type !== 'Course' && (
+                            <span className={styles.suggestionTypeBadge}>{s.type}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+              
+              <button
+                className={styles.desktopSearchToggle}
+                onClick={() => {
+                  setMenuDirection('right');
+                  setMenuOpen(true);
+                  setTimeout(() => {
+                    const input = document.querySelector(`.${styles.mobileSearchInput}`);
+                    if (input) input.focus();
+                  }, 300);
                 }}
-                className={styles.searchInput}
                 aria-label="Search"
-                autoComplete="off"
-              />
-              {showSuggestions && (
-                <div className={`${styles.suggestionList} ${searchQuery.trim() ? styles.suggestionListTyped : ''}`} role="listbox">
-                  {!searchQuery.trim() && <div className={styles.trendSearchHeader}>Trend Search</div>}
-                  <ul className={!searchQuery.trim() ? styles.suggestionGrid : ''} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-                    {suggestions.map((s, i) => (
-                      <li
-                        key={`${s.label}-${i}`}
-                        role="option"
-                        aria-selected={i === activeSuggestion}
-                        className={`${searchQuery.trim() ? styles.suggestionItemTyped : styles.suggestionItem} ${
-                          i === activeSuggestion ? styles.suggestionActive : ''
-                        }`}
-                        onMouseDown={() => selectSuggestion(s)}
-                      >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                          <FiSearch className={styles.suggestionIcon} />
-                          <span>{s.label}</span>
-                        </div>
-                        {s.type !== 'Course' && (
-                          <span className={styles.suggestionTypeBadge}>{s.type}</span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+              >
+                <FiSearch />
+              </button>
+            </>
           )}
 
           {/* RIGHT SIDE */}

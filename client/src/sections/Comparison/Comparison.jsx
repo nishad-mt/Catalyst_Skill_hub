@@ -192,16 +192,20 @@ const Comparison = () => {
                 </div>
                 <div className={styles.cardComparison}>
                   <div className={`${styles.cardSide} ${styles.catalystSide}`}>
-                    <span className={styles.sideTitle}>Catalyst</span>
-                    <div className={styles.catalystContent}>
+                    <div className={styles.sideTitleWrap}>
                       <CheckIcon />
+                      <span className={styles.sideTitle}>Catalyst</span>
+                    </div>
+                    <div className={styles.catalystContentMobile}>
                       <span>{row.catalyst}</span>
                     </div>
                   </div>
                   <div className={`${styles.cardSide} ${styles.othersSide}`}>
-                    <span className={styles.sideTitle}>Others</span>
-                    <div className={styles.othersContent}>
+                    <div className={styles.sideTitleWrap}>
                       <CrossIcon />
+                      <span className={styles.sideTitle}>Others</span>
+                    </div>
+                    <div className={styles.othersContentMobile}>
                       <span>{row.others}</span>
                     </div>
                   </div>

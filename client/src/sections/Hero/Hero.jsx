@@ -1,13 +1,14 @@
 // Hero.jsx
 import styles from "./Hero.module.css";
 import heroImg from "../../assets/image.png";
+import logoImg from "../../assets/logo.png";
 
 import { companyLogos } from "../../data/siteData";
 import { SiPython, SiDocker, SiReact, SiScikitlearn, SiLinux, SiPostgresql, SiKubernetes } from "react-icons/si";
 import { MdSecurity } from "react-icons/md";
 import { FaBullhorn, FaChartBar, FaFlask, FaAws } from "react-icons/fa";
 
-function OrbitAnimation() {
+function OrbitAnimation({ isMobile }) {
   const orbit3Icons = [
   { icon: <SiReact />, angle: 0 },
   { icon: <FaChartBar />, angle: 60 },
@@ -19,7 +20,11 @@ function OrbitAnimation() {
   return (
     <div className={styles.orbitContainer}>
       <div className={styles.centerSphere}>
-        <span>Catalyst</span>
+        {isMobile ? (
+          <img src={logoImg} alt="Catalyst Logo" className={styles.centerLogo} />
+        ) : (
+          <span>Catalyst</span>
+        )}
       </div>
 
       {/* Inner Orbit - Python & DevOps */}
@@ -124,7 +129,7 @@ export default function Hero({ navigate }) {
           {/* LEFT */}
           <div className={styles.left}>
             <div className={`${styles.orbitMobileWrapper} reveal`}>
-              <OrbitAnimation />
+              <OrbitAnimation isMobile={true} />
             </div>
             <span className={styles.badge}>
               No.1 Tech Training Institute in Kerala
@@ -161,7 +166,7 @@ export default function Hero({ navigate }) {
           </div>
 
           <div className={`${styles.right} reveal`}>
-            <OrbitAnimation />
+            <OrbitAnimation isMobile={false} />
           </div>
 
           {/* company logos - Full width at the bottom of heroBox */}

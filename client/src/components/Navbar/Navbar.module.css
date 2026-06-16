@@ -457,6 +457,14 @@
 
 .mobileSearchToggle {
   display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .hamburger span {
@@ -768,6 +776,34 @@
   }
 }
 
+.desktopSearchToggle {
+  display: none;
+}
+
+/* 680px – 740px: hide full search input and show search toggle icon */
+@media (min-width: 680px) and (max-width: 740px) {
+  .searchBox {
+    display: none !important;
+  }
+  .desktopSearchToggle {
+    display: flex !important;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .mobileMenu {
+    display: flex !important;
+  }
+  .backdrop {
+    display: block !important;
+  }
+}
+
 /* 900px – 1199px: medium */
 @media (min-width: 900px) and (max-width: 1199px) {
   .inner {
@@ -891,14 +927,6 @@
 
   .mobileSearchToggle {
     display: flex;
-    background: none;
-    border: none;
-    color: #ffffff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
   }
 
   .inner {

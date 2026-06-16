@@ -265,7 +265,12 @@
 
   .linkCols{
     grid-template-columns:repeat(4,max-content);
-    column-gap:8rem;
+    column-gap:10rem;
+  }
+
+  .colLink,
+  .infoLink {
+    font-size: 1rem;
   }
 }
 

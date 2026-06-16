@@ -27,9 +27,14 @@
 
 .image {
   width: 100%;
+  height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
+.marqueeContainer {
+  display: none; /* Hidden on desktop */
+}
+
 /* ── View All button ── */
 .btnWrap {
   display: flex;
@@ -61,32 +66,51 @@
   transform: translateY(0);
 }
 
-/* Mobile: single horizontal scrollable row */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Mobile: double horizontal scrollable row with brick pattern */
 @media (max-width: 768px) {
-
   .grid {
-    display: flex;
-    overflow-x: auto;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    align-items: stretch;
+    display: none; /* Hide desktop grid */
   }
 
-  .grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .card {
-    flex: 0 0 85%;
+  .marqueeContainer {
     display: flex;
     flex-direction: column;
-    scroll-snap-align: start;
-    height: auto;
-    align-self: stretch;
+    gap: 1rem;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%); /* Make it full width */
+    padding: 0 1rem;
   }
+
+  .marqueeRow {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .marqueeTrack {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: marqueeScroll 25s linear infinite;
+  }
+
+  .marqueeContainer .card {
+    flex: 0 0 200px; /* Fixed width for consistent brick pattern */
+    height: 140px;
+    border-radius: 12px;
+  }
+
+  .staggeredRow .marqueeTrack {
+    transform: translateX(-50px);
+    /* By starting the second row slightly offset, and having same animation, it creates a brick pattern */
+    margin-left: -100px;
+  }
+
   .subHeading{
     max-width: 100%;
   }

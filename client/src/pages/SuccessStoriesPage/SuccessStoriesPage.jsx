@@ -9,7 +9,69 @@ const SuccessStoriesPage = () => {
 
     useEffect(() => {
         window.scrollTo(0,0);
+        
+        const firstVidIndex = [...testimonials, ...testimonials].findIndex(t => t.video);
+        let timeoutId;
+        
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                timeoutId = setTimeout(() => {
+                    const allVideos = document.querySelectorAll(`.${styles.video}`);
+                    const isAnyPlaying = Array.from(allVideos).some(vid => !vid.paused);
+                    
+                    if (!isAnyPlaying) {
+                        const firstVideo = allVideos[0];
+                        if (firstVideo) {
+                            firstVideo.muted = false;
+                            firstVideo.volume = 1;
+                            firstVideo.play().then(() => {
+                                setPlayingVideoIndex(firstVidIndex);
+                            }).catch(e => {
+                                console.log("Unmuted autoplay blocked, trying muted", e);
+                                firstVideo.muted = true;
+                                firstVideo.play().then(() => {
+                                    setPlayingVideoIndex(firstVidIndex);
+                                }).catch(e2 => console.log("Autoplay entirely blocked", e2));
+                            });
+                        }
+                    }
+                }, 1800);
+            } else {
+                if (timeoutId) clearTimeout(timeoutId);
+                const allVideos = document.querySelectorAll(`.${styles.video}`);
+                allVideos.forEach(vid => {
+                    vid.pause();
+                    vid.muted = true;
+                });
+                setPlayingVideoIndex(null);
+            }
+        }, { threshold: 0.1 });
+        
+        const section = document.querySelector(`.${styles.careerSection}`);
+        if (section) observer.observe(section);
+        
+        return () => {
+            if (timeoutId) clearTimeout(timeoutId);
+            if (section) observer.unobserve(section);
+        };
     }, []);
+
+    const sliderRef = React.useRef(null);
+
+    useEffect(() => {
+        let animationId;
+        const scrollStep = () => {
+            if (sliderRef.current && !paused && playingVideoIndex === null) {
+                sliderRef.current.scrollLeft += 1;
+                if (sliderRef.current.scrollLeft >= sliderRef.current.scrollWidth / 2) {
+                    sliderRef.current.scrollLeft -= sliderRef.current.scrollWidth / 2;
+                }
+            }
+            animationId = requestAnimationFrame(scrollStep);
+        };
+        animationId = requestAnimationFrame(scrollStep);
+        return () => cancelAnimationFrame(animationId);
+    }, [paused, playingVideoIndex]);
 
     const handleOpenModal = () => {
         window.dispatchEvent(
@@ -87,24 +149,24 @@ const SuccessStoriesPage = () => {
 
                     <div className={styles.sliderWrapper}>
 
-                        <button
+                        {/* <button
                             className={styles.playBtn}
                             onClick={() => setPaused(!paused)}
                         >
                             {paused ? '▶ Play' : '⏸ Pause'}
-                        </button>
+                        </button> */}
 
                         <div
                             className={styles.slider}
+                            ref={sliderRef}
                             onMouseEnter={() => setPaused(true)}
                             onMouseLeave={() => setPaused(false)}
+                            onTouchStart={() => setPaused(true)}
+                            onTouchEnd={() => setPaused(false)}
                         >
 
                             <div
-                                className={`
-                                    ${styles.track}
-                                    ${paused ? styles.paused : ''}
-                                `}
+                                className={styles.track}
                             >
 
                                 {[...testimonials, ...testimonials].map((item,index) => (
@@ -114,7 +176,7 @@ const SuccessStoriesPage = () => {
                                         key={index}>
                                           
                                         {item.video ? (
-                                        <div className={styles.videoWrapper}>
+                                        <div className={`${styles.videoWrapper} ${playingVideoIndex === index ? styles.isPlaying : styles.isPaused}`}>
                                             <video
                                                 src={item.video}
                                                 loop
@@ -148,25 +210,6 @@ const SuccessStoriesPage = () => {
                                                             video.pause();
                                                             setPlayingVideoIndex(null);
                                                         }
-                                                    }
-                                                }}
-
-                                                onMouseEnter={(e)=>{
-                                                    // Only trigger hover effects if it's not a touch device
-                                                    if(window.matchMedia("(hover: hover)").matches) {
-                                                        const video = e.currentTarget;
-                                                        video.muted = false;
-                                                        video.volume = 1;
-                                                        video.play();
-                                                        setPlayingVideoIndex(index);
-                                                    }
-                                                }}
-
-                                                onMouseLeave={(e)=>{
-                                                    if(window.matchMedia("(hover: hover)").matches) {
-                                                        const video = e.currentTarget;
-                                                        video.muted = true;
-                                                        setPlayingVideoIndex(null);
                                                     }
                                                 }}
                                             />
@@ -226,11 +269,6 @@ const SuccessStoriesPage = () => {
                                 <div className={styles.placementImageWrap}>
                                     <img src={person.img} alt={person.name} className={styles.placementImg} />
                                 </div>
-                                <div className={styles.placementInfo}>
-                                    <h3 className={styles.placementName}>{person.name}</h3>
-                                    <p className={styles.placementRole}>{person.role}</p>
-                                    <p className={styles.placementCompany}>@ {person.company}</p>
-                                </div>
                             </div>
                         ))}
                     </div>
@@ -243,54 +281,33 @@ const SuccessStoriesPage = () => {
 
                 <div className="container">
 
-                    <div className={`${styles.ctaBox} reveal`}>
+                    <div className={styles.ctaGrid}>
 
-                        <div className={styles.ctaGlow}></div>
-
-                        <div className={styles.ctaContent}>
-
-                            <h2>
-                                Ready to author your own success?
+                        <div className={styles.ctaCardPrimary}>
+                            <h2 className={styles.ctaTitlePrimary}>
+                                Interested in a Tech Career For your Future ? We Can help
                             </h2>
-
-                            <p>
-                                Join our upcoming cohort and get the
-                                cutting-edge skills, elite mentorship,
-                                and premium placement support to launch
-                                your tech career.
+                            <p className={styles.ctaDescPrimary}>
+                                The mentors were incredibly supportive and always ready to help. I especially loved the hands-on projects they
                             </p>
-
-                            <button
-                                className={styles.ctaBtn}
-                                onClick={handleOpenModal}
-                            >
-
-                                Start Your Journey
-
-                                <svg
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <line
-                                        x1="5"
-                                        y1="12"
-                                        x2="19"
-                                        y2="12"
-                                    />
-
-                                    <polyline
-                                        points="12 5 19 12 19 19"
-                                    />
-                                </svg>
-
+                            <button className={styles.ctaBtnPrimary} onClick={handleOpenModal}>
+                                Get Career Counselling
                             </button>
+                        </div>
 
+                        <div className={styles.ctaCardSecondary}>
+                            <h2 className={styles.ctaTitleSecondary}>
+                                Interested in a Tech Career For your Future ?
+                            </h2>
+                            <p className={styles.ctaDescSecondary}>
+                                The mentors were incredibly supportive and always ready to help. I especially loved the hands-on projects they
+                            </p>
+                            <button className={styles.ctaBtnSecondary} onClick={() => {
+                                window.history.pushState({}, '', '/courses');
+                                window.dispatchEvent(new PopStateEvent('popstate'));
+                                }}>
+                                View All Courses
+                            </button>
                         </div>
 
                     </div>
