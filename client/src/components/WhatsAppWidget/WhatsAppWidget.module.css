@@ -323,7 +323,14 @@
    RESPONSIVE BREAKPOINTS
    ════════════════════════════════ */
 
-/* Tablet — slightly narrower */
+/* Hide on all non-desktop devices (tablets and mobile) */
+@media (max-width: 1024px) {
+  .wrapper {
+    display: none !important;
+  }
+}
+
+/* Tablet — slightly narrower (kept for fallback if display none is removed later) */
 @media (max-width: 768px) {
   .wrapper {
     bottom: 16px;

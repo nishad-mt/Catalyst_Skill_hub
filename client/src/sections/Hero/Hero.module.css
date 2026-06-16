@@ -235,8 +235,9 @@
 }
 
 .centerSphere {
-  width: clamp(35px, calc(var(--base-size) * 0.218), 120px);
-  height: clamp(35px, calc(var(--base-size) * 0.218), 120px);
+  --sphere-size: clamp(35px, calc(var(--base-size) * 0.218), 120px);
+  width: var(--sphere-size);
+  height: var(--sphere-size);
   background: radial-gradient(circle at 30% 30%, #3b82f6, #1d4ed8 50%, #0a1450 90%);
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.4);
@@ -249,8 +250,8 @@
   color: white;
   font-family: 'Outfit', sans-serif;
   font-weight: 800;
-  font-size: clamp(0.6rem, calc(var(--base-size) * 0.03), 1.1rem);
-  letter-spacing: 1px;
+  font-size: calc(var(--sphere-size) * 0.14);
+  letter-spacing: calc(var(--sphere-size) * 0.008);
 }
 
 :global(.reveal.visible) .centerSphere {
