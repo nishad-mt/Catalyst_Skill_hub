@@ -223,10 +223,11 @@
 
 .orbitContainer {
   position: relative;
-  --base-size: clamp(240px, min(100vw - 5rem, 60dvh), 550px);
+  --base-size: clamp(150px, min(100vw - 5rem, 45dvh), 550px);
   width: var(--base-size);
   height: var(--base-size);
   --orbit3-size: calc(var(--base-size) * 0.9272);
+  --icon-size: clamp(20px, calc(var(--base-size) * 0.091), 50px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -234,8 +235,8 @@
 }
 
 .centerSphere {
-  width: clamp(80px, 22%, 120px);
-  height: clamp(80px, 22%, 120px);
+  width: clamp(35px, calc(var(--base-size) * 0.218), 120px);
+  height: clamp(35px, calc(var(--base-size) * 0.218), 120px);
   background: radial-gradient(circle at 30% 30%, #3b82f6, #1d4ed8 50%, #0a1450 90%);
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.4);
@@ -248,7 +249,7 @@
   color: white;
   font-family: 'Outfit', sans-serif;
   font-weight: 800;
-  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  font-size: clamp(0.6rem, calc(var(--base-size) * 0.03), 1.1rem);
   letter-spacing: 1px;
 }
 
@@ -362,8 +363,8 @@
 
 .orbitIconWrap {
   position: absolute;
-  width: clamp(36px, 8vw, 50px);
-  height: clamp(36px, 8vw, 50px);
+  width: var(--icon-size);
+  height: var(--icon-size);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -374,13 +375,13 @@
   width: 100%;
   height: 100%;
   background: #01053C;
-  border: 2px solid rgba(96, 165, 250, 0.6);
+  border: clamp(1px, calc(var(--base-size) * 0.0036), 2px) solid rgba(96, 165, 250, 0.6);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #93c5fd;
-  font-size: clamp(18px, 4vw, 24px);
+  font-size: calc(var(--icon-size) * 0.48);
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
 }
 
@@ -439,7 +440,7 @@
 @media (max-width: 980px) {
   .heroBox {
     gap: 1.5rem;
-    padding: 8rem 2rem;
+    padding: 10rem 2rem;
   }
 
   .title {
@@ -460,7 +461,7 @@
     display: grid;
     grid-template-columns: 1fr;
     text-align: left;
-    padding: 2rem 1rem 2rem;
+    padding: 9rem 1rem 2rem;
     gap: 0;
     border-radius: 0 0 70px 70px;
   }
