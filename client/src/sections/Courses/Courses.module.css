@@ -149,6 +149,9 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 35px 0 30px;
+  }
   .header{
     max-width: max-content;
   }

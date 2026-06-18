@@ -154,12 +154,9 @@ export default function Hero({ navigate }) {
             {/* course tags */}
             <p className={`${styles.sectionLabel} reveal reveal-d4`}>Our Programmes</p>
             <div className={`${styles.tags} reveal-group`}>
-              <span>Data Science</span>
               <span>DevOps</span>
-              <span>Cyber Security</span>
               <span>Data Analytics</span>
               <span>Python Full Stack Development</span>
-              <span>MERN Stack</span>
               {/* <span>Software Testing</span> */}
             </div>
 

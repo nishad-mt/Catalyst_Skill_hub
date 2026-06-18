@@ -227,7 +227,7 @@
   .statItem {
     flex: 1 1 50%;
     min-width: 50%;
-    padding: 1.25rem 0.75rem 1rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 0;
   }
 
