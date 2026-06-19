@@ -303,7 +303,6 @@ export default function CenterDetailPage({ navigate }) {
           <div className={styles.sectionHeader}>
             <span className={styles.sectionSubtitle}>Programs Offered</span>
             <h2>Master In-Demand Tech Skills</h2>
-            <p>Our top-rated career courses designed to get you hired. Highly recommended for students and professionals in {center.name}.</p>
           </div>
           
           {offeredCourses.length > 0 ? (
@@ -399,11 +398,6 @@ export default function CenterDetailPage({ navigate }) {
             <h2 className={styles.skilled}>
               <span className={styles.blueText}>Become a Skilled Data</span> & Technology <br /> Professional
             </h2>
-            <p className={styles.campusGridSubtitle}>
-              The mentors were incredibly supportive and always ready to help. I especially loved the hands-on projects they 
-              <br />
-              A place where we can build our confidence at industry level through the live projects that they give us
-            </p>
           </div>
 
           <div className={styles.campusGridLayout}>
@@ -429,7 +423,6 @@ export default function CenterDetailPage({ navigate }) {
                 </div>
                 <div className={`${styles.blueStatCard} ${styles.col2}`}>
                   <h4>Become a Skilled Data & Technology</h4>
-                  <p>The mentors were incredibly supportive and always ready to help. I especially loved the hands-on projects they The mentors</p>
                 </div>
                 <div className={`${styles.blueStatCard} ${styles.col3}`}>
                   <h3>100%</h3>
@@ -457,11 +450,6 @@ export default function CenterDetailPage({ navigate }) {
             <h2 className={styles.header}>
               Become a Skilled Data
             </h2>
-            <p className={styles.Subtitle}>
-              The mentors were incredibly supportive and always ready to help. I especially loved the hands-on projects they 
-              <br />
-              A place where we can build our confidence at industry level through the live projects that they give us
-            </p>
           </div>
 
           <div className={styles.skillsCardsGrid}>

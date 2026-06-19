@@ -100,7 +100,7 @@
 .desc {
   margin-top: 1rem;
   color: #64748b;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   line-height: 1.65;
   max-width: 460px;
 }
@@ -173,7 +173,7 @@
 
 /* ===== COMPANIES SECTION ===== */
 .companiesWrapper {
-  margin-top: 2rem;
+  margin-top: 0rem;
   width: 100%;
   z-index: 5;
 }
@@ -182,21 +182,21 @@
   background: #e7e9fcbd;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 1.5rem 3rem;
+  padding: 1.5rem;
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   width: 100%;
   max-width: 100%; /* Spans the full width of heroBox */
   align-items: center;
-  justify-items: center;
+  justify-content: space-between;
 }
 
 .companies img {
-  height: 40px; /* Significantly larger */
+  height: clamp(26px, 4vw, 42px);
   width: auto;
   max-width: 140px; /* Prevent single logos from getting too wide and breaking the row */
   object-fit: contain;
@@ -443,6 +443,10 @@
     padding: 10rem 2.5rem;
   }
 
+  .companies {
+    justify-content: center;
+  }
+
   .imageBox {
     max-width: 340px;
     height: auto;
@@ -503,7 +507,7 @@
     margin: 0.2rem 0 1rem !important;
     display: block;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
   .desc {
@@ -528,15 +532,7 @@
   .companies {
     padding: 1.5rem;
     border-radius: 16px;
-    justify-content: center;
     gap: 1.5rem 2rem;
-    max-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .companies img {
-    height: 42px;
   }
 
   .imageBox {
@@ -553,16 +549,11 @@
   }
 
   .title {
-    font-size: 1.75rem;
+    font-size: clamp(1.5rem, 7vw, 1.75rem);
   }
 
   .companies {
-    grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem 1rem;
-  }
-
-  .companies img {
-    height: 26px;
   }
 
   .greenDecoration {

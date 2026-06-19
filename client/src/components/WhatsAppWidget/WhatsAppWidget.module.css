@@ -79,7 +79,7 @@
 
 .headerName {
   color: #fff;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   margin: 0;
   white-space: nowrap;
@@ -416,7 +416,7 @@
 
   .input {
     min-height: 40px;
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .sendBtn {

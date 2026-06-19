@@ -41,7 +41,7 @@
 
 .announcementText {
   color: #ffffff;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
@@ -148,7 +148,7 @@
   padding: 0.9rem 1.1rem;
   border-radius: 8px;
   border: 1px solid #b3b3b3;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   background-color: #ffffff;
   color: #1f2937;
   font-family: inherit;
@@ -242,7 +242,7 @@
 
 .successState p {
   color: #4b5563;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
 }
@@ -307,8 +307,28 @@
 
 /* Courses Offered Section */
 .coursesSection {
-  padding: 7rem 0;
+  padding: 3rem 0;
   background-color: #ffffff;
+}
+
+.sectionHeader {
+  margin-bottom: 3rem;
+}
+
+.sectionHeader h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0.5rem 0 0 0;
+}
+
+.sectionSubtitle {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #2563eb;
 }
 
 .coursesGrid {
@@ -344,14 +364,16 @@
 /* SECTION */
 
 .contactMapSection{
-  padding:1rem 0;
+  padding: 4rem 0;
   background:#f8fafc;
 }
 
 .sectionTitle{
-  font-size:3rem;
-  margin-bottom:2rem;
-  color:#111827;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3rem;
 }
 
 /* GRID */
@@ -479,9 +501,20 @@
 }
 
 .header{
-  margin-top: 80px;
-  font-size: 2rem;
-  color: #1d4ed8;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3rem;
+}
+
+.campusGridSection {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.skillsGridSection {
+  padding: 6rem 0 10rem 0;
 }
 
 .Subtitle{
@@ -493,11 +526,16 @@
 }
 
 .skilled{
-  font-size: 2.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3rem;
+  line-height: 1.25;
 }
 
 .campusGridLayout {
-  margin-top: 60px;
+  margin-top: 0;
   display: grid;
   grid-template-columns: 1.3fr 1fr;
   gap: 20px;
@@ -550,7 +588,7 @@
 }
 
 .blueStatCard p {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   line-height: 1.6;
 }
 
@@ -692,8 +730,13 @@
   
   .featuresSection,
   .coursesSection,
-  .contactMapSection {
-    padding: 3.5rem 0;
+  .contactMapSection,
+  .campusGridSection {
+    padding: 3rem 0;
+  }
+
+  .skillsGridSection {
+    padding: 3rem 0 6rem 0;
   }
 }
 

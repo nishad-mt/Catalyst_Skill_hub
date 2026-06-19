@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from './CourseDetailPage.module.css';
-import { courses, mentors } from '../../data/siteData';
+import { courses, mentors, companyLogos } from '../../data/siteData';
 import promoImg from '../../assets/promo_thinking.png';
 import studentsBanner from '../../assets/students_banner.png';
 import { testimonials } from '../../data/testimonials';
@@ -691,16 +691,7 @@ const CourseDetailPage = () => {
           </h2>
           <div className={`${styles.partnersScroll} reveal-group`}>
             {/* Hiring Partner Logos */}
-            {[
-              { src: "https://www.vectorlogo.zone/logos/amazon/amazon-ar21.svg", alt: "Amazon" },
-              { src: "https://www.vectorlogo.zone/logos/microsoft/microsoft-ar21.svg", alt: "Microsoft" },
-              { src: "https://www.vectorlogo.zone/logos/google/google-ar21.svg", alt: "Google" },
-              { src: "https://www.vectorlogo.zone/logos/accenture/accenture-ar21.svg", alt: "Accenture" },
-              { src: "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg", alt: "Infosys" },
-              { src: "https://www.vectorlogo.zone/logos/adobe/adobe-ar21.svg", alt: "Adobe" },
-              { src: "https://www.vectorlogo.zone/logos/oracle/oracle-ar21.svg", alt: "Oracle" },
-              { src: "https://www.vectorlogo.zone/logos/intel/intel-ar21.svg", alt: "Intel" },
-            ].map((logo, idx) => (
+            {companyLogos.map((logo, idx) => (
               <img key={idx} src={logo.src} alt={logo.alt} className={styles.partnerLogo} />
             ))}
           </div>
@@ -737,8 +728,7 @@ const CourseDetailPage = () => {
       <section className={styles.featuresSection}>
         <div className={styles.container}>
           <div className={`${styles.featuresHeader} reveal`}>
-            <h2><span style={{ color: '#1e3a8a' }}>Learn in-demand tech skills</span> through hands-on training, real-world projects, and expert mentorship designed</h2>
-            <p>Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed. Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed</p>
+            <h2><span style={{ color: '#1e3a8a' }}>Learn in-demand </span>tech skills</h2>
           </div>
           
           <div className={`${styles.featuresGrid} reveal-group`}>

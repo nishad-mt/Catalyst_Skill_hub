@@ -1,38 +1,100 @@
 .sectionTitle {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 700;
   color: #0f172a;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .subHeading {
   max-width: 600px;
-  font-size: 15px;
+  font-size: 14px;
   color: #373737;
   line-height: 1.7;
   margin-bottom: 2rem;
 }
 
-.grid {
+/* ── Desktop Grid (Manual Scroll, 2 Rows) ── */
+.desktopGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: calc(25% - 1.125rem);
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
 }
 
-.card {
+.desktopGrid::-webkit-scrollbar {
+  height: 8px;
+}
+.desktopGrid::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+.desktopGrid .card {
+  height: auto;
   border-radius: 12px;
   overflow: hidden;
-  background: #e5ecfb;
+  scroll-snap-align: start;
 }
 
-.image {
+.desktopGrid .image {
+  object-fit: contain;
   width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .marqueeContainer {
+    display: none !important;
+  }
+}
+
+.marqueeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); /* Full width */
+  --card-width: 250px;
+  --card-gap: 1.5rem;
+}
+
+.marqueeRow {
+  display: flex;
+  overflow: hidden;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 15s linear infinite;
+}
+
+.marqueeContainer .card {
+  height: 200px;
+  width: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: var(--card-gap);
+}
+
+.marqueeContainer .image {
+  object-fit: contain;
+  width: auto;
   height: 100%;
   display: block;
-  object-fit: contain;
 }
-.marqueeContainer {
-  display: none; /* Hidden on desktop */
+
+.staggeredRow .marqueeTrack {
+  /* Offset is set dynamically via React ref to perfectly align with 50% of the first image */
 }
 
 /* ── View All button ── */
@@ -46,7 +108,7 @@
   background: #1e3a8a;
   color: #ffffff;
   border: 2px solid #1e3a8a;
-  border-radius: var(--radius-btn);
+  border-radius: var(--radius-btn, 8px);
   padding: 0.85rem 2.5rem;
   font-size: 1rem;
   font-weight: 700;
@@ -71,51 +133,26 @@
   100% { transform: translateX(-50%); }
 }
 
-/* Mobile: double horizontal scrollable row with brick pattern */
 @media (max-width: 768px) {
-  .grid {
-    display: none; /* Hide desktop grid */
+  .desktopGrid {
+    display: none;
   }
 
   .marqueeContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    overflow: hidden;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%); /* Make it full width */
-    padding: 0 1rem;
+    --card-width: 200px;
+    --card-gap: 1rem;
   }
-
-  .marqueeRow {
-    display: flex;
-    overflow: hidden;
-  }
-
-  .marqueeTrack {
-    display: flex;
-    gap: 1rem;
-    width: max-content;
-    animation: marqueeScroll 25s linear infinite;
-  }
-
+  
   .marqueeContainer .card {
-    flex: 0 0 200px; /* Fixed width for consistent brick pattern */
-    height: 140px;
-    border-radius: 12px;
+    height: 160px;
   }
 
-  .staggeredRow .marqueeTrack {
-    transform: translateX(-50px);
-    /* By starting the second row slightly offset, and having same animation, it creates a brick pattern */
-    margin-left: -100px;
-  }
-
-  .subHeading{
+  .subHeading {
     max-width: 100%;
   }
-  .viewAllBtn{
-      padding: 0.65rem 0.7rem;
-      font-size: 0.9rem;
+
+  .viewAllBtn {
+    padding: 0.65rem 0.7rem;
+    font-size: 0.9rem;
   }
 }

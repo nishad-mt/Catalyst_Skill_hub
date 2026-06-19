@@ -282,7 +282,7 @@
   align-items: center;
   gap: 8px;
   padding: 0.65rem 0.9rem;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: #1e293b;
   border-radius: 8px;
   cursor: pointer;
@@ -862,7 +862,7 @@
   }
 
   .link {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
   }
 
   .cta {

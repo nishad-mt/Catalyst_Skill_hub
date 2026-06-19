@@ -48,7 +48,7 @@ export default function MobileActionBar({ navigate, currentPage }) {
           className={styles.btnPrimary}
           onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}
         >
-          Download syllabus
+          {isCourseDetail ? 'Download Syllabus' : 'Book Free Demo Class'}
         </button>
       </div>
     </div>

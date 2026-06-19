@@ -85,7 +85,7 @@
 }
 
 .title {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 6vw, 2.4rem);
   color: #1e1b4b;
   margin-bottom: 24px;
   font-weight: 800;
@@ -101,7 +101,7 @@
 }
 
 .description {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: #1e1b4b;
   line-height: 1.5;
   margin-bottom: 0;
@@ -155,7 +155,7 @@
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 12px;
@@ -173,7 +173,7 @@
   color: #2563eb;
   border: 2px solid #2563eb;
   border-radius: 8px;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 40px;
@@ -252,7 +252,7 @@
 }
 
 .ratingVal {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: #1e1b4b;
 }
@@ -366,7 +366,7 @@
   text-align: center;
   color: #1e1b4b;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   text-decoration: none;
   margin-top: 10px;
 }
@@ -747,7 +747,7 @@
 }
 
 .testimonialText {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: #334155;
   line-height: 1.6;
   margin-bottom: 24px;
@@ -767,7 +767,7 @@
 }
 
 .authorInfo h5 {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: #0f172a;
   margin-bottom: 2px;
 }
@@ -1054,7 +1054,7 @@
 
 .modalHeader p {
   color: #64748b;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
 }
 
 .modalForm {
@@ -1198,7 +1198,7 @@
 
 .successText {
   color: #475569;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 
@@ -1238,7 +1238,7 @@
 
 .overviewHeaderLeft p {
   color: #475569;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   line-height: 1.6;
 }
 
@@ -1317,7 +1317,7 @@
 }
 
 .overviewParagraph {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: #334155;
   line-height: 1.7;
   margin-bottom: 24px;
@@ -1440,7 +1440,7 @@
 .toolLearnText {
   font-weight: 600;
   color: #1e293b;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
 }
 
 /* Curriculum Timeline */
@@ -1644,7 +1644,7 @@
 }
 .featuresHeader p {
   color: #475569;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   line-height: 1.6;
 }
 .featuresGrid {
@@ -1723,7 +1723,7 @@
   border-radius: 12px;
 }
 .splitInfoDesc {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: #475569;
   line-height: 1.6;
 }
@@ -1972,7 +1972,7 @@
 }
 
 .videoCardName {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: #0a1450;
   margin: 0;
@@ -2015,7 +2015,7 @@
 }
 
 .userName {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: #0a1450;
   margin: 0;

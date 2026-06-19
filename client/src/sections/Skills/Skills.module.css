@@ -6,15 +6,16 @@
 }
 
 .sectionTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #08071b;
-  margin-bottom: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3rem;
   text-align: left;
 }
 .subHeading {
   max-width: 600px;
-  font-size: 15px;
+  font-size: 14px;
   color: #373737;
   line-height: 1.7;
   margin-bottom: 2rem;

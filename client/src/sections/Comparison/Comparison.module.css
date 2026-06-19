@@ -5,16 +5,21 @@
 
 
 .sectionTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #0a0927; /* deep purple/indigo from image */
-  margin-bottom: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3rem;
   text-align: left;
+}
+
+.mobileBreak {
+  display: none;
 }
 
 .subHeading {
   max-width: 600px;
-  font-size: 15px;
+  font-size: 14px;
   color: #373737;
   line-height: 1.7;
   margin-bottom: 2rem;
@@ -161,15 +166,22 @@
 
 /* ── Mobile Layout ── */
 @media (max-width: 768px) {
+  .mobileBreak {
+    display: block;
+  }
+  
   .comparisonSection {
     padding: 3rem 1.25rem;
   }
 
   .sectionTitle {
-    font-size: 1.5rem;
-    text-align: left;
-    margin-bottom: 2rem;
-  }
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3rem;
+  text-align: left;
+}
 
   .subHeading {
     max-width: 100%;
@@ -209,7 +221,7 @@
 
   .cardHeader span {
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     color: #0a1450;
   }
 

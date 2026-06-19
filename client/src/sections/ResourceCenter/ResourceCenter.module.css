@@ -4,9 +4,10 @@
 }
 
 .sectionTitle {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #0a0922; /* deep purple */
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #0f172a;
   margin-bottom: 3rem;
   text-align: left;
 }
