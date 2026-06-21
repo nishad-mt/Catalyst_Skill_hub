@@ -1,13 +1,16 @@
 import React from 'react';
 import styles from './Life.module.css';
 
-// Import images from assets
-import img1 from '../../assets/cat4.png';
-import img2 from '../../assets/dathub.png';
-import img3 from '../../assets/image.png';
-import img4 from '../../assets/learning.png';
-import img5 from '../../assets/trainee.png';
-import img6 from '../../assets/catalyst.png';
+// Import images from assets/life
+import img1 from '../../assets/life/cat4.png';
+import img2 from '../../assets/life/dathub.png';
+import img3 from '../../assets/life/crowd.jpeg';
+import img4 from '../../assets/life/learning.png';
+import img5 from '../../assets/life/trainee.png';
+import img6 from '../../assets/life/catalyst.png';
+import img7 from '../../assets/life/lady.jpeg';
+import img8 from '../../assets/life/neeraj.jpeg';
+import img9 from '../../assets/life/success.jpeg';
 
 const Life = ({ navigate }) => {
   const [selectedImg, setSelectedImg] = React.useState(null);
@@ -19,9 +22,9 @@ const Life = ({ navigate }) => {
     { id: 4, src: img4, className: styles.span1x2 },
     { id: 5, src: img5, className: styles.span1x2 },
     { id: 6, src: img6, className: styles.span1x2 },
-    { id: 7, src: img1, className: styles.span1x2 },
-    { id: 8, src: img2, className: styles.span1x1 },
-    { id: 9, src: img4, className: styles.span2x1 },
+    { id: 7, src: img7, className: styles.span1x2 },
+    { id: 8, src: img8, className: styles.span1x1 },
+    { id: 9, src: img9, className: styles.span2x1 },
   ];
 
   return (

@@ -21,7 +21,7 @@ function AboutPage() {
   ];
 
   return (
-    <div className={styles.aboutPage}>
+    <div className={`${styles.aboutPage} container`}>
       {/* Hero Section */}
       <section className={styles.aboutHero}>
         <div className={styles.heroContent}>

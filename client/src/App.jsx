@@ -134,7 +134,7 @@ export default function App() {
         ) : currentPage === 'courses' ? (
           <CoursesPage searchQuery={searchQuery} setSearchQuery={setSearchQuery} navigate={navigate} />
         ) : currentPage === 'course-detail' ? (
-          <CourseDetailPage key={currentPath} />
+          <CourseDetailPage key={currentPath} navigate={navigate} />
         ) : currentPage === 'center-detail' ? (
           <CenterDetailPage key={currentPath} navigate={navigate} />
         ) : currentPage === 'about' ? (

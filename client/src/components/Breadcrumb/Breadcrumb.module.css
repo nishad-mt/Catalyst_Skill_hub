@@ -8,8 +8,11 @@
   left: 0;
 }
 
-.homeIcon {
-  font-size: 1.3rem;
+.homeIconImg {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  margin-bottom: 2px;
 }
 
 /* Pages without the 50px TopBar — only 100px navbar */

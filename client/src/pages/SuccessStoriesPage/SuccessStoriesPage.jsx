@@ -6,53 +6,33 @@ const SuccessStoriesPage = () => {
 
     const [paused, setPaused] = useState(false);
     const [playingVideoIndex, setPlayingVideoIndex] = useState(null);
+    const [lightboxVideo, setLightboxVideo] = useState(null);
 
     useEffect(() => {
         window.scrollTo(0,0);
         
-        const firstVidIndex = [...testimonials, ...testimonials].findIndex(t => t.video);
         let timeoutId;
-        
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                timeoutId = setTimeout(() => {
-                    const allVideos = document.querySelectorAll(`.${styles.video}`);
-                    const isAnyPlaying = Array.from(allVideos).some(vid => !vid.paused);
-                    
-                    if (!isAnyPlaying) {
-                        const firstVideo = allVideos[0];
-                        if (firstVideo) {
-                            firstVideo.muted = false;
-                            firstVideo.volume = 1;
-                            firstVideo.play().then(() => {
-                                setPlayingVideoIndex(firstVidIndex);
-                            }).catch(e => {
-                                console.log("Unmuted autoplay blocked, trying muted", e);
-                                firstVideo.muted = true;
-                                firstVideo.play().then(() => {
-                                    setPlayingVideoIndex(firstVidIndex);
-                                }).catch(e2 => console.log("Autoplay entirely blocked", e2));
-                            });
-                        }
+
+        // Strict observer to pause videos if they scroll out of view (vertically or horizontally)
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    const vid = entry.target;
+                    if (!vid.paused) {
+                        vid.pause();
+                        vid.muted = true;
+                        setPlayingVideoIndex(null);
                     }
-                }, 1800);
-            } else {
-                if (timeoutId) clearTimeout(timeoutId);
-                const allVideos = document.querySelectorAll(`.${styles.video}`);
-                allVideos.forEach(vid => {
-                    vid.pause();
-                    vid.muted = true;
-                });
-                setPlayingVideoIndex(null);
-            }
+                }
+            });
         }, { threshold: 0.1 });
-        
-        const section = document.querySelector(`.${styles.careerSection}`);
-        if (section) observer.observe(section);
+
+        const allVideos = document.querySelectorAll(`.${styles.video}`);
+        allVideos.forEach(vid => videoObserver.observe(vid));
         
         return () => {
             if (timeoutId) clearTimeout(timeoutId);
-            if (section) observer.unobserve(section);
+            allVideos.forEach(vid => videoObserver.unobserve(vid));
         };
     }, []);
 
@@ -72,6 +52,25 @@ const SuccessStoriesPage = () => {
         animationId = requestAnimationFrame(scrollStep);
         return () => cancelAnimationFrame(animationId);
     }, [paused, playingVideoIndex]);
+
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                const allVideos = document.querySelectorAll(`.${styles.video}`);
+                allVideos.forEach(vid => {
+                    vid.pause();
+                    vid.muted = true;
+                });
+                setPlayingVideoIndex(null);
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        
+        return () => {
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+        };
+    }, []);
 
     const handleOpenModal = () => {
         window.dispatchEvent(
@@ -113,24 +112,24 @@ const SuccessStoriesPage = () => {
 
                 <div className={styles.imageSection}>
 
-                    <div className={styles.imageCard}>
+                    <div className={styles.imageCard} onClick={() => setLightboxVideo('Z5uczTHbM3c')}>
                         <img
-                            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
-                            alt="Tech Team"
+                            src="https://img.youtube.com/vi/Z5uczTHbM3c/maxresdefault.jpg"
+                            alt="Success Story 1"
                         />
                     </div>
 
-                    <div className={styles.imageCard}>
+                    <div className={styles.imageCard} onClick={() => setLightboxVideo('psAizMpIIhs')}>
                         <img
-                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-                            alt="Students"
+                            src="https://img.youtube.com/vi/psAizMpIIhs/maxresdefault.jpg"
+                            alt="Success Story 2"
                         />
                     </div>
 
-                    <div className={styles.imageCard}>
+                    <div className={styles.imageCard} onClick={() => setLightboxVideo('1FIM_oFl56Y')}>
                         <img
-                            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
-                            alt="Developers"
+                            src="https://img.youtube.com/vi/1FIM_oFl56Y/maxresdefault.jpg"
+                            alt="Success Story 3"
                         />
                     </div>
 
@@ -316,9 +315,68 @@ const SuccessStoriesPage = () => {
 
             </section>
 
+            {/* Full Screen YouTube Lightbox */}
+            {lightboxVideo && (
+                <div
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100vw',
+                        height: '100vh',
+                        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        zIndex: 99999,
+                        backdropFilter: 'blur(8px)',
+                        cursor: 'zoom-out'
+                    }}
+                    onClick={() => setLightboxVideo(null)}
+                >
+                    <button
+                        style={{
+                            position: 'absolute',
+                            top: '20px',
+                            right: '20px',
+                            background: 'rgba(255, 255, 255, 0.2)',
+                            border: 'none',
+                            color: 'white',
+                            fontSize: '2rem',
+                            width: '45px',
+                            height: '45px',
+                            borderRadius: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                            zIndex: 100000
+                        }}
+                        onClick={() => setLightboxVideo(null)}
+                    >
+                        ×
+                    </button>
+                    <div 
+                        style={{ width: '90%', maxWidth: '1000px', aspectRatio: '16/9', position: 'relative' }}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            src={`https://www.youtube.com/embed/${lightboxVideo}?autoplay=1`}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            style={{ borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}
+                        ></iframe>
+                    </div>
+                </div>
+            )}
         </div>
 
     );
+
 };
 
 export default SuccessStoriesPage;

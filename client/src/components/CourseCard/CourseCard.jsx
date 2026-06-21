@@ -90,6 +90,18 @@ export default function CourseCard({ course, navigate }) {
           <span className={styles.btnPrimary}>
             View Course
           </span>
+          <span 
+            className={styles.btnSecondary}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (course.syllabusLink) {
+                window.open(course.syllabusLink, '_blank');
+              }
+            }}
+          >
+            Download Syllabus
+          </span>
         </div>
       </div>
     </a>

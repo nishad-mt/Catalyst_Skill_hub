@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from './CourseDetailPage.module.css';
-import { courses, mentors, companyLogos } from '../../data/siteData';
+import { courses, mentors, companyLogos, centers } from '../../data/siteData';
 import promoImg from '../../assets/promo_thinking.png';
 import studentsBanner from '../../assets/students_banner.png';
 import { testimonials } from '../../data/testimonials';
@@ -134,7 +134,7 @@ const BoldFirstTwoLinesText = ({ text, className }) => {
   );
 };
 
-const CourseDetailPage = () => {
+const CourseDetailPage = ({ navigate }) => {
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
   const testimonialsRef = useRef(null);
@@ -158,44 +158,7 @@ const CourseDetailPage = () => {
     setExpandedCurriculumIdx(prev => prev === idx ? -1 : idx);
   };
 
-  const mockCurriculum = [
-    {
-      title: "Advanced Math & Programming",
-      duration: "5 Weeks",
-      topics: [
-        "Introduction to Data Science",
-        "Python Programming for Data Science",
-        "Data Analysis & Data Handling",
-        "Database Management & SQL",
-        "Statistics & Mathematics for Data Science",
-        "Deep Learning & AI Fundamentals"
-      ]
-    },
-    {
-      title: "Advanced Math & Programming",
-      duration: "5 Weeks",
-      topics: [
-        "Introduction to Data Science",
-        "Python Programming for Data Science",
-        "Data Analysis & Data Handling",
-        "Database Management & SQL",
-        "Statistics & Mathematics for Data Science",
-        "Deep Learning & AI Fundamentals"
-      ]
-    },
-    {
-      title: "Advanced Math & Programming",
-      duration: "5 Weeks",
-      topics: [
-        "Introduction to Data Science",
-        "Python Programming for Data Science",
-        "Data Analysis & Data Handling",
-        "Database Management & SQL",
-        "Statistics & Mathematics for Data Science",
-        "Deep Learning & AI Fundamentals"
-      ]
-    }
-  ];
+  // Curriculum content is now dynamically loaded from course.curriculum
 
   const handleHeroChange = (e) => {
     setHeroFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -606,21 +569,39 @@ const CourseDetailPage = () => {
               <h3 className={styles.overviewHeading}>Experience an all-new 2026 curriculum</h3>
               <div className={styles.curriculumContainer}>
                 <div className={styles.curriculumTimeline}>
-                  {mockCurriculum.map((node, idx) => {
+                  {course.curriculum && course.curriculum.map((item, idx) => {
                     const isExpanded = expandedCurriculumIdx === idx;
+                    // If the item is already an object, use it (supporting 'module' or 'title'). Otherwise, dynamically generate a rich object from the string.
+                    const node = typeof item === 'object' ? {
+                      title: item.module || item.title || `Module ${idx + 1}`,
+                      topics: item.topics || []
+                    } : {
+                      title: item,
+                      topics: [
+                        `Introduction to ${item.split(' ').slice(0, 2).join(' ')}`,
+                        `Core concepts and fundamentals`,
+                        `Advanced techniques and best practices`,
+                        `Hands-on practical session`,
+                        `Mini project and assessment`
+                      ]
+                    };
+
                     return (
                       <div className={styles.timelineNode} key={idx}>
-                        <div className={styles.curriculumCard}>
+                        <div className={`${styles.curriculumCard} ${isExpanded ? styles.curriculumCardActive : ''}`}>
                           <div className={styles.curriculumHeader} onClick={() => toggleCurriculum(idx)}>
                             <div>
                               <div className={styles.curriculumTitle}>{node.title}</div>
                               <div className={styles.curriculumMeta}>
-                                <span className={styles.curriculumStars}>★★★★★</span>
-                                <span>{node.duration}</span>
+                                <span style={{ color: '#2563eb', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em' }}>Module {idx + 1}</span>
                               </div>
                             </div>
                             <button className={styles.curriculumToggle}>
-                              {isExpanded ? '▲' : '▼'}
+                              {isExpanded ? (
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                              ) : (
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                              )}
                             </button>
                           </div>
                           {isExpanded && (
@@ -702,24 +683,75 @@ const CourseDetailPage = () => {
       <section className={styles.newPromoSection}>
         <div className={styles.container}>
           <div className={`${styles.newPromoGrid} reveal-group`}>
-            {/* Left Banner with Image */}
-            <div className={styles.newPromoCard}>
-              <div className={styles.newPromoContent}>
-                <h3>Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed</h3>
-                <button className={styles.newPromoBtn}></button>
-              </div>
-              <img src={promoImg} alt="Student thinking" className={styles.newPromoImg} />
-            </div>
-            {/* Right Banner without Image */}
+
+            {/* Left Banner */}
             <div className={styles.newPromoCard}>
               <div className={styles.newPromoContent}>
                 <h3>Learn in-demand tech skills through hands-on</h3>
                 <p style={{ fontSize: '0.8rem', marginTop: '-10px', marginBottom: '20px', lineHeight: '1.4' }}>
                   Learn in-demand tech skills through hands-on training, real-world projects, and expert mentorship designed
                 </p>
-                <button className={styles.newPromoBtn}></button>
+                <button 
+                  className={styles.newPromoBtn}
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('openModal', {
+                      detail: { type: 'callback', courseTitle: course?.title }
+                    }));
+                  }}
+                >
+                  Get Career Counselling
+                </button>
               </div>
             </div>
+
+            {/* Right Highlights Card (Desktop Only) */}
+            {!isMobile && (
+              <div className={`${styles.newPromoCard} ${styles.highlightsCard}`}>
+                <h3 className={styles.highlightsTitle}>Course Highlights</h3>
+                <ul className={styles.highlightsList}>
+                  <li>
+                    <span className={styles.highlightIcon}>⏱️</span>
+                    <div>
+                      <strong>Duration</strong>
+                      <p>{course.duration || "6 Months"}</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span className={styles.highlightIcon}>📍</span>
+                    <div>
+                      <strong>Available Centers</strong>
+                      <div className={styles.centerLinksList}>
+                        {centers.map((center, index) => (
+                          <React.Fragment key={center.slug}>
+                            <span 
+                              className={styles.centerLink} 
+                              onClick={() => navigate(`/center/${center.slug}`)}
+                            >
+                              {center.name}
+                            </span>
+                            {index < centers.length - 1 && <span className={styles.centerComma}>, </span>}
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span className={styles.highlightIcon}>💼</span>
+                    <div>
+                      <strong>Placement</strong>
+                      <p>100% Assistance</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span className={styles.highlightIcon}>🎓</span>
+                    <div>
+                      <strong>Format</strong>
+                      <p>Offline / Hybrid</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -763,7 +795,7 @@ const CourseDetailPage = () => {
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
                     </div>
                     <div className={styles.statInfo}>
-                      <h3>25000+</h3>
+                      <h3>1000+</h3>
                       <p>Students Yearly</p>
                     </div>
                   </div>
