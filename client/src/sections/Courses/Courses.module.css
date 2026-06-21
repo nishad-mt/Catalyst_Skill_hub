@@ -154,6 +154,7 @@
   }
   .header{
     max-width: max-content;
+    margin-bottom: 1.25rem;
   }
   .heading {
     margin-bottom: 1rem;
