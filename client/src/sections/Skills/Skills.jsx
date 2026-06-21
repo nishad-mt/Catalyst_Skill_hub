@@ -12,7 +12,7 @@ const Skills = () => {
   return (
     <section className={`section ${styles.skillsSection}`}>
       <div className="container">
-        <h2 className={`${styles.sectionTitle} reveal`}>Learn the Skills That Actually Get You Hired</h2>
+        <h2 className={`${styles.sectionTitle} reveal`}>Why Build Your <span style={{ color: '#1e3a8a' }}>Future with Catalyst</span></h2>
 
 
         <div className={`${styles.skillsGrid} reveal-group`}>

@@ -3,6 +3,288 @@ import list from '../assets/list.png'
 export const courses = [
   {
   id: 1,
+  slug: "data-analyst",
+  title: "Data Analytics",
+  desc: "Learn how to collect, analyze, and visualize data to support smarter business decisions. Gain practical skills in tools and techniques used by modern data professionals. ",
+  duration: "6 months",
+  fee: "₹35,000",
+  rating: "4.8",
+  img: list,
+
+  whatYouWillLearn: [
+    {
+      id: 1,
+      icon: "📊",
+      title: "Data Analytics Fundamentals",
+      desc: "Learn the core concepts of data analytics and business intelligence used to support business decision-making."
+    },
+    {
+      id: 2,
+      icon: "🧹",
+      title: "Data Collection & Preparation",
+      desc: "Collect, clean, transform, and prepare datasets for accurate analysis and reporting."
+    },
+    {
+      id: 3,
+      icon: "📈",
+      title: "Exploratory Data Analysis",
+      desc: "Analyze datasets to identify trends, patterns, anomalies, and business opportunities through EDA techniques."
+    },
+    {
+      id: 4,
+      icon: "🗄️",
+      title: "SQL for Data Analysis",
+      desc: "Query, manage, and analyze structured data from databases using SQL."
+    },
+    {
+      id: 5,
+      icon: "📋",
+      title: "Excel for Analytics",
+      desc: "Use Excel for data manipulation, reporting, advanced formulas, pivot tables, and business analytics."
+    },
+    {
+      id: 6,
+      icon: "🐍",
+      title: "Python for Data Analytics",
+      desc: "Analyze and visualize data using Python and popular libraries such as Pandas and NumPy."
+    },
+    {
+      id: 7,
+      icon: "📉",
+      title: "Power BI & Tableau",
+      desc: "Build interactive dashboards, reports, and visualizations to communicate insights effectively."
+    },
+    {
+      id: 8,
+      icon: "📊",
+      title: "Business Statistics & Reporting",
+      desc: "Apply statistical techniques and reporting methods to support business intelligence and decision-making."
+    },
+    {
+      id: 9,
+      icon: "🚀",
+      title: "Capstone Analytics Project",
+      desc: "Work on real-world data analytics projects involving analysis, reporting, visualization, and business insights."
+    }
+  ],
+
+  tools: [
+    { name: "Microsoft Excel", icon: "📊" },
+    { name: "SQL", icon: "🗄️" },
+    { name: "Power BI", icon: "📈" },
+    { name: "Tableau", icon: "📉" },
+    { name: "Python", icon: "🐍" },
+    { name: "Pandas", icon: "🐼" },
+    { name: "NumPy", icon: "🔢" },
+    { name: "Jupyter Notebook", icon: "📓" },
+    { name: "Google Sheets", icon: "📋" }
+  ],
+
+  curriculum: [
+    "Introduction to Data Analytics & Excel Basics",
+    "Advanced Excel for Analytics",
+    "Data Analysis with SQL",
+    "Visualizing Data in Power BI",
+    "Building a Tableau Dashboard",
+    "Python for Data Analytics",
+    "Business Analytics Statistics",
+    "Reporting and Business Intelligence",
+    "Capstone Data Analytics Projects"
+  ]
+},
+{
+  id: 2,
+  slug: "data-science-ai",
+  title: "Data Science",
+  desc: " Build expertise in data analysis, machine learning, and predictive modeling through hands-on learning and real-world projects.",
+  duration: "6 months",
+  fee: "₹50,000",
+  rating: "4.7",
+  img: list,
+
+  whatYouWillLearn: [
+    {
+      id: 1,
+      icon: "🐍",
+      title: "Python for Data Science",
+      desc: "Learn Python programming for data analysis, scientific computing, and working with industry-standard data science libraries."
+    },
+    {
+      id: 2,
+      icon: "🧹",
+      title: "Data Collection & Preprocessing",
+      desc: "Master techniques for data collection, cleaning, transformation, and preprocessing to prepare datasets for analysis."
+    },
+    {
+      id: 3,
+      icon: "📊",
+      title: "Data Analysis & EDA",
+      desc: "Perform exploratory data analysis (EDA) to uncover patterns, trends, and insights from real-world datasets."
+    },
+    {
+      id: 4,
+      icon: "📈",
+      title: "Data Visualization",
+      desc: "Create impactful visualizations, dashboards, and reports using modern data visualization tools and techniques."
+    },
+    {
+      id: 5,
+      icon: "📉",
+      title: "Statistics for Data Science",
+      desc: "Apply statistical concepts and data-driven methods to solve analytical and business problems."
+    },
+    {
+      id: 6,
+      icon: "🤖",
+      title: "Machine Learning",
+      desc: "Develop predictive and classification models using supervised and unsupervised machine learning algorithms."
+    },
+    {
+      id: 7,
+      icon: "🧠",
+      title: "Advanced Machine Learning",
+      desc: "Understand advanced machine learning techniques and model evaluation methods for real-world applications."
+    },
+    {
+      id: 8,
+      icon: "🗄️",
+      title: "SQL for Data Analysis",
+      desc: "Query, manage, and analyze structured data efficiently using SQL databases."
+    },
+    {
+      id: 9,
+      icon: "🚀",
+      title: "Data Science Capstone Project",
+      desc: "Apply your skills in an end-to-end data science project involving analysis, visualization, and machine learning."
+    }
+  ],
+
+  tools: [
+    { name: "Python", icon: "🐍" },
+    { name: "Jupyter Notebook", icon: "📓" },
+    { name: "NumPy", icon: "🔢" },
+    { name: "Pandas", icon: "🐼" },
+    { name: "Matplotlib", icon: "📊" },
+    { name: "Seaborn", icon: "📈" },
+    { name: "Scikit-learn", icon: "🤖" },
+    { name: "SQL", icon: "🗄️" },
+    { name: "Power BI", icon: "📉" },
+    { name: "Tableau", icon: "📋" },
+    { name: "TensorFlow", icon: "🧠" },
+    { name: "Google Colab", icon: "☁️" },
+    { name: "Excel", icon: "📑" },
+    { name: "Git", icon: "🔀" },
+    { name: "GitHub", icon: "🐙" }
+  ],
+
+  curriculum: [
+    "Introduction to Data Science & Python Basics",
+    "Pandas Data Analysis",
+    "Data Visualization",
+    "Statistics for Data Scientists",
+    "SQL for Data Analysis",
+    "Machine Learning Introduction",
+    "Advanced Machine Learning",
+    "Tableau & Power BI",
+    "Data Science Capstone Project"
+  ]
+},
+{
+  id: 3,
+  slug: "cyber-security",
+  title: "Cyber Security",
+  location: "Calicut",
+  desc: "Understand how to protect systems, networks, and digital information from cyber threats. Learn practical security concepts, risk management, and industry-relevant tools used in modern cyber security. ",
+  duration: "6 months",
+  fee: "₹89,999",
+  rating: "4.9",
+  img: list,
+
+  whatYouWillLearn: [
+    {
+      id: 1,
+      icon: "🛡️",
+      title: "Cyber Security Fundamentals",
+      desc: "Understand the basics of cybersecurity, information security principles, threats, vulnerabilities, and risk management."
+    },
+    {
+      id: 2,
+      icon: "🌐",
+      title: "Network Security",
+      desc: "Learn network architectures, protocols, security concepts, and techniques used to secure organizational networks."
+    },
+    {
+      id: 3,
+      icon: "🕵️",
+      title: "Ethical Hacking & Penetration Testing",
+      desc: "Understand ethical hacking methodologies, reconnaissance techniques, and the fundamentals of penetration testing."
+    },
+    {
+      id: 4,
+      icon: "🔍",
+      title: "Vulnerability Assessment",
+      desc: "Identify security weaknesses, assess risks, and evaluate vulnerabilities in systems, applications, and networks."
+    },
+    {
+      id: 5,
+      icon: "🦠",
+      title: "Threats & Malware Analysis",
+      desc: "Understand malware, ransomware, phishing attacks, and other common cyber threats faced by organizations."
+    },
+    {
+      id: 6,
+      icon: "💻",
+      title: "Web Application Security",
+      desc: "Learn web security concepts, common vulnerabilities, and techniques for securing web applications."
+    },
+    {
+      id: 7,
+      icon: "📊",
+      title: "Security Operations & Incident Response",
+      desc: "Perform security monitoring, threat hunting, incident detection, and response activities in SOC environments."
+    },
+    {
+      id: 8,
+      icon: "📋",
+      title: "Risk Management & Compliance",
+      desc: "Understand cybersecurity frameworks, governance, compliance requirements, and security best practices."
+    },
+    {
+      id: 9,
+      icon: "🚀",
+      title: "Cyber Security Capstone Project",
+      desc: "Apply security concepts and tools in a real-world cybersecurity project covering assessment, monitoring, and defense."
+    }
+  ],
+
+  tools: [
+    { name: "Kali Linux", icon: "🐉" },
+    { name: "Wireshark", icon: "📡" },
+    { name: "Nmap", icon: "🔍" },
+    { name: "Burp Suite", icon: "🕷️" },
+    { name: "Metasploit", icon: "⚔️" },
+    { name: "Nessus", icon: "🔎" },
+    { name: "OWASP ZAP", icon: "⚡" },
+    { name: "Splunk", icon: "📊" },
+    { name: "OpenVAS", icon: "🛡️" },
+    { name: "Linux", icon: "🐧" },
+    { name: "Windows Security Tools", icon: "🪟" }
+  ],
+
+  curriculum: [
+    "Introduction to Cyber Security & Network Fundamentals",
+    "Security of Linux & Windows",
+    "Network Security and Monitoring",
+    "Introduction to Ethical Hacking",
+    "Vulnerability Assessment",
+    "Security of Web Applications",
+    "Security Operations Center (SOC)",
+    "Threat Hunting and Incident Response",
+    "Cyber Security Capstone Project"
+  ]
+},
+  {
+  id: 4,
   slug: "devops",
   title: "DevOps",
   location: "Calicut",
@@ -101,10 +383,10 @@ export const courses = [
   ]
 },
   {
-  id: 2,
+  id: 5,
   slug: "full-stack-web-development",
   title: "Python Full Stack",
-  desc: "This Python Full Stack Development course is designed to make you a job-ready web developer with hands-on training and real-world projects. Learn to create dynamic, responsive, and scalable web applications using Python, Django, HTML, CSS, JavaScript, databases, REST APIs, and modern development tools. Gain the practical skills required for careers in web development, software engineering, and full stack development.",
+  desc: " Develop modern web applications using Python and full stack technologies. Learn both frontend and backend development through practical projects and real-world application building.",
   duration: "6 months",
   fee: "₹45,000",
   rating: "4.8",
@@ -195,288 +477,6 @@ export const courses = [
     "REST API Development",
     "Security & Authentication",
     "Full Stack Capstone Project & Deployment"
-  ]
-},
-  {
-  id: 3,
-  slug: "data-science-ai",
-  title: "Data Science",
-  desc: "Data Science is one of the fastest-growing fields in technology, combining statistics, programming, machine learning, and data analysis to transform raw data into valuable business insights. Organizations across industries rely on data scientists to analyze trends, solve complex problems, and make data-driven decisions.",
-  duration: "6 months",
-  fee: "₹50,000",
-  rating: "4.9",
-  img: list,
-
-  whatYouWillLearn: [
-    {
-      id: 1,
-      icon: "🐍",
-      title: "Python for Data Science",
-      desc: "Learn Python programming for data analysis, scientific computing, and working with industry-standard data science libraries."
-    },
-    {
-      id: 2,
-      icon: "🧹",
-      title: "Data Collection & Preprocessing",
-      desc: "Master techniques for data collection, cleaning, transformation, and preprocessing to prepare datasets for analysis."
-    },
-    {
-      id: 3,
-      icon: "📊",
-      title: "Data Analysis & EDA",
-      desc: "Perform exploratory data analysis (EDA) to uncover patterns, trends, and insights from real-world datasets."
-    },
-    {
-      id: 4,
-      icon: "📈",
-      title: "Data Visualization",
-      desc: "Create impactful visualizations, dashboards, and reports using modern data visualization tools and techniques."
-    },
-    {
-      id: 5,
-      icon: "📉",
-      title: "Statistics for Data Science",
-      desc: "Apply statistical concepts and data-driven methods to solve analytical and business problems."
-    },
-    {
-      id: 6,
-      icon: "🤖",
-      title: "Machine Learning",
-      desc: "Develop predictive and classification models using supervised and unsupervised machine learning algorithms."
-    },
-    {
-      id: 7,
-      icon: "🧠",
-      title: "Advanced Machine Learning",
-      desc: "Understand advanced machine learning techniques and model evaluation methods for real-world applications."
-    },
-    {
-      id: 8,
-      icon: "🗄️",
-      title: "SQL for Data Analysis",
-      desc: "Query, manage, and analyze structured data efficiently using SQL databases."
-    },
-    {
-      id: 9,
-      icon: "🚀",
-      title: "Data Science Capstone Project",
-      desc: "Apply your skills in an end-to-end data science project involving analysis, visualization, and machine learning."
-    }
-  ],
-
-  tools: [
-    { name: "Python", icon: "🐍" },
-    { name: "Jupyter Notebook", icon: "📓" },
-    { name: "NumPy", icon: "🔢" },
-    { name: "Pandas", icon: "🐼" },
-    { name: "Matplotlib", icon: "📊" },
-    { name: "Seaborn", icon: "📈" },
-    { name: "Scikit-learn", icon: "🤖" },
-    { name: "SQL", icon: "🗄️" },
-    { name: "Power BI", icon: "📉" },
-    { name: "Tableau", icon: "📋" },
-    { name: "TensorFlow", icon: "🧠" },
-    { name: "Google Colab", icon: "☁️" },
-    { name: "Excel", icon: "📑" },
-    { name: "Git", icon: "🔀" },
-    { name: "GitHub", icon: "🐙" }
-  ],
-
-  curriculum: [
-    "Introduction to Data Science & Python Basics",
-    "Pandas Data Analysis",
-    "Data Visualization",
-    "Statistics for Data Scientists",
-    "SQL for Data Analysis",
-    "Machine Learning Introduction",
-    "Advanced Machine Learning",
-    "Tableau & Power BI",
-    "Data Science Capstone Project"
-  ]
-},
-    {
-  id: 4,
-  slug: "cyber-security",
-  title: "Cyber Security",
-  location: "Calicut",
-  desc: "The Cyber Security course aims to provide practical knowledge in network security, ethical hacking, vulnerability assessment, threat detection, security operations, and cyber defense techniques. Through hands-on labs, real-world scenarios, and industry-standard tools, you will learn to identify security risks, protect digital assets, and respond effectively to cyber threats.",
-  duration: "6 months",
-  fee: "₹89,999",
-  rating: "4.8",
-  img: list,
-
-  whatYouWillLearn: [
-    {
-      id: 1,
-      icon: "🛡️",
-      title: "Cyber Security Fundamentals",
-      desc: "Understand the basics of cybersecurity, information security principles, threats, vulnerabilities, and risk management."
-    },
-    {
-      id: 2,
-      icon: "🌐",
-      title: "Network Security",
-      desc: "Learn network architectures, protocols, security concepts, and techniques used to secure organizational networks."
-    },
-    {
-      id: 3,
-      icon: "🕵️",
-      title: "Ethical Hacking & Penetration Testing",
-      desc: "Understand ethical hacking methodologies, reconnaissance techniques, and the fundamentals of penetration testing."
-    },
-    {
-      id: 4,
-      icon: "🔍",
-      title: "Vulnerability Assessment",
-      desc: "Identify security weaknesses, assess risks, and evaluate vulnerabilities in systems, applications, and networks."
-    },
-    {
-      id: 5,
-      icon: "🦠",
-      title: "Threats & Malware Analysis",
-      desc: "Understand malware, ransomware, phishing attacks, and other common cyber threats faced by organizations."
-    },
-    {
-      id: 6,
-      icon: "💻",
-      title: "Web Application Security",
-      desc: "Learn web security concepts, common vulnerabilities, and techniques for securing web applications."
-    },
-    {
-      id: 7,
-      icon: "📊",
-      title: "Security Operations & Incident Response",
-      desc: "Perform security monitoring, threat hunting, incident detection, and response activities in SOC environments."
-    },
-    {
-      id: 8,
-      icon: "📋",
-      title: "Risk Management & Compliance",
-      desc: "Understand cybersecurity frameworks, governance, compliance requirements, and security best practices."
-    },
-    {
-      id: 9,
-      icon: "🚀",
-      title: "Cyber Security Capstone Project",
-      desc: "Apply security concepts and tools in a real-world cybersecurity project covering assessment, monitoring, and defense."
-    }
-  ],
-
-  tools: [
-    { name: "Kali Linux", icon: "🐉" },
-    { name: "Wireshark", icon: "📡" },
-    { name: "Nmap", icon: "🔍" },
-    { name: "Burp Suite", icon: "🕷️" },
-    { name: "Metasploit", icon: "⚔️" },
-    { name: "Nessus", icon: "🔎" },
-    { name: "OWASP ZAP", icon: "⚡" },
-    { name: "Splunk", icon: "📊" },
-    { name: "OpenVAS", icon: "🛡️" },
-    { name: "Linux", icon: "🐧" },
-    { name: "Windows Security Tools", icon: "🪟" }
-  ],
-
-  curriculum: [
-    "Introduction to Cyber Security & Network Fundamentals",
-    "Security of Linux & Windows",
-    "Network Security and Monitoring",
-    "Introduction to Ethical Hacking",
-    "Vulnerability Assessment",
-    "Security of Web Applications",
-    "Security Operations Center (SOC)",
-    "Threat Hunting and Incident Response",
-    "Cyber Security Capstone Project"
-  ]
-},
-{
-  id: 5,
-  slug: "data-analyst",
-  title: "Data Analytics",
-  desc: "This Data Analytics course provides hands-on training in data analysis, visualization, reporting, and business intelligence. Learn to work with real-world datasets, build interactive dashboards, analyze business performance metrics, and communicate insights effectively using industry-standard tools. Gain the skills needed to pursue careers as a Data Analyst, Business Analyst, Reporting Analyst, Business Intelligence Analyst, or Data Visualization Specialist.",
-  duration: "6 months",
-  fee: "₹35,000",
-  rating: "4.8",
-  img: list,
-
-  whatYouWillLearn: [
-    {
-      id: 1,
-      icon: "📊",
-      title: "Data Analytics Fundamentals",
-      desc: "Learn the core concepts of data analytics and business intelligence used to support business decision-making."
-    },
-    {
-      id: 2,
-      icon: "🧹",
-      title: "Data Collection & Preparation",
-      desc: "Collect, clean, transform, and prepare datasets for accurate analysis and reporting."
-    },
-    {
-      id: 3,
-      icon: "📈",
-      title: "Exploratory Data Analysis",
-      desc: "Analyze datasets to identify trends, patterns, anomalies, and business opportunities through EDA techniques."
-    },
-    {
-      id: 4,
-      icon: "🗄️",
-      title: "SQL for Data Analysis",
-      desc: "Query, manage, and analyze structured data from databases using SQL."
-    },
-    {
-      id: 5,
-      icon: "📋",
-      title: "Excel for Analytics",
-      desc: "Use Excel for data manipulation, reporting, advanced formulas, pivot tables, and business analytics."
-    },
-    {
-      id: 6,
-      icon: "🐍",
-      title: "Python for Data Analytics",
-      desc: "Analyze and visualize data using Python and popular libraries such as Pandas and NumPy."
-    },
-    {
-      id: 7,
-      icon: "📉",
-      title: "Power BI & Tableau",
-      desc: "Build interactive dashboards, reports, and visualizations to communicate insights effectively."
-    },
-    {
-      id: 8,
-      icon: "📊",
-      title: "Business Statistics & Reporting",
-      desc: "Apply statistical techniques and reporting methods to support business intelligence and decision-making."
-    },
-    {
-      id: 9,
-      icon: "🚀",
-      title: "Capstone Analytics Project",
-      desc: "Work on real-world data analytics projects involving analysis, reporting, visualization, and business insights."
-    }
-  ],
-
-  tools: [
-    { name: "Microsoft Excel", icon: "📊" },
-    { name: "SQL", icon: "🗄️" },
-    { name: "Power BI", icon: "📈" },
-    { name: "Tableau", icon: "📉" },
-    { name: "Python", icon: "🐍" },
-    { name: "Pandas", icon: "🐼" },
-    { name: "NumPy", icon: "🔢" },
-    { name: "Jupyter Notebook", icon: "📓" },
-    { name: "Google Sheets", icon: "📋" }
-  ],
-
-  curriculum: [
-    "Introduction to Data Analytics & Excel Basics",
-    "Advanced Excel for Analytics",
-    "Data Analysis with SQL",
-    "Visualizing Data in Power BI",
-    "Building a Tableau Dashboard",
-    "Python for Data Analytics",
-    "Business Analytics Statistics",
-    "Reporting and Business Intelligence",
-    "Capstone Data Analytics Projects"
   ]
 },
   {

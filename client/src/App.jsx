@@ -152,8 +152,8 @@ export default function App() {
             <Hero navigate={navigate} />
             <StatsBar    />
             <Courses searchQuery={searchQuery} navigate={navigate} />
-            <Placements />
             <Mentors />
+            <Placements />
             <Skills />
             <Comparison />
             <Testimonials />

@@ -2,22 +2,22 @@ export const skills = [
 {
 id: 1,
 title: "Real-Time Projects",
-desc: "Work on practical projects that help you gain hands-on experience and confidence in applying your skills."
+desc: "Work on projects that help you gain practical exposure and build confidence in applying what you learn."
 },
 {
 id: 2,
-title: "Expert Mentorship",
-desc: "Learn from experienced trainers and industry professionals who provide valuable guidance and career insights."
+title: "Expert Mentors",
+desc: "Get guidance from experienced trainers and professionals who understand industry expectations and career pathways."
 },
 {
 id: 3,
 title: "Industry-Focused Learning",
-desc: "Our curriculum is designed around current industry trends, technologies, and real-world skill requirements."
+desc: "Our programs are designed based on current industry trends, technologies, and real-world skill requirements."
 },
 {
 id: 4,
 title: "Placement Assistance",
-desc: "Get support with resume building, interview preparation, technical training, and career opportunities."
+desc: "Receive support for resume building, interview preparation, technical training, and career opportunities."
 },
 {
 id: 5,
@@ -27,26 +27,26 @@ desc: "Courses are structured to help students develop job-ready technical and p
 {
 id: 6,
 title: "Beginner-Friendly Learning",
-desc: "Whether you are starting from scratch or upgrading your skills, our approach supports every learning stage."
+desc: "Whether you are starting from basics or upgrading your skills, our learning approach supports every stage."
 },
 {
 id: 7,
-title: "Modern Technologies & AI Tools",
-desc: "Learn the latest technologies, frameworks, and AI tools widely used across the tech industry."
+title: "Updated Technologies & Ai Tools ",
+desc: "Learn modern technologies, frameworks, and Ai tools widely used in today’s tech industry."
 },
 {
 id: 8,
 title: "Supportive Learning Environment",
-desc: "Study in a positive and encouraging environment where questions, collaboration, and growth are welcomed."
+desc: "A positive and motivating environment where students can learn, ask questions, and grow with confidence."
 },
 {
 id: 9,
 title: "Focus on Long-Term Growth",
-desc: "Build strong foundations that support continuous learning and long-term career success."
+desc: "We focus not only on completing a course, but on helping students build strong foundations for future career growth."
 },
 {
 id: 10,
 title: "Practical Training Approach",
-desc: "Learn through hands-on sessions, assignments, live projects, and real-world implementation rather than theory alone."
+desc: "Learn through hands-on sessions, live projects, assignments, and practical implementation instead of only theory."
 }
 ];

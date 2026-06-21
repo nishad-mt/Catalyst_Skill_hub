@@ -155,6 +155,12 @@
   .header{
     max-width: max-content;
   }
+  .heading {
+    margin-bottom: 1rem;
+  }
+  .subHeading {
+    padding-top: 0;
+  }
   .banner {
     flex-direction: column;
     text-align: center;

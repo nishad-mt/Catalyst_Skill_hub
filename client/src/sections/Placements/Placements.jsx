@@ -62,7 +62,7 @@ const Placements = () => {
     <section className={`section ${styles.placementsSection}`}>
       <div className="container">
         <h2 className={`${styles.sectionTitle} reveal`}>
-          Placement Records
+          Career Success & <span style={{ color: '#1e3a8a' }}>Placement Achievements</span>
         </h2>
 
 

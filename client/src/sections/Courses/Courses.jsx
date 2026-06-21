@@ -31,10 +31,13 @@ export default function Courses({ searchQuery, navigate }) {
           {/* Header row */}
           <div className={`${styles.header} reveal`}>
             <h2 className={styles.heading}>
-              {searchQuery ? `Search Results for "${searchQuery}"` : "Explore our Courses"}
+              {searchQuery ? `Search Results for "${searchQuery}"` : (
+                <>Explore our <span style={{ color: '#1e3a8a' }}>Most popular Courses</span></>
+              )}
             </h2>
             <p className={styles.subHeading}>
-Discover Skills, technologies and opportunities that can shape your future in the tech industry.              </p>
+            Discover Skills, technologies and opportunities that can shape your future in the tech industry.
+            </p>
           </div>
 
           {/* Course grid */}
