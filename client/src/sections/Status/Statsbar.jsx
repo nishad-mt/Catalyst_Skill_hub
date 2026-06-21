@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Statsbar.module.css";
 
 const stats = [
+  { value: 500, suffix: "+", label: "Success Stories", icon: "" },
+  { value: 80, suffix: "+", label: "Practical learning Projects", icon: "" },
   { value: 100, suffix: "%", label: "Placement Assistance", icon: "" },
   { value: 1000, suffix: "+", label: "Students Yearly", icon: "" },
-  { value: 80, suffix: "+", label: "Expert Faculties", icon: "" },
-  { value: 20, suffix: "+", label: "Career counsellors", icon: "" },
 ];
 
 function useCountUp(target, duration = 1800, start = false) {

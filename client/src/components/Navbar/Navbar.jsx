@@ -237,7 +237,7 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
           scrolled ? styles.topBarHidden : ''
         }`}
       >
-        Hurry Up! New Batch Starts July 6th. Limited Seats Available.
+         Join our upcoming batch. Admissions closing soon.
       </div>
     )}
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''} ${!showTopBar ? styles.navNoTopBar : ''}`}>
