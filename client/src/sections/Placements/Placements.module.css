@@ -74,7 +74,12 @@
 .marqueeTrack {
   display: flex;
   width: max-content;
-  animation: marqueeScroll 15s linear infinite;
+}
+
+.marqueeGroup {
+  display: flex;
+  flex-shrink: 0;
+  animation: marqueeScroll var(--duration, 15s) linear infinite;
 }
 
 .marqueeContainer .card {
@@ -130,7 +135,7 @@
 
 @keyframes marqueeScroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-100%); }
 }
 
 @media (max-width: 768px) {
@@ -141,7 +146,7 @@
   .marqueeContainer {
     --card-width: 240px;
     --card-gap: 0.15rem;
-    gap: 0.15rem;
+    gap: 0.65rem;
   }
   
   .marqueeContainer .card {

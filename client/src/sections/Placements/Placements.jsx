@@ -84,14 +84,18 @@ const Placements = () => {
         <div className={styles.marqueeContainer}>
           {/* Row 1 */}
           <div className={styles.marqueeRow}>
-            <div className={styles.marqueeTrack}>
-              {[...placementImages, ...placementImages].map((image, index) => (
-                <div 
-                  key={`r1-${index}`} 
-                  ref={index === 0 ? firstCardRef : null} 
-                  className={styles.card}
-                >
-                  <img src={image} alt={`Placement Row 1 ${index + 1}`} className={styles.image} />
+            <div className={styles.marqueeTrack} style={{ '--duration': '15s' }}>
+              {Array.from({ length: 4 }).map((_, groupIndex) => (
+                <div key={`r1-group-${groupIndex}`} className={styles.marqueeGroup} aria-hidden={groupIndex > 0 ? "true" : undefined}>
+                  {placementImages.slice(0, 5).map((image, index) => (
+                    <div 
+                      key={`r1-${groupIndex}-${index}`} 
+                      ref={groupIndex === 0 && index === 0 ? firstCardRef : null} 
+                      className={styles.card}
+                    >
+                      <img src={image} alt={`Placement Row 1 ${index + 1}`} className={styles.image} />
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
@@ -100,12 +104,15 @@ const Placements = () => {
           <div className={`${styles.marqueeRow} ${styles.staggeredRow}`}>
             <div 
               className={styles.marqueeTrack}
-              style={offset ? { marginLeft: `-${offset}px` } : undefined}
+              style={{ ...(offset ? { marginLeft: `-${offset}px` } : {}), '--duration': '12s' }}
             >
-              {/* Shift array by 4 so it doesn't match Row 1 directly, but maintains same total width */}
-              {[...placementImages.slice(4), ...placementImages.slice(0, 4), ...placementImages.slice(4), ...placementImages.slice(0, 4)].map((image, index) => (
-                <div key={`r2-${index}`} className={styles.card}>
-                  <img src={image} alt={`Placement Row 2 ${index + 1}`} className={styles.image} />
+              {Array.from({ length: 4 }).map((_, groupIndex) => (
+                <div key={`r2-group-${groupIndex}`} className={styles.marqueeGroup} aria-hidden={groupIndex > 0 ? "true" : undefined}>
+                  {placementImages.slice(5).map((image, index) => (
+                    <div key={`r2-${groupIndex}-${index}`} className={styles.card}>
+                      <img src={image} alt={`Placement Row 2 ${index + 1}`} className={styles.image} />
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
