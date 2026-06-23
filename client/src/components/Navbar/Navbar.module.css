@@ -1,6 +1,6 @@
 .topBar {
   width: 100%;
-  height: 50px;
+  height: 46px;
   background: #2563eb;
   color: white;
   display: flex;
@@ -21,10 +21,11 @@
 
 .nav {
   position: fixed;
-  top: 50px;
+  top: 0;
+  transform: translateY(46px);
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 90px;
   background-color: #01053C;
   /* Fixed height for consistency */
   z-index: 1000;
@@ -32,16 +33,16 @@
   align-items: center;
   transition: all 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: top 0.3s ease, height 0.3s ease;
+  transition: transform 0.3s ease, height 0.3s ease;
 }
 
 .navNoTopBar {
-  top: 0 !important;
+  transform: translateY(0) !important;
 }
 
 .scrolled {
-  top: 0;
-  height: 70px;
+  transform: translateY(0);
+  height: 67px;
   /* Compact height when scrolled */
   /* background: transparent !important; */
   backdrop-filter: none;

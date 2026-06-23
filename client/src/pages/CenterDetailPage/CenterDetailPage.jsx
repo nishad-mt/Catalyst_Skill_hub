@@ -144,6 +144,9 @@ export default function CenterDetailPage({ navigate }) {
 
       setSuccess(true);
       setTurnstileToken(null);
+      setTimeout(() => {
+        navigate('/thank-you');
+      }, 1000);
     } catch (error) {
       console.error(error);
       const mailtoLink = `mailto:hello@catalysthub.in?subject=New Lead&body=${encodeURIComponent(

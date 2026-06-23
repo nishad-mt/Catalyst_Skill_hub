@@ -224,18 +224,25 @@ const SuccessStoriesPage = () => {
                                                     </svg>
                                                 )}
                                             </div>
+                                            <div className={styles.videoTextOverlay}>
+                                                <p className={styles.videoName}>{item.name}</p>
+                                                <p className={styles.videoRole}>{item.role}</p>
+                                            </div>
                                         </div>
                                         ) : (
 
                                             <>
-                                                <p className={styles.role}>
-                                                    {item.role}
-                                                </p>
                                                 <p className={styles.text}>
-                                                    {item.text}</p>
-                                                <h4 className={styles.name}>
-                                                    {item.name}
-                                                </h4>
+                                                    "{item.text}"
+                                                </p>
+                                                <div className={styles.authorInfo}>
+                                                    <h4 className={styles.name}>
+                                                        {item.name}
+                                                    </h4>
+                                                    <p className={styles.role}>
+                                                        {item.role}
+                                                    </p>
+                                                </div>
                                             </>
 
                                         )}

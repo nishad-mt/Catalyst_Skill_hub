@@ -643,8 +643,7 @@ const CourseDetailPage = ({ navigate }) => {
                       body: JSON.stringify(payload)
                     });
                     if (!response.ok) throw new Error("Server error");
-                    alert("Thank you! We will contact you soon regarding your eligibility.");
-                    e.target.reset();
+                    navigate('/thank-you');
                   } catch (err) {
                     console.error(err);
                     const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
