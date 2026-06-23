@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from './CourseDetailPage.module.css';
 import { courses, mentors, companyLogos, centers } from '../../data/siteData';
 import promoImg from '../../assets/promo_thinking.png';
-import studentsBanner from '../../assets/students_banner.png';
 import { testimonials } from '../../data/testimonials';
 import successVideo from '../../assets/videos/success.mp4';
 import parthivVideo from '../../assets/videos/parthiv.mp4';
