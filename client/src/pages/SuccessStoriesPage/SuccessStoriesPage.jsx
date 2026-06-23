@@ -232,6 +232,9 @@ const SuccessStoriesPage = () => {
                                         ) : (
 
                                             <>
+                                                <div className={styles.profilePic}>
+                                                    {item.initials}
+                                                </div>
                                                 <p className={styles.text}>
                                                     "{item.text}"
                                                 </p>
@@ -270,11 +273,18 @@ const SuccessStoriesPage = () => {
                         Meet our alumni who have successfully transitioned into high-growth tech careers at top-tier companies globally.
                     </p>
                     <div className={styles.placementsGrid}>
-                        {alumni.map((person) => (
-                            <div key={person.id} className={styles.placementCard}>
-                                <div className={styles.placementImageWrap}>
-                                    <img src={person.img} alt={person.name} className={styles.placementImg} />
-                                </div>
+                        {[
+                            { className: styles.row1, data: alumni.filter((_, i) => i % 2 === 0) },
+                            { className: styles.row2, data: alumni.filter((_, i) => i % 2 === 1) }
+                        ].map((row, rIdx) => (
+                            <div key={rIdx} className={`${styles.placementRow} ${row.className}`}>
+                                {row.data.map((person) => (
+                                    <div key={person.id} className={styles.placementCard}>
+                                        <div className={styles.placementImageWrap}>
+                                            <img src={person.img} alt={person.name} className={styles.placementImg} />
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         ))}
                     </div>

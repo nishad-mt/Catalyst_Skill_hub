@@ -1,6 +1,5 @@
 // Hero.jsx
 import styles from "./Hero.module.css";
-import heroImg from "../../assets/students_banner.png";
 import logoImg from "../../assets/logo.png";
 
 import { companyLogos } from "../../data/siteData";

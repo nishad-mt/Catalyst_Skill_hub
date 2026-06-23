@@ -1,12 +1,11 @@
-import cyberImg from "../assets/life/dathub.png";
-import reactImg from "../assets/life/trainee.png";
-import aiImg from "../assets/chorkk.png";
-import cloudImg from "../assets/life/cat4.png";
-import nthelum from "../assets/promo_thinking.png";
-import nandu from "../assets/nandootty.png";
-import python from "../assets/python.png";
-import ai from "../assets/ai.png";
-
+import crowdImg from "../assets/life/crowd.jpeg";
+import learningImg from "../assets/life/learning.png";
+import christmasImg from "../assets/life/christmas.jpg";
+import traineeImg from "../assets/life/trainee.png";
+import successImg from "../assets/life/success.jpeg";
+import nishuImg from "../assets/life/nishu.jpeg";
+import neerajImg from "../assets/life/neeraj.jpeg";
+import ladyImg from "../assets/life/lady.jpeg";
 
 export const life = [
   {
@@ -14,7 +13,7 @@ export const life = [
     thread: "cultural-events-and-celebration",
     description:
       "Celebrating memorable cultural programs, inaugurations, and student gatherings that bring our campus community together.",
-    image: cyberImg,
+    image: crowdImg,
   },
 
   {
@@ -22,15 +21,15 @@ export const life = [
     thread: "class-room",
     description:
       "Modern classrooms equipped with updated facilities, advanced labs, and interactive learning environments.",
-    image: nthelum,
+    image: learningImg,
   },
 
   {
     id: 3,
     thread: "campus-activities",
     description:
-      "Engaging campus activities, student interactions, competitions, and events that create vibrant student life.",
-    image: python,
+      "Students capturing a memorable photo with a mentor during our Christmas celebration.",
+    image: christmasImg,
   },
 
   {
@@ -38,7 +37,7 @@ export const life = [
     thread: "lab-training",
     description:
       "Hands-on practical training sessions designed to strengthen technical skills and real-world experience.",
-    image: aiImg,
+    image: traineeImg,
   },
 
   {
@@ -46,6 +45,30 @@ export const life = [
     thread: "students-achievements",
     description:
       "Highlighting student accomplishments, awards, academic excellence, and success stories.",
-    image: nandu,
+    image: successImg,
+  },
+
+  {
+    id: 6,
+    thread: "cultural-events-and-celebration",
+    description:
+      "An inspiring speech delivered during one of our major campus events.",
+    image: neerajImg,
+  },
+  {
+    id: 7,
+    thread: "campus-activities",
+    description:
+      "Students taking a break and enjoying a game of pool in the campus.",
+    image: nishuImg,
+    orientation: 'portrait',
+  },
+
+  {
+    id: 8,
+    thread: "cultural-events-and-celebration",
+    description:
+      "Expert insights and guidance shared during our tech celebration event.",
+    image: ladyImg,
   },
 ];

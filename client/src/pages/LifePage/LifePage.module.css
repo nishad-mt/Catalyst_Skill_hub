@@ -36,20 +36,18 @@
 }
 
 .layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* LEFT FILTERS SIDEBAR */
+/* TOP FILTERS WRAPPER */
 .sidebarFilters {
-  position: sticky;
-  top: 110px;
-  height: fit-content;
-  padding: 1rem;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .sidebarTitle {
@@ -59,31 +57,50 @@
   color: #0f172a;
 }
 
-.categoryItem {
-  font-size: 0.8rem;
-  padding: 0.8rem;
-  border: solid 0.5px rgb(76, 76, 252);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.25s;
-  margin-bottom: 0.70rem;
-  color: #334155;
+.categoriesRow {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 15px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.categoriesRow::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryPill {
+  flex: 0 0 auto;
+  padding: 10px 24px;
   background: white;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 50px;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-.categoryItem:hover {
-  background: #f1f5f9;
+.categoryPill:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
 }
 
-.active {
-  background: #5890E4;
+.activePill {
+  background: #0a1450;
   color: white;
-  border-color: #5890E4;
+  border-color: #0a1450;
 }
 
 .galleryGrid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 340px;
     gap:14px;
 }
 
@@ -92,13 +109,35 @@
     overflow:hidden;
     border-radius:12px;
     background:#f4f4f4;
-
-    aspect-ratio: 4 / 3;   /* clean same card shape */
+    height: 100%;
 }
+
+/* Staggered Bento Layout:
+   Pattern repeats every 5 items.
+   Row 1: Two 50% width cards (span 2 each)
+   Row 2: 25% (span 1), 50% (span 2), 25% (span 1)
+*/
+.galleryCard:nth-child(5n + 1),
+.galleryCard:nth-child(5n + 2),
+.galleryCard:nth-child(5n + 4) {
+    grid-column: span 2;
+}
+
+.galleryCard:nth-child(5n + 3),
+.galleryCard:nth-child(5n + 5) {
+    grid-column: span 1;
+}
+
+/* Explicit overrides for data-driven orientations */
+.galleryCard.portraitCard {
+    grid-column: span 1 !important;
+}
+
 .galleryImage{
     width:100%;
     height:100%;
     object-fit:cover;
+    object-position:top;
     display:block;
     transition:transform .5s ease;
 }
@@ -214,9 +253,14 @@
     white-space:nowrap;
     min-width:max-content;
   }
-  
   .galleryGrid {
     grid-template-columns: 1fr;
+    grid-auto-rows: 280px;
+  }
+
+  /* Reset all spans and ratios for mobile single column */
+  .galleryCard:nth-child(n) {
+    grid-column: span 1;
   }
 }
 

@@ -166,6 +166,21 @@
 
 /* ---------- TEXT ---------- */
 
+.profilePic {
+    width: 42px;
+    height: 42px;
+    background: #eef2ff;
+    color: #4263eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+}
+
 .authorInfo {
     display: flex;
     flex-direction: column;
@@ -237,15 +252,23 @@
 }
 
 .placementsGrid {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-auto-flow: column;
-    grid-auto-columns: 280px;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     overflow-x: auto;
     padding-bottom: 20px;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
+}
+
+.placementRow {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+.row2 {
+    margin-left: 150px;
 }
 
 .placementsGrid::-webkit-scrollbar {
@@ -258,13 +281,16 @@
 
 .placementCard {
     background: #fff;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: .3s ease;
     display: flex;
     flex-direction: column;
     scroll-snap-align: start;
+    width: 280px;
+    height: auto;
+    flex-shrink: 0;
 }
 
 .placementCard:hover {
@@ -283,7 +309,7 @@
 .placementImg {
     width: 100%;
     height: auto;
-    object-fit: contain;
+    display: block;
 }
 
 .placementInfo {
@@ -317,37 +343,21 @@
     margin: 8px 0 0 0;
 }
 
-@media (max-width: 1024px) {
-    .placementsGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
-    .placementsGrid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 8px;
-        width: 100%;
-        scrollbar-width: none; /* Firefox */
-    }
-
-    .placementsGrid::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-    }
-
     .placementCard {
-        flex: 0 0 85%;
-        scroll-snap-align: start;
+        width: 200px;
+        height: auto;
+    }
+
+    .row2 {
+        margin-left: 110px;
     }
 }
 
 /* ---------- CTA SECTION ---------- */
 
 .ctaSection {
-    padding: 40px 0 80px;
+    padding: 20px 0 40px;
 }
 
 .ctaGrid {
@@ -359,7 +369,7 @@
 .ctaCardPrimary {
     background: #4263eb;
     border-radius: 8px;
-    padding: 60px 2rem;
+    padding: 40px 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -379,7 +389,7 @@
     color: rgba(255, 255, 255, 0.9);
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     max-width: 90%;
 }
 
@@ -402,7 +412,7 @@
 .ctaCardSecondary {
     background: #f4f4f4;
     border-radius: 8px;
-    padding: 60px 2rem;
+    padding: 40px 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -421,7 +431,7 @@
     color: #444;
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .ctaBtnSecondary {

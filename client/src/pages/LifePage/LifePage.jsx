@@ -121,44 +121,42 @@ export default function LifePage() {
 
       {/* Main Layout Grid */}
       <section className={styles.layout}>
-        {/* LEFT FILTER SIDEBAR */}
-        <aside className={styles.sidebarFilters}>
-
-          <div className={styles.sidebarTitle}>
+        {/* TOP FILTER TABS */}
+        <div className={styles.sidebarFilters}>
+          <div className={styles.sidebarTitle} style={{ textAlign: 'left', marginBottom: '20px' }}>
             Categories
           </div>
 
           <div className={styles.categoriesRow}>
             {categories.map((category) => (
-              <div
-                key={category}
-                ref={(el) => (itemRefs.current[category] = el)}
-                className={`${styles.categoryItem} ${
-                  selectedCategory === category ? styles.active : ''
-                }`}
-                onClick={() => {
-                  setSelectedCategory(category);
+                <div
+                  key={category}
+                  ref={(el) => (itemRefs.current[category] = el)}
+                  className={`${styles.categoryPill} ${
+                    selectedCategory === category ? styles.activePill : ''
+                  }`}
+                  onClick={() => {
+                    setSelectedCategory(category);
 
-                  itemRefs.current[category]?.scrollIntoView({
-                    behavior:'smooth',
-                    inline:'center',
-                    block:'nearest',
-                  });
-                }}
-              >
-                {formatCategory(category)}
-              </div>
+                    itemRefs.current[category]?.scrollIntoView({
+                      behavior:'smooth',
+                      inline:'center',
+                      block:'nearest',
+                    });
+                  }}
+                >
+                  {formatCategory(category)}
+                </div>
             ))}
           </div>
-
-        </aside>
+        </div>
 
         {/* RIGHT GALLERY GRID */}
         <div className={styles.galleryGrid}>
           {filteredLife.map((item) => (
-            <div
-              key={item.id}
-              className={styles.galleryCard}
+            <div 
+              key={item.id} 
+              className={`${styles.galleryCard} ${item.orientation === 'portrait' ? styles.portraitCard : ''}`}
               style={{ cursor: 'pointer' }}
               onClick={() => setSelectedImg(item.image)}
             >

@@ -908,9 +908,9 @@
     position: absolute;
     /* Overlay content on mobile */
     top: 35px;
+    transform: none; /* Kill inherited desktop translateY */
     display: flex;
     align-items: center;
-    
   }
 
   .nav.navNoTopBar {
@@ -918,7 +918,9 @@
   }
 
   .scrolled {
+    position: fixed;
     top: 0;
+    width: 100%;
   }
 
   .hamburger {
