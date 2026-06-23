@@ -49,7 +49,7 @@
 /* Hero Section */
 .hero {
   background-color: #01053C;
-  padding: 120px 0 5rem 0;
+  padding: 160px 0 5rem 0;
   color: #ffffff;
   position: relative;
 }
@@ -117,11 +117,43 @@
   transform: translateY(0);
 }
 
+.heroQuickStats {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.quickStatItem {
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  white-space: nowrap;
+}
+
+.quickStatItem strong {
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.mobileHeroImg {
+  display: none;
+}
+
 /* Form Card */
 .formCard {
-  background-color: #c4c4c4; /* Silver/grey matching reference image */
+  background-color: #ffffff;
   border-radius: 14px;
-  padding: 2.5rem 2rem;
+  padding: 1.75rem 2rem;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   color: #111827;
   max-width: 420px;
@@ -130,22 +162,21 @@
 }
 
 .formTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
   text-align: center;
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin: 0 0 1.75rem 0;
-  color: #1f2937;
-  letter-spacing: -0.2px;
 }
 
 .inputGroup {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .inputField,
 .selectField {
   width: 100%;
-  padding: 0.9rem 1.1rem;
+  padding: 0.75rem 1.1rem;
   border-radius: 8px;
   border: 1px solid #b3b3b3;
   font-size: 0.875rem;
@@ -157,7 +188,7 @@
 }
 
 .inputField::placeholder {
-  color: #7c7c7c;
+  color: #9ca3af;
 }
 
 .inputField:focus,
@@ -184,7 +215,7 @@
   border: none;
   font-size: 1rem;
   font-weight: 700;
-  padding: 1rem;
+  padding: 0.85rem;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
@@ -288,7 +319,7 @@
 
 .statNum {
   font-size: 2.75rem;
-  font-weight: 800;
+  font-weight: 600;
   color: #111827;
   margin: 0;
   line-height: 1;
@@ -296,7 +327,7 @@
 
 .statLabel {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #4b5563;
   margin: 0;
   line-height: 1.4;
@@ -318,7 +349,7 @@
 .sectionHeader h2 {
   font-family: 'Outfit', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
+  font-weight: 500;
   color: #0f172a;
   margin: 0.5rem 0 0 0;
 }
@@ -326,16 +357,16 @@
 .sectionSubtitle {
   text-transform: uppercase;
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 1.5px;
   color: #2563eb;
 }
 
 .coursesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -368,10 +399,12 @@
   background:#f8fafc;
 }
 
+
+
 .sectionTitle{
   font-family: 'Outfit', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
+  font-weight: 500;
   color: #0f172a;
   margin-bottom: 3rem;
 }
@@ -421,8 +454,11 @@
 }
 
 .addressBox h4{
-  margin-bottom:0.5rem;
-  font-size:1.1rem;
+  color:#64748b;
+  font-size:0.85rem;
+  font-weight:500;
+  margin-bottom:0.3rem;
+  text-decoration:none;
 }
 
 .locationCard{
@@ -503,7 +539,7 @@
 .header{
   font-family: 'Outfit', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
+  font-weight: 500;
   color: #0f172a;
   margin-bottom: 3rem;
 }
@@ -528,7 +564,7 @@
 .skilled{
   font-family: 'Outfit', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
+  font-weight: 500;
   color: #0f172a;
   margin-bottom: 3rem;
   line-height: 1.25;
@@ -572,18 +608,19 @@
   flex-direction: column;
   justify-content: center;
   min-height: 180px;
+  text-align: left;
 }
 
 .blueStatCard h3 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 12px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
 .blueStatCard h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
   line-height: 1.4;
 }
 
@@ -724,20 +761,50 @@
     padding: 100px 0 3.5rem 0;
   }
   
+  .heroGrid {
+    gap: 1.5rem;
+  }
+
+  .heroQuickStats {
+    display: flex;
+  }
+
   .campusBadge {
     font-size: 0.5rem;
-    padding: 0.30rem 1rem;
+    padding: 0.35rem 1rem;
+    margin-top: 2.3rem;
+    margin-bottom: 0.75rem;
   }
   
   .heroTitle {
     font-size: 2.15rem;
   }
   
+  .mobileHeroImg {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 0.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .heroActions {
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+  
+  .heroActions button {
+    width: 100%;
+  }
+  
   .featuresSection,
-  .coursesSection,
   .contactMapSection,
   .campusGridSection {
     padding: 3rem 0;
+  }
+  
+  .coursesSection {
+    padding: 1.5rem 0 3rem 0;
   }
 
   .skillsGridSection {
@@ -751,21 +818,46 @@
   }
   
   .heroTitle {
-    font-size: 1.85rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+  
+  .announcementText,
+  .sectionSubtitle,
+  .locationCard,
+  .contactMiniCard p,
+  .successState p,
+  p {
+    font-size: 1rem !important;
+    margin-bottom: 1rem;
   }
   
   .heroDesc {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    font-size: 0.9rem !important;
+    margin-bottom: 1.5rem; 
   }
   
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    text-align: left;
   }
   
   .statNum {
-    font-size: 2.25rem;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .statLabel {
+    font-size: 0.8rem !important;
+    font-weight: 400;
+  }
+
+  .blueStatCard h3 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: center;
   }
   
   .featuresGrid {
@@ -774,11 +866,18 @@
   
   .sectionHeader h2,
   .contactInfo h2 {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
+    font-weight: 500;
   }
   
   .formCard {
-    padding: 1.75rem 1.25rem;
+    padding: 1rem 1.25rem 0 1.25rem;
+  }
+  
+  .requestCallText {
+    font-size: 0.8rem !important;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
   }
   
   .iframeWrapper {

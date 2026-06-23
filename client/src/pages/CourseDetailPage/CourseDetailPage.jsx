@@ -11,6 +11,7 @@ import mentor1 from '../../assets/mentors/benaseer.jpeg';
 import mentor2 from '../../assets/mentors/shakir.jpeg';
 import mentor3 from '../../assets/mentors/sruthi.jpeg';
 import { Turnstile } from '@marsidev/react-turnstile';
+import Skills from '../../sections/Skills/Skills';
 
 const PlayIcon = () => (
   <svg width="48" height="48" viewBox="0 0 24 24" fill="#ffffff" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85 }}>
@@ -754,26 +755,7 @@ const CourseDetailPage = ({ navigate }) => {
         </div>
       </section>
 
-      {/* Features Grid Section */}
-      <section className={styles.featuresSection}>
-        <div className={styles.container}>
-          <div className={`${styles.featuresHeader} reveal`}>
-            <h2><span style={{ color: '#1e3a8a' }}>Learn in-demand </span>tech skills</h2>
-          </div>
-          
-          <div className={`${styles.featuresGrid} reveal-group`}>
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div className={styles.featureCard} key={i}>
-                <div className={styles.featureIcon}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
-                </div>
-                <h4>Learn in-demand tech skills</h4>
-                <p>hands-on training, real-world projects, and expert mentorship designed</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Skills />
 
       {/* Split Info Section */}
       <section className={styles.splitInfoSection}>

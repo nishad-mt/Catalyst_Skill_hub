@@ -10,7 +10,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 80px 0;
   gap: 50px;
 }
 
@@ -114,7 +113,6 @@
 /* Mission Section */
 
 .missionSection {
-  padding: 80px 0;
   text-align: center;
 }
 
@@ -167,7 +165,10 @@
 .featuresSection {
   background: #cad6ff;
   text-align: center;
-  padding: 4rem 0;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  border-radius: 40px;
+  overflow: hidden;
 }
 
 .featuresSection h2 {
@@ -205,7 +206,7 @@
   line-height: 1.7;
 }
 .locationsSection {
-  padding: 4rem 5rem;
+  padding-bottom: 3rem !important;
 }
 
 .sectionTitle {
@@ -248,7 +249,7 @@
 }
 
 .boardMembers {
-  padding: 0;
+  padding-top: 3rem !important;
   margin-bottom: 5rem;
 }
 
@@ -363,7 +364,6 @@
 @media (max-width: 600px) {
   .aboutHero {
     margin-bottom: 1.5rem;
-    padding: var(--section-padding-mobile);
   }
 
   .heroContent h1 {
@@ -392,7 +392,6 @@
 
   .missionSection,
   .featuresSection {
-    padding: var(--section-padding-mobile);
   }
 
   .featuresGrid {
@@ -405,7 +404,6 @@
   }
 
   .locationsSection {
-    padding: var(--section-padding-mobile);
   }
 
   .locationsGrid {
@@ -414,7 +412,6 @@
   }
 
   .boardMembers {
-    padding: var(--section-padding-mobile);
     margin-bottom: 3rem;
   }
 

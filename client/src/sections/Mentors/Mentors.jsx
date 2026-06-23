@@ -31,7 +31,7 @@ const Mentors = () => {
         </div>
 
         <div className={`${styles.buttonContainer} reveal`}>
-          <button className={styles.talkBtn} onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}>Talk to an Expert</button>
+          <button className={styles.talkBtn} onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Talk to an Expert</button>
         </div>
       </div>
     </section>

@@ -105,7 +105,7 @@
 }
 
 .blogCard{
-  border:0.5px solid rgb(39,39,255);
+  border:0.5px solid rgba(62, 158, 255, 0.91);
   border-radius:8px;
 
   display:flex;
@@ -156,8 +156,8 @@
 .link{
   margin-top: auto;
   padding-top: 0.5rem;
-  color: #032a65;
-  font-size: 0.7rem;
+  color: #0066ff;
+  font-size: 0.8rem;
   display: inline-block;
 }
 

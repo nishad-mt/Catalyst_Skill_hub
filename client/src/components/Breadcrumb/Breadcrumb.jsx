@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Breadcrumb.module.css';
 import { courses } from '../../data/siteData';
 import homeIconImg from '../../assets/homeicon.png';
+import whiteIconImg from '../../assets/white.png';
 
 export default function Breadcrumb({ currentPage, navigate }) {
   // Hide breadcrumbs on the home page
@@ -72,7 +73,7 @@ export default function Breadcrumb({ currentPage, navigate }) {
                     onClick={(e) => handleNavigation(e, item.path)}
                     aria-label="Home"
                   >
-                    {item.label === "Home" ? <img src={homeIconImg} alt="Home" className={styles.homeIconImg} /> : item.label}
+                    {item.label === "Home" ? <img src={currentPage === 'center-detail' ? whiteIconImg : homeIconImg} alt="Home" className={`${styles.homeIconImg} ${currentPage === 'center-detail' ? styles.whiteIconImg : ''}`} /> : item.label}
                   </a>
                     <span className={styles.separator}>&gt;</span>
                   </>

@@ -385,7 +385,7 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
               {/* CTA — desktop only */}
               <button 
                 className={styles.cta}
-                onClick={() => window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }))}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Talk With Expert
               </button>
@@ -539,7 +539,7 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
               <button 
                 onClick={() => {
                   closeMenu();
-                  window.dispatchEvent(new CustomEvent('openModal', { detail: { type: 'callback' } }));
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }} 
                 className={styles.mobileCta}
               >

@@ -115,7 +115,7 @@ const BlogDetails = () => {
               </h2>
 
               <p className={styles.text}>
-                {section.text}
+                {section.text.trim()}
               </p>
 
             </section>

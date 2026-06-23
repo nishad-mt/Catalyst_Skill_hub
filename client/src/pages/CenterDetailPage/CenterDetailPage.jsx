@@ -3,7 +3,9 @@ import styles from './CenterDetailPage.module.css';
 import { centers, courses } from '../../data/siteData';
 import CourseCard from '../../components/CourseCard/CourseCard';
 import campusImage from "../../assets/campus.jpg";
+import campusLandingImg from "../../assets/campuslanding.png";
 import { Turnstile } from '@marsidev/react-turnstile';
+import Skills from '../../sections/Skills/Skills';
 
 export default function CenterDetailPage({ navigate }) {
   const [center, setCenter] = useState(null);
@@ -13,41 +15,6 @@ export default function CenterDetailPage({ navigate }) {
   const [success, setSuccess] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState(null);
   const coursesRef = useRef(null);
-
-  const advantagesData = [
-  {
-    title: "Industry Expert Mentorship",
-    description: "Learn directly from experienced professionals and mentors with real industry knowledge."
-  },
-  {
-    title: "Hands-On Practical Training",
-    description: "Gain real-world experience through live projects, workshops, and practical sessions."
-  },
-  {
-    title: "Career & Placement Support",
-    description: "Receive career guidance, interview preparation, resume building, and placement assistance."
-  },
-  {
-    title: "Modern Learning Environment",
-    description: "Study in a professional environment equipped with updated tools and learning resources."
-  },
-  {
-    title: "Flexible Learning Approach",
-    description: "Access structured learning methods designed to support different learning styles."
-  },
-  {
-    title: "Strong Professional Network",
-    description: "Connect with mentors, peers, alumni, and industry professionals for future opportunities."
-  },
-  {
-    title: "Project-Based Learning",
-    description: "Build confidence by working on practical assignments and real application scenarios."
-  },
-  {
-    title: "Skill Development for Future Careers",
-    description: "Develop in-demand skills that help prepare you for competitive job markets."
-  }
-];
 
   useEffect(() => {
     const path = window.location.pathname;
@@ -92,8 +59,8 @@ export default function CenterDetailPage({ navigate }) {
     );
   }
 
-  // Get full course objects for the courses offered at this center
-  const offeredCourses = courses.filter(c => center.courses.includes(c.slug));
+  // Display all courses available on the platform
+  const offeredCourses = courses;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -167,15 +134,6 @@ export default function CenterDetailPage({ navigate }) {
 
   return (
     <div className={styles.centerPage}>
-      {/* Top Announcement Strip */}
-      {center.announcement && (
-        <div className={styles.announcementStrip}>
-          <div className="container">
-            <span className={styles.announcementText}>{center.announcement}</span>
-          </div>
-        </div>
-      )}
-
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className="container">
@@ -192,6 +150,27 @@ export default function CenterDetailPage({ navigate }) {
               <p className={styles.heroDesc}>
                 {center.heroDesc || `Join our flagship campus in ${center.name} with state-of-the-art labs, expert faculties, and placement cells to boost your tech career.`}
               </p>
+              
+              <div className={styles.heroQuickStats}>
+                <div className={styles.quickStatItem}>
+                  <strong>Mode</strong>
+                  <span>Online/Offline</span>
+                </div>
+                <div className={styles.quickStatItem}>
+                  <strong>Batch Start Date</strong>
+                  <span>Jun 30, 2026</span>
+                </div>
+                <div className={styles.quickStatItem}>
+                  <strong>Duration</strong>
+                  <span>6 Months</span>
+                </div>
+              </div>
+
+              <img 
+                src={campusLandingImg} 
+                alt="Campus View" 
+                className={styles.mobileHeroImg} 
+              />
               <div className={styles.heroActions}>
                 <button className={styles.exploreBtn} onClick={handleScrollToCourses}>
                   Explore All Courses
@@ -271,8 +250,11 @@ export default function CenterDetailPage({ navigate }) {
                     >
                       {submitting ? 'SUBMITTING...' : 'SUBMIT'}
                     </button>
-                    <div className={styles.requestCallText} onClick={(e) => handleSubmit(null, 'Callback Request Quick Link')}>
-                      Request a Call Back
+                    <div 
+                      className={styles.requestCallText}
+                      style={{ userSelect: 'all', display: 'block' }}
+                    >
+                      For Enquiries Call:+91 97787 71175
                     </div>
                   </form>
                 )}
@@ -368,9 +350,9 @@ export default function CenterDetailPage({ navigate }) {
           <div className={styles.contactMiniCard}>
             <h5>📞 Call Us</h5>
 
-            <a href={`tel:${center.phone.replace(/\s+/g,'')}`}>
+            <div style={{ userSelect: 'all', fontWeight: '600', color: '#1d4ed8', fontSize: '1.1rem' }}>
               {center.phone}
-            </a>
+            </div>
 
             <p>Mon to Sun | 9am to 7pm</p>
           </div>
@@ -394,97 +376,7 @@ export default function CenterDetailPage({ navigate }) {
   </div>
 </section>
 
-      {/* Premium Campus Grid Section (Section 1) */}
-      <section className={styles.campusGridSection}>
-        <div className="container">
-          <div className={styles.campusGridHeader}>
-            <h2 className={styles.skilled}>
-              <span className={styles.blueText}>Become a Skilled Data</span> & Technology <br /> Professional
-            </h2>
-          </div>
-
-          <div className={styles.campusGridLayout}>
-            {/* Left side: Stats grid */}
-            <div className={styles.campusStatsLeft}>
-              {/* Row 1: Two cards */}
-              <div className={styles.statsRowTop}>
-                <div className={styles.blueStatCard}>
-                  <h3>24000+</h3>
-                  <p>Become a Skilled Data & Technology Professional</p>
-                </div>
-                <div className={styles.blueStatCard}>
-                  <h3>250+</h3>
-                  <p>Become a Skilled Data & Technology Professional</p>
-                </div>
-              </div>
-
-              {/* Row 2: Three cards */}
-              <div className={styles.statsRowBottom}>
-                <div className={`${styles.blueStatCard} ${styles.col1}`}>
-                  <h3>700+</h3>
-                  <p>Become a Skilled Data & Technology</p>
-                </div>
-                <div className={`${styles.blueStatCard} ${styles.col2}`}>
-                  <h4>Become a Skilled Data & Technology</h4>
-                </div>
-                <div className={`${styles.blueStatCard} ${styles.col3}`}>
-                  <h3>100%</h3>
-                  <p>Become a Skilled Data & Technology</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right side: Campus Image */}
-            <div className={styles.campusImageRight}>
-              <img
-                src={campusImage}
-                alt="Catalyst Campus Building"
-                className={styles.campusImg}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Grid of 8 checklist cards (Section 2) */}
-      <section className={styles.skillsGridSection}>
-        <div className="container">
-          <div className={styles.skillsGridHeader}>
-            <h2 className={styles.header}>
-              Become a Skilled Data
-            </h2>
-          </div>
-
-          <div className={styles.skillsCardsGrid}>
-            {advantagesData.map((item, index) => (
-              <div className={styles.skillCheckCard} key={index}>
-
-                <div className={styles.checkIconWrapper}>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className={styles.checklistIcon}
-                  >
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                    <path d="M9 14l2 2 4-4"></path>
-                  </svg>
-                </div>
-
-                <h4>{item.title}</h4>
-                <p>{item.description}</p>
-
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Skills />
     </div>
   );
 }

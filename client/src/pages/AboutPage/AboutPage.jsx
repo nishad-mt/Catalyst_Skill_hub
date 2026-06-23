@@ -14,16 +14,32 @@ function AboutPage() {
   ];
 
   const features = [
-    "Shaping the Generation",
-    "Shaping the Generation",
-    "Shaping the Generation",
-    "Shaping the Generation",
+    {
+      title: "Industry-Aligned Curriculum",
+      desc: "Our courses are designed alongside industry experts to meet current market demands.",
+      icon: "📚"
+    },
+    {
+      title: "Hands-on Projects",
+      desc: "Gain practical experience by working on real-world applications and scenarios.",
+      icon: "💻"
+    },
+    {
+      title: "Expert Mentorship",
+      desc: "Learn directly from seasoned professionals who bring years of experience to the classroom.",
+      icon: "👨‍🏫"
+    },
+    {
+      title: "Placement Assistance",
+      desc: "We provide dedicated support to help you land your dream tech role.",
+      icon: "🚀"
+    }
   ];
 
   return (
     <div className={`${styles.aboutPage} container`}>
       {/* Hero Section */}
-      <section className={styles.aboutHero}>
+      <section className={`section ${styles.aboutHero}`}>
         <div className={styles.heroContent}>
           <h1>
             Creating the <span>Next Generation of Tech</span> Professionals
@@ -55,7 +71,7 @@ function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className={styles.missionSection}>
+      <section className={`section ${styles.missionSection}`}>
         <h2 className={styles.secondheading}>
           Shaping the <span>Next Generation of Tech</span> Professionals
           Transforming Students into Industry-Ready Professionals
@@ -84,7 +100,7 @@ function AboutPage() {
       </section>
 
       {/* Features */}
-      <section className={styles.featuresSection}>
+      <section className={`section ${styles.featuresSection}`}>
         <h2 className={styles.heading}>
           Shaping the <span>Next Generation of Tech</span> Professionals
           Transforming Students into
@@ -93,19 +109,15 @@ function AboutPage() {
         <div className={styles.featuresGrid}>
           {features.map((item, index) => (
             <div className={styles.featureCard} key={index}>
-              <div className={styles.icon}>🎓</div>
-
-              <h4>{item}</h4>
-
-              <p>
-                Understand how SEO works across the complete customer journey.
-              </p>
+              <div className={styles.icon}>{item.icon}</div>
+              <h4>{item.title}</h4>
+              <p>{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className={styles.locationsSection}>
+      <section className={`section ${styles.locationsSection}`}>
         <h2 className={styles.sectionTitle}>Our Campus Locations</h2>
 
         <div className={styles.locationsGrid}>
@@ -122,7 +134,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <div className={styles.boardMembers}>
+      <div className={`section ${styles.boardMembers}`}>
         <h2 className={styles.sectionTitle}>Meet Our Board Members</h2>
         <div className={styles.membersGrid}>
           {boardMembers.map((member) => (
