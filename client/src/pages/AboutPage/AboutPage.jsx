@@ -17,22 +17,22 @@ function AboutPage() {
     {
       title: "Industry-Aligned Curriculum",
       desc: "Our courses are designed alongside industry experts to meet current market demands.",
-      icon: "📚"
+      // icon: "📚"
     },
     {
       title: "Hands-on Projects",
       desc: "Gain practical experience by working on real-world applications and scenarios.",
-      icon: "💻"
+      // icon: "💻"
     },
     {
       title: "Expert Mentorship",
       desc: "Learn directly from seasoned professionals who bring years of experience to the classroom.",
-      icon: "👨‍🏫"
+      // icon: "👨‍🏫"
     },
     {
       title: "Placement Assistance",
       desc: "We provide dedicated support to help you land your dream tech role.",
-      icon: "🚀"
+      // icon: "🚀"
     }
   ];
 
@@ -73,8 +73,7 @@ function AboutPage() {
       {/* Mission Section */}
       <section className={`section ${styles.missionSection}`}>
         <h2 className={styles.secondheading}>
-          Shaping the <span>Next Generation of Tech</span> Professionals
-          Transforming Students into Industry-Ready Professionals
+          Shaping the <span>Next Generation of Tech</span>
         </h2>
 
         <div className={styles.missionContainer}>

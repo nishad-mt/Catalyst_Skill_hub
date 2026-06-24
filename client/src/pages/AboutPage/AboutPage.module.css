@@ -1,5 +1,5 @@
 .aboutPage {
-  margin-top: 100px;
+  padding-top: 100px;
   width: 100%;
   font-family: Arial, sans-serif;
 }
@@ -29,9 +29,11 @@
 }
 
 .heading{
+  text-align: left;
   color: black;
 }
 .secondheading{
+  text-align: left;
   color: #000;
 }
 
@@ -167,7 +169,7 @@
   text-align: center;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
-  border-radius: 40px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -362,6 +364,10 @@
 /* Mobile */
 
 @media (max-width: 600px) {
+  .aboutPage {
+    padding: 40px 1.5rem 0 1.5rem;
+  }
+
   .aboutHero {
     margin-bottom: 1.5rem;
   }
@@ -404,6 +410,7 @@
   }
 
   .locationsSection {
+    padding: 2rem 0;
   }
 
   .locationsGrid {

@@ -14,12 +14,11 @@
 }
 
 .heroTitle {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 200;
+  font-size: clamp(1.8rem, 3vw, 2rem);
+  font-weight: 550;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  color: #0f172a;
+  color: #000000;
 }
 
 .heroDesc {

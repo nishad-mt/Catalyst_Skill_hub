@@ -23,16 +23,15 @@
 }
 
 .heroTitle {
-  font-family: 'Outfit', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 200;
+  font-weight: 500;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  color: #0f172a;
+  color: #000000;
 }
 
 .heroDesc {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-size: clamp(0.8rem, 2vw, 1.25rem);
   color: #64748b;
   max-width: 600px;
   line-height: 1.6;
@@ -210,6 +209,7 @@
     scrollbar-width: none;
     gap: 16px;
     padding-bottom: 20px;
+    align-items: stretch;
   }
 
   .blogGrid::-webkit-scrollbar{
