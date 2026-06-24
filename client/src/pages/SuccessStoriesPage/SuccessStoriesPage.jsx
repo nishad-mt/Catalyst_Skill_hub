@@ -117,6 +117,9 @@ const SuccessStoriesPage = () => {
                             src="https://img.youtube.com/vi/Z5uczTHbM3c/maxresdefault.jpg"
                             alt="Success Story 1"
                         />
+                        <div className={styles.playButtonOverlay}>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
                     </div>
 
                     <div className={styles.imageCard} onClick={() => setLightboxVideo('psAizMpIIhs')}>
@@ -124,6 +127,9 @@ const SuccessStoriesPage = () => {
                             src="https://img.youtube.com/vi/psAizMpIIhs/maxresdefault.jpg"
                             alt="Success Story 2"
                         />
+                        <div className={styles.playButtonOverlay}>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
                     </div>
 
                     <div className={styles.imageCard} onClick={() => setLightboxVideo('1FIM_oFl56Y')}>
@@ -131,6 +137,9 @@ const SuccessStoriesPage = () => {
                             src="https://img.youtube.com/vi/1FIM_oFl56Y/maxresdefault.jpg"
                             alt="Success Story 3"
                         />
+                        <div className={styles.playButtonOverlay}>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
                     </div>
 
                 </div>

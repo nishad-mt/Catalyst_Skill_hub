@@ -1237,8 +1237,19 @@
   text-align: left;
 }
 
+@media (max-width: 768px) {
+  .overviewHeaderLeft h2 {
+    font-size: 1.3rem; /* Adjusted mobile size */
+  }
+}
+
 .highlightBlue {
   color: #2563eb;
+  font-size: inherit;
+}
+
+.overviewHeaderLeft h2 span {
+  font-size: inherit;
 }
 
 .overviewHeaderLeft p {
@@ -1253,19 +1264,19 @@
 
 .statGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .statItem {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
 }
 
 .statIconWrapper {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background-color: #f1f5f9;
   display: flex;
@@ -1284,12 +1295,14 @@
   font-size: 2rem;
   font-weight: 700;
   color: #111;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+  line-height: 1;
 }
 
 .statInfo p {
   font-size: 0.9rem;
   color: #475569;
+  line-height: 1.2;
 }
 
 .overviewBody {
@@ -1365,7 +1378,7 @@
 }
 
 .eligibilityCard {
-  background-color: #d6cce69b; /* Light gray card */
+  background-color: #d0e3f3a7; /* Light gray card */
   border-radius: 10px;
   padding: 24px 20px;
   position: sticky;
@@ -2190,35 +2203,37 @@
   }
   .statItem{
     width:100%;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 8px;
+    gap: 4px;
   }
   .statInfo {
-    display: contents;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
   }
   .statInfo h3 {
-    font-size: 2rem;
-    font-weight: 500;
+    font-size: 1.8rem;
+    font-weight: 600;
     margin-bottom: 0;
   }
   .statInfo p {
-    font-weight: 700;
+    font-weight: 600;
     font-size: var(--font-size-mobile-base);
-    line-height: 1;
-    width: 100%;
-    margin-top: 2px;
+    line-height: 1.2;
+    margin-top: 0;
   }
   .statIconWrapper {
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
   }
   .statIconWrapper svg {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
   }
   .toolsLearnGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -2267,9 +2282,16 @@
   .overviewHeader, .overviewBody {
     flex-direction: column;
   }
+  .overviewHeader {
+    gap: 15px; /* Reduced from 40px */
+  }
   .overviewSection {
     padding-left: 0;
     padding-right: 0;
+  }
+  .overviewHeaderLeft, .overviewHeaderRight {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   .overviewContentLeft {
     width: calc(100% + 2rem);
@@ -2285,7 +2307,7 @@
     position: static; /* disable sticky on mobile */
   }
   
-  .page *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(.tag):not(.subTag):not(.badge):not(.sectionLabel) {
+  .page *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(.tag):not(.subTag):not(.badge):not(.sectionLabel):not(span) {
     font-size: var(--font-size-mobile-base);
   }
 
@@ -2296,9 +2318,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
   .statGrid {
-    margin-top: 30px;
+    margin-top: 10px;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 8px; /* Reduced from 15px */
   }
   .newPromoGrid {
     grid-template-columns: 1fr;
@@ -2408,7 +2430,7 @@
 
   .newPromoContent {
     max-width: 100%;
-    text-align: center;
+    text-align: left;
   }
   
   .newPromoCard {

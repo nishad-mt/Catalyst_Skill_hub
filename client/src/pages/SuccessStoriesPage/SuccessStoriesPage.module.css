@@ -56,6 +56,38 @@
     border-radius:10px;
     cursor:pointer;
     transition:.45s ease;
+    position: relative;
+}
+
+.playButtonOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.imageCard:hover .playButtonOverlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: rgba(220, 38, 38, 0.9); /* YouTube Red on hover */
+}
+
+.playButtonOverlay svg {
+    width: 28px;
+    height: 28px;
+    margin-left: 4px;
 }
 
 .imageCard:first-child{
@@ -498,6 +530,10 @@
         padding: 40px 0;
     }
 
+    .careerSection {
+        margin-top: 50px;
+    }
+
     .imageSection{
         height:auto;
         gap:6px;
@@ -512,6 +548,7 @@
         width: calc(100% + 2rem);
         margin-left: -1rem;
         margin-right: -1rem;
+        margin-top: 15px;
     }
 
     .slider {

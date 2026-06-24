@@ -6,6 +6,7 @@ import campusImage from "../../assets/campus.jpg";
 import campusLandingImg from "../../assets/campuslanding.png";
 import { Turnstile } from '@marsidev/react-turnstile';
 import Skills from '../../sections/Skills/Skills';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 export default function CenterDetailPage({ navigate }) {
   const [center, setCenter] = useState(null);
@@ -50,13 +51,7 @@ export default function CenterDetailPage({ navigate }) {
   }
 
   if (!center) {
-    return (
-      <div className={styles.errorContainer}>
-        <h2>Center Not Found</h2>
-        <p>Sorry, the campus location you are looking for could not be found.</p>
-        <button className="btn-primary" onClick={() => navigate('/')}>Back to Home</button>
-      </div>
-    );
+    return <NotFoundPage navigate={navigate} />;
   }
 
   // Display all courses available on the platform

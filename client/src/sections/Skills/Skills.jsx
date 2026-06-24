@@ -22,10 +22,10 @@ const Skills = () => {
               className={styles.skillCard}
             >
               <div className={styles.iconWrapper}>
-                <IconPlaceholder />
+                <img src={skill.icon} alt={skill.title} className={styles.skillIcon} />
               </div>
               <h3 className={styles.skillTitle}>{skill.title}</h3>
-              <p className={styles.skillDesc}>{skill.desc}</p>
+              {skill.desc && <p className={styles.skillDesc}>{skill.desc}</p>}
             </div>
           ))}
         </div>

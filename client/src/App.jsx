@@ -142,9 +142,9 @@ export default function App() {
         ) : currentPage === 'success-stories' ? (
           <SuccessStoriesPage />
         ) : currentPage === 'life' ? (
-          <LifePage />
+          <LifePage navigate={navigate} />
         ) : currentPage === 'blog-detail' ? (
-          <BlogDetails key={currentPath} />
+          <BlogDetails key={currentPath} navigate={navigate} />
         ) : currentPage === 'blogs' ? (
           <BlogPage />
         ): (

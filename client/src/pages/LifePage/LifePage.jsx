@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from './LifePage.module.css';
 import { life } from '../../data/life';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
-export default function LifePage() {
+export default function LifePage({ navigate }) {
   const [selectedImg, setSelectedImg] = useState(null);
 
   useEffect(() => {
@@ -21,25 +22,7 @@ export default function LifePage() {
     const item = life.find((data) => data.id.toString() === detailId);
 
     if (!item) {
-      return (
-        <section className={styles.page}>
-          <div className="container" style={{ padding: '160px 0 100px', textAlign: 'center' }}>
-            <h2>Life Event Not Found</h2>
-            <a
-              href="#"
-              className={styles.link}
-              style={{ fontSize: '1rem', marginTop: '1rem', display: 'inline-block' }}
-              onClick={(e) => {
-                e.preventDefault();
-                window.history.pushState({}, '', '/life');
-                window.dispatchEvent(new PopStateEvent('popstate'));
-              }}
-            >
-              Back to Life @ Catalyst
-            </a>
-          </div>
-        </section>
-      );
+      return <NotFoundPage navigate={navigate} />;
     }
 
     return (

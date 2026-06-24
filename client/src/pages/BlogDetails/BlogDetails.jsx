@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import styles from './BlogDetails.module.css';
 import { blogs } from '../../data/blogs';
 import { Turnstile } from '@marsidev/react-turnstile';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
-const BlogDetails = () => {
+const BlogDetails = ({ navigate }) => {
   const [phone, setPhone] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -16,7 +17,7 @@ const BlogDetails = () => {
     item => item.id.toString() === id
   );
 
-  if (!blog) return <h2>Blog Not Found</h2>;
+  if (!blog) return <NotFoundPage navigate={navigate} />;
 
   const { content } = blog;
 

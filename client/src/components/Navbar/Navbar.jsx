@@ -228,6 +228,7 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
   };
 
   const showTopBar = ['home', 'courses', 'course-detail', 'center-detail'].includes(currentPage);
+  const isMinimalNavbar = currentPage === '404' || currentPage === 'thank-you';
 
   return (
     <>
@@ -244,7 +245,7 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
         <div className={styles.inner}>
 
           {/* HAMBURGER — mobile/tablet only */}
-          {currentPage !== '404' && (
+          {!isMinimalNavbar && (
             <button
               className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
               onClick={() => {
@@ -270,7 +271,7 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
           </a>
 
           {/* SEARCH — hidden on mobile, shown ≥ 680px */}
-          {currentPage !== '404' && (
+          {!isMinimalNavbar && (
             <>
               <div className={styles.searchBox} style={{ position: 'relative' }}>
                 <FiSearch className={styles.searchIcon} />
@@ -333,8 +334,8 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
             </>
           )}
 
-          {/* RIGHT SIDE */}
-          {currentPage !== '404' && (
+          {/* RIGHT SIDE — Desktop Nav + Buttons */}
+          {!isMinimalNavbar && (
             <div className={styles.right}>
 
               <ul className={styles.links}>
@@ -411,13 +412,13 @@ export default function Navbar({ searchQuery, setSearchQuery, navigate, currentP
         </div>
       </nav>
 
-      {/* BACKDROP — tap outside to close */}
-      {currentPage !== '404' && menuOpen && (
+      {/* BACKDROP FOR MOBILE MENU */}
+      {!isMinimalNavbar && menuOpen && (
         <div className={styles.backdrop} onClick={closeMenu} aria-hidden="true" />
       )}
 
       {/* MOBILE MENU — slides in from right */}
-      {currentPage !== '404' && (
+      {!isMinimalNavbar && (
         <div
           className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ''} ${
             menuDirection === 'left' ? styles.slideLeft : styles.slideRight

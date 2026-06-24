@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from './CourseDetailPage.module.css';
 import { courses, mentors, companyLogos, centers } from '../../data/siteData';
 import promoImg from '../../assets/promo_thinking.png';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import { testimonials } from '../../data/testimonials';
 import successVideo from '../../assets/videos/success.mp4';
 import parthivVideo from '../../assets/videos/parthiv.mp4';
@@ -297,7 +298,7 @@ const CourseDetailPage = ({ navigate }) => {
   }, [window.location.pathname]);
 
   if (loading) return <div className={styles.loading}>Loading Course Details...</div>;
-  if (!course) return <div className={styles.error}>Course not found</div>;
+  if (!course) return <NotFoundPage navigate={navigate} />;
 
   const handleOpenModal = (type) => {
     window.dispatchEvent(new CustomEvent('openModal', { 
@@ -627,10 +628,12 @@ const CourseDetailPage = ({ navigate }) => {
                 <h4>Find out If you're Eligible</h4>
                 <form className={styles.eligibilityForm} onSubmit={async (e) => {
                   e.preventDefault();
+                  const name = e.target.name.value;
                   const phone = e.target.phone.value;
                   const payload = {
                     _subject: `New Eligibility Check: ${course.title}`,
                     FormType: 'Eligibility Check',
+                    Name: name,
                     Phone: phone,
                     CourseOfInterest: course.title,
                     PageURL: window.location.href,
@@ -647,13 +650,14 @@ const CourseDetailPage = ({ navigate }) => {
                   } catch (err) {
                     console.error(err);
                     const mailtoLink = `mailto:hello@catalysthub.in?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
-                      `Form Type: ${payload.FormType}\nPhone: ${payload.Phone}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
+                      `Form Type: ${payload.FormType}\nName: ${payload.Name}\nPhone: ${payload.Phone}\nCourse: ${payload.CourseOfInterest}\nPage: ${payload.PageURL}\nTime: ${payload.SubmissionTime}`
                     )}`;
                     if (window.confirm("Our form server is currently experiencing issues. Would you like to send your details via email instead?")) {
                       window.location.href = mailtoLink;
                     }
                   }
                 }}>
+                  <input type="text" name="name" placeholder="Full Name" required />
                   <input type="tel" name="phone" placeholder="Phone Number" required />
                   <button type="submit">SUBMIT</button>
                 </form>
