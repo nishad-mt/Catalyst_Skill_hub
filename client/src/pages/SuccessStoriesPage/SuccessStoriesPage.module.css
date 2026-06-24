@@ -469,12 +469,33 @@
 
 @media(max-width:768px){
 
+    .placementsDesc, .heroDesc {
+        font-size: var(--font-size-mobile-base);
+    }
+
+    .text {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .name {
+        font-size: 14px;
+    }
+
+    .role {
+        font-size: 11px;
+    }
+
     .ctaCardPrimary, .ctaCardSecondary {
         padding: 40px 1.5rem;
     }
 
     .hero{
-        padding:100px 0 70px;
+        padding:100px 0 30px;
+    }
+
+    .placementsSection {
+        padding: 40px 0;
     }
 
     .imageSection{
@@ -485,15 +506,22 @@
 
     .imageCard{
         height:220px;
-    } 
+    }
 
+    .sliderWrapper {
+        width: calc(100% + 2rem);
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
 
-    .slider{
+    .slider {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none; /* Firefox */
+        border-radius: 0;
+        padding: 20px 0;
     }
-    
+
     .slider::-webkit-scrollbar {
         display: none; /* Chrome/Safari */
     }
@@ -504,10 +532,16 @@
         animation: none;
     }
 
-    .card{
+    .card {
+    flex: 0 0 auto;
+    width: 300px;
+    min-height: 50px;
+    height: auto;
+    padding: 12px;
+}
 
-        flex:0 0 250px;
-        min-height:200px;
+    .videoCard {
+        padding: 0;
     }
 
     .playBtn{

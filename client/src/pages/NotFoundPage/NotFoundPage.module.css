@@ -52,9 +52,9 @@
 
 @media (max-width: 768px) {
   .heading {
-    font-size: 4rem;
+    font-size: var(--font-size-mobile-base);
   }
   .text {
-    font-size: 1rem;
+    font-size: var(--font-size-mobile-base);
   }
 }

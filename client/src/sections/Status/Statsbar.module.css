@@ -183,15 +183,15 @@
   }
 
   .icon {
-    font-size: 1.15rem;
+    font-size: var(--font-size-mobile-base);
   }
 
   .number {
-    font-size: 1.35rem;
+    font-size: var(--font-size-mobile-base);
   }
 
   .suffix {
-    font-size: 1.1rem;
+    font-size: var(--font-size-mobile-base);
   }
 
   .label {
@@ -258,7 +258,7 @@
   }
 
   .suffix {
-    font-size: 1rem;
+    font-size: var(--font-size-mobile-base);
   }
 
   .label {
@@ -271,6 +271,6 @@
   }
 
   .icon {
-    font-size: 1rem;
+    font-size: var(--font-size-mobile-base);
   }
 }

@@ -814,7 +814,7 @@
 
 @media (max-width: 640px) {
   .announcementText {
-    font-size: 0.85rem;
+    font-size: var(--font-size-mobile-base);
   }
   
   .heroTitle {
@@ -828,12 +828,12 @@
   .contactMiniCard p,
   .successState p,
   p {
-    font-size: 1rem !important;
+    font-size: var(--font-size-mobile-base);
     margin-bottom: 1rem;
   }
   
   .heroDesc {
-    font-size: 0.9rem !important;
+    font-size: var(--font-size-mobile-base);
     margin-bottom: 1.5rem; 
   }
   
@@ -850,7 +850,7 @@
   }
   
   .statLabel {
-    font-size: 0.8rem !important;
+    font-size: var(--font-size-mobile-base);
     font-weight: 400;
   }
 
@@ -875,7 +875,7 @@
   }
   
   .requestCallText {
-    font-size: 0.8rem !important;
+    font-size: var(--font-size-mobile-base);
     margin-top: 1.75rem;
     margin-bottom: 0.5rem;
   }

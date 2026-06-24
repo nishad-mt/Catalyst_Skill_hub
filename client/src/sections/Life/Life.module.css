@@ -74,7 +74,7 @@
 @media (max-width: 768px) {
   .viewAllBtn {
     padding: 0.55rem 1rem !important;
-    font-size: 0.95rem !important;
+    font-size: var(--font-size-mobile-base);
   }
 }
 

@@ -589,7 +589,7 @@
     width: 100%;
     text-align: center;
     padding: 0.65rem 0.7rem;
-    font-size: 0.9rem;
+    font-size: var(--font-size-mobile-base);
   }
 }
 
@@ -599,9 +599,9 @@
   }
   .primaryBtn {
     padding: 0.65rem 0.7rem;
-    font-size: 0.9rem;
+    font-size: var(--font-size-mobile-base);
   }
   .sectionLabel {
-    font-size: 0.8rem !important;
+    font-size: var(--font-size-mobile-base);
   }
 }

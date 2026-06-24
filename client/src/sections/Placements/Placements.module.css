@@ -159,6 +159,6 @@
 
   .viewAllBtn {
     padding: 0.65rem 0.7rem;
-    font-size: 0.9rem;
+    font-size: var(--font-size-mobile-base);
   }
 }

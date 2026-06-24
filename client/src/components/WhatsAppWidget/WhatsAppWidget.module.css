@@ -388,11 +388,11 @@
   .avatar {
     width: 36px;
     height: 36px;
-    font-size: 14px;
+    font-size: var(--font-size-mobile-base);
   }
 
   .headerName {
-    font-size: 14px;
+    font-size: var(--font-size-mobile-base);
   }
 
   /* Close button — larger tap target, no shrink */
@@ -416,7 +416,7 @@
 
   .input {
     min-height: 40px;
-    font-size: 14px;
+    font-size: var(--font-size-mobile-base);
   }
 
   .sendBtn {

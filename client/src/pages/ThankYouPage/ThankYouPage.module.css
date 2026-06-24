@@ -62,6 +62,6 @@
     font-size: 2rem;
   }
   .text {
-    font-size: 1rem;
+    font-size: var(--font-size-mobile-base);
   }
 }

@@ -221,7 +221,7 @@
 
   .cardHeader span {
     font-weight: 700;
-    font-size: 0.875rem;
+    font-size: var(--font-size-mobile-base);
     color: #0a1450;
   }
 
@@ -235,7 +235,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    font-size: 0.8rem;
+    font-size: var(--font-size-mobile-base);
     line-height: 1.4;
   }
 
@@ -270,10 +270,14 @@
   .catalystContentMobile, .othersContentMobile {
     text-align: left;
   }
+  
+  .catalystContentMobile span, .othersContentMobile span {
+    font-size: 12px !important;
+  }
 
   .checkBtn{
     padding: 0.65rem 0.7rem;
-    font-size: 0.9rem;
+    font-size: var(--font-size-mobile-base);
   }
 }
 

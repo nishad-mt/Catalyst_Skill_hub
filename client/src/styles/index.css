@@ -31,6 +31,9 @@
   /* Border Radius */
   --radius-main: 14px;
   --radius-btn: 8px;
+
+  /* Typography */
+  --font-size-mobile-base: 14px;
 }
 
 /* 2. Global Base Styles */
@@ -38,6 +41,7 @@ html{
   width:100%;
   overflow-x:clip;
   overscroll-behavior:none;
+  background-color: #2563eb; /* iOS top overscroll color (matches TopBar) */
 }
 
 body{
@@ -45,10 +49,8 @@ body{
   padding:0;
   overscroll-behavior:none;
   width:100%;
-  min-height:100%;
-
-
-  background:white;
+  min-height:100vh;
+  background-color: #ffffff; /* iOS bottom overscroll color and main page bg */
   color:var(--text);
 
   font-family:'Open Sans',sans-serif;
@@ -115,6 +117,11 @@ a:hover {
 
   .container {
     padding: 0 1rem;
+  }
+
+  /* Global Mobile Text Size */
+  body, p, li, td, th, caption, label, button, .desc, .text {
+    font-size: var(--font-size-mobile-base);
   }
 }
 
