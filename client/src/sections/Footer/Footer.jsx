@@ -154,7 +154,7 @@ export default function Footer({ navigate }) {
             <span className={styles.divider}>|</span>
             <a href="/center/vadakara" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/vadakara'); }}>Vadakara</a>
             <span className={styles.divider}>|</span>
-            <a href="/center/perinthalmanna" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/perinthalmanna'); }}>Perinthelmanna</a>
+            <a href="/center/perinthalmanna" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/perinthalmanna'); }}>Perinthalmanna</a>
             <span className={styles.divider}>|</span>
             <a href="/center/edappal" className={styles.campusLink} onClick={(e) => { e.preventDefault(); navigate('/center/edappal'); }}>Edappal</a>
             <span className={styles.divider}>|</span>

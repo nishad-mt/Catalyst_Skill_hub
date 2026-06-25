@@ -9,7 +9,7 @@ export const navLinks = [
       { label: "Thrissur", href: "/center/thrissur" },
       { label: "Manjeri", href: "/center/manjeri" },
       { label: "Vadakara", href: "/center/vadakara" },
-      { label: "Perinthelmanna", href: "/center/perinthalmanna" },
+      { label: "Perinthalmanna", href: "/center/perinthalmanna" },
       { label: "Edappal", href: "/center/edappal" },
       { label: "Kottakkal", href: "/center/kottakkal" },
       { label: "Ernakulam", href: "/center/ernakulam" },
