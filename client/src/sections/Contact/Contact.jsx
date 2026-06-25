@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { testimonials, courses, centers } from '../../data/siteData';
 import styles from './Contact.module.css';
 import { Turnstile } from '@marsidev/react-turnstile';
+import { getUTMs } from '../../utils/getUTMs';
 
 export default function Contact({ navigate }) {
   const [form, setForm] = useState({ name: '', phone: '', email: '', course: '', center: '' });
@@ -63,7 +64,8 @@ export default function Contact({ navigate }) {
       course: form.course || "N/A",
       center: form.center || "N/A",
       pageUrl: window.location.href,
-      turnstileToken: turnstileToken
+      turnstileToken: turnstileToken,
+      ...getUTMs()
     };
 
     try {

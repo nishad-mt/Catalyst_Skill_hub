@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styles from './ContactModal.module.css';
+import { FiX } from 'react-icons/fi';
 import { Turnstile } from '@marsidev/react-turnstile';
+import { getUTMs } from '../../utils/getUTMs';
+import styles from './ContactModal.module.css';
 
 const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '', navigate }) => {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
@@ -42,7 +44,8 @@ const ContactModal = ({ isOpen, onClose, type = 'callback', courseTitle = '', na
       course: courseTitle || "N/A",
       center: "N/A",
       pageUrl: window.location.href,
-      turnstileToken: turnstileToken
+      turnstileToken: turnstileToken,
+      ...getUTMs()
     };
 
     try {

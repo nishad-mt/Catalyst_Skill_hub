@@ -18,6 +18,11 @@ export default async function handler(req, res) {
       center,
       pageUrl,
       turnstileToken,
+      utm_source,
+      utm_medium,
+      utm_campaign,
+      utm_term,
+      utm_content
     } = req.body;
 
     if (!turnstileToken) {
@@ -51,6 +56,16 @@ export default async function handler(req, res) {
         <p><strong>Course:</strong> ${course}</p>
         <p><strong>Center:</strong> ${center}</p>
         <p><strong>Submitted From URL:</strong> <a href="${pageUrl || '#'}">${pageUrl || 'N/A'}</a></p>
+        
+        <br/>
+        <h3>UTM Parameters</h3>
+        <ul>
+          <li><strong>Source:</strong> ${utm_source || 'N/A'}</li>
+          <li><strong>Medium:</strong> ${utm_medium || 'N/A'}</li>
+          <li><strong>Campaign:</strong> ${utm_campaign || 'N/A'}</li>
+          <li><strong>Term:</strong> ${utm_term || 'N/A'}</li>
+          <li><strong>Content:</strong> ${utm_content || 'N/A'}</li>
+        </ul>
       `,
     });
 

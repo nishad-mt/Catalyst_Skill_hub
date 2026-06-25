@@ -76,6 +76,17 @@ export default function App() {
     return () => window.removeEventListener('openModal', handleOpenModal);
   }, []);
 
+  // Capture UTM parameters
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    utms.forEach(param => {
+      if (params.has(param)) {
+        sessionStorage.setItem(param, params.get(param));
+      }
+    });
+  }, []);
+
   useEffect(() => {
 
     const handlePopState = () => {

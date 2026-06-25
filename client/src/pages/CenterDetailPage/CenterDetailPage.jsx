@@ -7,6 +7,7 @@ import campusLandingImg from "../../assets/campuslanding.png";
 import { Turnstile } from '@marsidev/react-turnstile';
 import Skills from '../../sections/Skills/Skills';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import { getUTMs } from "../../utils/getUTMs";
 
 export default function CenterDetailPage({ navigate }) {
   const [center, setCenter] = useState(null);
@@ -87,7 +88,8 @@ export default function CenterDetailPage({ navigate }) {
       course: formData.course || "Not Selected",
       center: center.name,
       pageUrl: window.location.href,
-      turnstileToken: turnstileToken
+      turnstileToken: turnstileToken,
+      ...getUTMs()
     };
 
     try {
