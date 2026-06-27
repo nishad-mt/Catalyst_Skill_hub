@@ -10,7 +10,6 @@ export const companyLogos = [
   { src: soft, alt: "Softnotions" },
   { src: zecser, alt: "Zecser" },
   { src: kayool, alt: "Kayool" },
-  { src: "https://www.vectorlogo.zone/logos/oracle/oracle-ar21.svg", alt: "Oracle" },
   { src: summit, alt: "Summit" },
   { src: tech, alt: "Tech Geum" },
   { src: d3, alt: "D3 Innovaties" },
